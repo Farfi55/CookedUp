@@ -9,22 +9,21 @@ public class Player : MonoBehaviour
     private PlayerInput playerInput;
     private Rigidbody rb;
 
-    [SerializeField]
-    private float movementSpeed = 5f;
+    [SerializeField] private float movementSpeed = 5f;
 
-    [SerializeField]
-    private float rotationSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 5f;
 
-    [SerializeField, Range(0f, 10f)]
-    float interactionDistance = 1f;
+    [SerializeField, Range(0f, 10f)] float interactionDistance = 1f;
 
-    [SerializeField]
-    private LayerMask interactionLayerMask;
+    [SerializeField] private LayerMask interactionLayerMask;
 
     /// <summary>
     /// The last movement input that was not zero.
     /// </summary>
     private Vector2 lastMovementInput;
+
+    private IInteractable selectedInteractable = null;
+    public event EventHandler OnSelectedInteractableChanged;
 
     public bool IsMoving => isMoving;
     private bool isMoving = false;
@@ -35,23 +34,36 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start() {
+        playerInput.OnInteract += PlayerInput_HandleInteractions;
+    }
+
+    private void PlayerInput_HandleInteractions(object sender, EventArgs e)
+    {
+        if(selectedInteractable != null) {
+            selectedInteractable.Interact(this);
+        }
+    }
 
     private void Update()
     {
-        HandleInteractions();
+        UpdateSelectedInteractable();
 
         if(playerInput.GetMovementInput() != Vector2.zero) {
             lastMovementInput = playerInput.GetMovementInput();
         }
     }
 
-    private void HandleInteractions()
+    private void UpdateSelectedInteractable()
     {
         Vector2 input = playerInput.GetMovementInput();
         if(input == Vector2.zero) 
             input = lastMovementInput;
 
         var moveDirection = new Vector3(input.x, 0, input.y);
+
+        IInteractable lastSelectedInteractable = selectedInteractable;
+        selectedInteractable = null;
 
         if(Physics.Raycast(
             transform.position,
@@ -60,16 +72,18 @@ public class Player : MonoBehaviour
             interactionDistance,
             interactionLayerMask
         )) {
-            if(hit.collider.TryGetComponent<ClearCounter>(out ClearCounter clearCounter)){
-                clearCounter.Interact();
+            if(hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable)){
+                selectedInteractable = interactable;
             }
         }
-        else {
-            Debug.Log("Nothing hit");
-        }
 
+        if(selectedInteractable != lastSelectedInteractable) {
         
-        
+            lastSelectedInteractable?.SetSelected(this, false);
+            selectedInteractable?.SetSelected(this, true);
+
+            OnSelectedInteractableChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void HandleRotation(Vector3 moveDirection)
