@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[RequireComponent(typeof(KitchenObjectHolder))]
 public class ClearCounter : MonoBehaviour, IInteractable
 {
     public event EventHandler<InteractableEvent> OnInteracted;
@@ -11,8 +12,27 @@ public class ClearCounter : MonoBehaviour, IInteractable
 
     private bool isSelected = false;
 
+    
+    private KitchenObjectHolder holder;
+    public KitchenObjectHolder Holder => holder;
+
+
+    public KitchenObject CurrentKitchenObject => holder.KitchenObject;
+    
+    private void Awake() {
+        holder = GetComponent<KitchenObjectHolder>();
+    }
+
+
+
     public void Interact(Player player) {
-        Debug.Log($"{gameObject.name} was interacted with!");
+        if(holder.IsEmpty())
+        {
+            if(player.HasKitchenObject()) {
+                player.Holder.MoveKitchenObjectTo(holder);
+            }
+        } 
+
         OnInteracted?.Invoke(this, new InteractableEvent(player));
     }
 

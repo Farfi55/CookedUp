@@ -4,10 +4,20 @@ using System.Collections.Generic;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
+
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(KitchenObjectHolder))]
 public class Player : MonoBehaviour
 {
     private PlayerInput playerInput;
+    private KitchenObjectHolder holder;
     private Rigidbody rb;
+
+    public KitchenObjectHolder Holder => holder;
+    public KitchenObject CurrentKitchenObject => holder.KitchenObject;
+
+
+
 
     [SerializeField] private float movementSpeed = 5f;
 
@@ -29,9 +39,13 @@ public class Player : MonoBehaviour
     private bool isMoving = false;
 
 
+
+
+
     private void Awake() {    
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
+        holder = GetComponent<KitchenObjectHolder>();
     }
 
     private void Start() {
@@ -115,4 +129,7 @@ public class Player : MonoBehaviour
     {
         rb.velocity = moveDirection * movementSpeed;
     }
+
+    public bool HasKitchenObject() => CurrentKitchenObject != null;
+        
 }
