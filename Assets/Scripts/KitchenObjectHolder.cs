@@ -3,22 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenObjectChangedEvent : EventArgs
-    {
-        public readonly KitchenObjectHolder KitchenObjectHolder;
-        public readonly KitchenObject OldKitchenObject;
-        public readonly KitchenObject NewKitchenObject;
+public class KitchenObjectChangedEvent : EventArgs {
+    public readonly KitchenObjectHolder KitchenObjectHolder;
+    public readonly KitchenObject OldKitchenObject;
+    public readonly KitchenObject NewKitchenObject;
 
-        public KitchenObjectChangedEvent(KitchenObjectHolder kitchenObjectHolder, KitchenObject oldKitchenObject, KitchenObject newKitchenObject)
-        {
-            KitchenObjectHolder = kitchenObjectHolder;
-            OldKitchenObject = oldKitchenObject;
-            NewKitchenObject = newKitchenObject;
-        }
+    public KitchenObjectChangedEvent(KitchenObjectHolder kitchenObjectHolder, KitchenObject oldKitchenObject, KitchenObject newKitchenObject) {
+        KitchenObjectHolder = kitchenObjectHolder;
+        OldKitchenObject = oldKitchenObject;
+        NewKitchenObject = newKitchenObject;
     }
+}
 
-public class KitchenObjectHolder : MonoBehaviour
-{
+public class KitchenObjectHolder : MonoBehaviour {
     public KitchenObject KitchenObject => kitchenObject;
     [SerializeField] private KitchenObject kitchenObject;
 
@@ -26,7 +23,7 @@ public class KitchenObjectHolder : MonoBehaviour
 
     public event EventHandler<KitchenObjectChangedEvent> OnKitchenObjectChanged;
 
-    
+
 
     public bool HasKitchenObject() => kitchenObject != null;
     public bool IsEmpty() => kitchenObject == null;
@@ -37,8 +34,8 @@ public class KitchenObjectHolder : MonoBehaviour
 
     public void SetKitchenObject(KitchenObject kitchenObject) {
         var oldKitchenObject = this.kitchenObject;
-        
-        if(oldKitchenObject == kitchenObject) {
+
+        if (oldKitchenObject == kitchenObject) {
             return;
         }
 
@@ -50,7 +47,7 @@ public class KitchenObjectHolder : MonoBehaviour
 
         this.kitchenObject = kitchenObject;
 
-        if(kitchenObject != null) {
+        if (kitchenObject != null) {
             kitchenObject.SetHolder(this);
             kitchenObject.transform.SetParent(objectContainer);
             kitchenObject.transform.localPosition = Vector3.zero;
@@ -67,14 +64,13 @@ public class KitchenObjectHolder : MonoBehaviour
         SetKitchenObject(kitchenObject);
     }
 
-    public void MoveKitchenObjectTo(KitchenObjectHolder toHolder)
-    {
-        if(toHolder == null) {
+    public void MoveKitchenObjectTo(KitchenObjectHolder toHolder) {
+        if (toHolder == null) {
             Debug.LogError("toHolder is null");
             return;
         }
 
-        if(toHolder.HasKitchenObject()) {
+        if (toHolder.HasKitchenObject()) {
             Debug.LogError("toHolder already has a kitchen object");
             return;
         }
@@ -82,6 +78,6 @@ public class KitchenObjectHolder : MonoBehaviour
         this.ClearKitchenObject();
         toHolder.SetKitchenObject(kitchenObject);
 
-        
+
     }
 }

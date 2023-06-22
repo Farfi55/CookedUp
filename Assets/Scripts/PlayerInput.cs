@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
-{
+public class PlayerInput : MonoBehaviour {
     private PlayerInputActions inputActions;
 
     public event EventHandler OnInteract;
-    
+
 
     private void Awake() {
         inputActions = new PlayerInputActions();
@@ -18,8 +17,7 @@ public class PlayerInput : MonoBehaviour
         inputActions.Player.Interact.performed += InteractionPerformed;
     }
 
-    private void InteractionPerformed(InputAction.CallbackContext context)
-    {
+    private void InteractionPerformed(InputAction.CallbackContext context) {
         OnInteract?.Invoke(this, EventArgs.Empty);
     }
 

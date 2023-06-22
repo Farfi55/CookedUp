@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimator : MonoBehaviour
-{
+public class PlayerAnimator : MonoBehaviour {
     [SerializeField] private Player player;
     private Animator animator;
-    
+
     private readonly int IsWalkingHash = Animator.StringToHash("IsWalking");
 
     private void Awake() {
@@ -15,8 +14,7 @@ public class PlayerAnimator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        animator.SetBool(IsWalkingHash, player.IsMoving);        
+    void Update() {
+        animator.SetBool(IsWalkingHash, player.IsMoving);
     }
 }

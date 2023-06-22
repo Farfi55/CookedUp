@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 
+
 [RequireComponent(typeof(IInteractable))]
-public class SelectedVisual : MonoBehaviour
-{
+public class SelectedVisual : MonoBehaviour {
     [SerializeField]
     private GameObject selectedVisualObj;
     [SerializeField] private bool hideDefaulVisual = false;
@@ -17,15 +18,14 @@ public class SelectedVisual : MonoBehaviour
         selectedVisualObj.SetActive(false);
     }
 
-    private void OnSelectedChanged(object sender, SelectionChangedEvent e)
-    {
+    private void OnSelectedChanged(object sender, SelectionChangedEvent e) {
         SetSelected(e.IsSelected);
     }
 
     public void SetSelected(bool selected) {
         selectedVisualObj.SetActive(selected);
-        
-        if(hideDefaulVisual && defaultVisualObj != null) {
+
+        if (hideDefaulVisual && defaultVisualObj != null) {
             defaultVisualObj.SetActive(!selected);
         }
     }

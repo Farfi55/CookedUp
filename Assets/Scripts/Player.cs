@@ -7,8 +7,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(KitchenObjectHolder))]
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     private PlayerInput playerInput;
     private KitchenObjectHolder holder;
     private Rigidbody rb;
@@ -42,7 +41,7 @@ public class Player : MonoBehaviour
 
 
 
-    private void Awake() {    
+    private void Awake() {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         holder = GetComponent<KitchenObjectHolder>();
@@ -52,26 +51,23 @@ public class Player : MonoBehaviour
         playerInput.OnInteract += PlayerInput_HandleInteractions;
     }
 
-    private void PlayerInput_HandleInteractions(object sender, EventArgs e)
-    {
-        if(selectedInteractable != null) {
+    private void PlayerInput_HandleInteractions(object sender, EventArgs e) {
+        if (selectedInteractable != null) {
             selectedInteractable.Interact(this);
         }
     }
 
-    private void Update()
-    {
+    private void Update() {
         UpdateSelectedInteractable();
 
-        if(playerInput.GetMovementInput() != Vector2.zero) {
+        if (playerInput.GetMovementInput() != Vector2.zero) {
             lastMovementInput = playerInput.GetMovementInput();
         }
     }
 
-    private void UpdateSelectedInteractable()
-    {
+    private void UpdateSelectedInteractable() {
         Vector2 input = playerInput.GetMovementInput();
-        if(input == Vector2.zero) 
+        if (input == Vector2.zero)
             input = lastMovementInput;
 
         var moveDirection = new Vector3(input.x, 0, input.y);
@@ -79,20 +75,20 @@ public class Player : MonoBehaviour
         IInteractable lastSelectedInteractable = selectedInteractable;
         selectedInteractable = null;
 
-        if(Physics.Raycast(
+        if (Physics.Raycast(
             transform.position,
             moveDirection,
             out RaycastHit hit,
             interactionDistance,
             interactionLayerMask
         )) {
-            if(hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable)){
+            if (hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable)) {
                 selectedInteractable = interactable;
             }
         }
 
-        if(selectedInteractable != lastSelectedInteractable) {
-        
+        if (selectedInteractable != lastSelectedInteractable) {
+
             lastSelectedInteractable?.SetSelected(this, false);
             selectedInteractable?.SetSelected(this, true);
 
@@ -100,12 +96,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void HandleRotation(Vector3 moveDirection)
-    {
+    private void HandleRotation(Vector3 moveDirection) {
         isMoving = moveDirection != Vector3.zero;
 
-        if (isMoving)
-        {
+        if (isMoving) {
             var targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             rb.rotation = Quaternion.Slerp(
                 rb.rotation,
@@ -115,8 +109,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         Vector2 input = playerInput.GetMovementInput();
         var moveDirection = new Vector3(input.x, 0, input.y);
 
@@ -125,11 +118,10 @@ public class Player : MonoBehaviour
         HandleRotation(moveDirection);
     }
 
-    private void HandleMovement(Vector3 moveDirection)
-    {
+    private void HandleMovement(Vector3 moveDirection) {
         rb.velocity = moveDirection * movementSpeed;
     }
 
     public bool HasKitchenObject() => CurrentKitchenObject != null;
-        
+
 }
