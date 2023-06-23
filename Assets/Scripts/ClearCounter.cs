@@ -14,6 +14,7 @@ public class ClearCounter : MonoBehaviour, IInteractable {
     private KitchenObjectHolder holder;
     public KitchenObjectHolder Holder => holder;
 
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
     public KitchenObject CurrentKitchenObject => holder.KitchenObject;
 
@@ -24,9 +25,20 @@ public class ClearCounter : MonoBehaviour, IInteractable {
 
 
     public void Interact(Player player) {
+
         if (holder.IsEmpty()) {
             if (player.HasKitchenObject()) {
-                player.Holder.MoveKitchenObjectTo(holder);
+                player.CurrentKitchenObject.SetHolder(holder);
+            }
+            else {
+                var kitchenObject = Instantiate(kitchenObjectSO.Prefab, holder.Container);
+                kitchenObject.SetHolder(holder);
+            }
+
+        }
+        else {
+            if (!player.HasKitchenObject()) {
+                holder.KitchenObject.SetHolder(player.Holder);
             }
         }
 

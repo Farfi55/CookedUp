@@ -16,10 +16,12 @@ public class KitchenObjectChangedEvent : EventArgs {
 }
 
 public class KitchenObjectHolder : MonoBehaviour {
-    public KitchenObject KitchenObject => kitchenObject;
     [SerializeField] private KitchenObject kitchenObject;
 
-    [SerializeField] private Transform objectContainer;
+    [SerializeField] private Transform container;
+
+    public KitchenObject KitchenObject => kitchenObject;
+    public Transform Container => container;
 
     public event EventHandler<KitchenObjectChangedEvent> OnKitchenObjectChanged;
 
@@ -33,26 +35,11 @@ public class KitchenObjectHolder : MonoBehaviour {
     }
 
     public void SetKitchenObject(KitchenObject kitchenObject) {
-        var oldKitchenObject = this.kitchenObject;
-
-        if (oldKitchenObject == kitchenObject) {
+        if (this.kitchenObject == kitchenObject) {
             return;
         }
-
-        if(oldKitchenObject != null && oldKitchenObject.CurrentHolder == this) {
-            oldKitchenObject.SetHolder(null);
-            oldKitchenObject.transform.SetParent(null);
-            oldKitchenObject.gameObject.SetActive(false);
-        }
-
+        var oldKitchenObject = this.kitchenObject;
         this.kitchenObject = kitchenObject;
-
-        if (kitchenObject != null) {
-            kitchenObject.SetHolder(this);
-            kitchenObject.transform.SetParent(objectContainer);
-            kitchenObject.transform.localPosition = Vector3.zero;
-            oldKitchenObject.gameObject.SetActive(true);
-        }
 
         OnKitchenObjectChanged?.Invoke(this, new KitchenObjectChangedEvent(this, oldKitchenObject, kitchenObject));
 
@@ -62,22 +49,5 @@ public class KitchenObjectHolder : MonoBehaviour {
         kitchenObject = Instantiate(kitchenObjectSO.Prefab, transform);
         kitchenObject.transform.localPosition = Vector3.zero;
         SetKitchenObject(kitchenObject);
-    }
-
-    public void MoveKitchenObjectTo(KitchenObjectHolder toHolder) {
-        if (toHolder == null) {
-            Debug.LogError("toHolder is null");
-            return;
-        }
-
-        if (toHolder.HasKitchenObject()) {
-            Debug.LogError("toHolder already has a kitchen object");
-            return;
-        }
-
-        this.ClearKitchenObject();
-        toHolder.SetKitchenObject(kitchenObject);
-
-
     }
 }
