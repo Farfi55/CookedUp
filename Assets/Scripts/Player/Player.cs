@@ -49,10 +49,16 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         playerInput.OnInteract += PlayerInput_HandleInteractions;
+        playerInput.OnInteractAlternate += PlayerInput_HandleAlternateInteractions;
+    }
+
+    private void PlayerInput_HandleAlternateInteractions(object sender, EventArgs e) {
+        if (HasInteractableSelected())
+            selectedInteractable.InteractAlternate(this);
     }
 
     private void PlayerInput_HandleInteractions(object sender, EventArgs e) {
-        if (selectedInteractable != null) {
+        if (HasInteractableSelected()) {
             selectedInteractable.Interact(this);
         }
     }
@@ -123,5 +129,7 @@ public class Player : MonoBehaviour {
     }
 
     public bool HasKitchenObject() => CurrentKitchenObject != null;
+    private bool HasInteractableSelected() => selectedInteractable != null;
+
 
 }

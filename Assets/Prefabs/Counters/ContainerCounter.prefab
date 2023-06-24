@@ -120,6 +120,16 @@ PrefabInstance:
       propertyPath: selectedVisualObj
       value: 
       objectReference: {fileID: 71223634221639906}
+    - target: {fileID: 3791372828026636509, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: selectedVisualObjs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791372828026636509, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: selectedVisualObjs.Array.data[0]
+      value: 
+      objectReference: {fileID: 71223634221639906}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_RootOrder
@@ -272,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 4589716710238282922, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
@@ -292,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.01
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
@@ -307,7 +317,7 @@ PrefabInstance:
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.008
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
@@ -347,7 +357,7 @@ PrefabInstance:
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5261771210811040880, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}

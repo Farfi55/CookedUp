@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IInteractable {
-    event EventHandler<InteractableEvent> OnInteracted;
+    event EventHandler<InteractableEvent> OnInteract;
+    event EventHandler<InteractableEvent> OnInteractAlternate;
     event EventHandler<SelectionChangedEvent> OnSelectedChanged;
 
 
     void Interact(Player player);
+    void InteractAlternate(Player player);
+
 
     void SetSelected(Player player, bool isSelected);
     bool IsSelected();

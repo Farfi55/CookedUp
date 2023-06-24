@@ -16,8 +16,21 @@ public class ContainerVisual : MonoBehaviour {
 
         containerCounter = GetComponent<ContainerCounter>();
         spriteRenderer.sprite = containerCounter.KitchenObjectSO.Sprite;
-        containerCounter.OnInteracted += (sender, e) => {
+        containerCounter.OnInteract += (sender, e) => {
             animator.SetTrigger(OpenCloseHash);
         };
+    }
+
+
+    [ContextMenu("set sprite")]
+    private void SetSprite() {
+        if (containerCounter == null)
+            containerCounter = GetComponent<ContainerCounter>();
+        spriteRenderer.sprite = containerCounter.KitchenObjectSO.Sprite;
+
+#if UNITY_EDITOR
+        // save unity state
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
     }
 }

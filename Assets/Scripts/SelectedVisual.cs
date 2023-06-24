@@ -19,7 +19,7 @@ public class SelectedVisual : MonoBehaviour {
 
     public void SetSelected(bool selected) {
         foreach (var selectedVisualObj in selectedVisualObjs) {
-            selectedVisualObj.SetActive(false);
+            selectedVisualObj.SetActive(selected);
         }
 
         if (hideDefaulVisual && defaultVisualObj != null) {

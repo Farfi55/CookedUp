@@ -9,8 +9,9 @@ public class ContainerCounter : MonoBehaviour, IInteractable {
 
     bool isSelected = false;
 
-    public event EventHandler<InteractableEvent> OnInteracted;
+    public event EventHandler<InteractableEvent> OnInteract;
     public event EventHandler<SelectionChangedEvent> OnSelectedChanged;
+    public event EventHandler<InteractableEvent> OnInteractAlternate;
 
 
 
@@ -18,17 +19,21 @@ public class ContainerCounter : MonoBehaviour, IInteractable {
         if (player.HasKitchenObject()) {
             KitchenObject kitchenObject = player.CurrentKitchenObject;
             if (kitchenObject.KitchenObjectSO == kitchenObjectSO) {
-                kitchenObject.SetHolder(null);
-                Destroy(kitchenObject.gameObject);
+                kitchenObject.DestroySelf();
+                OnInteract?.Invoke(this, new InteractableEvent(player));
             }
         }
         else {
-            var kitchenObject = Instantiate(kitchenObjectSO.Prefab);
-            kitchenObject.SetHolder(player.Holder);
+            KitchenObject.CreateInstance(kitchenObjectSO, player.Holder);
+            OnInteract?.Invoke(this, new InteractableEvent(player));
         }
 
-        OnInteracted?.Invoke(this, new InteractableEvent(player));
     }
+
+    public void InteractAlternate(Player player) {
+        OnInteractAlternate?.Invoke(this, new InteractableEvent(player));
+    }
+
 
     public bool IsSelected() => isSelected;
 
@@ -41,5 +46,6 @@ public class ContainerCounter : MonoBehaviour, IInteractable {
         this.isSelected = isSelected;
         OnSelectedChanged?.Invoke(this, new SelectionChangedEvent(player, isSelected));
     }
+
 
 }

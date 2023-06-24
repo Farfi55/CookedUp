@@ -15,5 +15,4 @@ public class KitchenObjectSO : ScriptableObject {
 
     public string Name => _name;
 
-
 }

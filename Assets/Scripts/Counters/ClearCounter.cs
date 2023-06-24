@@ -5,7 +5,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(KitchenObjectHolder))]
 public class ClearCounter : MonoBehaviour, IInteractable {
-    public event EventHandler<InteractableEvent> OnInteracted;
+    public event EventHandler<InteractableEvent> OnInteract;
+    public event EventHandler<InteractableEvent> OnInteractAlternate;
     public event EventHandler<SelectionChangedEvent> OnSelectedChanged;
 
     private bool isSelected = false;
@@ -14,7 +15,6 @@ public class ClearCounter : MonoBehaviour, IInteractable {
     private KitchenObjectHolder holder;
     public KitchenObjectHolder Holder => holder;
 
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
     public KitchenObject CurrentKitchenObject => holder.KitchenObject;
 
@@ -30,11 +30,6 @@ public class ClearCounter : MonoBehaviour, IInteractable {
             if (player.HasKitchenObject()) {
                 player.CurrentKitchenObject.SetHolder(holder);
             }
-            else {
-                var kitchenObject = Instantiate(kitchenObjectSO.Prefab, holder.Container);
-                kitchenObject.SetHolder(holder);
-            }
-
         }
         else {
             if (!player.HasKitchenObject()) {
@@ -42,8 +37,13 @@ public class ClearCounter : MonoBehaviour, IInteractable {
             }
         }
 
-        OnInteracted?.Invoke(this, new InteractableEvent(player));
+        OnInteractAlternate?.Invoke(this, new InteractableEvent(player));
     }
+
+    public void InteractAlternate(Player player) {
+        OnInteractAlternate?.Invoke(this, new InteractableEvent(player));
+    }
+
 
     public bool IsSelected() => isSelected;
 
@@ -56,4 +56,5 @@ public class ClearCounter : MonoBehaviour, IInteractable {
         this.isSelected = isSelected;
         OnSelectedChanged?.Invoke(this, new SelectionChangedEvent(player, isSelected));
     }
+
 }
