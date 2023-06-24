@@ -26,7 +26,7 @@ public class KitchenObject : MonoBehaviour {
         currentHolder = holder;
 
         if (previusHolder != null) {
-            previusHolder.ClearKitchenObject();
+            previusHolder.Clear();
         }
 
         if (isHeld) {

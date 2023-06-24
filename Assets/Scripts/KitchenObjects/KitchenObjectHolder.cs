@@ -27,11 +27,10 @@ public class KitchenObjectHolder : MonoBehaviour {
     public event EventHandler<KitchenObjectChangedEvent> OnKitchenObjectChanged;
 
 
-
     public bool HasKitchenObject() => kitchenObject != null;
     public bool IsEmpty() => kitchenObject == null;
 
-    public void ClearKitchenObject() {
+    public void Clear() {
         SetKitchenObject(null);
     }
 
@@ -43,12 +42,5 @@ public class KitchenObjectHolder : MonoBehaviour {
         this.kitchenObject = kitchenObject;
 
         OnKitchenObjectChanged?.Invoke(this, new(this, oldKitchenObject, kitchenObject));
-
-    }
-
-    public void CreateKitchenObject(KitchenObjectSO kitchenObjectSO) {
-        kitchenObject = Instantiate(kitchenObjectSO.Prefab, transform);
-        kitchenObject.transform.localPosition = Vector3.zero;
-        SetKitchenObject(kitchenObject);
     }
 }
