@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ContainerCounter))]
-public class ContainerVisual : MonoBehaviour {
+public class ContainerCounterVisual : MonoBehaviour {
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;

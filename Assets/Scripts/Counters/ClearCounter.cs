@@ -4,17 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(KitchenObjectHolder))]
-public class ClearCounter : MonoBehaviour, IInteractable {
-    public event EventHandler<InteractableEvent> OnInteract;
-    public event EventHandler<InteractableEvent> OnInteractAlternate;
-    public event EventHandler<SelectionChangedEvent> OnSelectedChanged;
-
-    private bool isSelected = false;
+public class ClearCounter : BaseCounter {
 
 
     private KitchenObjectHolder holder;
     public KitchenObjectHolder Holder => holder;
-
 
     public KitchenObject CurrentKitchenObject => holder.KitchenObject;
 
@@ -23,8 +17,7 @@ public class ClearCounter : MonoBehaviour, IInteractable {
     }
 
 
-
-    public void Interact(Player player) {
+    public override void Interact(Player player) {
 
         if (holder.IsEmpty()) {
             if (player.HasKitchenObject()) {
@@ -37,23 +30,7 @@ public class ClearCounter : MonoBehaviour, IInteractable {
             }
         }
 
-        OnInteractAlternate?.Invoke(this, new InteractableEvent(player));
-    }
-
-    public void InteractAlternate(Player player) { }
-    public void InteractAlternateContinuous(Player player) { }
-
-
-    public bool IsSelected() => isSelected;
-
-    public bool IsSelected(Player player) => isSelected;
-
-    public void SetSelected(Player player, bool isSelected) {
-        if (this.isSelected == isSelected)
-            return;
-
-        this.isSelected = isSelected;
-        OnSelectedChanged?.Invoke(this, new SelectionChangedEvent(player, isSelected));
+        base.InvokeOnInteractAlternate(new InteractableEvent(player));
     }
 
 }
