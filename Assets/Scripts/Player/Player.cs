@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
     public bool IsMoving => isMoving;
     private bool isMoving = false;
 
+    public bool IsInteractingAlternate { get; private set; } = false;
 
 
 
@@ -52,10 +53,6 @@ public class Player : MonoBehaviour {
         playerInput.OnInteractAlternate += PlayerInput_HandleAlternateInteractions;
     }
 
-    private void PlayerInput_HandleAlternateInteractions(object sender, EventArgs e) {
-        if (HasInteractableSelected())
-            selectedInteractable.InteractAlternate(this);
-    }
 
     private void PlayerInput_HandleInteractions(object sender, EventArgs e) {
         if (HasInteractableSelected()) {
@@ -63,8 +60,23 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private void PlayerInput_HandleAlternateInteractions(object sender, EventArgs e) {
+        IsInteractingAlternate = true;
+        if (HasInteractableSelected()) {
+            selectedInteractable.InteractAlternate(this);
+        }
+    }
+
     private void Update() {
         UpdateSelectedInteractable();
+
+        IsInteractingAlternate = playerInput.IsInteractAlternatePressed();
+        Debug.Log("IsInteractingAlternate: " + IsInteractingAlternate);
+
+        if (IsInteractingAlternate && HasInteractableSelected()) {
+            Debug.Log("Interact Alternate Continuous");
+            selectedInteractable.InteractAlternateContinuous(this);
+        }
 
         if (playerInput.GetMovementInput() != Vector2.zero) {
             lastMovementInput = playerInput.GetMovementInput();

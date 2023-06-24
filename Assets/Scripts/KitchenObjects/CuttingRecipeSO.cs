@@ -4,7 +4,7 @@ using UnityEngine;
 public class CuttingRecipeSO : ScriptableObject {
     [SerializeField] private KitchenObjectSO input;
     [SerializeField] private KitchenObjectSO output;
-    [SerializeField, Range(0f, 10f)] private float timeToCut;
+    [SerializeField, Range(0.01f, 10f)] private float timeToCut = 1f;
 
     public KitchenObjectSO Input => input;
 

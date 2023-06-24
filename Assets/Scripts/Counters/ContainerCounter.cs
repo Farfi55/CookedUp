@@ -30,9 +30,8 @@ public class ContainerCounter : MonoBehaviour, IInteractable {
 
     }
 
-    public void InteractAlternate(Player player) {
-        OnInteractAlternate?.Invoke(this, new InteractableEvent(player));
-    }
+    public void InteractAlternate(Player player) { }
+    public void InteractAlternateContinuous(Player player) { }
 
 
     public bool IsSelected() => isSelected;

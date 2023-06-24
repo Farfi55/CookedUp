@@ -10,14 +10,41 @@ public class CuttingCounter : MonoBehaviour, IInteractable {
     public event EventHandler<SelectionChangedEvent> OnSelectedChanged;
     public event EventHandler<InteractableEvent> OnInteractAlternate;
 
+    public event EventHandler OnCut;
+    public event EventHandler OnCutProgressChanged;
+
     private bool isSelected = false;
     public KitchenObjectHolder Holder => holder;
     private KitchenObjectHolder holder;
 
+
     [SerializeField] private CuttingRecipeSO[] cuttingRecipes;
+    public CuttingRecipeSO CurrentRecipe { get; private set; }
+
+    public float RemainingTimeToCut { get; private set; }
+
+
+
 
     private void Awake() {
         holder = GetComponent<KitchenObjectHolder>();
+        holder.OnKitchenObjectChanged += Holder_OnKitchenObjectChanged;
+    }
+
+
+    private void Holder_OnKitchenObjectChanged(object sender, KitchenObjectChangedEvent e) {
+        // Set the current recipe and remaining time to cut when the holder's kitchen object changes.
+        if (e.NewKitchenObject == null) {
+            CurrentRecipe = null;
+            RemainingTimeToCut = 0f;
+        }
+        else {
+            CurrentRecipe = RecipeFor(e.NewKitchenObject);
+            RemainingTimeToCut = CurrentRecipe != null ? CurrentRecipe.TimeToCut : 0f;
+        }
+
+        OnCutProgressChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
 
@@ -36,21 +63,44 @@ public class CuttingCounter : MonoBehaviour, IInteractable {
         OnInteract?.Invoke(this, new InteractableEvent(player));
     }
 
-    public void InteractAlternate(Player player) {
+    public void InteractAlternate(Player player) { }
+
+    public void InteractAlternateContinuous(Player player) {
+        Debug.Log("Cutting");
         if (!holder.HasKitchenObject())
             return;
 
-        var output = OutputFor(holder.KitchenObject);
-
-        if (output == null) {
-            Debug.Log("No cutting recipe for " + holder.KitchenObject.KitchenObjectSO.name);
+        if (!CanCut()) {
+            Debug.Log("Can't cut " + holder.KitchenObject.KitchenObjectSO.Name);
             return;
         }
 
-        holder.KitchenObject.DestroySelf();
-        KitchenObject.CreateInstance(output, holder);
+        RemainingTimeToCut = Mathf.Max(RemainingTimeToCut - Time.deltaTime, 0f);
+
+
+        if (GetCutProgress() >= 1f) {
+            KitchenObjectSO output = CurrentRecipe.Output;
+            Debug.Log("Cut " + holder.KitchenObject.KitchenObjectSO.Name + " into " + output.Name);
+
+            holder.KitchenObject.DestroySelf();
+            KitchenObject.CreateInstance(output, holder);
+            OnCut?.Invoke(this, EventArgs.Empty);
+        }
+        else {
+            OnCutProgressChanged?.Invoke(this, EventArgs.Empty);
+        }
+
 
         OnInteractAlternate?.Invoke(this, new InteractableEvent(player));
+    }
+
+    private IEnumerator Cut(Player player) {
+        while (RemainingTimeToCut > 0f) {
+            RemainingTimeToCut -= Time.deltaTime;
+            yield return null;
+        }
+
+
     }
 
     public bool IsSelected() => isSelected;
@@ -65,12 +115,20 @@ public class CuttingCounter : MonoBehaviour, IInteractable {
         OnSelectedChanged?.Invoke(this, new SelectionChangedEvent(player, isSelected));
     }
 
+    public float GetCutProgress() {
+        if (!CanCut())
+            return 0f;
+        return 1f - (RemainingTimeToCut / CurrentRecipe.TimeToCut);
+    }
+
+
 
     public CuttingRecipeSO RecipeFor(KitchenObject kitchenObject) => RecipeFor(kitchenObject.KitchenObjectSO);
     public CuttingRecipeSO RecipeFor(KitchenObjectSO kitchenObjectSO) {
         return cuttingRecipes.FirstOrDefault(recipe => recipe.Input == kitchenObjectSO);
     }
 
+    public bool CanCut() => CurrentRecipe != null;
     public bool CanCut(KitchenObject kitchenObject) => CanCut(kitchenObject.KitchenObjectSO);
     public bool CanCut(KitchenObjectSO kitchenObjectSO) => RecipeFor(kitchenObjectSO) != null;
 

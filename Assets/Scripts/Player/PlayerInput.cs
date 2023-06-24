@@ -7,9 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour {
     private PlayerInputActions inputActions;
 
-    public event EventHandler OnInteractAlternate;
 
     public event EventHandler OnInteract;
+    public event EventHandler OnInteractAlternate;
+    public event EventHandler OnInteractAlternateCanceled;
 
 
     private void Awake() {
@@ -19,7 +20,12 @@ public class PlayerInput : MonoBehaviour {
         inputActions.Player.Interact.performed += InteractPerformed;
 
         inputActions.Player.InteractAlternate.performed += InteractAlternatePerformed;
+        inputActions.Player.InteractAlternate.canceled += InteractAlternateCanceled;
+
+
     }
+
+
 
     /// <returns>the movement input normalized.</returns>
     public Vector2 GetMovementInput() {
@@ -34,7 +40,13 @@ public class PlayerInput : MonoBehaviour {
         OnInteractAlternate?.Invoke(this, EventArgs.Empty);
     }
 
+    private void InteractAlternateCanceled(InputAction.CallbackContext context) {
+        OnInteractAlternateCanceled?.Invoke(this, EventArgs.Empty);
+    }
+
     public bool IsInteractAlternatePressed() {
         return inputActions.Player.InteractAlternate.IsPressed();
     }
+
+
 }

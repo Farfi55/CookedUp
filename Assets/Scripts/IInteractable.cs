@@ -12,6 +12,7 @@ public interface IInteractable {
 
     void Interact(Player player);
     void InteractAlternate(Player player);
+    void InteractAlternateContinuous(Player player);
 
 
     void SetSelected(Player player, bool isSelected);
