@@ -5,63 +5,99 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(KitchenObjectHolder))]
-public class StoveCounter : BaseCounter {
+[RequireComponent(typeof(ProgressTracker))]
+public class StoveCounter : BaseCounter, IRecipeProvider {
+    public ProgressTracker ProgressTracker { get; private set; }
+    public KitchenObjectHolder Holder { get; private set; }
 
+
+    public CookingRecipeSO CurrentCookingRecipe { get; private set; }
+    public BaseRecipeSO CurrentRecipe => CurrentCookingRecipe;
     [SerializeField] private CookingRecipeSO[] cookingRecipes;
-    public CookingRecipeSO CurrentRecipe { get; private set; }
 
-    public KitchenObjectHolder Holder => holder;
-    private KitchenObjectHolder holder;
 
-    public event EventHandler OnCooked;
-    public event EventHandler OnCookProgressChanged;
-
-    public float RemainingTimeToCook { get; private set; }
+    public event EventHandler<ValueChangedEvent<BaseRecipeSO>> OnRecipeChanged;
 
 
     private void Awake() {
-        holder = GetComponent<KitchenObjectHolder>();
-        holder.OnKitchenObjectChanged += Holder_OnKitchenObjectChanged;
+        ProgressTracker = GetComponent<ProgressTracker>();
+        Holder = GetComponent<KitchenObjectHolder>();
+        Holder.OnKitchenObjectChanged += OnKitchenObjectChanged;
     }
 
-    private void Holder_OnKitchenObjectChanged(object sender, KitchenObjectChangedEvent e) {
+    private void Start() {
+        ProgressTracker.OnProgressComplete += (sender, e) => OnCookingCompleted();
+    }
+
+
+    private void OnKitchenObjectChanged(object sender, KitchenObjectChangedEvent e) {
         // Set the current recipe and remaining time to cook when the holder's kitchen object changes.
-        RemainingTimeToCook = 0f;
+
+        ProgressTracker.ResetTotalWork();
         if (e.NewKitchenObject == null) {
-            CurrentRecipe = null;
+            CurrentCookingRecipe = null;
         }
         else {
-            CurrentRecipe = RecipeFor(e.NewKitchenObject.KitchenObjectSO);
-            if (CurrentRecipe != null) {
-                RemainingTimeToCook = CurrentRecipe.TimeToCook;
+            CurrentCookingRecipe = GetRecipeFor(e.NewKitchenObject.KitchenObjectSO);
+            if (CurrentCookingRecipe != null) {
+                ProgressTracker.SetTotalWork(CurrentCookingRecipe.TimeToCook);
             }
         }
-        OnCookProgressChanged?.Invoke(this, EventArgs.Empty);
+
+        var oldRecipe = GetRecipeFor(e.OldKitchenObject?.KitchenObjectSO);
+        OnRecipeChanged?.Invoke(this, new(oldRecipe, CurrentCookingRecipe));
+    }
+
+    public override void Interact(Player player) {
+        if (Holder.IsEmpty()) {
+            if (player.HasKitchenObject() && CanCook(player.CurrentKitchenObject.KitchenObjectSO)) {
+                player.CurrentKitchenObject.SetHolder(Holder);
+            }
+        }
+        else {
+            if (!player.HasKitchenObject()) {
+                Holder.KitchenObject.SetHolder(player.Holder);
+            }
+        }
+
+        InvokeOnInteract(new InteractableEvent(player));
     }
 
     private void Update() {
         if (!CanCook())
             return;
 
-        RemainingTimeToCook -= Time.deltaTime;
-        if (RemainingTimeToCook <= 0f) {
-            OnCooked?.Invoke(this, EventArgs.Empty);
-            holder.KitchenObject.DestroySelf();
-        }
+        ProgressTracker.AddWorkDone(Time.deltaTime);
+    }
+
+    private void OnCookingCompleted() {
+        if (!CanCook())
+            return;
+
+        var outputKOSO = CurrentCookingRecipe.Output;
+        Holder.KitchenObject.DestroySelf();
+        KitchenObject.CreateInstance(outputKOSO, Holder);
     }
 
 
-    private CookingRecipeSO RecipeFor(KitchenObjectSO koso) {
-        return cookingRecipes.FirstOrDefault(x => x.Input == koso);
+    public CookingRecipeSO GetRecipeFor(KitchenObjectSO kitchenObjectSO) {
+        return cookingRecipes.FirstOrDefault(x => x.Input == kitchenObjectSO);
     }
 
-    private bool CanCook(KitchenObjectSO koso) {
-        return RecipeFor(koso) != null;
+    public bool TryGetRecipeFor(KitchenObjectSO kitchenObjectSO, out CookingRecipeSO recipe) {
+        recipe = GetRecipeFor(kitchenObjectSO);
+        return recipe != null;
+    }
+
+    private bool CanCook(KitchenObjectSO kitchenObjectSO) {
+        return GetRecipeFor(kitchenObjectSO) != null;
     }
 
     public bool CanCook() {
-        return CurrentRecipe != null;
+        return CurrentCookingRecipe != null;
     }
     public bool IsCooking() => CanCook();
+
+
 
 }

@@ -71,10 +71,8 @@ public class Player : MonoBehaviour {
         UpdateSelectedInteractable();
 
         IsInteractingAlternate = playerInput.IsInteractAlternatePressed();
-        Debug.Log("IsInteractingAlternate: " + IsInteractingAlternate);
 
         if (IsInteractingAlternate && HasInteractableSelected()) {
-            Debug.Log("Interact Alternate Continuous");
             selectedInteractable.InteractAlternateContinuous(this);
         }
 

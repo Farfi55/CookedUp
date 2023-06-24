@@ -23,6 +23,7 @@ public class KitchenObjectHolder : MonoBehaviour {
     public KitchenObject KitchenObject => kitchenObject;
     public Transform Container => container;
 
+
     public event EventHandler<KitchenObjectChangedEvent> OnKitchenObjectChanged;
 
 
@@ -41,7 +42,7 @@ public class KitchenObjectHolder : MonoBehaviour {
         var oldKitchenObject = this.kitchenObject;
         this.kitchenObject = kitchenObject;
 
-        OnKitchenObjectChanged?.Invoke(this, new KitchenObjectChangedEvent(this, oldKitchenObject, kitchenObject));
+        OnKitchenObjectChanged?.Invoke(this, new(this, oldKitchenObject, kitchenObject));
 
     }
 

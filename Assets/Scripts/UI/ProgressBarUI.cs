@@ -6,34 +6,74 @@ using UnityEngine.UI;
 
 public class ProgressBarUI : MonoBehaviour {
 
-    [SerializeField] private CuttingCounter cuttingCounter;
+    [SerializeField] private ProgressTracker progressTracker;
+    private IRecipeProvider recipeProvider;
 
+    [Header("UI")]
     [SerializeField] private Image progressFillBar;
     [SerializeField] private Image outputPreviewImage;
-
     [SerializeField] private GameObject progressBarUIObject;
 
-    private KitchenObjectSO kitchenObjectSO;
+    public BaseRecipeSO CurrentRecipe => currentRecipe;
+    private BaseRecipeSO currentRecipe;
 
+    [SerializeField] private bool hideIfEmpty = true;
+    [SerializeField] private bool hideIfFull = true;
+
+
+    private bool isBurningRecipe = false;
+
+    [SerializeField] private Color burningRecipeProgressColor = Color.red;
+    private Color normalRecipeProgressColor;
 
     private void Start() {
-        cuttingCounter.OnCutProgressChanged += CuttingCounter_OnCutProgressChanged;
-        CuttingCounter_OnCutProgressChanged(this, EventArgs.Empty);
+        recipeProvider = progressTracker.GetComponent<IRecipeProvider>();
+        if (recipeProvider != null) {
+            recipeProvider.OnRecipeChanged += (sender, e) => SetRecipe(e.NewValue);
+        }
+
+        normalRecipeProgressColor = progressFillBar.color;
+        progressTracker.OnProgressChanged += (sender, e) => SetProgress(e.NewValue);
+
+        SetProgress(progressTracker.Progress);
+        SetRecipe(recipeProvider?.CurrentRecipe);
     }
 
-    private void CuttingCounter_OnCutProgressChanged(object sender, EventArgs e) {
 
-        var progress = cuttingCounter.GetCutProgress();
-        progressFillBar.fillAmount = progress;
+    public void SetProgress(double progress) {
+        progressFillBar.fillAmount = (float)progress;
 
-        progressBarUIObject.SetActive(progress > 0f);
-
-        if (cuttingCounter.CanCut()) {
-            outputPreviewImage.sprite = cuttingCounter.CurrentRecipe.Output.Sprite;
-            outputPreviewImage.gameObject.SetActive(true);
-        }
+        if ((hideIfEmpty && progress <= 0d) || (hideIfFull && progress >= 1d))
+            Hide();
         else
-            outputPreviewImage.gameObject.SetActive(false);
+            Show();
+    }
 
+    public void SetRecipe(BaseRecipeSO recipe) {
+        currentRecipe = recipe;
+        if (recipe != null)
+            outputPreviewImage.sprite = recipe.Output.Sprite;
+
+        isBurningRecipe = false;
+        if (recipe is CookingRecipeSO cookingRecipe) {
+            isBurningRecipe = cookingRecipe.IsBurningRecipe;
+        }
+
+        if (isBurningRecipe)
+            progressFillBar.color = burningRecipeProgressColor;
+        else
+            progressFillBar.color = normalRecipeProgressColor;
+
+
+        outputPreviewImage.gameObject.SetActive(recipe != null);
+    }
+
+
+    private void Show() {
+        progressBarUIObject.SetActive(true);
+    }
+
+    private void Hide() {
+        progressBarUIObject.SetActive(false);
     }
 }
