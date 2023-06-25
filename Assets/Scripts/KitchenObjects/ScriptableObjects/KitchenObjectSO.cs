@@ -9,13 +9,13 @@ public class KitchenObjectSO : ScriptableObject {
 
     [SerializeField] private KitchenObject prefab;
     [SerializeField] private Sprite sprite;
-    [SerializeField] private string _name;
+    [SerializeField] private string displayName;
 
 
     public KitchenObject Prefab => prefab;
     public Sprite Sprite => sprite;
 
-    public string Name => _name;
+    public string DisplayName => displayName;
 
 
 #if UNITY_EDITOR
@@ -23,11 +23,19 @@ public class KitchenObjectSO : ScriptableObject {
     private void LoadFromName() {
         string prefabPath = $"Assets/Prefabs/KitchenObjects/{name}.prefab";
         prefab = AssetDatabase.LoadAssetAtPath<KitchenObject>(prefabPath);
+        if (prefab == null) {
+            Debug.LogError($"Couldn't find prefab for {displayName} at {prefabPath}", this);
+            return;
+        }
 
         string spritePath = $"Assets/_Assets/Textures/Icons/{name}.png";
         sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
+        if (sprite == null) {
+            Debug.LogError($"Couldn't find sprite for {displayName} at {spritePath}", this);
+            return;
+        }
 
-        _name = name.CamelCaseToSentence();
+        displayName = name.CamelCaseToSentence();
 
         UnityEditor.EditorUtility.SetDirty(this);
     }

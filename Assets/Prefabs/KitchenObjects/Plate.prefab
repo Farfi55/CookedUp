@@ -9,7 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 352343739073143513}
-  - component: {fileID: 4001730045868640475}
+  - component: {fileID: -1537915067695671171}
+  - component: {fileID: 7109123943374916145}
+  - component: {fileID: 2408022510884590641}
+  - component: {fileID: 2039898208141641409}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -30,10 +33,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5881016080788062361}
+  - {fileID: 7356668958947872875}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4001730045868640475
+--- !u!114 &-1537915067695671171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +46,85 @@ MonoBehaviour:
   m_GameObject: {fileID: 5946990666231821564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270baeef1934c9044a77b4175e7a6d79, type: 3}
+  m_Script: {fileID: 11500000, guid: daa8a2d1fba579d44b453d92847b802a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   kitchenObjectSO: {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322, type: 2}
+  finalPlates:
+  - {fileID: 11400000, guid: 03b79e1f98e926e4187b5ac84b2a617a, type: 2}
+--- !u!114 &7109123943374916145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946990666231821564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e567aa9243bfd48b3189996291c34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeLimit: -1
+--- !u!114 &2408022510884590641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946990666231821564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f764279460c79409ab998f756d2c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 7109123943374916145}
+  kitchenObjectsParents: []
+  type: 3
+  offset: {x: 0, y: 0, z: 0}
+--- !u!114 &2039898208141641409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946990666231821564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cea1854455007542a9e1e4cb1536003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plateArrangementParent: {fileID: 7356668958947872875}
+--- !u!1 &7436485431918110857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7356668958947872875}
+  m_Layer: 0
+  m_Name: KitchenObjectParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7356668958947872875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436485431918110857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 352343739073143513}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7311488426589754905
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,9 +10,8 @@ public class ContainerCounter : BaseCounter {
 
     public override void Interact(Player player) {
         if (player.HasKitchenObject()) {
-            KitchenObject kitchenObject = player.CurrentKitchenObject;
-            if (kitchenObject.KitchenObjectSO == kitchenObjectSO) {
-                kitchenObject.DestroySelf();
+            if (player.CurrentKitchenObject.IsSameType(kitchenObjectSO)) {
+                player.CurrentKitchenObject.DestroySelf();
                 InvokeOnInteract(new InteractableEvent(player));
             }
         }

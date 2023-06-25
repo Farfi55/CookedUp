@@ -17,16 +17,27 @@ public class ClearCounter : BaseCounter {
 
     public override void Interact(Player player) {
 
-        if (Container.IsEmpty()) {
-            if (player.HasKitchenObject()) {
+        if (player.HasKitchenObject()) {
+            if (Container.IsEmpty()) {
+                // If the counter is empty, just put the object on it.
                 player.CurrentKitchenObject.SetContainer(Container);
+                InvokeOnInteract(new InteractableEvent(player));
+            }
+            else if (Container.HasAny()) {
+                if (player.CurrentKitchenObject.InteractWith(CurrentKitchenObject)) {
+                    InvokeOnInteract(new InteractableEvent(player));
+                }
+                else if (CurrentKitchenObject.InteractWith(player.CurrentKitchenObject)) {
+                    InvokeOnInteract(new InteractableEvent(player));
+                }
             }
         }
-        else {
-            if (!player.HasKitchenObject()) {
-                CurrentKitchenObject.SetContainer(player.Container);
-            }
+        else if (!player.HasKitchenObject() && Container.HasAny()) {
+            // If the player is not holding anything,
+            // pick up the object on the counter.
+            CurrentKitchenObject.SetContainer(player.Container);
         }
+
 
         base.InvokeOnInteractAlternate(new InteractableEvent(player));
     }

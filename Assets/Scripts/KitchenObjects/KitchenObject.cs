@@ -14,22 +14,27 @@ public class KitchenObject : MonoBehaviour {
 
     public bool isInContainer => container != null;
 
-    public void SetContainer(KitchenObjectsContainer newContainer) {
-        if (newContainer == container) {
-            return;
+    public bool SetContainer(KitchenObjectsContainer newContainer) {
+        var oldContainer = container;
+        if (newContainer == oldContainer) {
+            return true;
         }
 
-        var oldContainer = container;
         container = newContainer;
 
         if (oldContainer != null) {
-            oldContainer.Remove(this);
+            if (!oldContainer.Remove(this)) {
+                Debug.LogError($"Couldn't remove {this.name} from {oldContainer.name}", this);
+                container = oldContainer;
+                return false;
+            }
         }
 
-        if (isInContainer) {
+        if (container != null) {
             if (!container.TryAdd(this)) {
                 Debug.LogError($"Couldn't add {this.name} to {container.name}", this);
                 container = null;
+                return false;
             }
         }
         else {
@@ -37,13 +42,13 @@ public class KitchenObject : MonoBehaviour {
         }
 
         SetVisible(isInContainer);
+        return true;
     }
 
-    public void SetVisible(bool visible) {
-        gameObject.SetActive(visible);
-    }
+
 
     public void RemoveFromContainer() => SetContainer(null);
+
 
 
     /// <summary>
@@ -59,10 +64,16 @@ public class KitchenObject : MonoBehaviour {
     public bool IsSameType(KitchenObject kitchenObject) => IsSameType(kitchenObject.kitchenObjectSO);
 
 
+    public void SetVisible(bool visible) {
+        gameObject.SetActive(visible);
+    }
+
     public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO, KitchenObjectsContainer container = null) {
         var kitchenObject = Instantiate(kitchenObjectSO.Prefab);
         kitchenObject.SetContainer(container);
         return kitchenObject;
     }
+
+    public virtual bool InteractWith(KitchenObject currentKitchenObject) { return false; }
 
 }

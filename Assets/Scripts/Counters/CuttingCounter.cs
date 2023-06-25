@@ -69,7 +69,7 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
             return;
 
         if (!CanCut()) {
-            Debug.Log("Can't cut " + Container.KitchenObject.KitchenObjectSO.Name);
+            Debug.Log("Can't cut " + Container.KitchenObject.KitchenObjectSO.DisplayName);
             return;
         }
 

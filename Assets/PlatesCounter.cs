@@ -48,7 +48,11 @@ public class PlatesCounter : BaseCounter {
     public override void Interact(Player player) {
 
         if (player.HasKitchenObject()) {
-            if (Container.HasSpace() && player.CurrentKitchenObject.IsSameType(plateKitchenObjectSO)) {
+            if (Container.HasSpace() && player.CurrentKitchenObject is PlateKitchenObject plate) {
+                // if the plate has something on it already, don't put it on the stack
+                if (plate.Container.HasAny())
+                    return;
+
                 // the player puts a plate on the stack
                 player.CurrentKitchenObject.SetContainer(Container);
                 if (IsFull())

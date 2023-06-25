@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KitchenObjectsContainerVisual : MonoBehaviour {
-    [SerializeField] private KitchenObjectsContainer container;
+    private KitchenObjectsContainer container;
 
     [SerializeField] private Transform[] kitchenObjectsParents;
     private Transform kitchenObjectsParent => kitchenObjectsParents[0];
@@ -15,6 +15,8 @@ public class KitchenObjectsContainerVisual : MonoBehaviour {
     private Vector3 offset;
 
     private List<KitchenObject> kitchenObjects = new List<KitchenObject>();
+
+    private ICustomArrangementProvider customArrangement;
 
 
 
@@ -48,12 +50,16 @@ public class KitchenObjectsContainerVisual : MonoBehaviour {
             }
         }
 
-        for (int index = 0; index < kitchenObjects.Count; index++) {
-            KitchenObject kitchenObject = kitchenObjects[index];
-            kitchenObject.SetVisible(true);
-            SetTrasform(kitchenObject, index);
+        if (type == Type.Custom) {
+            customArrangement.SetTrasforms(kitchenObjects);
         }
-
+        else {
+            for (int index = 0; index < kitchenObjects.Count; index++) {
+                KitchenObject kitchenObject = kitchenObjects[index];
+                kitchenObject.SetVisible(true);
+                SetTrasform(kitchenObject, index);
+            }
+        }
     }
 
     private void SetTrasform(KitchenObject kitchenObject, int index) {
@@ -81,10 +87,25 @@ public class KitchenObjectsContainerVisual : MonoBehaviour {
         kitchenObject.transform.localRotation = localRotation;
     }
 
+    public void SetCustomArrangement(ICustomArrangementProvider customArrangement) {
+        this.customArrangement = customArrangement;
+        customArrangement.SetTrasforms(kitchenObjects);
+
+        if (type != Type.Custom) {
+            Debug.Log($"The container {container.name} is now using a custom arrangement", this);
+            type = Type.Custom;
+        }
+    }
+
     enum Type {
         FixedSingle,
         FixedMultiple,
         DynamicOffset,
+        Custom,
+    }
+
+    private void OnDestroy() {
+        container.OnKitchenObjectsChanged -= OnKitchenObjectsChanged;
     }
 
 }

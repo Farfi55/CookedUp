@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new CookingRecipeSO", menuName = "CookedUp/CookingRecipeSO", order = 2)]
+[CreateAssetMenu(fileName = "new CookingRecipeSO", menuName = "CookedUp/Cooking Recipe", order = 2)]
 public class CookingRecipeSO : BaseRecipeSO {
     [SerializeField, Range(0.01f, 15f)] private float timeToCook = 1f;
 

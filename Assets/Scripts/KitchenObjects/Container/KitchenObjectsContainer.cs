@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +8,8 @@ public class KitchenObjectsContainer : MonoBehaviour {
     private List<KitchenObject> kitchenObjects = new();
 
     public KitchenObject KitchenObject => GetNext();
+
+    public IReadOnlyCollection<KitchenObject> KitchenObjects => kitchenObjects.AsReadOnly();
 
     private ContainerOrderType getPolicy = ContainerOrderType.FirstInFirstOut;
 
@@ -44,10 +45,6 @@ public class KitchenObjectsContainer : MonoBehaviour {
             ContainerOrderType.LastInFirstOut => kitchenObjects[Count - 1],
             _ => throw new NotImplementedException(),
         };
-    }
-
-    public ReadOnlyCollection<KitchenObject> GetKitchenObjects() {
-        return kitchenObjects.AsReadOnly();
     }
 
     public List<KitchenObject> GetKitchenObjectsInOrder() {
@@ -92,7 +89,7 @@ public class KitchenObjectsContainer : MonoBehaviour {
     }
 
     public bool TryAdd(KitchenObject kitchenObject) {
-        if (IsFull() && kitchenObject == null) {
+        if (IsFull() || kitchenObject == null || Contains(kitchenObject)) {
             return false;
         }
 
@@ -103,6 +100,9 @@ public class KitchenObjectsContainer : MonoBehaviour {
     public void Add(KitchenObject kitchenObject) {
         if (kitchenObject == null) {
             throw new ArgumentNullException(nameof(kitchenObject));
+        }
+        if (Contains(kitchenObject)) {
+            throw new ArgumentException($"The container already contains {kitchenObject.name}");
         }
 
         kitchenObjects.Add(kitchenObject);
@@ -127,7 +127,7 @@ public class KitchenObjectsContainer : MonoBehaviour {
     }
 
     private void InvokeOnChange() {
-        var args = new KitchenObjectsChangedEvent(this, GetKitchenObjects(), GetNext());
+        var args = new KitchenObjectsChangedEvent(this, KitchenObjects, GetNext());
         OnKitchenObjectsChanged?.Invoke(this, args);
     }
 
@@ -139,14 +139,14 @@ public class KitchenObjectsContainer : MonoBehaviour {
 
 public class KitchenObjectsChangedEvent : EventArgs {
     public readonly KitchenObjectsContainer Container;
-    public readonly ReadOnlyCollection<KitchenObject> KitchenObjects;
+    public readonly IReadOnlyCollection<KitchenObject> KitchenObjects;
     public readonly KitchenObject NextKitchenObject;
 
     public bool HasKitchenObjects() => NextKitchenObject != null;
 
     public KitchenObjectsChangedEvent(
         KitchenObjectsContainer container,
-        ReadOnlyCollection<KitchenObject> kitchenObjects,
+        IReadOnlyCollection<KitchenObject> kitchenObjects,
         KitchenObject nextKitchenObject) {
         this.Container = container;
         this.KitchenObjects = kitchenObjects;
