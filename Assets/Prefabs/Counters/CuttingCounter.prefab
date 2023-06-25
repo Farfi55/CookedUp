@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1219806043548265481, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.316
+      value: 1.329
       objectReference: {fileID: 0}
     - target: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -309,6 +309,11 @@ PrefabInstance:
       propertyPath: progressTracker
       value: 
       objectReference: {fileID: 4581829705537340406}
+    - target: {fileID: 7335903118226668075, guid: e8e08f0f6701bcc478e0766765eb09de,
+        type: 3}
+      propertyPath: recipeProviderGameObject
+      value: 
+      objectReference: {fileID: 2983422634056588087}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

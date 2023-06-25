@@ -6,14 +6,14 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(KitchenObjectHolder))]
+[RequireComponent(typeof(KitchenObjectsContainer))]
 public class Player : MonoBehaviour {
     private PlayerInput playerInput;
-    private KitchenObjectHolder holder;
+    private KitchenObjectsContainer container;
     private Rigidbody rb;
 
-    public KitchenObjectHolder Holder => holder;
-    public KitchenObject CurrentKitchenObject => holder.KitchenObject;
+    public KitchenObjectsContainer Container => container;
+    public KitchenObject CurrentKitchenObject => container.KitchenObject;
 
 
 
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
     private void Awake() {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
-        holder = GetComponent<KitchenObjectHolder>();
+        container = GetComponent<KitchenObjectsContainer>();
     }
 
     private void Start() {

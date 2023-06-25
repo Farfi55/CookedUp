@@ -7,12 +7,16 @@ using UnityEngine.UI;
 public class ProgressBarUI : MonoBehaviour {
 
     [SerializeField] private ProgressTracker progressTracker;
+
+    [SerializeField, Tooltip("The object that has a IRecipeProvider script attached to it.\nIf null, recipe will not be tracked.")]
+    private GameObject recipeProviderGameObject;
     private IRecipeProvider recipeProvider;
 
     [Header("UI")]
     [SerializeField] private Image progressFillBar;
     [SerializeField] private Image outputPreviewImage;
     [SerializeField] private GameObject progressBarUIObject;
+    [SerializeField] private Image warningImage;
 
     public BaseRecipeSO CurrentRecipe => currentRecipe;
     private BaseRecipeSO currentRecipe;
@@ -27,16 +31,22 @@ public class ProgressBarUI : MonoBehaviour {
     private Color normalRecipeProgressColor;
 
     private void Start() {
-        recipeProvider = progressTracker.GetComponent<IRecipeProvider>();
-        if (recipeProvider != null) {
-            recipeProvider.OnRecipeChanged += (sender, e) => SetRecipe(e.NewValue);
+        normalRecipeProgressColor = progressFillBar.color;
+        if (progressTracker != null) {
+            progressTracker.OnProgressChanged += (sender, e) => SetProgress(e.NewValue);
+            SetProgress(progressTracker.Progress);
+        }
+        else {
+            Debug.LogWarning("ProgressTracker is null, progress will not be tracked.");
         }
 
-        normalRecipeProgressColor = progressFillBar.color;
-        progressTracker.OnProgressChanged += (sender, e) => SetProgress(e.NewValue);
 
-        SetProgress(progressTracker.Progress);
-        SetRecipe(recipeProvider?.CurrentRecipe);
+        if (recipeProviderGameObject != null) {
+            if (recipeProviderGameObject.TryGetComponent<IRecipeProvider>(out recipeProvider)) {
+                recipeProvider.OnRecipeChanged += (sender, e) => SetRecipe(e.NewValue);
+                SetRecipe(recipeProvider.CurrentRecipe);
+            }
+        }
     }
 
 
@@ -66,8 +76,8 @@ public class ProgressBarUI : MonoBehaviour {
 
 
         outputPreviewImage.gameObject.SetActive(recipe != null);
+        warningImage.gameObject.SetActive(isBurningRecipe);
     }
-
 
     private void Show() {
         progressBarUIObject.SetActive(true);

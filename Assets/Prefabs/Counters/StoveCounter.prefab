@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -138,6 +138,8 @@ MonoBehaviour:
   cookingRecipes:
   - {fileID: 11400000, guid: 3d55fe05042f86744963b6a10ba9d7a2, type: 2}
   - {fileID: 11400000, guid: 3ae6e7324197c574e8868c8cbfb15ce0, type: 2}
+  cookingSpeed: 1
+  burningCookingSpeed: 1
 --- !u!114 &178923237612312503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +388,11 @@ PrefabInstance:
       propertyPath: progressTracker
       value: 
       objectReference: {fileID: 178923237612312503}
+    - target: {fileID: 7335903118226668075, guid: e8e08f0f6701bcc478e0766765eb09de,
+        type: 3}
+      propertyPath: recipeProviderGameObject
+      value: 
+      objectReference: {fileID: 3003639339958034148}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

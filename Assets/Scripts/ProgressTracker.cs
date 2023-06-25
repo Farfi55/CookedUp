@@ -45,16 +45,16 @@ public class ProgressTracker : MonoBehaviour {
         SetProgress(workDone / totalWork);
     }
 
-    public void SetWorkRemaining(double workRemaining) {
-        SetProgress(1f - (workRemaining / totalWork));
-    }
-
     public void AddWorkDone(double workDone) {
         SetWorkDone(WorkDone + workDone);
     }
 
     public void RemoveWorkDone(double workDone) {
         SetWorkDone(WorkDone + workDone);
+    }
+
+    public void SetWorkRemaining(double workRemaining) {
+        SetProgress(1f - (workRemaining / totalWork));
     }
 
     public void ResetTotalWork() => SetTotalWork(1d);

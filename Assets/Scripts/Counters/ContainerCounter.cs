@@ -17,7 +17,7 @@ public class ContainerCounter : BaseCounter {
             }
         }
         else {
-            KitchenObject.CreateInstance(kitchenObjectSO, player.Holder);
+            KitchenObject.CreateInstance(kitchenObjectSO, player.Container);
             InvokeOnInteract(new InteractableEvent(player));
         }
     }

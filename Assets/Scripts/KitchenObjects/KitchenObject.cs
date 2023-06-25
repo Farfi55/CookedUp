@@ -6,58 +6,62 @@ using UnityEngine;
 public class KitchenObject : MonoBehaviour {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    private KitchenObjectHolder currentHolder;
+    private KitchenObjectsContainer container;
 
 
     public KitchenObjectSO KitchenObjectSO => kitchenObjectSO;
-    public KitchenObjectHolder CurrentHolder => currentHolder;
+    public KitchenObjectsContainer Container => container;
 
-    bool isHeld => currentHolder != null;
+    public bool isInContainer => container != null;
 
-
-
-
-    public void SetHolder(KitchenObjectHolder holder) {
-        if (holder == currentHolder) {
+    public void SetContainer(KitchenObjectsContainer newContainer) {
+        if (newContainer == container) {
             return;
         }
 
-        var previusHolder = currentHolder;
-        currentHolder = holder;
+        var oldContainer = container;
+        container = newContainer;
 
-        if (previusHolder != null) {
-            previusHolder.Clear();
+        if (oldContainer != null) {
+            oldContainer.Remove(this);
         }
 
-        if (isHeld) {
-            if (currentHolder.HasKitchenObject()) {
-                Debug.LogError($"Holder {currentHolder} already has a kitchen object {currentHolder.KitchenObject}", currentHolder.KitchenObject);
-                currentHolder.KitchenObject.SetHolder(null);
+        if (isInContainer) {
+            if (!container.TryAdd(this)) {
+                Debug.LogError($"Couldn't add {this.name} to {container.name}", this);
+                container = null;
             }
-            currentHolder.SetKitchenObject(this);
+        }
+        else {
+            transform.SetParent(null);
         }
 
-
-        gameObject.SetActive(isHeld);
-        transform.SetParent(isHeld ? currentHolder.Container : null);
-        transform.localPosition = Vector3.zero;
+        SetVisible(isInContainer);
     }
 
-    public void ClearHolder() => SetHolder(null);
+    public void SetVisible(bool visible) {
+        gameObject.SetActive(visible);
+    }
+
+    public void RemoveFromContainer() => SetContainer(null);
 
 
     /// <summary>
     /// Removes itself from the current holder and destroys itself.
     /// </summary>
     public void DestroySelf() {
-        ClearHolder();
+        RemoveFromContainer();
         Destroy(gameObject);
     }
 
 
-    public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO, KitchenObjectHolder holder = null) {
-        var kitchenObject = Instantiate(kitchenObjectSO.Prefab, holder.Container);
-        kitchenObject.SetHolder(holder);
+    public bool IsSameType(KitchenObjectSO kitchenObjectSO) => this.kitchenObjectSO == kitchenObjectSO;
+    public bool IsSameType(KitchenObject kitchenObject) => IsSameType(kitchenObject.kitchenObjectSO);
+
+
+    public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO, KitchenObjectsContainer container = null) {
+        var kitchenObject = Instantiate(kitchenObjectSO.Prefab);
+        kitchenObject.SetContainer(container);
         return kitchenObject;
     }
 

@@ -3,30 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(KitchenObjectHolder))]
+[RequireComponent(typeof(KitchenObjectsContainer))]
 public class ClearCounter : BaseCounter {
 
+    public KitchenObjectsContainer Container { get; private set; }
 
-    private KitchenObjectHolder holder;
-    public KitchenObjectHolder Holder => holder;
-
-    public KitchenObject CurrentKitchenObject => holder.KitchenObject;
+    public KitchenObject CurrentKitchenObject => Container.KitchenObject;
 
     private void Awake() {
-        holder = GetComponent<KitchenObjectHolder>();
+        Container = GetComponent<KitchenObjectsContainer>();
     }
 
 
     public override void Interact(Player player) {
 
-        if (holder.IsEmpty()) {
+        if (Container.IsEmpty()) {
             if (player.HasKitchenObject()) {
-                player.CurrentKitchenObject.SetHolder(holder);
+                player.CurrentKitchenObject.SetContainer(Container);
             }
         }
         else {
             if (!player.HasKitchenObject()) {
-                holder.KitchenObject.SetHolder(player.Holder);
+                CurrentKitchenObject.SetContainer(player.Container);
             }
         }
 

@@ -4,12 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(KitchenObjectHolder))]
+[RequireComponent(typeof(KitchenObjectsContainer))]
 [RequireComponent(typeof(ProgressTracker))]
 public class CuttingCounter : BaseCounter, IRecipeProvider {
 
     public ProgressTracker ProgressTracker { get; private set; }
-    public KitchenObjectHolder Holder { get; private set; }
+    public KitchenObjectsContainer Container { get; private set; }
 
     public CuttingRecipeSO CurrentCuttingRecipe { get; private set; }
     public BaseRecipeSO CurrentRecipe => CurrentCuttingRecipe;
@@ -23,8 +23,8 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
     private void Awake() {
         ProgressTracker = GetComponent<ProgressTracker>();
 
-        Holder = GetComponent<KitchenObjectHolder>();
-        Holder.OnKitchenObjectChanged += OnKitchenObjectChanged;
+        Container = GetComponent<KitchenObjectsContainer>();
+        Container.OnKitchenObjectsChanged += OnKitchenObjectChanged;
     }
 
     private void Start() {
@@ -32,32 +32,32 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
     }
 
 
-    private void OnKitchenObjectChanged(object sender, KitchenObjectChangedEvent e) {
+    private void OnKitchenObjectChanged(object sender, KitchenObjectsChangedEvent e) {
         ProgressTracker.ResetTotalWork();
+        var oldRecipe = CurrentCuttingRecipe;
 
-        if (e.NewKitchenObject == null) {
+        if (e.NextKitchenObject == null) {
             CurrentCuttingRecipe = null;
         }
         else {
-            CurrentCuttingRecipe = GetRecipeFor(e.NewKitchenObject.KitchenObjectSO);
+            CurrentCuttingRecipe = GetRecipeFor(e.NextKitchenObject.KitchenObjectSO);
             if (CurrentCuttingRecipe != null)
                 ProgressTracker.SetTotalWork(CurrentCuttingRecipe.TimeToCut);
         }
 
-        var oldRecipe = GetRecipeFor(e.OldKitchenObject?.KitchenObjectSO);
         OnRecipeChanged?.Invoke(this, new ValueChangedEvent<BaseRecipeSO>(oldRecipe, CurrentCuttingRecipe));
     }
 
 
     public override void Interact(Player player) {
-        if (Holder.IsEmpty()) {
+        if (Container.IsEmpty()) {
             if (player.HasKitchenObject() && CanCut(player.CurrentKitchenObject.KitchenObjectSO)) {
-                player.CurrentKitchenObject.SetHolder(Holder);
+                player.CurrentKitchenObject.SetContainer(Container);
             }
         }
         else {
             if (!player.HasKitchenObject()) {
-                Holder.KitchenObject.SetHolder(player.Holder);
+                Container.KitchenObject.SetContainer(player.Container);
             }
         }
 
@@ -65,11 +65,11 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
     }
 
     public override void InteractAlternateContinuous(Player player) {
-        if (!Holder.HasKitchenObject())
+        if (Container.IsEmpty())
             return;
 
         if (!CanCut()) {
-            Debug.Log("Can't cut " + Holder.KitchenObject.KitchenObjectSO.Name);
+            Debug.Log("Can't cut " + Container.KitchenObject.KitchenObjectSO.Name);
             return;
         }
 
@@ -83,10 +83,9 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
 
         KitchenObjectSO outputKOSO = CurrentCuttingRecipe.Output;
 
-        Holder.KitchenObject.DestroySelf();
-        KitchenObject.CreateInstance(outputKOSO, Holder);
+        Container.KitchenObject.DestroySelf();
+        KitchenObject.CreateInstance(outputKOSO, Container);
     }
-
 
     public CuttingRecipeSO GetRecipeFor(KitchenObjectSO kitchenObjectSO) {
         return cuttingRecipes.FirstOrDefault(recipe => recipe.Input == kitchenObjectSO);

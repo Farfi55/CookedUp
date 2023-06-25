@@ -4,25 +4,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(KitchenObjectHolder))]
+[RequireComponent(typeof(KitchenObjectsContainer))]
 [RequireComponent(typeof(ProgressTracker))]
 public class StoveCounter : BaseCounter, IRecipeProvider {
     public ProgressTracker ProgressTracker { get; private set; }
-    public KitchenObjectHolder Holder { get; private set; }
+    public KitchenObjectsContainer Container { get; private set; }
 
 
     public CookingRecipeSO CurrentCookingRecipe { get; private set; }
     public BaseRecipeSO CurrentRecipe => CurrentCookingRecipe;
     [SerializeField] private CookingRecipeSO[] cookingRecipes;
 
+    [SerializeField, Range(0f, 10f), Tooltip("Work done per second, default is 1.")]
+    private float cookingSpeed = 1f;
+
+    [SerializeField, Range(0f, 10f), Tooltip("Work done per second, default is 1.")]
+    private float burningCookingSpeed = 1f;
+
+    public bool IsBurningRecipe => IsCooking() && CurrentCookingRecipe.IsBurningRecipe;
 
     public event EventHandler<ValueChangedEvent<BaseRecipeSO>> OnRecipeChanged;
 
 
     private void Awake() {
         ProgressTracker = GetComponent<ProgressTracker>();
-        Holder = GetComponent<KitchenObjectHolder>();
-        Holder.OnKitchenObjectChanged += OnKitchenObjectChanged;
+        Container = GetComponent<KitchenObjectsContainer>();
+        Container.OnKitchenObjectsChanged += OnKitchenObjectsChanged;
     }
 
     private void Start() {
@@ -30,33 +37,34 @@ public class StoveCounter : BaseCounter, IRecipeProvider {
     }
 
 
-    private void OnKitchenObjectChanged(object sender, KitchenObjectChangedEvent e) {
+    private void OnKitchenObjectsChanged(object sender, KitchenObjectsChangedEvent e) {
         // Set the current recipe and remaining time to cook when the holder's kitchen object changes.
+        var oldRecipe = CurrentCookingRecipe;
 
         ProgressTracker.ResetTotalWork();
-        if (e.NewKitchenObject == null) {
+
+        if (e.NextKitchenObject == null) {
             CurrentCookingRecipe = null;
         }
         else {
-            CurrentCookingRecipe = GetRecipeFor(e.NewKitchenObject.KitchenObjectSO);
+            CurrentCookingRecipe = GetRecipeFor(e.NextKitchenObject.KitchenObjectSO);
             if (CurrentCookingRecipe != null) {
                 ProgressTracker.SetTotalWork(CurrentCookingRecipe.TimeToCook);
             }
         }
 
-        var oldRecipe = GetRecipeFor(e.OldKitchenObject?.KitchenObjectSO);
         OnRecipeChanged?.Invoke(this, new(oldRecipe, CurrentCookingRecipe));
     }
 
     public override void Interact(Player player) {
-        if (Holder.IsEmpty()) {
+        if (Container.IsEmpty()) {
             if (player.HasKitchenObject() && CanCook(player.CurrentKitchenObject.KitchenObjectSO)) {
-                player.CurrentKitchenObject.SetHolder(Holder);
+                player.CurrentKitchenObject.SetContainer(Container);
             }
         }
         else {
             if (!player.HasKitchenObject()) {
-                Holder.KitchenObject.SetHolder(player.Holder);
+                Container.KitchenObject.SetContainer(player.Container);
             }
         }
 
@@ -64,10 +72,10 @@ public class StoveCounter : BaseCounter, IRecipeProvider {
     }
 
     private void Update() {
-        if (!CanCook())
-            return;
-
-        ProgressTracker.AddWorkDone(Time.deltaTime);
+        if (IsCooking()) {
+            var work = Time.deltaTime * (IsBurningRecipe ? burningCookingSpeed : cookingSpeed);
+            ProgressTracker.AddWorkDone(work);
+        }
     }
 
     private void OnCookingCompleted() {
@@ -75,8 +83,8 @@ public class StoveCounter : BaseCounter, IRecipeProvider {
             return;
 
         var outputKOSO = CurrentCookingRecipe.Output;
-        Holder.KitchenObject.DestroySelf();
-        KitchenObject.CreateInstance(outputKOSO, Holder);
+        Container.KitchenObject.DestroySelf();
+        KitchenObject.CreateInstance(outputKOSO, Container);
     }
 
 
@@ -97,7 +105,5 @@ public class StoveCounter : BaseCounter, IRecipeProvider {
         return CurrentCookingRecipe != null;
     }
     public bool IsCooking() => CanCook();
-
-
 
 }
