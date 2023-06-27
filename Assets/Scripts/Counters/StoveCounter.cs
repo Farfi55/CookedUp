@@ -60,15 +60,20 @@ public class StoveCounter : BaseCounter, IRecipeProvider {
         if (Container.IsEmpty()) {
             if (player.HasKitchenObject() && CanCook(player.CurrentKitchenObject.KitchenObjectSO)) {
                 player.CurrentKitchenObject.SetContainer(Container);
+                InvokeOnInteract(new InteractableEvent(player));
             }
         }
-        else {
-            if (!player.HasKitchenObject()) {
+        else if (Container.HasAny()){
+            if (player.Container.IsEmpty()) {
                 Container.KitchenObject.SetContainer(player.Container);
+                InvokeOnInteract(new InteractableEvent(player));
+            }
+            else if (player.HasKitchenObject()) {
+                if(player.CurrentKitchenObject.InteractWith(Container.KitchenObject))
+                    InvokeOnInteract(new InteractableEvent(player));
             }
         }
 
-        InvokeOnInteract(new InteractableEvent(player));
     }
 
     private void Update() {

@@ -53,15 +53,20 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
         if (Container.IsEmpty()) {
             if (player.HasKitchenObject() && CanCut(player.CurrentKitchenObject.KitchenObjectSO)) {
                 player.CurrentKitchenObject.SetContainer(Container);
+                InvokeOnInteract(new InteractableEvent(player));
             }
         }
-        else {
-            if (!player.HasKitchenObject()) {
+        else if(Container.HasAny()) {
+            if (player.Container.IsEmpty()) {
                 Container.KitchenObject.SetContainer(player.Container);
+                InvokeOnInteract(new InteractableEvent(player));
+            }
+            else if(player.Container.HasAny()) {
+                if (player.CurrentKitchenObject.InteractWith(Container.KitchenObject))
+                    InvokeOnInteract(new InteractableEvent(player));
             }
         }
 
-        InvokeOnInteract(new InteractableEvent(player));
     }
 
     public override void InteractAlternateContinuous(Player player) {
