@@ -76,4 +76,14 @@ public class KitchenObject : MonoBehaviour {
 
     public virtual bool InteractWith(KitchenObject currentKitchenObject) { return false; }
 
+    
+    public bool TryGetPlate(out PlateKitchenObject plateKitchenObject) {
+        if (this is PlateKitchenObject plate) {
+            plateKitchenObject = plate;
+            return true;
+        }
+
+        plateKitchenObject = null;
+        return false;
+    }
 }

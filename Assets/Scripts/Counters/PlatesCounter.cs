@@ -46,11 +46,12 @@ public class PlatesCounter : BaseCounter {
 
 
     public override void Interact(Player player) {
-
+        var wasFull = Container.IsFull();
+        
         if (player.HasKitchenObject()) {
             if (Container.HasSpace() && player.CurrentKitchenObject is PlateKitchenObject plate) {
                 // if the plate has something on it already, don't put it on the stack
-                if (plate.Container.HasAny())
+                if (plate.IngredientsContainer.HasAny())
                     return;
 
                 // the player puts a plate on the stack
@@ -59,11 +60,24 @@ public class PlatesCounter : BaseCounter {
                     progressTracker.SetProgress(0);
                 InvokeOnInteract(new InteractableEvent(player));
             }
+            else if (Container.HasAny()) {
+                // if the plate on the Plates Counter use as ingredient the CurrentKitchenObject of the player
+                // we move the player's CurrentKitchenObject on top of the plate
+                // and move the plate as the player new CurrentKitchenObject
+                if (Container.KitchenObject.InteractWith(player.CurrentKitchenObject)) {
+                    Container.KitchenObject.SetContainer(player.Container);
+                    
+                    if(wasFull)
+                        progressTracker.SetProgress(0);
+                    
+                    InvokeOnInteract(new InteractableEvent(player));
+                }
+            }
         }
-        else {
+        else if(player.Container.IsEmpty()) {
             if (Container.HasAny()) {
                 // the player takes a plate from the stack
-                var wasFull = Container.IsFull();
+                
                 Container.KitchenObject.SetContainer(player.Container);
 
                 if (wasFull)
