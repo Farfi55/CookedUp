@@ -10,33 +10,33 @@ public interface IInteractable {
     event EventHandler<SelectionChangedEvent> OnSelectedChanged;
 
 
-    void Interact(Player player);
-    void InteractAlternate(Player player);
-    void InteractAlternateContinuous(Player player);
+    void Interact(Player.Player player);
+    void InteractAlternate(Player.Player player);
+    void InteractAlternateContinuous(Player.Player player);
 
 
-    void SetSelected(Player player, bool isSelected);
+    void SetSelected(Player.Player player, bool isSelected);
     bool IsSelected();
-    bool IsSelected(Player player);
+    bool IsSelected(Player.Player player);
 
 }
 
 
 
 public class InteractableEvent : EventArgs {
-    public Player Player { get; private set; }
+    public Player.Player Player { get; private set; }
 
-    public InteractableEvent(Player player) {
+    public InteractableEvent(Player.Player player) {
         Player = player;
     }
 
 }
 
 public class SelectionChangedEvent : EventArgs {
-    public Player Player { get; private set; }
+    public Player.Player Player { get; private set; }
     public bool IsSelected { get; private set; }
 
-    public SelectionChangedEvent(Player player, bool isSelected) {
+    public SelectionChangedEvent(Player.Player player, bool isSelected) {
         Player = player;
         IsSelected = isSelected;
     }

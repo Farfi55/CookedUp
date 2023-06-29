@@ -1,118 +1,122 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using KitchenObjects.Container;
+using KitchenObjects.ScriptableObjects;
+using UnityEngine;
 
-public class RecipeArrangement : MonoBehaviour, ICustomArrangementProvider {
-    [SerializeField] private CompleteRecipeSO completeRecipeSO;
-    public CompleteRecipeSO CompleteRecipeSO => completeRecipeSO;
+namespace KitchenObjects
+{
+    public class RecipeArrangement : MonoBehaviour, ICustomArrangementProvider {
+        [SerializeField] private CompleteRecipeSO completeRecipeSO;
+        public CompleteRecipeSO CompleteRecipeSO => completeRecipeSO;
 
-    public List<KitchenObjectSO> Ingredients => completeRecipeSO.Ingredients;
+        public List<KitchenObjectSO> Ingredients => completeRecipeSO.Ingredients;
 
-    [SerializeField] private List<IngredientTransform> ingredientsTrasform = new();
-    public List<IngredientTransform> IngredientsTrasform => ingredientsTrasform;
+        [SerializeField] private List<IngredientTransform> ingredientsTrasform = new();
+        public List<IngredientTransform> IngredientsTrasform => ingredientsTrasform;
 
-    private Dictionary<KitchenObjectSO, Transform> ingredientTransformDict;
+        private Dictionary<KitchenObjectSO, Transform> ingredientTransformDict;
 
 
 
-    private void Awake() {
-        if (ingredientsTrasform.Count == 0)
-            LoadIngredientTransforms();
-        ClearGrandChildren();
+        private void Awake() {
+            if (ingredientsTrasform.Count == 0)
+                LoadIngredientTransforms();
+            ClearGrandChildren();
 
-        ingredientTransformDict = new Dictionary<KitchenObjectSO, Transform>();
-        foreach (var ingredientTransform in ingredientsTrasform) {
-            ingredientTransformDict.Add(ingredientTransform.Ingredient, ingredientTransform.Transform);
-        }
-    }
-
-    private void ClearGrandChildren() {
-        foreach (Transform child in transform) {
-            foreach (Transform grandChild in child) {
-                Destroy(grandChild.gameObject);
+            ingredientTransformDict = new Dictionary<KitchenObjectSO, Transform>();
+            foreach (var ingredientTransform in ingredientsTrasform) {
+                ingredientTransformDict.Add(ingredientTransform.Ingredient, ingredientTransform.Transform);
             }
         }
-    }
 
-
-    public void SetTrasforms(List<KitchenObject> kitchenObjects) {
-
-        foreach (var kitchenObject in kitchenObjects) {
-            if (ingredientTransformDict.TryGetValue(kitchenObject.KitchenObjectSO, out var ingredientTransform)) {
-                kitchenObject.transform.SetParent(ingredientTransform);
-                kitchenObject.transform.localPosition = Vector3.zero;
-                kitchenObject.transform.localRotation = Quaternion.identity;
-                kitchenObject.transform.localScale = Vector3.one;
-            }
-            else {
-                Debug.LogError($"Couldn't find position for {kitchenObject.name} in {this.name}", this);
+        private void ClearGrandChildren() {
+            foreach (Transform child in transform) {
+                foreach (Transform grandChild in child) {
+                    Destroy(grandChild.gameObject);
+                }
             }
         }
-    }
 
 
-    [ContextMenu("Load FinalPlateSO from name")]
-    private void LoadFinalPlateSOFromName() {
-        var name = gameObject.name.Replace("Arrangement", "");
+        public void SetTrasforms(List<KitchenObject> kitchenObjects) {
 
-
-        string path = "Assets/_Assets/ScriptableObjects/FinalPlatesSO/" + name + ".asset";
-        completeRecipeSO = UnityEditor.AssetDatabase.LoadAssetAtPath<CompleteRecipeSO>(path);
-        if (completeRecipeSO == null) {
-            Debug.LogError($"Couldn't find FinalPlateSO at {path}", this);
-        }
-    }
-
-    [ContextMenu("Load ingredient transforms")]
-    private void LoadIngredientTransforms() {
-        foreach (var ingredient in Ingredients) {
-            var ingredientPosition = transform.Find(ingredient.name);
-            if (ingredientPosition == null) {
-                Debug.LogError($"Couldn't find position for {ingredient.name} in {this.name}", this);
-                continue;
+            foreach (var kitchenObject in kitchenObjects) {
+                if (ingredientTransformDict.TryGetValue(kitchenObject.KitchenObjectSO, out var ingredientTransform)) {
+                    kitchenObject.transform.SetParent(ingredientTransform);
+                    kitchenObject.transform.localPosition = Vector3.zero;
+                    kitchenObject.transform.localRotation = Quaternion.identity;
+                    kitchenObject.transform.localScale = Vector3.one;
+                }
+                else {
+                    Debug.LogError($"Couldn't find position for {kitchenObject.name} in {this.name}", this);
+                }
             }
-
-            ingredientsTrasform.Add(new IngredientTransform(ingredient, ingredientPosition));
         }
+
+
+        [ContextMenu("Load FinalPlateSO from name")]
+        private void LoadFinalPlateSOFromName() {
+            var name = gameObject.name.Replace("Arrangement", "");
+
+
+            string path = "Assets/_Assets/ScriptableObjects/FinalPlatesSO/" + name + ".asset";
+            completeRecipeSO = UnityEditor.AssetDatabase.LoadAssetAtPath<CompleteRecipeSO>(path);
+            if (completeRecipeSO == null) {
+                Debug.LogError($"Couldn't find FinalPlateSO at {path}", this);
+            }
+        }
+
+        [ContextMenu("Load ingredient transforms")]
+        private void LoadIngredientTransforms() {
+            foreach (var ingredient in Ingredients) {
+                var ingredientPosition = transform.Find(ingredient.name);
+                if (ingredientPosition == null) {
+                    Debug.LogError($"Couldn't find position for {ingredient.name} in {this.name}", this);
+                    continue;
+                }
+
+                ingredientsTrasform.Add(new IngredientTransform(ingredient, ingredientPosition));
+            }
 #if UNITY_EDITOR
-        UnityEditor.EditorUtility.SetDirty(this);
+            UnityEditor.EditorUtility.SetDirty(this);
 #endif
-    }
+        }
 
 #if UNITY_EDITOR
-    [ContextMenu("Create ingredient transforms")]
-    private void CreateIngredientTrasforms() {
-        ingredientsTrasform = new List<IngredientTransform>();
-        string visualPrefabsBasePath = "Assets/_Assets/PrefabsVisuals/KitchenObjectsVisuals/";
-        foreach (var ingredient in Ingredients) {
-            var ingredientGO = new GameObject(ingredient.name);
-            ingredientGO.transform.SetParent(transform);
-            ingredientsTrasform.Add(new IngredientTransform(ingredient, ingredientGO.transform));
+        [ContextMenu("Create ingredient transforms")]
+        private void CreateIngredientTrasforms() {
+            ingredientsTrasform = new List<IngredientTransform>();
+            string visualPrefabsBasePath = "Assets/_Assets/PrefabsVisuals/KitchenObjectsVisuals/";
+            foreach (var ingredient in Ingredients) {
+                var ingredientGO = new GameObject(ingredient.name);
+                ingredientGO.transform.SetParent(transform);
+                ingredientsTrasform.Add(new IngredientTransform(ingredient, ingredientGO.transform));
 
-            // Load visual prefab and instantiate it as a child of the ingredient
-            string path = visualPrefabsBasePath + ingredient.name + "_Visual.prefab";
-            GameObject visualPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                // Load visual prefab and instantiate it as a child of the ingredient
+                string path = visualPrefabsBasePath + ingredient.name + "_Visual.prefab";
+                GameObject visualPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
-            if (visualPrefab == null) {
-                Debug.LogError($"Couldn't find visual prefab for {ingredient.name} at {path}", this);
-                continue;
+                if (visualPrefab == null) {
+                    Debug.LogError($"Couldn't find visual prefab for {ingredient.name} at {path}", this);
+                    continue;
+                }
+                Instantiate(visualPrefab, Vector3.zero, Quaternion.identity, ingredientGO.transform);
             }
-            Instantiate(visualPrefab, Vector3.zero, Quaternion.identity, ingredientGO.transform);
+            UnityEditor.EditorUtility.SetDirty(this);
         }
-        UnityEditor.EditorUtility.SetDirty(this);
-    }
 #endif
 
-    [Serializable]
+        [Serializable]
 
-    public struct IngredientTransform {
-        public KitchenObjectSO Ingredient;
-        public Transform Transform;
+        public struct IngredientTransform {
+            public KitchenObjectSO Ingredient;
+            public Transform Transform;
 
-        public IngredientTransform(KitchenObjectSO ingredient, Transform transform) {
-            this.Ingredient = ingredient;
-            this.Transform = transform;
+            public IngredientTransform(KitchenObjectSO ingredient, Transform transform) {
+                this.Ingredient = ingredient;
+                this.Transform = transform;
+            }
         }
     }
 }

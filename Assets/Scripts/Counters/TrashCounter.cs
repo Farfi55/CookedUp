@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+namespace Counters
+{
+    public class TrashCounter : BaseCounter {
 
-public class TrashCounter : BaseCounter {
-
-    public override void Interact(Player player) {
-        if (player.HasKitchenObject()) {
-            player.CurrentKitchenObject.DestroySelf();
-            InvokeOnInteract(new InteractableEvent(player));
+        public override void Interact(Player.Player player) {
+            if (player.HasKitchenObject()) {
+                player.CurrentKitchenObject.DestroySelf();
+                InvokeOnInteract(new InteractableEvent(player));
+            }
         }
     }
 }

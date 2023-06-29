@@ -1,26 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using KitchenObjects.Container;
 
-public class DeliveryCounter : BaseCounter
+namespace Counters
 {
-    public KitchenObjectsContainer Container { get; private set;  }
+    public class DeliveryCounter : BaseCounter
+    {
+        public KitchenObjectsContainer Container { get; private set;  }
     
-    private void Awake() {
-        Container = GetComponent<KitchenObjectsContainer>();
-    }
-
-    public override void Interact(Player player) {
-        
-        if (player.HasKitchenObject() && player.CurrentKitchenObject.TryGetPlate(out var plate)) {
-            plate.SetContainer(Container);
-            DeliveryManager.Instance.DeliverRecipe(plate, player, this);
-            
-            InvokeOnInteract(new InteractableEvent(player));
+        private void Awake() {
+            Container = GetComponent<KitchenObjectsContainer>();
         }
-        else if (player.Container.IsEmpty() && Container.HasAny()) {
-            Container.KitchenObject.SetContainer(player.Container);
+
+        public override void Interact(Player.Player player) {
+        
+            if (player.HasKitchenObject() && player.CurrentKitchenObject.TryGetPlate(out var plate)) {
+                plate.SetContainer(Container);
+                DeliveryManager.Instance.DeliverRecipe(plate, player, this);
+            
+                InvokeOnInteract(new InteractableEvent(player));
+            }
+            else if (player.Container.IsEmpty() && Container.HasAny()) {
+                Container.KitchenObject.SetContainer(player.Container);
+            }
         }
     }
 }

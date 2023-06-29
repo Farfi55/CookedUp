@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Counters;
 using Extensions;
+using KitchenObjects;
 using KitchenObjects.ScriptableObjects;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -75,7 +77,7 @@ public class DeliveryManager : MonoBehaviour {
     }
 
 
-    public void DeliverRecipe(PlateKitchenObject plate, Player player, DeliveryCounter deliveryCounter) {
+    public void DeliverRecipe(PlateKitchenObject plate, Player.Player player, DeliveryCounter deliveryCounter) {
         List<KitchenObjectSO> kitchenObjectSOs = plate.IngredientsContainer.AsKitchenObjectSOs();
 
         var completeRecipeSO = waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
@@ -95,10 +97,10 @@ public class DeliveryManager : MonoBehaviour {
 
 public struct RecipeDeliveryEvent {
     public CompleteRecipeSO RecipeSO { get; }
-    public Player Player { get; }
+    public Player.Player Player { get; }
     public DeliveryCounter DeliveryCounter { get; }
     
-    public RecipeDeliveryEvent(CompleteRecipeSO recipeSo, Player player, DeliveryCounter deliveryCounter) {
+    public RecipeDeliveryEvent(CompleteRecipeSO recipeSo, Player.Player player, DeliveryCounter deliveryCounter) {
         RecipeSO = recipeSo;
         Player = player;
         DeliveryCounter = deliveryCounter;

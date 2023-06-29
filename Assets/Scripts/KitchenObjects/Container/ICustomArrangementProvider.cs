@@ -1,6 +1,8 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public interface ICustomArrangementProvider {
-    void SetTrasforms(List<KitchenObject> kitchenObjects);
+namespace KitchenObjects.Container
+{
+    public interface ICustomArrangementProvider {
+        void SetTrasforms(List<KitchenObject> kitchenObjects);
+    }
 }

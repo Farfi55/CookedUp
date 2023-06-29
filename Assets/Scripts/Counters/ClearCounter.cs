@@ -1,45 +1,47 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using KitchenObjects;
+using KitchenObjects.Container;
 using UnityEngine;
 
-[RequireComponent(typeof(KitchenObjectsContainer))]
-public class ClearCounter : BaseCounter {
+namespace Counters
+{
+    [RequireComponent(typeof(KitchenObjectsContainer))]
+    public class ClearCounter : BaseCounter {
 
-    public KitchenObjectsContainer Container { get; private set; }
+        public KitchenObjectsContainer Container { get; private set; }
 
-    public KitchenObject CurrentKitchenObject => Container.KitchenObject;
+        public KitchenObject CurrentKitchenObject => Container.KitchenObject;
 
-    private void Awake() {
-        Container = GetComponent<KitchenObjectsContainer>();
-    }
-
-
-    public override void Interact(Player player) {
-
-        if (player.HasKitchenObject()) {
-            if (Container.IsEmpty()) {
-                // If the counter is empty, just put the object on it.
-                player.CurrentKitchenObject.SetContainer(Container);
-                InvokeOnInteract(new InteractableEvent(player));
-            }
-            else if (Container.HasAny()) {
-                if (player.CurrentKitchenObject.InteractWith(CurrentKitchenObject)) {
-                    InvokeOnInteract(new InteractableEvent(player));
-                }
-                else if (CurrentKitchenObject.InteractWith(player.CurrentKitchenObject)) {
-                    InvokeOnInteract(new InteractableEvent(player));
-                }
-            }
-        }
-        else if (!player.HasKitchenObject() && Container.HasAny()) {
-            // If the player is not holding anything,
-            // pick up the object on the counter.
-            CurrentKitchenObject.SetContainer(player.Container);
+        private void Awake() {
+            Container = GetComponent<KitchenObjectsContainer>();
         }
 
 
-        base.InvokeOnInteractAlternate(new InteractableEvent(player));
-    }
+        public override void Interact(Player.Player player) {
 
+            if (player.HasKitchenObject()) {
+                if (Container.IsEmpty()) {
+                    // If the counter is empty, just put the object on it.
+                    player.CurrentKitchenObject.SetContainer(Container);
+                    InvokeOnInteract(new InteractableEvent(player));
+                }
+                else if (Container.HasAny()) {
+                    if (player.CurrentKitchenObject.InteractWith(CurrentKitchenObject)) {
+                        InvokeOnInteract(new InteractableEvent(player));
+                    }
+                    else if (CurrentKitchenObject.InteractWith(player.CurrentKitchenObject)) {
+                        InvokeOnInteract(new InteractableEvent(player));
+                    }
+                }
+            }
+            else if (!player.HasKitchenObject() && Container.HasAny()) {
+                // If the player is not holding anything,
+                // pick up the object on the counter.
+                CurrentKitchenObject.SetContainer(player.Container);
+            }
+
+
+            base.InvokeOnInteractAlternate(new InteractableEvent(player));
+        }
+
+    }
 }

@@ -1,39 +1,41 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using KitchenObjects;
+using KitchenObjects.Container;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class PlatesIconUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private PlateKitchenObject plateKitchenObject;
-    [SerializeField] private PlatesIconSingleUI iconTemplate;
-
-
-    private void Awake() {
-        iconTemplate.gameObject.SetActive(false);
-    }
-
-    private void Start() {
-        plateKitchenObject.IngredientsContainer.OnKitchenObjectsChanged += OnIngredientsChanged;
-    }
-
-    private void OnIngredientsChanged(object sender, KitchenObjectsChangedEvent e) {
-        UpdateVisual(e.KitchenObjects);
-    }
-
-    private void UpdateVisual(IEnumerable<KitchenObject> kitchenObjects)
+    public class PlatesIconUI : MonoBehaviour
     {
-        foreach (Transform child in transform) {
-            if(child != iconTemplate.transform)
-                Destroy(child.gameObject);
+        [SerializeField] private PlateKitchenObject plateKitchenObject;
+        [SerializeField] private PlatesIconSingleUI iconTemplate;
+
+
+        private void Awake() {
+            iconTemplate.gameObject.SetActive(false);
         }
-        
-        foreach (var kitchenObject in kitchenObjects)
+
+        private void Start() {
+            plateKitchenObject.IngredientsContainer.OnKitchenObjectsChanged += OnIngredientsChanged;
+        }
+
+        private void OnIngredientsChanged(object sender, KitchenObjectsChangedEvent e) {
+            UpdateVisual(e.KitchenObjects);
+        }
+
+        private void UpdateVisual(IEnumerable<KitchenObject> kitchenObjects)
         {
-            var platesIconSingleUI = Instantiate(iconTemplate, transform);
-            platesIconSingleUI.Init(kitchenObject.KitchenObjectSO);
-            platesIconSingleUI.gameObject.SetActive(true);
+            foreach (Transform child in transform) {
+                if(child != iconTemplate.transform)
+                    Destroy(child.gameObject);
+            }
+        
+            foreach (var kitchenObject in kitchenObjects)
+            {
+                var platesIconSingleUI = Instantiate(iconTemplate, transform);
+                platesIconSingleUI.Init(kitchenObject.KitchenObjectSO);
+                platesIconSingleUI.gameObject.SetActive(true);
+            }
         }
     }
 }
