@@ -17,6 +17,7 @@ public class CuttingCounter : BaseCounter, IRecipeProvider {
     [SerializeField] private CuttingRecipeSO[] cuttingRecipes;
 
 
+    
     public event EventHandler<ValueChangedEvent<BaseRecipeSO>> OnRecipeChanged;
 
 

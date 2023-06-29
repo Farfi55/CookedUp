@@ -27,7 +27,14 @@ public class DeliveryManager : MonoBehaviour {
 
     [SerializeField] private int startingWaitingRequests = 1;
 
-
+    public event EventHandler<CompleteRecipeSO> OnRecipeCreated;
+    public event EventHandler<RecipeDeliveryEvent> OnRecipeDelivered;
+    public event EventHandler<RecipeDeliveryEvent>  OnRecipeSuccess;
+    public event EventHandler<RecipeDeliveryEvent>  OnRecipeFailed;
+    
+    
+    
+    
     private void Awake() {
         if (Instance == null)
             Instance = this;
@@ -44,7 +51,7 @@ public class DeliveryManager : MonoBehaviour {
         progressTracker.OnProgressComplete += ProgressTrackerOnOnProgressComplete;
         
         for (int i = 0; i < startingWaitingRequests; i++) {
-            GenerateNewRequest();
+            CreateNewRecipe();
         }
     }
 
@@ -55,30 +62,45 @@ public class DeliveryManager : MonoBehaviour {
     }
 
     private void ProgressTrackerOnOnProgressComplete(object sender, EventArgs e) {
-        GenerateNewRequest();
+        CreateNewRecipe();
     }
 
-    private void GenerateNewRequest()
+    private void CreateNewRecipe()
     {
         var completeRecipeSO = recipes.RecipeSOList.GetRandomElement();
         waitingRecipeSOs.Add(completeRecipeSO);
         progressTracker.ResetProgress();
+        OnRecipeCreated?.Invoke(this, completeRecipeSO);
         Debug.Log($"New recipe request: {completeRecipeSO.DisplayName}");
     }
 
 
-    public void DeliverRecipe(PlateKitchenObject plate) {
+    public void DeliverRecipe(PlateKitchenObject plate, Player player, DeliveryCounter deliveryCounter) {
         List<KitchenObjectSO> kitchenObjectSOs = plate.IngredientsContainer.AsKitchenObjectSOs();
 
-        var completeRecipeSO =
-            waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
+        var completeRecipeSO = waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
         if (completeRecipeSO == null) {
+            OnRecipeFailed?.Invoke(this, new RecipeDeliveryEvent(null, player, deliveryCounter));
             Debug.Log("No match found in waiting recipes");
         }
         else {
             waitingRecipeSOs.Remove(completeRecipeSO);
             Debug.Log($"Recipe {completeRecipeSO.DisplayName} delivered!");
             plate.DestroySelf();
+            OnRecipeDelivered?.Invoke(this, new RecipeDeliveryEvent(completeRecipeSO, player, deliveryCounter));
+            OnRecipeSuccess?.Invoke(this, new RecipeDeliveryEvent(completeRecipeSO, player, deliveryCounter));
         }
+    }
+}
+
+public struct RecipeDeliveryEvent {
+    public CompleteRecipeSO RecipeSO { get; }
+    public Player Player { get; }
+    public DeliveryCounter DeliveryCounter { get; }
+    
+    public RecipeDeliveryEvent(CompleteRecipeSO recipeSo, Player player, DeliveryCounter deliveryCounter) {
+        RecipeSO = recipeSo;
+        Player = player;
+        DeliveryCounter = deliveryCounter;
     }
 }

@@ -15,9 +15,12 @@ public class DeliveryCounter : BaseCounter
         
         if (player.HasKitchenObject() && player.CurrentKitchenObject.TryGetPlate(out var plate)) {
             plate.SetContainer(Container);
-            DeliveryManager.Instance.DeliverRecipe(plate);
+            DeliveryManager.Instance.DeliverRecipe(plate, player, this);
             
             InvokeOnInteract(new InteractableEvent(player));
+        }
+        else if (player.Container.IsEmpty() && Container.HasAny()) {
+            Container.KitchenObject.SetContainer(player.Container);
         }
     }
 }

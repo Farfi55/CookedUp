@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: c00de5fb28d90f844a897b8b660c90d4, type: 2}
   output: {fileID: 11400000, guid: 3c9cedeeff88c5e48b4a2ffafbe9b1c5, type: 2}
-  timeToCook: 4
+  timeToCook: 5
+  isBurningRecipe: 0
