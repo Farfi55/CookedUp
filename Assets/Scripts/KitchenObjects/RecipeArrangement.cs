@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class FinalPlateArrangement : MonoBehaviour, ICustomArrangementProvider {
-    [SerializeField] private FinalPlateSO finalPlateSO;
-    public FinalPlateSO FinalPlateSO => finalPlateSO;
+public class RecipeArrangement : MonoBehaviour, ICustomArrangementProvider {
+    [SerializeField] private CompleteRecipeSO completeRecipeSO;
+    public CompleteRecipeSO CompleteRecipeSO => completeRecipeSO;
 
-    public List<KitchenObjectSO> Ingredients => finalPlateSO.Ingredients;
+    public List<KitchenObjectSO> Ingredients => completeRecipeSO.Ingredients;
 
     [SerializeField] private List<IngredientTransform> ingredientsTrasform = new();
     public List<IngredientTransform> IngredientsTrasform => ingredientsTrasform;
@@ -58,8 +58,8 @@ public class FinalPlateArrangement : MonoBehaviour, ICustomArrangementProvider {
 
 
         string path = "Assets/_Assets/ScriptableObjects/FinalPlatesSO/" + name + ".asset";
-        finalPlateSO = UnityEditor.AssetDatabase.LoadAssetAtPath<FinalPlateSO>(path);
-        if (finalPlateSO == null) {
+        completeRecipeSO = UnityEditor.AssetDatabase.LoadAssetAtPath<CompleteRecipeSO>(path);
+        if (completeRecipeSO == null) {
             Debug.LogError($"Couldn't find FinalPlateSO at {path}", this);
         }
     }

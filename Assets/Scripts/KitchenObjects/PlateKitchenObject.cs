@@ -2,19 +2,22 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using KitchenObjects.ScriptableObjects;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlateKitchenObject : KitchenObject {
 
-    [SerializeField] private List<FinalPlateSO> finalPlates = new();
-    public List<FinalPlateSO> FinalPlates => finalPlates;
+    
+    [SerializeField] private CompleteRecipeSOList recipes;
+    public CompleteRecipeSOList Recipes => recipes;
 
     public event EventHandler OnValidIngredientsChanged;
 
-    private List<FinalPlateSO> validFinalPlates = new();
-    private HashSet<KitchenObjectSO> validIngredients = new();
+    private List<CompleteRecipeSO> validCompleteRecipes = new();
+    private readonly HashSet<KitchenObjectSO> validIngredients = new();
 
-    public IReadOnlyList<FinalPlateSO> ValidFinalPlates => validFinalPlates.AsReadOnly();
+    public IReadOnlyList<CompleteRecipeSO> ValidCompleteRecipes => validCompleteRecipes.AsReadOnly();
     public IReadOnlyCollection<KitchenObjectSO> ValidIngredients => validIngredients;
 
     private KitchenObjectsContainer ingredientsContainer;
@@ -64,11 +67,11 @@ public class PlateKitchenObject : KitchenObject {
             ingredientsSO.Add(ingredient.KitchenObjectSO);
         }
 
-        validFinalPlates = finalPlates.Where(finalPlate => finalPlate.IsValidFor(ingredientsSO)).ToList();
+        validCompleteRecipes = recipes.RecipeSOList.Where(finalPlate => finalPlate.IsValidFor(ingredientsSO)).ToList();
 
 
         validIngredients.Clear();
-        foreach (var finalPlate in validFinalPlates) {
+        foreach (var finalPlate in validCompleteRecipes) {
             finalPlate.GetMissingIngredient(ingredientsSO).ForEach(ingredient => validIngredients.Add(ingredient));
         }
 

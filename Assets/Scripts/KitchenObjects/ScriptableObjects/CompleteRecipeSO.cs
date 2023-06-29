@@ -1,22 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
-[CreateAssetMenu(fileName = "new FinalPlateKitchenObjectSO", menuName = "CookedUp/Final Plate", order = 3)]
-public class FinalPlateSO : ScriptableObject {
+[CreateAssetMenu(fileName = "new CompleteRecipeSO", menuName = "CookedUp/Complete Recipe", order = 3)]
+public class CompleteRecipeSO : ScriptableObject {
 
     [SerializeField] private string displayName;
     [SerializeField] private List<KitchenObjectSO> ingredients = new();
     [SerializeField, Range(0, 150)] private int value = 10;
 
-    [SerializeField] private FinalPlateArrangement finalPlateArrangmentPrefab;
+    [FormerlySerializedAs("finalPlateArrangmentPrefab")] [SerializeField] private RecipeArrangement recipeArrangementPrefab;
 
 
     public string DisplayName => displayName;
     public List<KitchenObjectSO> Ingredients => ingredients;
     public float Value => value;
 
-    public FinalPlateArrangement FinalPlateArrangmentPrefab => finalPlateArrangmentPrefab;
+    public RecipeArrangement RecipeArrangementPrefab => recipeArrangementPrefab;
 
 
 
@@ -38,6 +39,18 @@ public class FinalPlateSO : ScriptableObject {
 
         return missingIngredients;
     }
+    
+    public bool MatchesCompletely(List<KitchenObjectSO> otherIngredients) {
+        if(otherIngredients.Count != ingredients.Count)
+            return false;
+        
+        foreach (var ingredient in ingredients) {
+            if (!otherIngredients.Contains(ingredient))
+                return false;
+        }
+
+        return true;
+    }
 
 
 #if UNITY_EDITOR
@@ -46,8 +59,8 @@ public class FinalPlateSO : ScriptableObject {
         displayName = name.CamelCaseToSentence();
 
         string path = $"Assets/Prefabs/FinalPlateArrangements/{name}Arrangement.prefab";
-        finalPlateArrangmentPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<FinalPlateArrangement>(path);
-        if (finalPlateArrangmentPrefab == null) {
+        recipeArrangementPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<RecipeArrangement>(path);
+        if (recipeArrangementPrefab == null) {
             Debug.LogError($"Couldn't find prefab for {displayName} at {path}", this);
         }
 

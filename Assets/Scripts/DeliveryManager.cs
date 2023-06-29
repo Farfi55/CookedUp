@@ -1,0 +1,84 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using Extensions;
+using KitchenObjects.ScriptableObjects;
+using Unity.VisualScripting;
+using UnityEngine;
+using Random = System.Random;
+
+public class DeliveryManager : MonoBehaviour {
+    public static DeliveryManager Instance { get; private set; }
+
+
+    [SerializeField] private CompleteRecipeSOList recipes;
+
+    private readonly ObservableCollection<CompleteRecipeSO> waitingRecipeSOs = new();
+    public ObservableCollection<CompleteRecipeSO> WaitingRecipeSOs => waitingRecipeSOs;
+
+
+    private ProgressTracker progressTracker;
+
+    [SerializeField] private float timeForNewRequest = 10f;
+
+    [SerializeField] private int maxWaitingRequests = 3;
+
+    [SerializeField] private int startingWaitingRequests = 1;
+
+
+    private void Awake() {
+        if (Instance == null)
+            Instance = this;
+        else {
+            Debug.LogError("Multiple DeliveryManagers in scene!");
+            Destroy(gameObject);
+        }
+
+        progressTracker = GetComponent<ProgressTracker>();
+    }
+
+    private void Start() {
+        progressTracker.SetTotalWork(timeForNewRequest);
+        progressTracker.OnProgressComplete += ProgressTrackerOnOnProgressComplete;
+        
+        for (int i = 0; i < startingWaitingRequests; i++) {
+            GenerateNewRequest();
+        }
+    }
+
+
+    private void Update() {
+        if (waitingRecipeSOs.Count < maxWaitingRequests)
+            progressTracker.AddWorkDone(Time.deltaTime);
+    }
+
+    private void ProgressTrackerOnOnProgressComplete(object sender, EventArgs e) {
+        GenerateNewRequest();
+    }
+
+    private void GenerateNewRequest()
+    {
+        var completeRecipeSO = recipes.RecipeSOList.GetRandomElement();
+        waitingRecipeSOs.Add(completeRecipeSO);
+        progressTracker.ResetProgress();
+        Debug.Log($"New recipe request: {completeRecipeSO.DisplayName}");
+    }
+
+
+    public void DeliverRecipe(PlateKitchenObject plate) {
+        List<KitchenObjectSO> kitchenObjectSOs = plate.IngredientsContainer.AsKitchenObjectSOs();
+
+        var completeRecipeSO =
+            waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
+        if (completeRecipeSO == null) {
+            Debug.Log("No match found in waiting recipes");
+        }
+        else {
+            waitingRecipeSOs.Remove(completeRecipeSO);
+            Debug.Log($"Recipe {completeRecipeSO.DisplayName} delivered!");
+            plate.DestroySelf();
+        }
+    }
+}

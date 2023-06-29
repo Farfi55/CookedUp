@@ -103,8 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kitchenObjectSO: {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322, type: 2}
-  finalPlates:
-  - {fileID: 11400000, guid: 03b79e1f98e926e4187b5ac84b2a617a, type: 2}
+  recipes: {fileID: 11400000, guid: b37a0c3c2a23e92479960ea3d6e7d302, type: 2}
 --- !u!114 &7109123943374916145
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -125,6 +125,10 @@ public class KitchenObjectsContainer : MonoBehaviour {
 
         InvokeOnChange();
     }
+    
+    public List<KitchenObjectSO> AsKitchenObjectSOs() {
+        return kitchenObjects.ConvertAll(input => input.KitchenObjectSO);
+    }
 
     private void InvokeOnChange() {
         var args = new KitchenObjectsChangedEvent(this, KitchenObjects, GetNext());

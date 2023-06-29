@@ -9,8 +9,8 @@ public class PlateVisuals : MonoBehaviour {
     private PlateKitchenObject plateKitchenObject;
     private KitchenObjectsContainerVisual containerVisual;
 
-    private FinalPlateArrangement plateArrangementPrefab;
-    private FinalPlateArrangement plateArrangementInstance;
+    private RecipeArrangement plateArrangementPrefab;
+    private RecipeArrangement plateArrangementInstance;
 
 
     [SerializeField] private Transform plateArrangementParent;
@@ -31,14 +31,14 @@ public class PlateVisuals : MonoBehaviour {
     private void UpdateVisuals() {
         var oldPlateArrangementPrefab = plateArrangementPrefab;
 
-        FinalPlateSO plateSO = plateKitchenObject.ValidFinalPlates[0];
+        CompleteRecipeSO plateSO = plateKitchenObject.ValidCompleteRecipes[0];
 
         if (plateSO == null) {
             Debug.LogError("PlateSO is null");
             return;
         }
 
-        var newPlateArrangementPrefab = plateSO.FinalPlateArrangmentPrefab;
+        var newPlateArrangementPrefab = plateSO.RecipeArrangementPrefab;
         if (oldPlateArrangementPrefab != newPlateArrangementPrefab) {
             plateArrangementPrefab = newPlateArrangementPrefab;
 
