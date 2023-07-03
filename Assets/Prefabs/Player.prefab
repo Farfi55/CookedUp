@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8342188959273622475}
   - component: {fileID: 6440946968829065954}
   - component: {fileID: 2305633455088201913}
+  - component: {fileID: 1108968505049058868}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -34,10 +35,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4155301799867645295}
+  - {fileID: 3922019417101181938}
   - {fileID: 1446726219835887947}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &4706379898146698279
 MonoBehaviour:
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   rotationSpeed: 10
-  interactionDistance: 1.5
+  interactionDistance: 1.7
   interactionLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e567aa9243bfd48b3189996291c34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeLimit: 0
+  sizeLimit: 1
 --- !u!114 &2305633455088201913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,11 +145,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f764279460c79409ab998f756d2c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 6440946968829065954}
   kitchenObjectsParents:
   - {fileID: 1446726219835887947}
   type: 0
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &1108968505049058868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645957809171568415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ffe1f49246477da6d10cb5443a06d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepDistance: 0.85
 --- !u!1 &8650454984087082880
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +270,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4327219500921633628}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
---- !u!1 &4155301799867645292 stripped
+--- !u!1 &3922019417101181937 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab,
     type: 3}
@@ -269,14 +282,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4155301799867645292}
+  m_GameObject: {fileID: 3922019417101181937}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcd663aec034d894e838414cdca43736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4706379898146698279}
---- !u!4 &4155301799867645295 stripped
+--- !u!4 &3922019417101181938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251327466532, guid: 1c5dda3c7cd3cf742afcade5419faeab,
     type: 3}

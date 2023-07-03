@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Players;
 using UnityEngine;
 
 namespace Counters
@@ -9,19 +10,19 @@ namespace Counters
         public event EventHandler<InteractableEvent> OnInteractAlternate;
         public event EventHandler<SelectionChangedEvent> OnSelectedChanged;
 
-        private List<Player.Player> playersSelecting = new();
+        private List<Player> playersSelecting = new();
 
-        public virtual void Interact(Player.Player player) { }
+        public virtual void Interact(Player player) { }
 
-        public virtual void InteractAlternate(Player.Player player) { }
+        public virtual void InteractAlternate(Player player) { }
 
-        public virtual void InteractAlternateContinuous(Player.Player player) { }
+        public virtual void InteractAlternateContinuous(Player player) { }
 
         public bool IsSelected() => playersSelecting.Count > 0;
 
-        public bool IsSelected(Player.Player player) => playersSelecting.Contains(player);
+        public bool IsSelected(Player player) => playersSelecting.Contains(player);
 
-        public void SetSelected(Player.Player player, bool isSelected) {
+        public void SetSelected(Player player, bool isSelected) {
             if (isSelected) {
                 if (!playersSelecting.Contains(player)) {
                     playersSelecting.Add(player);

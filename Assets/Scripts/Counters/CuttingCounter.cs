@@ -3,7 +3,9 @@ using System.Linq;
 using KitchenObjects;
 using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
+using Players;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Counters
 {
@@ -20,9 +22,14 @@ namespace Counters
         [SerializeField] private CuttingRecipeSO[] cuttingRecipes;
 
 
+        [SerializeField] private float chopCooldown = 0.3f;
+        private float remainingChopCooldown = 0;
+         
+        
     
         public event EventHandler<ValueChangedEvent<BaseRecipeSO>> OnRecipeChanged;
-
+        public event EventHandler<Player> OnChop;
+        public static event EventHandler<Player> OnAnyChop;
 
         private void Awake() {
             ProgressTracker = GetComponent<ProgressTracker>();
@@ -33,6 +40,10 @@ namespace Counters
 
         private void Start() {
             ProgressTracker.OnProgressComplete += (sender, e) => OnCuttingCompleted();
+        }
+
+        private void Update() {
+            remainingChopCooldown -= Time.deltaTime;
         }
 
 
@@ -53,7 +64,7 @@ namespace Counters
         }
 
 
-        public override void Interact(Player.Player player) {
+        public override void Interact(Player player) {
             if (Container.IsEmpty()) {
                 if (player.HasKitchenObject() && CanCut(player.CurrentKitchenObject.KitchenObjectSO)) {
                     player.CurrentKitchenObject.SetContainer(Container);
@@ -73,7 +84,7 @@ namespace Counters
 
         }
 
-        public override void InteractAlternateContinuous(Player.Player player) {
+        public override void InteractAlternateContinuous(Player player) {
             if (Container.IsEmpty())
                 return;
 
@@ -82,6 +93,12 @@ namespace Counters
                 return;
             }
 
+            if (remainingChopCooldown <= 0f) {
+                remainingChopCooldown = chopCooldown;
+                OnChop?.Invoke(this, player);
+                OnAnyChop?.Invoke(this, player);
+            }
+            
             ProgressTracker.AddWorkDone(Time.deltaTime);
             InvokeOnInteractAlternate(new InteractableEvent(player));
         }
@@ -107,5 +124,6 @@ namespace Counters
             recipe = GetRecipeFor(kitchenObjectSO);
             return recipe != null;
         }
+
     }
 }

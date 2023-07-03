@@ -3,7 +3,7 @@ using KitchenObjects;
 using KitchenObjects.Container;
 using UnityEngine;
 
-namespace Player
+namespace Players
 {
     [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(KitchenObjectsContainer))]

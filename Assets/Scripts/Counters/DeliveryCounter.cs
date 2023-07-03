@@ -1,4 +1,5 @@
 using KitchenObjects.Container;
+using Players;
 
 namespace Counters
 {
@@ -10,7 +11,7 @@ namespace Counters
             Container = GetComponent<KitchenObjectsContainer>();
         }
 
-        public override void Interact(Player.Player player) {
+        public override void Interact(Player player) {
         
             if (player.HasKitchenObject() && player.CurrentKitchenObject.TryGetPlate(out var plate)) {
                 plate.SetContainer(Container);

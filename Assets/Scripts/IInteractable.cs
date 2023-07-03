@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using Players;
 using UnityEngine;
 
 public interface IInteractable {
@@ -10,33 +10,33 @@ public interface IInteractable {
     event EventHandler<SelectionChangedEvent> OnSelectedChanged;
 
 
-    void Interact(Player.Player player);
-    void InteractAlternate(Player.Player player);
-    void InteractAlternateContinuous(Player.Player player);
+    void Interact(Player player);
+    void InteractAlternate(Player player);
+    void InteractAlternateContinuous(Player player);
 
 
-    void SetSelected(Player.Player player, bool isSelected);
+    void SetSelected(Player player, bool isSelected);
     bool IsSelected();
-    bool IsSelected(Player.Player player);
+    bool IsSelected(Player player);
 
 }
 
 
 
 public class InteractableEvent : EventArgs {
-    public Player.Player Player { get; private set; }
+    public Player Player { get; private set; }
 
-    public InteractableEvent(Player.Player player) {
+    public InteractableEvent(Player player) {
         Player = player;
     }
 
 }
 
 public class SelectionChangedEvent : EventArgs {
-    public Player.Player Player { get; private set; }
+    public Player Player { get; private set; }
     public bool IsSelected { get; private set; }
 
-    public SelectionChangedEvent(Player.Player player, bool isSelected) {
+    public SelectionChangedEvent(Player player, bool isSelected) {
         Player = player;
         IsSelected = isSelected;
     }

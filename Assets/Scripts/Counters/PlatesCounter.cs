@@ -1,6 +1,7 @@
 using KitchenObjects;
 using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
+using Players;
 using UnityEngine;
 
 namespace Counters
@@ -47,7 +48,7 @@ namespace Counters
         }
 
 
-        public override void Interact(Player.Player player) {
+        public override void Interact(Player player) {
             var wasFull = Container.IsFull();
         
             if (player.HasKitchenObject()) {

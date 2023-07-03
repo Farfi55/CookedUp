@@ -3,6 +3,7 @@ using System.Linq;
 using KitchenObjects;
 using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
+using Players;
 using UnityEngine;
 
 namespace Counters
@@ -59,7 +60,7 @@ namespace Counters
             OnRecipeChanged?.Invoke(this, new(oldRecipe, CurrentCookingRecipe));
         }
 
-        public override void Interact(Player.Player player) {
+        public override void Interact(Player player) {
             if (Container.IsEmpty()) {
                 if (player.HasKitchenObject() && CanCook(player.CurrentKitchenObject.KitchenObjectSO)) {
                     player.CurrentKitchenObject.SetContainer(Container);
