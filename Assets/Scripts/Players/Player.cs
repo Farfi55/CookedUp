@@ -11,7 +11,9 @@ namespace Players
         private PlayerInput playerInput;
         private KitchenObjectsContainer container;
         private Rigidbody rb;
-
+        
+        private PlayersManager playersManager;
+        
         public KitchenObjectsContainer Container => container;
         public KitchenObject CurrentKitchenObject => container.KitchenObject;
 
@@ -49,22 +51,33 @@ namespace Players
         }
 
         private void Start() {
-            playerInput.OnInteract += PlayerInput_HandleInteractions;
-            playerInput.OnInteractAlternate += PlayerInput_HandleAlternateInteractions;
+            playersManager = PlayersManager.Instance;
+            playersManager.AddPlayer(this);
+            
+            playerInput.OnInteract += HandleInteractionInput;
+            playerInput.OnInteractAlternate += HandleAlternateInteractionInput;
+            playerInput.OnReady += HandleReadyInput;
+        }
+        
+        private void OnDestroy() {
+            playersManager.RemovePlayer(this);
         }
 
-
-        private void PlayerInput_HandleInteractions(object sender, EventArgs e) {
+        private void HandleInteractionInput(object sender, EventArgs e) {
             if (HasInteractableSelected()) {
                 selectedInteractable.Interact(this);
             }
         }
 
-        private void PlayerInput_HandleAlternateInteractions(object sender, EventArgs e) {
+        private void HandleAlternateInteractionInput(object sender, EventArgs e) {
             IsInteractingAlternate = true;
             if (HasInteractableSelected()) {
                 selectedInteractable.InteractAlternate(this);
             }
+        }
+        
+        private void HandleReadyInput(object sender, EventArgs e) {
+            playersManager.TogglePlayerReady(this);
         }
 
         private void Update() {
@@ -140,7 +153,6 @@ namespace Players
 
         public bool HasKitchenObject() => CurrentKitchenObject != null;
         private bool HasInteractableSelected() => selectedInteractable != null;
-
 
     }
 }

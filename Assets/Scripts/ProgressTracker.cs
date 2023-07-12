@@ -8,7 +8,6 @@ public class ProgressTracker : MonoBehaviour {
 
     [SerializeField] private bool resetOnComplete = false;
 
-
     public double WorkDone => progress * totalWork;
 
     private double totalWork = 1d;
@@ -16,6 +15,10 @@ public class ProgressTracker : MonoBehaviour {
 
     [SerializeField, Range(0f, 1f)] private double progress = 0d;
     public double Progress => progress;
+    
+    public bool IsComplete => progress >= 1f;
+    public bool AnyProgress => progress > 0f;
+    public bool HasNoProgress => progress == 0f;
 
     public void SetProgress(double progress) {
         // Clamp the progress between 0 and 1.
@@ -50,7 +53,7 @@ public class ProgressTracker : MonoBehaviour {
     }
 
     public void RemoveWorkDone(double workDone) {
-        SetWorkDone(WorkDone + workDone);
+        SetWorkDone(WorkDone - workDone);
     }
 
     public void SetWorkRemaining(double workRemaining) {
