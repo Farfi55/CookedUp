@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Players;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     
     private PlayersManager playersManager;
     
+
     [SerializeField] private ProgressTracker gameStateProgressTracker;
+    public ProgressTracker GameStateProgressTracker => gameStateProgressTracker;
 
     [SerializeField] private float onPlayersReadyTime = 1f; 
     
@@ -20,10 +23,17 @@ public class GameManager : MonoBehaviour
     
     public GamePlayingState GameState => gameState;
     private GamePlayingState gameState;
+    
+    public bool IsGamePlaying => gameState == GamePlayingState.Playing;
+
 
     private bool allPlayersReady = false;
     
-    
+    public event EventHandler<ValueChangedEvent<GamePlayingState>> OnGameStateChanged;
+
+
+
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -40,7 +50,7 @@ public class GameManager : MonoBehaviour
         playersManager = PlayersManager.Instance;
         playersManager.OnPlayersReadyChanged += OnPlayersReadyChanged;
         
-        gameStateProgressTracker.OnProgressComplete += OnGameStateProgressComplete;
+        GameStateProgressTracker.OnProgressComplete += OnGameStateProgressComplete;
     }
 
     private void OnGameStateProgressComplete(object sender, EventArgs e) {
@@ -71,24 +81,27 @@ public class GameManager : MonoBehaviour
     }
 
     private void SetState(GamePlayingState newState) {
+        var oldState = gameState;
         gameState = newState;
         
         switch (gameState) {
             case GamePlayingState.Waiting:
-                gameStateProgressTracker.SetTotalWork(onPlayersReadyTime);
+                GameStateProgressTracker.SetTotalWork(onPlayersReadyTime);
                 break;
             case GamePlayingState.Starting:
-                gameStateProgressTracker.SetTotalWork(timeToStart);
+                GameStateProgressTracker.SetTotalWork(timeToStart);
                 break;
             case GamePlayingState.Playing:
-                gameStateProgressTracker.SetTotalWork(timeToPlay);
+                GameStateProgressTracker.SetTotalWork(timeToPlay);
                 break;
             case GamePlayingState.GameOver:
-                gameStateProgressTracker.ResetProgress();
+                GameStateProgressTracker.ResetProgress();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        
+        OnGameStateChanged?.Invoke(this, new(oldState, newState));
     }
 
     private void NextGameState() {
@@ -110,8 +123,8 @@ public class GameManager : MonoBehaviour
         if (allPlayersReady) {
             AddTimeProgress();
         }
-        else if (gameStateProgressTracker.Progress > 0) {
-            gameStateProgressTracker.RemoveWorkDone(Time.deltaTime * 2f);
+        else if (GameStateProgressTracker.Progress > 0) {
+            GameStateProgressTracker.RemoveWorkDone(Time.deltaTime * 2f);
         }
     }
     private void StaringUpdate() {
@@ -123,7 +136,7 @@ public class GameManager : MonoBehaviour
     }
     
     private void AddTimeProgress() {
-        gameStateProgressTracker.AddWorkDone(Time.deltaTime);
+        GameStateProgressTracker.AddWorkDone(Time.deltaTime);
     }
 }
 

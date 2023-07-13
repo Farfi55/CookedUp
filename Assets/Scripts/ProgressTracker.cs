@@ -63,4 +63,5 @@ public class ProgressTracker : MonoBehaviour {
     public void ResetTotalWork() => SetTotalWork(1d);
     public void ResetProgress() => SetProgress(0d);
 
+    public double GetWorkRemaining() => totalWork - WorkDone;
 }

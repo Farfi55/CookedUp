@@ -29,6 +29,8 @@ public class DeliveryManager : MonoBehaviour {
     [SerializeField] private int maxWaitingRequests = 3;
 
     [SerializeField] private int startingWaitingRequests = 1;
+    public int SuccessfulDeliveriesCount { get; private set; } = 0;
+
 
     public event EventHandler<CompleteRecipeSO> OnRecipeCreated;
     public event EventHandler<RecipeDeliveryEvent> OnRecipeDelivered;
@@ -88,6 +90,7 @@ public class DeliveryManager : MonoBehaviour {
         }
         else {
             waitingRecipeSOs.Remove(completeRecipeSO);
+            SuccessfulDeliveriesCount++;
             Debug.Log($"Recipe {completeRecipeSO.DisplayName} delivered!");
             plate.DestroySelf();
             OnRecipeDelivered?.Invoke(this, new RecipeDeliveryEvent(completeRecipeSO, player, deliveryCounter));

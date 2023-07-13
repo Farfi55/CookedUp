@@ -13,7 +13,8 @@ namespace Players
         private Rigidbody rb;
         
         private PlayersManager playersManager;
-        
+        private GameManager gameManager;
+
         public KitchenObjectsContainer Container => container;
         public KitchenObject CurrentKitchenObject => container.KitchenObject;
 
@@ -54,6 +55,8 @@ namespace Players
             playersManager = PlayersManager.Instance;
             playersManager.AddPlayer(this);
             
+            gameManager = GameManager.Instance;
+            
             playerInput.OnInteract += HandleInteractionInput;
             playerInput.OnInteractAlternate += HandleAlternateInteractionInput;
             playerInput.OnReady += HandleReadyInput;
@@ -64,12 +67,18 @@ namespace Players
         }
 
         private void HandleInteractionInput(object sender, EventArgs e) {
+            if(!gameManager.IsGamePlaying)
+                return;
+            
             if (HasInteractableSelected()) {
                 selectedInteractable.Interact(this);
             }
         }
 
         private void HandleAlternateInteractionInput(object sender, EventArgs e) {
+            if(!gameManager.IsGamePlaying)
+                return;
+            
             IsInteractingAlternate = true;
             if (HasInteractableSelected()) {
                 selectedInteractable.InteractAlternate(this);
@@ -77,7 +86,8 @@ namespace Players
         }
         
         private void HandleReadyInput(object sender, EventArgs e) {
-            playersManager.TogglePlayerReady(this);
+            if(!gameManager.IsGamePlaying)
+                playersManager.TogglePlayerReady(this);
         }
 
         private void Update() {
