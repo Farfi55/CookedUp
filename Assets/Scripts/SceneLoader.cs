@@ -19,9 +19,8 @@ public static class SceneLoader {
     }
     
     public static float GetLoadingProgress() {
-        if (targetSceneLoadingOperation == null) {
+        if (targetSceneLoadingOperation == null)
             return 1f;
-        }
         return targetSceneLoadingOperation.progress;
     }
 
