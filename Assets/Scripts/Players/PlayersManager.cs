@@ -28,9 +28,20 @@ namespace Players {
         }
 
         private void OnEnable() {
-            Player.OnAnyPlayerSpawned += (_, player) => AddPlayer(player);
-            Player.OnAnyPlayerDestroyed += (_, player) => RemovePlayer(player);
+            Player.OnAnyPlayerSpawned += OnPlayerSpawned;
+            Player.OnAnyPlayerDestroyed += OnPlayerDestroyed;
         }
+
+
+
+        private void OnDisable() {
+            Player.OnAnyPlayerSpawned -= OnPlayerSpawned;
+            Player.OnAnyPlayerDestroyed -= OnPlayerDestroyed;
+        }
+        
+        private void OnPlayerSpawned(object sender, Player player) => AddPlayer(player);
+        
+        private void OnPlayerDestroyed(object sender, Player player) => RemovePlayer(player);
 
         public Player GetPlayer(int index) {
             return players[index];

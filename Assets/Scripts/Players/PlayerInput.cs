@@ -13,6 +13,8 @@ namespace Players
         public event EventHandler OnInteractAlternateCanceled;
         public event EventHandler OnReady;
 
+        public event EventHandler OnPause;
+
 
         private void Awake() {
             inputActions = new PlayerInputActions();
@@ -24,9 +26,24 @@ namespace Players
             inputActions.Player.InteractAlternate.canceled += InteractAlternateCanceled;
             
             inputActions.Player.Ready.performed += ReadyPerformed;
+            
+            inputActions.Player.Pause.performed += PausePerformed;
         }
         
-        
+        private void OnDestroy() {
+            inputActions.Player.Interact.performed -= InteractPerformed;
+            
+            inputActions.Player.InteractAlternate.performed -= InteractAlternatePerformed;
+            inputActions.Player.InteractAlternate.canceled -= InteractAlternateCanceled;
+            
+            inputActions.Player.Ready.performed -= ReadyPerformed;
+            
+            inputActions.Player.Pause.performed -= PausePerformed;
+
+            inputActions.Dispose();
+        }
+
+
         /// <returns>the movement input normalized.</returns>
         public Vector2 GetMovementInput() {
             return inputActions.Player.Move.ReadValue<Vector2>().normalized;
@@ -52,5 +69,10 @@ namespace Players
             OnReady?.Invoke(this, EventArgs.Empty);
         }
         
+        
+        private void PausePerformed(InputAction.CallbackContext obj) {
+            OnPause?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 }

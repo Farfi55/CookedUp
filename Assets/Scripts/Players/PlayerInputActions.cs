@@ -64,6 +64,15 @@ namespace Players
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""be99c194-3586-4faa-a5f6-943b1e307550"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -264,6 +273,28 @@ namespace Players
                     ""action"": ""Ready"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""553eddbe-5169-45e8-891d-9bdd2ff175b0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9303d90f-a216-4ac4-8994-fcdaa6e46d4e"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -276,6 +307,7 @@ namespace Players
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_InteractAlternate = m_Player.FindAction("InteractAlternate", throwIfNotFound: true);
             m_Player_Ready = m_Player.FindAction("Ready", throwIfNotFound: true);
+            m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -341,6 +373,7 @@ namespace Players
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_InteractAlternate;
         private readonly InputAction m_Player_Ready;
+        private readonly InputAction m_Player_Pause;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -349,6 +382,7 @@ namespace Players
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputAction @InteractAlternate => m_Wrapper.m_Player_InteractAlternate;
             public InputAction @Ready => m_Wrapper.m_Player_Ready;
+            public InputAction @Pause => m_Wrapper.m_Player_Pause;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -370,6 +404,9 @@ namespace Players
                 @Ready.started += instance.OnReady;
                 @Ready.performed += instance.OnReady;
                 @Ready.canceled += instance.OnReady;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -386,6 +423,9 @@ namespace Players
                 @Ready.started -= instance.OnReady;
                 @Ready.performed -= instance.OnReady;
                 @Ready.canceled -= instance.OnReady;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -409,6 +449,7 @@ namespace Players
             void OnInteract(InputAction.CallbackContext context);
             void OnInteractAlternate(InputAction.CallbackContext context);
             void OnReady(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
     }
 }

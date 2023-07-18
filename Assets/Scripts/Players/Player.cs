@@ -63,6 +63,7 @@ namespace Players
             playerInput.OnInteract += HandleInteractionInput;
             playerInput.OnInteractAlternate += HandleAlternateInteractionInput;
             playerInput.OnReady += HandleReadyInput;
+            playerInput.OnPause += HandlePauseInput;
             
         }
 
@@ -97,6 +98,9 @@ namespace Players
         }
 
         private void Update() {
+            if(gameManager.IsGamePaused)
+                return;
+            
             UpdateSelectedInteractable();
 
             IsInteractingAlternate = playerInput.IsInteractAlternatePressed();
@@ -165,6 +169,10 @@ namespace Players
 
         private void HandleMovement(Vector3 moveDirection) {
             rb.velocity = moveDirection * movementSpeed;
+        }
+        
+        private void HandlePauseInput(object sender, EventArgs e) {
+            gameManager.TogglePause();
         }
 
         public bool HasKitchenObject() => CurrentKitchenObject != null;

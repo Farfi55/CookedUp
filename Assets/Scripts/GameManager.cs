@@ -25,14 +25,23 @@ public class GameManager : MonoBehaviour
     private GamePlayingState gameState;
     
     [SerializeField] private GamePlayingState startingState = GamePlayingState.Starting;
-    
+
     public bool IsGamePlaying => gameState == GamePlayingState.Playing;
     public bool IsGameOver => gameState == GamePlayingState.GameOver;
 
 
+        
+    public GamePauseState GamePauseState => gamePauseState;
+    private GamePauseState gamePauseState = GamePauseState.Unpaused;
+    
+    public bool IsGamePaused => gamePauseState == GamePauseState.Paused;
+    public bool IsGameUnpaused => gamePauseState == GamePauseState.Unpaused;
+    
     private bool allPlayersReady = false;
     
     public event EventHandler<ValueChangedEvent<GamePlayingState>> OnGameStateChanged;
+    
+    public event EventHandler<ValueChangedEvent<GamePauseState>> OnGamePauseStateChanged;
 
 
 
@@ -144,11 +153,36 @@ public class GameManager : MonoBehaviour
     private void AddTimeProgress() {
         GameStateProgressTracker.AddWorkDone(Time.deltaTime);
     }
+
+    public void TogglePause() {
+        var oldState = gamePauseState;
+        
+        gamePauseState = gamePauseState switch {
+            GamePauseState.Paused => GamePauseState.Unpaused,
+            GamePauseState.Unpaused => GamePauseState.Paused,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+        
+        
+        Time.timeScale = gamePauseState switch {
+            GamePauseState.Paused => 0f,
+            GamePauseState.Unpaused => 1f,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+        
+        OnGamePauseStateChanged?.Invoke(this, new ValueChangedEvent<GamePauseState>(oldState, gamePauseState));
+    }
 }
+
 
 public enum GamePlayingState {
     Waiting,
     Starting,
     Playing,
     GameOver,
+}
+
+public enum GamePauseState {
+    Paused,
+    Unpaused,
 }
