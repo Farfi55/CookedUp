@@ -8,6 +8,8 @@ namespace Counters
 {
     public class PlatesCounter : BaseCounter {
 
+        private GameManager gameManager;
+        
         public KitchenObjectsContainer Container { get; private set; }
 
         private ProgressTracker progressTracker;
@@ -29,6 +31,8 @@ namespace Counters
         }
 
         private void Start() {
+            gameManager = GameManager.Instance;
+            
             progressTracker.SetTotalWork(timeToSpawnPlate);
             progressTracker.OnProgressComplete += (sender, e) => SpawnPlate();
 
@@ -42,7 +46,7 @@ namespace Counters
         }
 
         private void Update() {
-            if (IsFull())
+            if (IsFull() || !gameManager.IsGamePlaying)
                 return;
             progressTracker.AddWorkDone(Time.deltaTime);
         }

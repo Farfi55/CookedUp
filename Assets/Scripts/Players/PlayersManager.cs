@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using Extensions;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 namespace Players {
     public class PlayersManager : MonoBehaviour {
         public static PlayersManager Instance { get; private set; }
-        
+
         public List<Player> Players => players;
         [SerializeField] private List<Player> players;
-        
+
         public int PlayerCount => players.Count;
 
         private readonly HashSet<Player> playersReady = new();
@@ -25,49 +26,62 @@ namespace Players {
                 Destroy(gameObject);
             }
         }
-        
+
+        private void OnEnable() {
+            Player.OnAnyPlayerSpawned += (_, player) => AddPlayer(player);
+            Player.OnAnyPlayerDestroyed += (_, player) => RemovePlayer(player);
+        }
+
         public Player GetPlayer(int index) {
             return players[index];
         }
-        
+
         public Player GetRandomPlayer() {
             return players.GetRandomElement();
         }
-        
+
         public void AddPlayer(Player player) {
+            if(players.Contains(player)) return;
+            
             players.Add(player);
+            player.OnPlayerReady += PlayersReady;
         }
-        
-        public void RemovePlayer(Player player) {
+
+
+        private void RemovePlayer(Player player) {
             players.Remove(player);
+            playersReady.Remove(player);
+            player.OnPlayerReady -= PlayersReady;
         }
-        
-        
-        public void TogglePlayerReady(Player player) {
+
+
+        private void TogglePlayerReady(Player player) {
             if (playersReady.Contains(player))
                 SetPlayerNotReady(player);
             else SetPlayerReady(player);
         }
-        
-        public void SetPlayerReady(Player player) {
+
+        private void PlayersReady(object sender, EventArgs eventArgs) {
+            TogglePlayerReady(sender as Player);
+        }
+
+
+        private void SetPlayerReady(Player player) {
             playersReady.Add(player);
             OnPlayersReadyChanged?.Invoke(this, EventArgs.Empty);
         }
-        
-        public void SetPlayerNotReady(Player player) {
+
+        private void SetPlayerNotReady(Player player) {
             playersReady.Remove(player);
             OnPlayersReadyChanged?.Invoke(this, EventArgs.Empty);
         }
-        
+
         public bool AreAllPlayersReady() {
             return playersReady.Count == players.Count;
         }
-        
+
         public void ResetPlayersReady() {
             playersReady.Clear();
         }
-        
-        
-        
     }
 }

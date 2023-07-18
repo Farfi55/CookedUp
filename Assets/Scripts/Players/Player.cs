@@ -12,7 +12,6 @@ namespace Players
         private KitchenObjectsContainer container;
         private Rigidbody rb;
         
-        private PlayersManager playersManager;
         private GameManager gameManager;
 
         public KitchenObjectsContainer Container => container;
@@ -36,6 +35,11 @@ namespace Players
 
         private IInteractable selectedInteractable = null;
         public event EventHandler OnSelectedInteractableChanged;
+        
+        public static event EventHandler<Player> OnAnyPlayerSpawned; 
+        public static event EventHandler<Player> OnAnyPlayerDestroyed;
+        public event EventHandler OnPlayerReady;
+        
 
         public bool IsMoving => isMoving;
         private bool isMoving = false;
@@ -52,18 +56,18 @@ namespace Players
         }
 
         private void Start() {
-            playersManager = PlayersManager.Instance;
-            playersManager.AddPlayer(this);
+            OnAnyPlayerSpawned?.Invoke(this, this);
             
             gameManager = GameManager.Instance;
             
             playerInput.OnInteract += HandleInteractionInput;
             playerInput.OnInteractAlternate += HandleAlternateInteractionInput;
             playerInput.OnReady += HandleReadyInput;
+            
         }
-        
+
         private void OnDestroy() {
-            playersManager.RemovePlayer(this);
+            OnAnyPlayerDestroyed?.Invoke(this, this);
         }
 
         private void HandleInteractionInput(object sender, EventArgs e) {
@@ -86,8 +90,10 @@ namespace Players
         }
         
         private void HandleReadyInput(object sender, EventArgs e) {
-            if(!gameManager.IsGamePlaying)
-                playersManager.TogglePlayerReady(this);
+            if (!gameManager.IsGamePlaying) {
+                OnPlayerReady?.Invoke(this, EventArgs.Empty);
+            }
+                
         }
 
         private void Update() {

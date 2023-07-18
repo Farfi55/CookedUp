@@ -1585,6 +1585,7 @@ MonoBehaviour:
   onPlayersReadyTime: 2
   timeToStart: 3
   timeToPlay: 60
+  startingState: 1
 --- !u!1 &430805949
 GameObject:
   m_ObjectHideFlags: 0
@@ -4469,6 +4470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656492665}
   - component: {fileID: 1656492666}
+  - component: {fileID: 1656492667}
   m_Layer: 5
   m_Name: GameStartCountDownUI
   m_TagString: Untagged
@@ -4510,6 +4512,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownText: {fileID: 1150436049}
+--- !u!114 &1656492667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656492664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fe7292f75e0004db2a18b52a5ef2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 1
 --- !u!4 &1663657845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2444403353606739351, guid: b47e227d2d8cc5e4a9f4d5f484439501,

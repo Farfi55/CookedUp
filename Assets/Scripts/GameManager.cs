@@ -24,7 +24,10 @@ public class GameManager : MonoBehaviour
     public GamePlayingState GameState => gameState;
     private GamePlayingState gameState;
     
+    [SerializeField] private GamePlayingState startingState = GamePlayingState.Starting;
+    
     public bool IsGamePlaying => gameState == GamePlayingState.Playing;
+    public bool IsGameOver => gameState == GamePlayingState.GameOver;
 
 
     private bool allPlayersReady = false;
@@ -48,6 +51,9 @@ public class GameManager : MonoBehaviour
     
     private void Start() {
         playersManager = PlayersManager.Instance;
+
+        SetState(startingState);
+        
         playersManager.OnPlayersReadyChanged += OnPlayersReadyChanged;
         
         GameStateProgressTracker.OnProgressComplete += OnGameStateProgressComplete;

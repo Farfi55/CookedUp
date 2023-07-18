@@ -15,6 +15,7 @@ using Random = System.Random;
 public class DeliveryManager : MonoBehaviour {
     public static DeliveryManager Instance { get; private set; }
 
+    private GameManager gameManager;
 
     [SerializeField] private CompleteRecipeSOList recipes;
 
@@ -34,12 +35,10 @@ public class DeliveryManager : MonoBehaviour {
 
     public event EventHandler<CompleteRecipeSO> OnRecipeCreated;
     public event EventHandler<RecipeDeliveryEvent> OnRecipeDelivered;
-    public event EventHandler<RecipeDeliveryEvent>  OnRecipeSuccess;
-    public event EventHandler<RecipeDeliveryEvent>  OnRecipeFailed;
-    
-    
-    
-    
+    public event EventHandler<RecipeDeliveryEvent> OnRecipeSuccess;
+    public event EventHandler<RecipeDeliveryEvent> OnRecipeFailed;
+
+
     private void Awake() {
         if (Instance == null)
             Instance = this;
@@ -52,9 +51,11 @@ public class DeliveryManager : MonoBehaviour {
     }
 
     private void Start() {
+        gameManager = GameManager.Instance;
+        
         progressTracker.SetTotalWork(timeForNewRequest);
         progressTracker.OnProgressComplete += ProgressTrackerOnOnProgressComplete;
-        
+
         for (int i = 0; i < startingWaitingRequests; i++) {
             CreateNewRecipe();
         }
@@ -62,6 +63,8 @@ public class DeliveryManager : MonoBehaviour {
 
 
     private void Update() {
+        if (!gameManager.IsGamePlaying) return;
+
         if (waitingRecipeSOs.Count < maxWaitingRequests)
             progressTracker.AddWorkDone(Time.deltaTime);
     }
@@ -70,8 +73,7 @@ public class DeliveryManager : MonoBehaviour {
         CreateNewRecipe();
     }
 
-    private void CreateNewRecipe()
-    {
+    private void CreateNewRecipe() {
         var completeRecipeSO = recipes.RecipeSOList.GetRandomElement();
         waitingRecipeSOs.Add(completeRecipeSO);
         progressTracker.ResetProgress();
@@ -83,7 +85,8 @@ public class DeliveryManager : MonoBehaviour {
     public void DeliverRecipe(PlateKitchenObject plate, Player player, DeliveryCounter deliveryCounter) {
         List<KitchenObjectSO> kitchenObjectSOs = plate.IngredientsContainer.AsKitchenObjectSOs();
 
-        var completeRecipeSO = waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
+        var completeRecipeSO =
+            waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
         if (completeRecipeSO == null) {
             OnRecipeFailed?.Invoke(this, new RecipeDeliveryEvent(null, player, deliveryCounter));
             Debug.Log("No match found in waiting recipes");
@@ -103,7 +106,7 @@ public struct RecipeDeliveryEvent {
     public CompleteRecipeSO RecipeSO { get; }
     public Player Player { get; }
     public DeliveryCounter DeliveryCounter { get; }
-    
+
     public RecipeDeliveryEvent(CompleteRecipeSO recipeSo, Player player, DeliveryCounter deliveryCounter) {
         RecipeSO = recipeSo;
         Player = player;

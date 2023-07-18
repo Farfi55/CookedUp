@@ -6,42 +6,38 @@ namespace UI
 {
     public class GameStartCountDownUI : MonoBehaviour
     {
+        private GameManager gameManager;
     
         [SerializeField] private TextMeshProUGUI countDownText;
-    
+
         private void Start() {
-            GameManager.Instance.OnGameStateChanged += OnGameStateChanged;
-            Hide();
+            gameManager = GameManager.Instance;
+            gameManager.OnGameStateChanged += OnGameStateChanged;
+            
+            if(gameManager.GameState == GamePlayingState.Starting) {
+                gameManager.GameStateProgressTracker.OnProgressChanged += OnStartTimerChanged;
+            }
         }
 
         private void OnGameStateChanged(object sender, ValueChangedEvent<GamePlayingState> e) {
             if (e.NewValue == GamePlayingState.Starting) {
-                Show();
-                GameManager.Instance.GameStateProgressTracker.OnProgressChanged += OnStartTimerChanged;
+                gameManager.GameStateProgressTracker.OnProgressChanged += OnStartTimerChanged;
             }
             else {
-                Hide();
-                GameManager.Instance.GameStateProgressTracker.OnProgressChanged -= OnStartTimerChanged;
+                gameManager.GameStateProgressTracker.OnProgressChanged -= OnStartTimerChanged;
             }
         }
 
         private void OnStartTimerChanged(object sender, ValueChangedEvent<double> e) {
-            var pt = GameManager.Instance.GameStateProgressTracker;
-            var timerText = Math.Ceiling(pt.GetWorkRemaining()).ToString();
+            var pt = gameManager.GameStateProgressTracker;
+            var timerInt = (int)Math.Ceiling(pt.GetWorkRemaining());
+            var timerText = timerInt.ToString();
             countDownText.text = timerText;
         }
 
 
-        private void Show() {
-            gameObject.SetActive(true);
-        }
-    
-        private void Hide() {
-            gameObject.SetActive(false);
-        }
-    
         private void OnDestroy() {
-            GameManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+            gameManager.OnGameStateChanged -= OnGameStateChanged;
         }
     }
 }
