@@ -8,6 +8,7 @@ namespace UI
     public class OptionsUI : MonoBehaviour {
         private SoundManager soundManager;
         private MusicManager musicManager;
+        private GameManager gameManager;
         
         [SerializeField] private Slider musicSlider;
         [SerializeField] private TextMeshProUGUI musicValueText;
@@ -17,10 +18,14 @@ namespace UI
 
 
         [SerializeField] private Button closeButton;
+
+        public event EventHandler OnHide;
+
         
         private void Start() {
             musicManager = MusicManager.Instance;
             soundManager = SoundManager.Instance;
+            gameManager = GameManager.Instance;
             
             musicManager.OnMusicVolumeChanged += OnMusicVolumeChanged;
             soundManager.OnSfxVolumeChanged += OnSfxVolumeChanged;
@@ -36,12 +41,17 @@ namespace UI
             
             closeButton.onClick.AddListener(Hide);
             
+            gameManager.OnGamePauseStateChanged += OnGamePauseStateChanged;
+
+            
             Hide();
         }
-        
+
+
         private void OnDestroy() {
             musicManager.OnMusicVolumeChanged -= OnMusicVolumeChanged;
             soundManager.OnSfxVolumeChanged -= OnSfxVolumeChanged;
+            gameManager.OnGamePauseStateChanged -= OnGamePauseStateChanged;
             
             musicSlider.onValueChanged.RemoveListener(OnMusicSliderValueChanged);
             sfxSlider.onValueChanged.RemoveListener(OnSfxSliderValueChanged);
@@ -62,13 +72,22 @@ namespace UI
             sfxValueText.text = e.NewValue.ToString("P0");
         }
         
+        
+        private void OnGamePauseStateChanged(object sender, ValueChangedEvent<GamePauseState> e) {
+            if (e.NewValue != GamePauseState.Paused)
+                Hide();
+        }
+        
 
         public void Show() {
+            closeButton.Select();
             gameObject.SetActive(true);
         }
         
         public void Hide() {
             gameObject.SetActive(false);
+            OnHide?.Invoke(this, EventArgs.Empty);
         }
+
     }
 }

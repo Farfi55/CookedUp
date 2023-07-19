@@ -22,6 +22,7 @@ namespace UI
             
             optionsButton.onClick.AddListener(() => {
                 optionsUI.Show();
+                Hide();
             });
             
             mainMenuButton.onClick.AddListener(() => {
@@ -36,6 +37,9 @@ namespace UI
             gameManager = GameManager.Instance;
             gameManager.OnGamePauseStateChanged += OnGamePauseStateChanged;
 
+            optionsUI.OnHide += (_, _) => Show();
+            
+            
             if (gameManager.IsGamePaused)
                 Show();
             else Hide();
@@ -53,13 +57,13 @@ namespace UI
 
         private void Show()
         {
+            resumeButton.Select();
             gameObject.SetActive(true);
         }
         
         private void Hide()
         {
             gameObject.SetActive(false);
-            optionsUI.Hide();
         }
         
         private void OnDestroy() {

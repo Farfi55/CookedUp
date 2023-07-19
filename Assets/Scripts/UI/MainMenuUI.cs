@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,10 @@ namespace UI
         private void Awake() {
             playButton.onClick.AddListener(OnPlayButtonClicked);
             quitButton.onClick.AddListener(OnQuitButtonClicked);
+        }
+
+        private void Start() {
+            playButton.Select();
         }
 
 
