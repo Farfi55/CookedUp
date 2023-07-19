@@ -9,12 +9,19 @@ namespace UI
         private GameManager gameManager;
         
         [SerializeField] private Button resumeButton;
+        [SerializeField] private Button optionsButton;
         [SerializeField] private Button mainMenuButton;
 
+        [SerializeField] private OptionsUI optionsUI;
+        
 
         private void Awake() {
             resumeButton.onClick.AddListener(() => {
                 gameManager.TogglePause();
+            });
+            
+            optionsButton.onClick.AddListener(() => {
+                optionsUI.Show();
             });
             
             mainMenuButton.onClick.AddListener(() => {
@@ -52,6 +59,7 @@ namespace UI
         private void Hide()
         {
             gameObject.SetActive(false);
+            optionsUI.Hide();
         }
         
         private void OnDestroy() {

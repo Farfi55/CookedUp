@@ -9,10 +9,17 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
     public static SoundManager Instance { get; private set; }
 
+    private const string PLAYER_PREFS_SFX_VOLUME = "SfxVolume";
+
+    
     [SerializeField] private AudioClipRefsSO audioClipRefsSo;
 
     private Transform cameraTransform;
 
+    public float SfxVolume  { get; private set; } = 1f;
+    
+    public event EventHandler<ValueChangedEvent<float>> OnSfxVolumeChanged;
+    
 
     private void Awake() {
         if (Instance == null) {
@@ -22,6 +29,8 @@ public class SoundManager : MonoBehaviour {
             Debug.LogError("Multiple SoundManagers in scene");
             Destroy(gameObject);
         }
+        
+        SfxVolume = PlayerPrefs.GetFloat(PLAYER_PREFS_SFX_VOLUME, SfxVolume);
     }
 
     private void Start() {
@@ -47,11 +56,14 @@ public class SoundManager : MonoBehaviour {
     }
 
 
-    private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f) {
+    private void PlaySound(AudioClip audioClip, Vector3 position) => PlaySound(audioClip, position, SfxVolume);
+    private void PlaySound(AudioClip[] audioClips, Vector3 position) => PlaySound(audioClips, position, SfxVolume);
+
+    private void PlaySound(AudioClip audioClip, Vector3 position, float volume) {
         AudioSource.PlayClipAtPoint(audioClip, position, volume);
     }
 
-    private void PlaySound(AudioClip[] audioClips, Vector3 position, float volume = 1f) {
+    private void PlaySound(AudioClip[] audioClips, Vector3 position, float volume) {
         AudioSource.PlayClipAtPoint(audioClips.GetRandomElement(), position, volume);
     }
 
@@ -92,4 +104,15 @@ public class SoundManager : MonoBehaviour {
     public void PlayWarningSound(Vector3 position) {
         PlaySound(audioClipRefsSo.Warning, position);
     }
+    
+    public void ChangeSfxVolume(float value) {
+        var oldSfxVolume = SfxVolume;
+        SfxVolume = value;
+        
+        PlayerPrefs.SetFloat(PLAYER_PREFS_SFX_VOLUME, SfxVolume);
+        PlayerPrefs.Save();
+        
+        OnSfxVolumeChanged?.Invoke(this, new ValueChangedEvent<float>(oldSfxVolume, SfxVolume));
+    }
+    
 }
