@@ -38,24 +38,38 @@ namespace KitchenObjects.Container
                     Debug.LogError($"The number of kitchen objects parents ({kitchenObjectsParents.Length}) is less than the container size limit ({container.SizeLimit})", this);
                 }
             }
+            UpdateTransforms();
         }
 
         private void OnKitchenObjectsChanged(object sender, KitchenObjectsChangedEvent e) {
+            UpdateTransforms();
+        }
+
+        private void UpdateTransforms()
+        {
             var oldKitchenObjects = new List<KitchenObject>(kitchenObjects);
-            kitchenObjects = e.Container.GetKitchenObjectsInOrder();
+            kitchenObjects = container.GetKitchenObjectsInOrder();
 
 
-            foreach (var kitchenObject in oldKitchenObjects) {
-                if (!kitchenObject.isInContainer) {
+            foreach (var kitchenObject in oldKitchenObjects)
+            {
+                if (!kitchenObject.isInContainer)
+                {
                     kitchenObject.SetVisible(false);
                 }
             }
+            
+            if(kitchenObjects.Count == 0)
+                return;
 
-            if (type == Type.Custom) {
+            if (type == Type.Custom)
+            {
                 customArrangement.SetTrasforms(kitchenObjects);
             }
-            else {
-                for (int index = 0; index < kitchenObjects.Count; index++) {
+            else
+            {
+                for (int index = 0; index < kitchenObjects.Count; index++)
+                {
                     KitchenObject kitchenObject = kitchenObjects[index];
                     kitchenObject.SetVisible(true);
                     SetTrasform(kitchenObject, index);

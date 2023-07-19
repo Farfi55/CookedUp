@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 6162127805243493022, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: sizeLimit
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -298,11 +298,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 2212188084436756236}
     - targetCorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 4585826820211072719}
     - targetCorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -336,7 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3b9e35e6a68dd46b2544c0a6e0a0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawnPlate: 4
+  timeToSpawnPlate: 6
+  startingPlatesCount: 1
   plateKitchenObjectSO: {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322,
     type: 2}
 --- !u!114 &2969839424491897689

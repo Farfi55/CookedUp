@@ -22,6 +22,9 @@ namespace Counters
 
         public bool IsFull() => Container.IsFull();
 
+        [SerializeField] private int startingPlatesCount = 0;
+        
+
         [SerializeField] private KitchenObjectSO plateKitchenObjectSO;
 
 
@@ -36,6 +39,8 @@ namespace Counters
             progressTracker.SetTotalWork(timeToSpawnPlate);
             progressTracker.OnProgressComplete += (sender, e) => SpawnPlate();
 
+            for (int i = 0; i < startingPlatesCount; i++) 
+                SpawnPlate();
         }
 
         private void SpawnPlate() {
