@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "new AudioClipRef", menuName = "CookedUp/AudioClipRefsSO", order = 20)]
 public class AudioClipRefsSO : ScriptableObject {
@@ -11,6 +12,9 @@ public class AudioClipRefsSO : ScriptableObject {
     [SerializeField] private AudioClip[] stoveSizzle;
     [SerializeField] private AudioClip[] trash;
     [SerializeField] private AudioClip[] warning;
+    [SerializeField] private AudioClip[] clockTick;
+    [SerializeField] private AudioClip[] countdown;
+    [SerializeField] private AudioClip[] countdownEnd;
 
     public AudioClip[] Chop => chop;
     public AudioClip[] DeliveryFail => deliveryFail;
@@ -21,4 +25,8 @@ public class AudioClipRefsSO : ScriptableObject {
     public AudioClip[] StoveSizzle => stoveSizzle;
     public AudioClip[] Trash => trash;
     public AudioClip[] Warning => warning;
+    public AudioClip[] ClockTick => clockTick;
+    public AudioClip[] Countdown => countdown;
+    public AudioClip[] CountdownEnd => countdownEnd;
+    
 }

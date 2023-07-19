@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 7639084591520407080, guid: 2b0ae4f2da8a8b945ab69230311de9a1,
         type: 3}
       propertyPath: m_Name
-      value: ProgressCircleCanvasUI
+      value: PlayingTimeClock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -481,6 +481,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1907246929}
+    - targetCorrespondingSourceObject: {fileID: 7639084591520407080, guid: 2b0ae4f2da8a8b945ab69230311de9a1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1907246931}
     - targetCorrespondingSourceObject: {fileID: 2341413731799719330, guid: 2b0ae4f2da8a8b945ab69230311de9a1,
         type: 3}
       insertIndex: -1
@@ -4278,7 +4282,7 @@ PrefabInstance:
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0000047246876
       objectReference: {fileID: 0}
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
@@ -4288,12 +4292,12 @@ PrefabInstance:
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -3.0501747
       objectReference: {fileID: 0}
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000029504295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
@@ -4303,7 +4307,7 @@ PrefabInstance:
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: -0.00003711879
       objectReference: {fileID: 0}
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
@@ -4318,7 +4322,7 @@ PrefabInstance:
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 2051949171393545608, guid: 06e09108701c1104680791ecb1d35ef7,
         type: 3}
@@ -6148,6 +6152,8 @@ GameObject:
   - component: {fileID: 1656492665}
   - component: {fileID: 1656492666}
   - component: {fileID: 1656492667}
+  - component: {fileID: 1656492669}
+  - component: {fileID: 1656492668}
   m_Layer: 5
   m_Name: GameStartCountDownUI
   m_TagString: Untagged
@@ -6165,7 +6171,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1150436048}
   m_Father: {fileID: 771797982}
@@ -6202,6 +6208,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 1
+--- !u!225 &1656492668
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656492664}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1656492669
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656492664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cca7050199b99d743972177e6a495536, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1663657845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2444403353606739351, guid: b47e227d2d8cc5e4a9f4d5f484439501,
@@ -6830,6 +6869,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1843050505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 701651648796140269, guid: 2b0ae4f2da8a8b945ab69230311de9a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 167003019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843050500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1864028584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7006,6 +7057,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 2
+--- !u!114 &1907246931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907246928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72af230f67095541886ba41ee004c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockImage: {fileID: 1843050505}
+  clockGradient:
+    serializedVersion: 2
+    key0: {r: 0.48373932, g: 0.90588236, b: 0.43137258, a: 1}
+    key1: {r: 0.48373932, g: 0.90588236, b: 0.43137258, a: 1}
+    key2: {r: 0.8679245, g: 0.8465915, b: 0.24973297, a: 0}
+    key3: {r: 0.85162795, g: 0.76175094, b: 0.22035086, a: 0}
+    key4: {r: 0.79343086, g: 0.45877525, b: 0.11542382, a: 0}
+    key5: {r: 0.78117156, g: 0.39495298, b: 0.09332079, a: 0}
+    key6: {r: 0.7416733, g: 0.18932387, b: 0.022106975, a: 0}
+    key7: {r: 0.7348641, g: 0.15387502, b: 0.009830277, a: 0}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 36044
+    ctime3: 45875
+    ctime4: 49151
+    ctime5: 55705
+    ctime6: 58982
+    ctime7: 64571
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
 --- !u!1001 &1912388399
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -43,3 +43,9 @@ MonoBehaviour:
   warning:
   - {fileID: 8300000, guid: b90d8099bdbf09a40ab1163556d5b5f4, type: 3}
   - {fileID: 8300000, guid: b59c98e0066c41f42b8100f5cb180f5b, type: 3}
+  clockTick:
+  - {fileID: 8300000, guid: 08af33dca08f56748bdc0a9f4d46238e, type: 3}
+  countdown:
+  - {fileID: 8300000, guid: 26b183cf683b59a4592ec9afd477a86c, type: 3}
+  countdownEnd:
+  - {fileID: 8300000, guid: 883c91617a775d844a4d7ba55a713330, type: 3}

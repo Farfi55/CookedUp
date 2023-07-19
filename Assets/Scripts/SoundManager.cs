@@ -105,6 +105,19 @@ public class SoundManager : MonoBehaviour {
         PlaySound(audioClipRefsSo.Warning, position);
     }
     
+    public void PlayCountdownSound() {
+        PlaySound(audioClipRefsSo.Countdown, cameraTransform.position);
+    }
+
+    public void PlayCountdownEndSound() {
+        PlaySound(audioClipRefsSo.CountdownEnd, cameraTransform.position);
+    }
+    
+    public void PlayClockTickSound(float volumeMultiplier) {
+        PlaySound(audioClipRefsSo.ClockTick, cameraTransform.position, SfxVolume * volumeMultiplier);
+    }
+    
+    
     public void ChangeSfxVolume(float value) {
         var oldSfxVolume = SfxVolume;
         SfxVolume = value;
