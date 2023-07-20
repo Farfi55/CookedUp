@@ -89,7 +89,6 @@ namespace Counters
                 return;
 
             if (!CanCut()) {
-                Debug.Log("Can't cut " + Container.KitchenObject.KitchenObjectSO.DisplayName);
                 return;
             }
 
