@@ -72,7 +72,7 @@ namespace Players
         }
 
         private void HandleInteractionInput(object sender, EventArgs e) {
-            if(!gameManager.IsGamePlaying)
+            if(!gameManager.IsGamePlaying || gameManager.IsGamePaused)
                 return;
             
             if (HasInteractableSelected()) {
@@ -81,7 +81,7 @@ namespace Players
         }
 
         private void HandleAlternateInteractionInput(object sender, EventArgs e) {
-            if(!gameManager.IsGamePlaying)
+            if(!gameManager.IsGamePlaying || gameManager.IsGamePaused)
                 return;
             
             IsInteractingAlternate = true;

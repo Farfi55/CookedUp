@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KitchenObjects
 {
@@ -12,20 +13,20 @@ namespace KitchenObjects
 
         public List<KitchenObjectSO> Ingredients => completeRecipeSO.Ingredients;
 
-        [SerializeField] private List<IngredientTransform> ingredientsTrasform = new();
-        public List<IngredientTransform> IngredientsTrasform => ingredientsTrasform;
+        [FormerlySerializedAs("ingredientsTrasform")] [SerializeField] private List<IngredientTransform> ingredientsTransform = new();
+        public List<IngredientTransform> IngredientsTransform => ingredientsTransform;
 
         private Dictionary<KitchenObjectSO, Transform> ingredientTransformDict;
 
 
 
         private void Awake() {
-            if (ingredientsTrasform.Count == 0)
+            if (ingredientsTransform.Count == 0)
                 LoadIngredientTransforms();
             ClearGrandChildren();
 
             ingredientTransformDict = new Dictionary<KitchenObjectSO, Transform>();
-            foreach (var ingredientTransform in ingredientsTrasform) {
+            foreach (var ingredientTransform in ingredientsTransform) {
                 ingredientTransformDict.Add(ingredientTransform.Ingredient, ingredientTransform.Transform);
             }
         }
@@ -53,19 +54,7 @@ namespace KitchenObjects
                 }
             }
         }
-
-
-        [ContextMenu("Load FinalPlateSO from name")]
-        private void LoadFinalPlateSOFromName() {
-            var name = gameObject.name.Replace("Arrangement", "");
-
-
-            string path = "Assets/_Assets/ScriptableObjects/FinalPlatesSO/" + name + ".asset";
-            completeRecipeSO = UnityEditor.AssetDatabase.LoadAssetAtPath<CompleteRecipeSO>(path);
-            if (completeRecipeSO == null) {
-                Debug.LogError($"Couldn't find FinalPlateSO at {path}", this);
-            }
-        }
+        
 
         [ContextMenu("Load ingredient transforms")]
         private void LoadIngredientTransforms() {
@@ -76,7 +65,7 @@ namespace KitchenObjects
                     continue;
                 }
 
-                ingredientsTrasform.Add(new IngredientTransform(ingredient, ingredientPosition));
+                ingredientsTransform.Add(new IngredientTransform(ingredient, ingredientPosition));
             }
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(this);
@@ -85,13 +74,13 @@ namespace KitchenObjects
 
 #if UNITY_EDITOR
         [ContextMenu("Create ingredient transforms")]
-        private void CreateIngredientTrasforms() {
-            ingredientsTrasform = new List<IngredientTransform>();
+        private void CreateIngredientTransforms() {
+            ingredientsTransform = new List<IngredientTransform>();
             string visualPrefabsBasePath = "Assets/_Assets/PrefabsVisuals/KitchenObjectsVisuals/";
             foreach (var ingredient in Ingredients) {
                 var ingredientGO = new GameObject(ingredient.name);
                 ingredientGO.transform.SetParent(transform);
-                ingredientsTrasform.Add(new IngredientTransform(ingredient, ingredientGO.transform));
+                ingredientsTransform.Add(new IngredientTransform(ingredient, ingredientGO.transform));
 
                 // Load visual prefab and instantiate it as a child of the ingredient
                 string path = visualPrefabsBasePath + ingredient.name + "_Visual.prefab";
@@ -105,6 +94,19 @@ namespace KitchenObjects
             }
             UnityEditor.EditorUtility.SetDirty(this);
         }
+        
+        
+        [ContextMenu("Load FinalPlateSO from name")]
+        private void LoadFinalPlateSOFromName() {
+            var name = gameObject.name.Replace("Arrangement", "");
+
+
+            string path = "Assets/_Assets/ScriptableObjects/FinalPlatesSO/" + name + ".asset";
+            completeRecipeSO = UnityEditor.AssetDatabase.LoadAssetAtPath<CompleteRecipeSO>(path);
+            if (completeRecipeSO == null) {
+                Debug.LogError($"Couldn't find FinalPlateSO at {path}", this);
+            }
+        }
 #endif
 
         [Serializable]
@@ -114,8 +116,8 @@ namespace KitchenObjects
             public Transform Transform;
 
             public IngredientTransform(KitchenObjectSO ingredient, Transform transform) {
-                this.Ingredient = ingredient;
-                this.Transform = transform;
+                Ingredient = ingredient;
+                Transform = transform;
             }
         }
     }

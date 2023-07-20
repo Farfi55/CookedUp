@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completeRecipeSO: {fileID: 11400000, guid: c202331c2f9c69844b819bb6a4590215, type: 2}
-  ingredientsTrasform:
+  ingredientsTransform:
   - Ingredient: {fileID: 11400000, guid: 14a6e059590484d42b824d37494de891, type: 2}
     Transform: {fileID: 9055286644040337605}
   - Ingredient: {fileID: 11400000, guid: 7ff4b0ab93f12ef4bbe3174efce5948a, type: 2}
