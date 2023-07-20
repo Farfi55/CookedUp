@@ -8,21 +8,16 @@ namespace Players
     [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(KitchenObjectsContainer))]
     public class Player : MonoBehaviour {
+        
+        public PlayerInput PlayerInput => playerInput;
         private PlayerInput playerInput;
         private KitchenObjectsContainer container;
-        private Rigidbody rb;
         
         private GameManager gameManager;
 
         public KitchenObjectsContainer Container => container;
         public KitchenObject CurrentKitchenObject => container.KitchenObject;
-
-
-
-
-        [SerializeField] private float movementSpeed = 5f;
-
-        [SerializeField] private float rotationSpeed = 5f;
+        
 
         [SerializeField, Range(0f, 10f)] float interactionDistance = 1f;
 
@@ -39,10 +34,6 @@ namespace Players
         public static event EventHandler<Player> OnAnyPlayerSpawned; 
         public static event EventHandler<Player> OnAnyPlayerDestroyed;
         public event EventHandler OnPlayerReady;
-        
-
-        public bool IsMoving => isMoving;
-        private bool isMoving = false;
 
         public bool IsInteractingAlternate { get; private set; } = false;
 
@@ -51,7 +42,6 @@ namespace Players
 
         private void Awake() {
             playerInput = GetComponent<PlayerInput>();
-            rb = GetComponent<Rigidbody>();
             container = GetComponent<KitchenObjectsContainer>();
         }
 
@@ -145,31 +135,6 @@ namespace Players
             }
         }
 
-        private void HandleRotation(Vector3 moveDirection) {
-            isMoving = moveDirection != Vector3.zero;
-
-            if (isMoving) {
-                var targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-                rb.rotation = Quaternion.Slerp(
-                    rb.rotation,
-                    targetRotation,
-                    rotationSpeed * Time.fixedDeltaTime
-                );
-            }
-        }
-
-        private void FixedUpdate() {
-            Vector2 input = playerInput.GetMovementInput();
-            var moveDirection = new Vector3(input.x, 0, input.y);
-
-            HandleMovement(moveDirection);
-
-            HandleRotation(moveDirection);
-        }
-
-        private void HandleMovement(Vector3 moveDirection) {
-            rb.velocity = moveDirection * movementSpeed;
-        }
         
         private void HandlePauseInput(object sender, EventArgs e) {
             gameManager.TogglePause();

@@ -221,6 +221,17 @@ namespace Players
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ad7940ea-30df-42dd-970f-fdb8a11fc193"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9e717052-63b4-4e5a-b33d-f5c73734fb66"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -243,6 +254,17 @@ namespace Players
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7c2dcef9-9dc4-4c37-8523-d3136d7deb77"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractAlternate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""21f7b7fc-c59b-420f-8624-6893cff0f0f8"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -256,6 +278,17 @@ namespace Players
                     ""name"": """",
                     ""id"": ""8d154ef0-d2ea-46aa-9ab9-b583e1b2bc43"",
                     ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ready"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b7dadfe-30b2-4edb-a9a9-950fc9bf8ee9"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -4,7 +4,7 @@ namespace Players
 {
     [RequireComponent(typeof(Animator))]
     public class PlayerAnimator : MonoBehaviour {
-        [SerializeField] private Player player;
+        [SerializeField] private PlayerMovement playerMovement;
         private Animator animator;
 
         private readonly int IsWalkingHash = Animator.StringToHash("IsWalking");
@@ -15,7 +15,7 @@ namespace Players
 
         // Update is called once per frame
         void Update() {
-            animator.SetBool(IsWalkingHash, player.IsMoving);
+            animator.SetBool(IsWalkingHash, playerMovement.IsMoving);
         }
     }
 }

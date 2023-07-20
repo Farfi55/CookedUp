@@ -7,6 +7,7 @@ namespace Players {
     public class PlayerSounds : MonoBehaviour {
 
         private Player player;
+        private PlayerMovement playerMovement;
         
         [SerializeField] private float footstepDistance = 1f;
         private float remainingFootstepDistance;
@@ -16,6 +17,7 @@ namespace Players {
         
         private void Awake() {
             player = GetComponent<Player>();
+            playerMovement = GetComponent<PlayerMovement>();
         }
 
         private void Start() {
@@ -36,7 +38,7 @@ namespace Players {
             Vector3 delta = player.transform.position - lastPlayerPosition;
             remainingFootstepDistance -= delta.magnitude;
 
-            if (player.IsMoving && remainingFootstepDistance <= 0f) {
+            if (playerMovement.IsMoving && remainingFootstepDistance <= 0f) {
                 
                 remainingFootstepDistance = footstepDistance;
                 SoundManager.Instance.PlayFootstepSound(player.transform.position);

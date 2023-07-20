@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1966419705028141060}
   - component: {fileID: 4706379898146698279}
   - component: {fileID: 2080688144074571001}
+  - component: {fileID: 8705932941902692090}
   - component: {fileID: 5987178750739708425}
   - component: {fileID: 8342188959273622475}
   - component: {fileID: 6440946968829065954}
@@ -39,7 +40,7 @@ Transform:
   - {fileID: 1446726219835887947}
   - {fileID: 360705754518109073}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &4706379898146698279
 MonoBehaviour:
@@ -53,8 +54,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e5ece0dc8869c41ab3df527a0f02a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  rotationSpeed: 10
   interactionDistance: 1.7
   interactionLayerMask:
     serializedVersion: 2
@@ -71,6 +70,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ccfab87895c4344dab4f5d65508860d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8705932941902692090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645957809171568415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47679560b8d4e7ab42988687209e6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5987178750739708425}
+  playerInput: {fileID: 2080688144074571001}
+  movementSpeed: 5
+  rotationSpeed: 540
 --- !u!54 &5987178750739708425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -368,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd663aec034d894e838414cdca43736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4706379898146698279}
+  playerMovement: {fileID: 8705932941902692090}
 --- !u!4 &3922019417101181938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251327466532, guid: 1c5dda3c7cd3cf742afcade5419faeab,

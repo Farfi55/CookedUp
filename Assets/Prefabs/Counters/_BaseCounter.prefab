@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e567aa9243bfd48b3189996291c34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObjects: []
   sizeLimit: 1
 --- !u!114 &3036923615982257712
 MonoBehaviour:
@@ -129,8 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f764279460c79409ab998f756d2c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 6162127805243493022}
   kitchenObjectsParents:
   - {fileID: 1219806043548265481}
-  offset: {x: 0, y: 0, z: 0}
   type: 0
+  offset: {x: 0, y: 0, z: 0}
