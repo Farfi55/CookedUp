@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3378799314990589167}
   - component: {fileID: 381491268933924231}
   - component: {fileID: 12086738299847589}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: WarningImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5255021229251292001}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5891398685864898930}
   - component: {fileID: 7335903118226668075}
   - component: {fileID: 7494774157656415106}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: ProgressBarUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!114 &6609567284140787844
 MonoBehaviour:
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7662054185283935466}
   - component: {fileID: 1924473682644714139}
   - component: {fileID: 6245068672224422282}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: BarProgressFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 6825781806862258262}
   - component: {fileID: 1793468559727536205}
   - component: {fileID: 6006890743771292068}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: OutputPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 7651449566692896509}
   - component: {fileID: 2263046430474932910}
   - component: {fileID: 5913465283825104803}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 307462719715364743}
   - component: {fileID: 38072597132169155}
   - component: {fileID: 683372483508694627}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: BarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
