@@ -9,6 +9,7 @@ namespace Players
 
 
         public event EventHandler OnInteract;
+        public event EventHandler OnInteractAlternateStarted;
         public event EventHandler OnInteractAlternate;
         public event EventHandler OnInteractAlternateCanceled;
         public event EventHandler OnReady;
@@ -22,6 +23,7 @@ namespace Players
 
             inputActions.Player.Interact.performed += InteractPerformed;
 
+            inputActions.Player.InteractAlternate.started += InteractAlternateStarted;
             inputActions.Player.InteractAlternate.performed += InteractAlternatePerformed;
             inputActions.Player.InteractAlternate.canceled += InteractAlternateCanceled;
             
@@ -29,10 +31,13 @@ namespace Players
             
             inputActions.Player.Pause.performed += PausePerformed;
         }
-        
+
+       
+
         private void OnDestroy() {
             inputActions.Player.Interact.performed -= InteractPerformed;
             
+            inputActions.Player.InteractAlternate.started -= InteractAlternateStarted;
             inputActions.Player.InteractAlternate.performed -= InteractAlternatePerformed;
             inputActions.Player.InteractAlternate.canceled -= InteractAlternateCanceled;
             
@@ -53,6 +58,11 @@ namespace Players
             OnInteract?.Invoke(this, EventArgs.Empty);
         }
 
+        
+        private void InteractAlternateStarted(InputAction.CallbackContext obj) {
+            OnInteractAlternateStarted?.Invoke(this, EventArgs.Empty);
+        }
+        
         private void InteractAlternatePerformed(InputAction.CallbackContext context) {
             OnInteractAlternate?.Invoke(this, EventArgs.Empty);
         }
@@ -60,6 +70,8 @@ namespace Players
         private void InteractAlternateCanceled(InputAction.CallbackContext context) {
             OnInteractAlternateCanceled?.Invoke(this, EventArgs.Empty);
         }
+        
+       
 
         public bool IsInteractAlternatePressed() {
             return inputActions.Player.InteractAlternate.IsPressed();

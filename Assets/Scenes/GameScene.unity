@@ -3005,6 +3005,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 943945516212414302, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1668835325}
     - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: agent
@@ -3019,6 +3024,16 @@ PrefabInstance:
         type: 3}
       propertyPath: useInput
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: stopAllWhenUsingInput
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
@@ -3059,6 +3074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2997092725135300230, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: interactionDistance
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4310260654671993000, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}

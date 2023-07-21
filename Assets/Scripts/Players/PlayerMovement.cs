@@ -37,7 +37,7 @@ namespace Players {
             player.OnSelectedInteractableChanged -= OnSelectedInteractableChanged;
         }
 
-        private void OnSelectedInteractableChanged(object sender, EventArgs e) {
+        private void OnSelectedInteractableChanged(object sender, ValueChangedEvent<IInteractable> e) {
             if (!lookAtTargetUntilSelected || !HasLookAtTarget) return;
             
             if(player.SelectedInteractable is MonoBehaviour interactable) {
