@@ -21,7 +21,10 @@ namespace Players {
         
         private Transform lookAtTarget = null;
         private bool lookAtTargetUntilSelected = false;
-        
+        [SerializeField] private bool stopAllWhenUsingInput = true;
+        private bool HasLookAtTarget => lookAtTarget != null;
+
+
         public event EventHandler OnDestinationReached;
         public event EventHandler OnLookAtTargetCompleted;
 
@@ -35,7 +38,7 @@ namespace Players {
         }
 
         private void OnSelectedInteractableChanged(object sender, EventArgs e) {
-            if (!lookAtTargetUntilSelected || lookAtTarget == null) return;
+            if (!lookAtTargetUntilSelected || !HasLookAtTarget) return;
             
             if(player.SelectedInteractable is MonoBehaviour interactable) {
                 if (interactable.transform == lookAtTarget) {
@@ -47,12 +50,21 @@ namespace Players {
 
         private void Update() {
             
+            
             if (HasReachedDestination()) {
                 DestinationReached();
+            }
+            else if (IsMovingUsingNavigation && agent.pathStatus == NavMeshPathStatus.PathInvalid) {
+                StopMoving();
             }
 
             Vector2 input = playerInput.GetMovementInput();
             IsMovingUsingInput = (input != Vector2.zero);
+
+            if (IsMovingUsingInput && stopAllWhenUsingInput && (IsMovingUsingNavigation || HasLookAtTarget)) {
+                StopAll();
+            }
+            
 
             var moveDirection = new Vector3(input.x, 0, input.y);
             HandleMovement(moveDirection);
@@ -61,20 +73,17 @@ namespace Players {
             if (IsMovingUsingInput) {
                 HandleRotation(moveDirection);
             }
-            else if (!IsMovingUsingNavigation && lookAtTarget != null) {
-                HandleLookAt();
+            else if (!IsMovingUsingNavigation && HasLookAtTarget) {
+                var dir =  lookAtTarget.position - transform.position;
+                HandleRotation(dir);
             }
-                
-
-            
         }
 
         private bool HasReachedDestination() {
             float dist = agent.remainingDistance;
             return !agent.pathPending && 
                 !float.IsPositiveInfinity(dist)
-                   && agent.pathStatus == NavMeshPathStatus.PathComplete
-                   && agent.remainingDistance <=  agent.stoppingDistance;
+                && agent.remainingDistance <=  agent.stoppingDistance;
         }
 
         private void DestinationReached() {
@@ -85,40 +94,44 @@ namespace Players {
         }
         
 
-        private void HandleMovement(Vector3 moveDirection) {
+        private void HandleMovement(Vector3 direction) {
             if (IsMovingUsingNavigation && IsMovingUsingInput) {
-                agent.velocity = moveDirection * movementSpeed;
+                agent.velocity = direction * movementSpeed;
             }
             else {
-                rb.velocity = moveDirection * movementSpeed;
+                if(!rb.isKinematic)
+                    rb.velocity = direction * movementSpeed;
+                else {
+                    transform.position += direction * (movementSpeed * Time.deltaTime);
+                }
             }
         }
 
-        private void HandleRotation(Vector3 moveDirection) {
-            if (IsMovingUsingNavigation || moveDirection == Vector3.zero)
-                return;
-
-            var targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
-        
-        private void HandleLookAt() {
-            if (lookAtTarget == null)
+        private void HandleRotation(Vector3 direction) {
+            if (IsMovingUsingNavigation || direction == Vector3.zero)
                 return;
             
-            var direction = lookAtTarget.position - transform.position;
             direction.y = 0;
             var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-
+        
         public bool TryMoveTo(Vector3 position) {
             if (agent.SetDestination(position)) {
-                Debug.Log("Moving to " + position);
                 IsMovingUsingNavigation = true;
                 return true;
             }
             return false;
+        }
+        
+        private void StopAll() {
+            StopMoving();
+            StopLookingAt();
+        }
+        
+        public void StopMoving() {
+            agent.ResetPath();
+            IsMovingUsingNavigation = false;
         }
         
         public void LookAt(Transform target) {
@@ -126,11 +139,10 @@ namespace Players {
             lookAtTargetUntilSelected = false;
         }
         
+        
         public void LookAtUntilSelected(Transform target) {
             lookAtTarget = target;
             lookAtTargetUntilSelected = true;
-            
-            Debug.Log("Looking at " + target.name);
         }
         
         public void StopLookingAt() {

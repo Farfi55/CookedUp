@@ -28,13 +28,8 @@ namespace Players {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit)) {
                 playerMovement.TryMoveTo(hit.point);
-
-                if (hit.collider.gameObject.TryGetComponent(out IInteractable interactable)) {
-                    playerMovement.LookAtUntilSelected(hit.collider.transform);
-                }
-                else {
-                    playerMovement.StopLookingAt();
-                }
+                
+                playerMovement.LookAt(hit.collider.transform);
             }
         }
     }
