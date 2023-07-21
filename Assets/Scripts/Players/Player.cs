@@ -28,14 +28,17 @@ namespace Players
         /// </summary>
         private Vector2 lastMovementInput;
 
+        public IInteractable SelectedInteractable => selectedInteractable;
         private IInteractable selectedInteractable = null;
+        
+        public bool IsInteractingAlternate { get; private set; } = false;
+        
         public event EventHandler OnSelectedInteractableChanged;
         
         public static event EventHandler<Player> OnAnyPlayerSpawned; 
         public static event EventHandler<Player> OnAnyPlayerDestroyed;
         public event EventHandler OnPlayerReady;
 
-        public bool IsInteractingAlternate { get; private set; } = false;
 
 
 
@@ -105,11 +108,8 @@ namespace Players
         }
 
         private void UpdateSelectedInteractable() {
-            Vector2 input = playerInput.GetMovementInput();
-            if (input == Vector2.zero)
-                input = lastMovementInput;
 
-            var moveDirection = new Vector3(input.x, 0, input.y);
+            var moveDirection = transform.forward;
 
             IInteractable lastSelectedInteractable = selectedInteractable;
             selectedInteractable = null;
