@@ -29,7 +29,7 @@ namespace Players {
         /// </summary>
         private Vector2 lastMovementInput;
 
-        private bool HasSelectedInteractable() => selectedInteractable != null;
+        public bool HasSelectedInteractable() => selectedInteractable != null;
         public IInteractable SelectedInteractable => selectedInteractable;
         private IInteractable selectedInteractable = null;
 

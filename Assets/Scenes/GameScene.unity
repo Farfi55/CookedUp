@@ -3020,96 +3020,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 943945516212414302, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1668835325}
-    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: agent
-      value: 
-      objectReference: {fileID: 1668835319}
-    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1668835325}
-    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: useInput
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 540
-      objectReference: {fileID: 0}
-    - target: {fileID: 1159126610422619227, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: stopAllWhenUsingInput
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_AutoRepath
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_AutoBraking
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_AutoTraverseOffMeshLink
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346234727220741155, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2997092725135300230, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: interactionDistance
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4310260654671993000, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6109972187477301757, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7910255640557639990, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: emitterVelocityMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_RootOrder
@@ -3169,11 +3079,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerBOT
-      objectReference: {fileID: 0}
-    - target: {fileID: 9083823707326641598, guid: 64ef46de98a59db49833984ec72c298a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6808,24 +6713,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 639788241}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &1668835319 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 2226446289430712526, guid: 64ef46de98a59db49833984ec72c298a,
-    type: 3}
-  m_PrefabInstance: {fileID: 639788241}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1668835325 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2997092725135300230, guid: 64ef46de98a59db49833984ec72c298a,
-    type: 3}
-  m_PrefabInstance: {fileID: 639788241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e5ece0dc8869c41ab3df527a0f02a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1680537393
 PrefabInstance:
   m_ObjectHideFlags: 0

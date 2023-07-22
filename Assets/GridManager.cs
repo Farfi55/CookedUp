@@ -23,11 +23,13 @@ public class GridManager : MonoBehaviour
     }
     
     
-    public Vector3Int GetGridPosition(Vector3 worldPosition) {
-        return Grid.WorldToCell(worldPosition);
+    public Vector2Int GetGridPosition(Vector3 worldPosition) {
+        var pos = Grid.WorldToCell(worldPosition);
+        return new Vector2Int(pos.x, pos.y);
     }
     
-    public Vector3 GetWorldPosition(Vector3Int gridPosition) {
-        return Grid.CellToWorld(gridPosition);
+    public Vector3 GetWorldPosition(Vector2Int gridPosition) {
+        var pos = new Vector3Int(gridPosition.x, gridPosition.y, 0);
+        return Grid.CellToWorld(pos);
     }
 }
