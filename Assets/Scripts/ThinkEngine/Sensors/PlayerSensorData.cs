@@ -6,16 +6,12 @@ using UnityEngine;
 
 namespace ThinkEngine.Sensors
 {
-    public class PlayerBotSensorData : MonoBehaviour
+    public class PlayerSensorData : MonoBehaviour
     {
         private GridManager gridManager;
         [SerializeField] private Player player;
         [SerializeField] private PlayerBot playerBot;
-
-
-        public int playerID;
-        public Vector2Int pos;
-
+        
         public bool hasSelectedInteractable;
         public string selectedInteractableName;
         
@@ -23,7 +19,6 @@ namespace ThinkEngine.Sensors
         private void Start() {
             gridManager = GridManager.Instance;
             player.OnSelectedInteractableChanged += OnSelectedInteractableChanged;
-            playerID = player.GetInstanceID();
             UpdateInteractableData();
         }
 
@@ -42,10 +37,5 @@ namespace ThinkEngine.Sensors
                 selectedInteractableName = "";
             }
         }
-
-        private void Update() {
-            pos = gridManager.GetGridPosition(player.transform.position);
-        }
-
     }
 }

@@ -20,6 +20,8 @@ public class GridManager : MonoBehaviour
         }
         
         Grid = GetComponent<Grid>();
+        if (Grid == null) 
+            Debug.LogError("GridManager has no Grid component");
     }
     
     
