@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 2754376379838779097, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: container
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3791372828026636509, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: selectedVisualObjs.Array.size
@@ -190,6 +195,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3036923615982257712, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
     - {fileID: 6162127805243493022, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
+    - {fileID: 2754376379838779097, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
