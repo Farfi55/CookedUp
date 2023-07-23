@@ -13,4 +13,4 @@
 % applyAction(OrderOfExecution,ActionClassName).
 % actionArgument(ActionOrder,ArgumentName, ArgumentValue).
 
-applyAction(1, TestAction).
+applyAction(1, "TestAction").

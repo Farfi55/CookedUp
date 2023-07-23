@@ -17,7 +17,7 @@ namespace ThinkEngine.Sensors.Counters {
         
         public CookingRecipe CurrentCookingRecipe;
         
-        private void OnEnable() {
+        private void Start() {
             stoveCounter.OnRecipeChanged += OnRecipeChanged;
             stoveCounter.ProgressTracker.OnProgressChanged += OnProgressChanged;
         }

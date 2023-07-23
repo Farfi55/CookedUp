@@ -9,6 +9,7 @@ namespace ThinkEngine.Sensors {
         
         [SerializeField] private KitchenObjectsContainer container;
 
+        [Header("Sensor Data")]
         public int ContainerID;
         public int SizeLimit;
         public int Count;

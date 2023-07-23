@@ -16,7 +16,7 @@ namespace ThinkEngine.Sensors.Counters {
 
         public CuttingRecipe CurrentCuttingRecipe;
 
-        private void OnEnable() {
+        private void Start() {
             cuttingCounter.OnRecipeChanged += OnRecipeChanged;
             cuttingCounter.ProgressTracker.OnProgressChanged += OnProgressChanged;
         }

@@ -13,17 +13,15 @@ namespace ThinkEngine.Sensors.Counters {
         
         
 
-        private void OnEnable() {
+        private void Start() {
             platesCounter.Container.OnKitchenObjectsChanged += OnPlatesChanged;
+            PlatesLimit = platesCounter.PlatesLimit;
+            PlatesCount = platesCounter.PlatesCount;
         }
 
         private void OnPlatesChanged(object sender, KitchenObjectsChangedEvent e) {
             PlatesCount = platesCounter.PlatesCount;
         }
 
-        private void Start() {
-            PlatesLimit = platesCounter.PlatesLimit;
-            PlatesCount = platesCounter.PlatesCount;
-        }
     }
 }
