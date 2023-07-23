@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace ThinkEngine.Sensors.Counters {
     public class ContainerCounterSensorData : MonoBehaviour {
-        [SerializeField] private ContainerCounter container;
+        [SerializeField] private ContainerCounter containerCounter;
         
-        public string koType;
+        [Header("Sensor Data")]
+        public string KOType;
 
         private void Start() {
-            koType = container.KitchenObjectSO.name;
+            KOType = containerCounter.KitchenObjectSO.name;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace KitchenObjects.Container
 
             foreach (var kitchenObject in oldKitchenObjects)
             {
-                if (!kitchenObject.isInContainer)
+                if (!kitchenObject.IsInContainer)
                 {
                     kitchenObject.SetVisible(false);
                 }

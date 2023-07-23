@@ -17,7 +17,7 @@ namespace ThinkEngine.Models {
 
             IngredientsNames = cuttingRecipeSO.Ingredients.ConvertAll(ingredient => ingredient.name);
             
-            Value = Constants.FloatToInt(cuttingRecipeSO.Value);
+            Value = Converter.FloatToInt(cuttingRecipeSO.Value);
         }
     }
 }

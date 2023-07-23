@@ -102,7 +102,7 @@ namespace Counters
             InvokeOnInteractAlternate(new InteractableEvent(player));
         }
 
-        public void OnCuttingCompleted() {
+        private void OnCuttingCompleted() {
             if (!CanCut())
                 return;
 

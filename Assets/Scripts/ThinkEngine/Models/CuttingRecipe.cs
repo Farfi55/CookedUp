@@ -18,7 +18,7 @@ namespace ThinkEngine.Models {
             InputKOName = cuttingRecipeSO.Input.name;
             OutputKOName = cuttingRecipeSO.Output.name;
             
-            TimeToCut = Constants.FloatToInt(cuttingRecipeSO.TimeToCut);
+            TimeToCut = Converter.FloatToInt(cuttingRecipeSO.TimeToCut);
         }
     }
 }

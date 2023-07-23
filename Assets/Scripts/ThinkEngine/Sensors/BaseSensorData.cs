@@ -6,14 +6,15 @@ namespace ThinkEngine.Sensors {
         
         [SerializeField] private GameObject target;
         
-        public int id;
-        public string type;
-        public string name;
+        [Header("Sensor Data")]
+        public int ID;
+        public string Type;
+        public string Name;
 
         private void Start() {
-            id = target.GetInstanceID();
-            type = target.GetType().Name;
-            name = target.name;
+            ID = target.GetInstanceID();
+            Type = target.GetType().Name;
+            Name = target.name;
         }
     }
 }

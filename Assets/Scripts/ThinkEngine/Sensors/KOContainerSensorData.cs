@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using KitchenObjects;
+﻿using System.Collections.Generic;
 using KitchenObjects.Container;
+using ThinkEngine.Models;
 using UnityEngine;
 
 namespace ThinkEngine.Sensors {
@@ -10,23 +9,23 @@ namespace ThinkEngine.Sensors {
         
         [SerializeField] private KitchenObjectsContainer container;
 
-        public int gameObjectID;
-        public int sizeLimit;
-        public int count;
+        public int ContainerID;
+        public int SizeLimit;
+        public int Count;
         
         // ReSharper disable once CollectionNeverQueried.Global
         // ReSharper disable once FieldCanBeMadeReadOnly.Global
-        public List<KitchenObjectData> KitchenObjects = new();
+        public List<KitchenObject> KitchenObjects = new();
         
-        public KitchenObjectData FirstKitchenObjectData;
-        public bool hasSpace;
-        public bool hasAny;
+        public KitchenObject FirstKitchenObject;
+        public bool HasSpace;
+        public bool HasAny;
         
 
         private void Start() {
             container.OnKitchenObjectsChanged += OnKitchenObjectsChanged;
-            sizeLimit = container.SizeLimit;
-            gameObjectID = container.gameObject.GetInstanceID();
+            SizeLimit = container.SizeLimit;
+            ContainerID = container.gameObject.GetInstanceID();
             UpdateContainerData();
         }
 
@@ -34,37 +33,17 @@ namespace ThinkEngine.Sensors {
 
         private void UpdateContainerData()
         {
-            count = container.Count;
+            Count = container.Count;
             KitchenObjects.Clear();
             
             foreach (var kitchenObject in container.KitchenObjects)
-                KitchenObjects.Add(new KitchenObjectData(kitchenObject));
+                KitchenObjects.Add(new KitchenObject(kitchenObject));
 
-            hasSpace = container.HasSpace();
-            hasAny = container.HasAny();
+            HasSpace = container.HasSpace();
+            HasAny = container.HasAny();
             
-            FirstKitchenObjectData = hasAny ? new KitchenObjectData(container.KitchenObject) : null;
+            FirstKitchenObject = HasAny ? new KitchenObject(container.KitchenObject) : null;
 
-        }
-    }
-    
-    
-    public class KitchenObjectData
-    {
-        public string Name;
-        public int ID;
-        public int ContainerID;
-
-        public KitchenObjectData(string name, int id, int containerID) {
-            Name = name;
-            ID = id;
-            ContainerID = containerID;
-        }
-        
-        public KitchenObjectData(KitchenObject ko) {
-            Name = ko.KitchenObjectSO.name;
-            ID = ko.GetInstanceID();
-            ContainerID = ko.Container.gameObject.GetInstanceID();
         }
     }
 }

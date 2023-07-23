@@ -20,7 +20,7 @@ namespace ThinkEngine.Models {
             InputKOName = cookingRecipeSO.Input.name;
             OutputKOName = cookingRecipeSO.Output.name;
             
-            TimeToCook = Constants.FloatToInt(cookingRecipeSO.TimeToCook);
+            TimeToCook = Converter.FloatToInt(cookingRecipeSO.TimeToCook);
             
             IsBurningRecipe = cookingRecipeSO.IsBurningRecipe;
         }

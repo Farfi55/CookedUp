@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class SelectedVisual : MonoBehaviour {
     [SerializeField]
     private GameObject[] selectedVisualObjs;
-    [SerializeField] private bool hideDefaulVisual = false;
+    [FormerlySerializedAs("hideDefaulVisual")] [SerializeField] private bool hideDefaultVisual = false;
     [SerializeField] private GameObject defaultVisualObj;
 
 
@@ -22,7 +23,7 @@ public class SelectedVisual : MonoBehaviour {
             selectedVisualObj.SetActive(selected);
         }
 
-        if (hideDefaulVisual && defaultVisualObj != null) {
+        if (hideDefaultVisual && defaultVisualObj != null) {
             defaultVisualObj.SetActive(!selected);
         }
     }

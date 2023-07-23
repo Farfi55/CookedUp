@@ -12,8 +12,10 @@ namespace ThinkEngine.Sensors
         [SerializeField] private Player player;
         [SerializeField] private PlayerBot playerBot;
         
-        public bool hasSelectedInteractable;
-        public string selectedInteractableName;
+        
+        [Header("Sensor Data")]
+        public bool HasSelectedInteractable;
+        public string SelectedInteractableName;
         
 
         private void Start() {
@@ -27,14 +29,14 @@ namespace ThinkEngine.Sensors
 
         private void UpdateInteractableData()
         {
-            hasSelectedInteractable = player.HasSelectedInteractable();
+            HasSelectedInteractable = player.HasSelectedInteractable();
             if (player.SelectedInteractable is MonoBehaviour interactable) {
-                selectedInteractableName = interactable.GetType().Name;
-                Debug.Log(selectedInteractableName);
+                SelectedInteractableName = interactable.GetType().Name;
+                Debug.Log(SelectedInteractableName);
             }
             else
             {
-                selectedInteractableName = "";
+                SelectedInteractableName = "";
             }
         }
     }

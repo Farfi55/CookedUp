@@ -13,7 +13,7 @@ namespace KitchenObjects
         public KitchenObjectSO KitchenObjectSO => kitchenObjectSO;
         public KitchenObjectsContainer Container => container;
 
-        public bool isInContainer => container != null;
+        public bool IsInContainer => container != null;
 
         public bool SetContainer(KitchenObjectsContainer newContainer) {
             var oldContainer = container;
@@ -42,7 +42,7 @@ namespace KitchenObjects
                 transform.SetParent(null);
             }
 
-            SetVisible(isInContainer);
+            SetVisible(IsInContainer);
             return true;
         }
 

@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 6034013152658884737, guid: 2d3cc6e7382c43b4a943b2d25d9e6a74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6034013152658884737, guid: 2d3cc6e7382c43b4a943b2d25d9e6a74,
         type: 3}
@@ -637,6 +637,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3cc6e7382c43b4a943b2d25d9e6a74, type: 3}
+--- !u!1 &1067305242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067305243}
+  m_Layer: 0
+  m_Name: ThinkEngine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1067305243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067305242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1948005366}
+  - {fileID: 1947309474}
+  m_Father: {fileID: 1339296424}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1142395861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,7 +681,7 @@ PrefabInstance:
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
@@ -869,6 +902,7 @@ Transform:
   - {fileID: 43433806}
   - {fileID: 1680212800}
   - {fileID: 1885413965}
+  - {fileID: 1067305243}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1156,6 +1190,306 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda69964d9e916b489267bb2dbdbca4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1947309473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1947309474}
+  - component: {fileID: 1947309475}
+  - component: {fileID: 1947309478}
+  - component: {fileID: 1947309477}
+  - component: {fileID: 1947309476}
+  m_Layer: 0
+  m_Name: ConstantSensors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1947309474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947309473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1067305243}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1947309475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947309473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04ca247202c4a54b23a8da6916f04ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completeRecipesSos: {fileID: 11400000, guid: b37a0c3c2a23e92479960ea3d6e7d302, type: 2}
+  cookingRecipesSos:
+  - {fileID: 11400000, guid: 3d55fe05042f86744963b6a10ba9d7a2, type: 2}
+  - {fileID: 11400000, guid: 3ae6e7324197c574e8868c8cbfb15ce0, type: 2}
+  cuttingRecipesSos:
+  - {fileID: 11400000, guid: 4b6148fab20548c478902b12fa3a3624, type: 2}
+  - {fileID: 11400000, guid: cbcebb6e5eb756a4183ef896c80cc492, type: 2}
+  - {fileID: 11400000, guid: 886215318b61e2943ac088855d3e2477, type: 2}
+  kitchenObjectsSos:
+  - {fileID: 11400000, guid: 14a6e059590484d42b824d37494de891, type: 2}
+  - {fileID: 11400000, guid: f65d8c1220079ef4aaa035d53036b679, type: 2}
+  - {fileID: 11400000, guid: 7ff4b0ab93f12ef4bbe3174efce5948a, type: 2}
+  - {fileID: 11400000, guid: a1176b51910911241a67bb951836e6be, type: 2}
+  - {fileID: 11400000, guid: 1f4bbfb68fe17bf4ea4c25ad20cdd4c4, type: 2}
+  - {fileID: 11400000, guid: d8d3d14853a24ad41ae9d3bd35eb743d, type: 2}
+  - {fileID: 11400000, guid: 3c9cedeeff88c5e48b4a2ffafbe9b1c5, type: 2}
+  - {fileID: 11400000, guid: c00de5fb28d90f844a897b8b660c90d4, type: 2}
+  - {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322, type: 2}
+  - {fileID: 11400000, guid: ab2f58c000258904888bfecc1bc15f81, type: 2}
+  - {fileID: 11400000, guid: 0a961bf7f3529ef4d87c5afb9789c799, type: 2}
+  CompleteRecipes: []
+  CookingRecipes: []
+  CuttingRecipes: []
+  KitchenObjectsNames: []
+--- !u!114 &1947309476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947309473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1612528518, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - ConstantsSensorData
+    Count: 1
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - KitchenObjectsNames
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - KitchenObjectsNames
+    Count: 2
+  _configurationName: constantSensor
+  isInvariant: 1
+  isFixedSize: 0
+  operationPerPropertyIndexes: eaa70163b65f1f57b0256fc2aff67fa0546526a39579bdaa0cf8a6b532fed6909fbf9c3d8f4c4d26466a96aa63e8f4e8a23dbf7cc843ef573505b504b5459bc2bc941a1e
+  operationPerPropertyOperations: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  specificValuePerPropertyIndexes: eaa70163b65f1f57b0256fc2aff67fa0546526a39579bdaa0cf8a6b532fed6909fbf9c3d8f4c4d26466a96aa63e8f4e8a23dbf7cc843ef573505b504b5459bc2bc941a1e
+  specificValuePerPropertyValues:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+--- !u!114 &1947309477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947309473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1306251035, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1947309478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947309473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1423854136, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1948005364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,13 +1531,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948005364}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1067305243}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1948005367
 MonoBehaviour:
