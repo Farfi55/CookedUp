@@ -4,6 +4,7 @@ using UnityEngine;
 namespace ThinkEngine.Sensors {
     public class BaseSensorData : MonoBehaviour {
         
+        private IDManager idManager;
         [SerializeField] private GameObject target;
         
         [Header("Sensor Data")]
@@ -12,9 +13,14 @@ namespace ThinkEngine.Sensors {
         public string Name;
 
         private void Start() {
-            ID = target.GetInstanceID();
+            idManager = IDManager.Instance;
+            ID = idManager.GetID(target);
             Type = target.GetType().Name;
             Name = target.name;
+        }
+        
+        private void OnDestroy() {
+            idManager.RemoveGameObject(ID);
         }
     }
 }

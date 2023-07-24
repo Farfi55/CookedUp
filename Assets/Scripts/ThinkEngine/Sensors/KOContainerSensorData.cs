@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using KitchenObjects.Container;
 using ThinkEngine.Models;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 namespace ThinkEngine.Sensors {
     public class KOContainerSensorData : MonoBehaviour {
         
+        private IDManager idManager;
         
         [SerializeField] private KitchenObjectsContainer container;
 
@@ -21,12 +23,13 @@ namespace ThinkEngine.Sensors {
         public KitchenObject FirstKitchenObject;
         public bool HasSpace;
         public bool HasAny;
-        
+
 
         private void Start() {
+            idManager = IDManager.Instance;
             container.OnKitchenObjectsChanged += OnKitchenObjectsChanged;
             SizeLimit = container.SizeLimit;
-            ContainerID = container.gameObject.GetInstanceID();
+            ContainerID = idManager.GetID(container.gameObject);
             UpdateContainerData();
         }
 
@@ -35,8 +38,12 @@ namespace ThinkEngine.Sensors {
         private void UpdateContainerData()
         {
             Count = container.Count;
-            KitchenObjects.Clear();
             
+            foreach (var oldKitchenObject in KitchenObjects)
+                idManager.RemoveGameObject(oldKitchenObject.ID);
+            
+            KitchenObjects.Clear();
+
             foreach (var kitchenObject in container.KitchenObjects)
                 KitchenObjects.Add(new KitchenObject(kitchenObject));
 
@@ -44,7 +51,10 @@ namespace ThinkEngine.Sensors {
             HasAny = container.HasAny();
             
             FirstKitchenObject = HasAny ? new KitchenObject(container.KitchenObject) : null;
+        }
 
+        private void OnDestroy() {
+            idManager.RemoveGameObject(ContainerID);
         }
     }
 }

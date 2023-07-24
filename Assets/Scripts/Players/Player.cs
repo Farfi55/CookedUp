@@ -30,6 +30,7 @@ namespace Players {
         private Vector2 lastMovementInput;
 
         public bool HasSelectedInteractable() => selectedInteractable != null;
+        
         public IInteractable SelectedInteractable => selectedInteractable;
         private IInteractable selectedInteractable = null;
 
@@ -193,6 +194,15 @@ namespace Players {
             return bestInteractable;
         }
 
+        
+        public GameObject GetSelectedGameObject() {
+            if (selectedInteractable is MonoBehaviour interactable) {
+                return interactable.gameObject;
+            }
+
+            return null;   
+        }
+        
 
         private float GetInteractableCost(IInteractable interactable, Vector3 interactablePosition) {
             var pos = transform.position;

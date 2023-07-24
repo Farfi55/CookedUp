@@ -13,4 +13,15 @@
 % applyAction(OrderOfExecution,ActionClassName).
 % actionArgument(ActionOrder,ArgumentName, ArgumentValue).
 
+
+
 applyAction(1, "TestAction").
+actionArgument(1, "TestInt", 14).
+actionArgument(1, "testString", "ciaooo").
+actionArgument(1, "testBool1", "false").
+actionArgument(1, "testBool2", "false").
+
+
+
+
+

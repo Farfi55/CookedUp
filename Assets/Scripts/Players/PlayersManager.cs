@@ -46,6 +46,10 @@ namespace Players {
         public Player GetPlayer(int index) {
             return players[index];
         }
+        
+        public Player GetPlayerByID(int id) {
+            return players.Find(player => player.GetInstanceID() == id);
+        }
 
         public Player GetRandomPlayer() {
             return players.GetRandomElement();

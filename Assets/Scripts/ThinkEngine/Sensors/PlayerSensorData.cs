@@ -8,7 +8,6 @@ namespace ThinkEngine.Sensors
 {
     public class PlayerSensorData : MonoBehaviour
     {
-        private GridManager gridManager;
         [SerializeField] private Player player;
         [SerializeField] private PlayerBot playerBot;
         
@@ -19,7 +18,6 @@ namespace ThinkEngine.Sensors
         
 
         private void Start() {
-            gridManager = GridManager.Instance;
             player.OnSelectedInteractableChanged += OnSelectedInteractableChanged;
             UpdateInteractableData();
         }

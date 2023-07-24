@@ -16,9 +16,10 @@ namespace ThinkEngine.Models
         }
         
         public KitchenObject(KitchenObjects.KitchenObject ko) {
+            var idManager = IDManager.Instance;
             Name = ko.KitchenObjectSO.name;
-            ID = ko.GetInstanceID();
-            ContainerID = ko.Container.gameObject.GetInstanceID();
+            ID = idManager.GetID(ko.gameObject);
+            ContainerID = idManager.GetID(ko.Container.gameObject);
         }
     }
 }

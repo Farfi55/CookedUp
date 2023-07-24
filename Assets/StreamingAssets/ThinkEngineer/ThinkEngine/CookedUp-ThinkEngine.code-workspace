@@ -1,6 +1,11 @@
 {
     "folders": [
         {
+            "name": "Scripts",
+            "path": "../../../Scripts"
+        },
+        {
+            "name": "ThinkEngine",
             "path": "../../../ThinkEngineer/ThinkEngine"
         },
         {
@@ -13,6 +18,9 @@
         }
     ],
     "settings": {
-        "explorer.sortOrder": "modified"
+        "explorer.sortOrder": "modified",
+        "files.exclude": {
+            "**/*.meta": true
+        }
     }
 }

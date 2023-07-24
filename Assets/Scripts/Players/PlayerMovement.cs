@@ -23,7 +23,8 @@ namespace Players {
         private bool lookAtTargetUntilSelected = false;
         [SerializeField] private bool stopAllWhenUsingInput = true;
         private bool HasLookAtTarget => lookAtTarget != null;
-
+        
+        
 
         public event EventHandler OnDestinationReached;
         public event EventHandler OnLookAtTargetCompleted;
@@ -49,8 +50,6 @@ namespace Players {
         }
 
         private void Update() {
-            
-            
             if (HasReachedDestination()) {
                 DestinationReached();
             }
