@@ -4,18 +4,15 @@ using KitchenObjects.Container;
 using Players;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors
-{
-    public class PlayerSensorData : MonoBehaviour
-    {
+namespace ThinkEngine.Sensors {
+    public class PlayerSensorData : MonoBehaviour {
         [SerializeField] private Player player;
         [SerializeField] private PlayerBot playerBot;
-        
-        
-        [Header("Sensor Data")]
-        public bool HasSelectedInteractable;
-        public string SelectedInteractableName;
-        
+
+
+        [Header("Sensor Data")] public bool HasSelectedInteractable;
+        public string SelectedInteractableType;
+
 
         private void Start() {
             player.OnSelectedInteractableChanged += OnSelectedInteractableChanged;
@@ -23,19 +20,16 @@ namespace ThinkEngine.Sensors
         }
 
 
-        private void OnSelectedInteractableChanged(object sender, ValueChangedEvent<IInteractable> e) => UpdateInteractableData();
+        private void OnSelectedInteractableChanged(object sender, ValueChangedEvent<IInteractable> e) =>
+            UpdateInteractableData();
 
-        private void UpdateInteractableData()
-        {
+        private void UpdateInteractableData() {
             HasSelectedInteractable = player.HasSelectedInteractable();
             if (player.SelectedInteractable is MonoBehaviour interactable) {
-                SelectedInteractableName = interactable.GetType().Name;
-                Debug.Log(SelectedInteractableName);
+                SelectedInteractableType = interactable.GetType().Name;
             }
             else
-            {
-                SelectedInteractableName = "";
-            }
+                SelectedInteractableType = "";
         }
     }
 }

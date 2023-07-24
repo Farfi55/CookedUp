@@ -35,7 +35,7 @@ for file in tqdm(files):
         with open(file, 'r') as f:
             lines = f.readlines()
             lines.sort()
-        with open(path + f'sorted-{i}.txt', 'w') as f:
+        with open(file, 'w') as f:
             f.writelines(lines)
     except:
         print("Error sorting file:", file)

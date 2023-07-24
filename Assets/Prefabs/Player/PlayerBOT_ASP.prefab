@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1522296519013336370}
-  pos: {x: 0, y: 0}
+  Pos: {x: 0, y: 0}
 --- !u!114 &7628295424075867432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +68,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1782850665118102057}
-  gameObjectID: 0
+  ID: 0
+  Type: 
+  Name: 
 --- !u!114 &1315881604085460173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,10 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5708879081929429265}
   playerBot: {fileID: 7760931143083286729}
-  playerID: 0
-  pos: {x: 0, y: 0}
-  hasSelectedInteractable: 0
-  selectedInteractableName: 
+  HasSelectedInteractable: 0
+  SelectedInteractableType: 
 --- !u!114 &5782462475890788620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,11 +100,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 6271473551798312916}
-  gameObjectID: 0
-  sizeLimit: 0
-  count: 0
-  hasSpace: 0
-  hasAny: 0
+  ContainerID: 0
+  SizeLimit: 0
+  Count: 0
+  KitchenObjects: []
+  FirstKitchenObject:
+    Name: 
+    ID: 0
+    ContainerID: 0
+  HasSpace: 0
+  HasAny: 0
 --- !u!114 &4108163814668762202
 MonoBehaviour:
   m_ObjectHideFlags: 0

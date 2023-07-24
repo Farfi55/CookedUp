@@ -25,14 +25,20 @@ namespace ThinkEngine.Actions {
 
         private bool UseTarget() => TargetID != 0;
 
-        bool error = false;
+        bool anyError;
 
         public override State Prerequisite() {
             if (idManager == null) {
                 idManager = IDManager.Instance;
 
+                Debug.Log($"MoveToAction: PlayerID: {PlayerID}, TargetID: {TargetID}, GridX: {GridX}, GridY: {GridY}");
 
-                player = idManager.GetGameObject(PlayerID).GetComponent<Player>();
+                if (PlayerID == 0) {
+                    player = PlayersManager.Instance.GetPlayer();
+                }
+                else
+                    player = idManager.GetGameObject(PlayerID).GetComponent<Player>();
+                
                 playerMovement = player.GetComponent<PlayerMovement>();
 
                 if (UseTarget()) {
@@ -56,13 +62,13 @@ namespace ThinkEngine.Actions {
 
             if (!playerMovement.TryMoveTo(worldPos)) {
                 Debug.LogError($"player {player.name} could not move to {worldPos}");
-                error = true;
+                anyError = true;
             }
         }
         
         
         public override bool Done() {
-            if (error)
+            if (anyError)
                 return true;
 
             if (UseTarget() && player.GetSelectedGameObject() != target)
