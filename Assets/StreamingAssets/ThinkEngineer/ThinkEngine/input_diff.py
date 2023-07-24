@@ -1,19 +1,20 @@
 import glob
 import os
 import sys
+import subprocess
 from datetime import datetime
 
 path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
-input_index = -1
-
-brain_file = './PlayerPlanner1.asp'
-
-solver = '.\\lib\\dlv2.exe --output 1'
+index_file_A = -1
+index_file_B = -2
 
 i = 1
 while i < len(sys.argv):
-    if sys.argv[i] in ['-i', '--index']:
-        input_index =  int(sys.argv[i + 1])
+    if sys.argv[i] in ['-a', '--a-index']:
+        index_file_A =  int(sys.argv[i + 1])
+        i += 1
+    elif sys.argv[i] in ['-b', '--b-index']:
+        index_file_B =  int(sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-p', '--path']:
         path = sys.argv[i + 1]
@@ -44,11 +45,29 @@ if len(list_of_files) == 0:
     exit(1)
 
 
-input_file = list_of_files[input_index]
+try:
+    input_file_A = list_of_files[index_file_A]
+    input_file_B = list_of_files[index_file_B]
+except IndexError as e:
+    print("Invalid index")
+    print(e)
+    exit(1)
 
-print("executing with input file:", input_file)
-print("created at:", datetime.fromtimestamp(os.path.getctime(input_file)).strftime('%Y-%m-%d %H:%M:%S'))
 
-run_command = ' '.join([solver, brain_file, input_file])
+os.system(f"python sort_input.py {input_file_A} {input_file_B}")
+
+
+print("Difference between:")
+
+print("A:", input_file_A)
+print("created at:", datetime.fromtimestamp(os.path.getctime(input_file_A)).strftime('%Y-%m-%d %H:%M:%S'))
+
+print("B:", input_file_B)
+print("created at:", datetime.fromtimestamp(os.path.getctime(input_file_B)).strftime('%Y-%m-%d %H:%M:%S'))
+
+run_command = ' '.join(['git diff --word-diff=color', input_file_A, input_file_B])
 print(run_command)
+print()
+
 os.system(run_command)
+

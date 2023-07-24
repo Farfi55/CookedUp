@@ -1,16 +1,18 @@
 {
-	"folders": [
-		{
-			"path": "../../../ThinkEngineer/ThinkEngine"
-		},
-		{
-			"path": "."
-		},
-		{
-			"path": "../../../../../../Users/aless/AppData/Local/Temp/ThinkEngineFacts"
-		}
-	],
-	"settings": {
-		"explorer.sortOrder": "modified"
-	}
+    "folders": [
+        {
+            "path": "../../../ThinkEngineer/ThinkEngine"
+        },
+        {
+            "name": "StreamingAssets",
+            "path": "."
+        },
+        {
+            "name": "input files",
+            "path": "../../../../../../Users/aless/AppData/Local/Temp/ThinkEngineFacts"
+        }
+    ],
+    "settings": {
+        "explorer.sortOrder": "modified"
+    }
 }
