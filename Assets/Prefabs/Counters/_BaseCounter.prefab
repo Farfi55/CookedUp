@@ -177,11 +177,11 @@ GameObject:
   - component: {fileID: 7951942665552708947}
   - component: {fileID: 7547468693740168070}
   - component: {fileID: 2754376379838779097}
-  - component: {fileID: 2175416706792422411}
-  - component: {fileID: 4859392518891975772}
-  - component: {fileID: 7753919631337054734}
+  - component: {fileID: 5848850704354807169}
+  - component: {fileID: 10946456694699675}
+  - component: {fileID: 406383213852124881}
   m_Layer: 6
-  m_Name: CounterSensors
+  m_Name: CounterSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
     ContainerID: 0
   HasSpace: 0
   HasAny: 0
---- !u!114 &2175416706792422411
+--- !u!114 &5848850704354807169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,10 +264,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4555674165902371461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1423854136, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4859392518891975772
+--- !u!114 &10946456694699675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,10 +276,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4555674165902371461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1306251035, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: ebbfafe6b49a397479dcf9d279b118c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7753919631337054734
+--- !u!114 &406383213852124881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,13 +288,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4555674165902371461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1612528518, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _savedProperties:
-  - myStrings:
-    - BaseSensorData
-    Count: 1
   - myStrings:
     - BaseSensorData
     - ID
@@ -309,61 +306,18 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - GridPositionSensorData
-    - Pos
-    - x
-    Count: 3
+    - X
+    Count: 2
   - myStrings:
     - GridPositionSensorData
-    - Pos
-    - y
-    Count: 3
+    - Y
+    Count: 2
   - myStrings:
     - KOContainerSensorData
     Count: 1
   - myStrings:
     - KOContainerSensorData
-    - HasSpace
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - HasAny
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - Name
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - ID
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
     - ContainerID
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - Name
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ContainerID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - Count
     Count: 2
   - myStrings:
     - KOContainerSensorData
@@ -371,7 +325,48 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
     - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
     Count: 2
   _toMapProperties:
   - myStrings:
@@ -388,58 +383,15 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - GridPositionSensorData
-    - Pos
-    - x
-    Count: 3
+    - X
+    Count: 2
   - myStrings:
     - GridPositionSensorData
-    - Pos
-    - y
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - HasSpace
+    - Y
     Count: 2
   - myStrings:
     - KOContainerSensorData
-    - HasAny
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - Name
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - ID
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
     - ContainerID
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - Name
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ContainerID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - Count
     Count: 2
   - myStrings:
     - KOContainerSensorData
@@ -447,30 +399,236 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - KOContainerSensorData
-    - ContainerID
+    - Count
     Count: 2
-  _configurationName: baseCounterSensors
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_ID
+    propertyAliasHash: -959272000
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_Type
+    propertyAliasHash: -1644391227
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_Name
+    propertyAliasHash: 1521276762
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - X
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_X
+    propertyAliasHash: -672402683
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - Y
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_Y
+    propertyAliasHash: -672402684
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - ContainerID
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_ContainerID
+    propertyAliasHash: -1574754401
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - SizeLimit
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_SizeLimit
+    propertyAliasHash: 205934797
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - Count
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_Count
+    propertyAliasHash: -798627724
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObject
+      - Name
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: CounterSensor_KitchenObject_Name
+    propertyAliasHash: 1535936526
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObject
+      - ID
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: CounterSensor_KitchenObject_ID
+    propertyAliasHash: 647994600
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObject
+      - ContainerID
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: CounterSensor_KitchenObject_ContainerID
+    propertyAliasHash: -1804770333
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - Name
+      Count: 3
+    windowWidth: 200
+    _propertyAlias: CounterSensor_FirstKitchenObject_Name
+    propertyAliasHash: 280252894
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ID
+      Count: 3
+    windowWidth: 200
+    _propertyAlias: CounterSensor_FirstKitchenObject_ID
+    propertyAliasHash: -1377132084
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ContainerID
+      Count: 3
+    windowWidth: 200
+    _propertyAlias: CounterSensor_FirstKitchenObject_ContainerID
+    propertyAliasHash: -1659913887
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_HasAny
+    propertyAliasHash: 234997133
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasSpace
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: CounterSensor_HasSpace
+    propertyAliasHash: 172605435
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: counterSensor
   isInvariant: 0
   isFixedSize: 0
-  operationPerPropertyIndexes: 0e77a0a7630d9c08907d23a1dd3b34d714714114785393fb9c925d639b925d630896db7927bd98d02a2f9a63b00002953716ca42162bd1b59cfc38e723120195b2452249a469e2dd
-  operationPerPropertyOperations: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  specificValuePerPropertyIndexes: 0e77a0a7630d9c08907d23a1dd3b34d714714114785393fb9c925d639b925d630896db7927bd98d02a2f9a63b00002953716ca42162bd1b59cfc38e723120195b2452249a469e2dd
-  specificValuePerPropertyValues:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  _serializableSensorsTypes: []

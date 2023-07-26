@@ -9,6 +9,9 @@ namespace ThinkEngine.Sensors {
         [Header("Sensor Data")]
         public Vector2Int Pos;
         
+        public int X => Pos.x;
+        public int Y => Pos.y;
+        
         private void Start() {
             gridManager = GridManager.Instance;
             Pos = gridManager.GetGridPosition(target.position);

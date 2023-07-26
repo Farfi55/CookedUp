@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 7628295424075867432}
   - component: {fileID: 1315881604085460173}
   - component: {fileID: 5782462475890788620}
-  - component: {fileID: 4108163814668762202}
-  - component: {fileID: 2517103670926953554}
-  - component: {fileID: 3790756659056546361}
-  - component: {fileID: 1780562958130493400}
-  - component: {fileID: 8245266531593849708}
-  - component: {fileID: 9109065713816608312}
+  - component: {fileID: 5210427582374644628}
+  - component: {fileID: 1043049013687419134}
+  - component: {fileID: 690487446233426465}
+  - component: {fileID: 3796238315501043888}
+  - component: {fileID: 7483489731109008985}
+  - component: {fileID: 2049688654581762182}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -110,7 +110,7 @@ MonoBehaviour:
     ContainerID: 0
   HasSpace: 0
   HasAny: 0
---- !u!114 &4108163814668762202
+--- !u!114 &5210427582374644628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177460339381318128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1423854136, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2517103670926953554
+--- !u!114 &1043049013687419134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177460339381318128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1306251035, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: ebbfafe6b49a397479dcf9d279b118c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3790756659056546361
+--- !u!114 &690487446233426465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,140 +143,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177460339381318128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1612528518, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
-    - PlayerBotSensorData
-    - kosInContainerNames
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - koName
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - isKOPlate
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - hasSelectedInteractable
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - selectedInteractableName
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - pos
+    - GridPositionSensorData
+    - Pos
     - x
     Count: 3
   - myStrings:
-    - PlayerBotSensorData
-    - pos
+    - GridPositionSensorData
+    - Pos
     - y
     Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - sizeLimit
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - count
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - kosNames
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - koName
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - hasSpace
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - hasAny
-    Count: 2
   _toMapProperties:
   - myStrings:
-    - PlayerBotSensorData
-    - kosInContainerNames
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - koName
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - isKOPlate
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - hasSelectedInteractable
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - selectedInteractableName
-    Count: 2
-  - myStrings:
-    - PlayerBotSensorData
-    - pos
+    - GridPositionSensorData
+    - Pos
     - x
     Count: 3
   - myStrings:
-    - PlayerBotSensorData
-    - pos
+    - GridPositionSensorData
+    - Pos
     - y
     Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - sizeLimit
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - count
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - kosNames
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - koName
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - hasSpace
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - hasAny
-    Count: 2
-  _configurationName: PlayerSensor
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - Pos
+      - x
+      Count: 3
+    windowWidth: 200
+    _propertyAlias: Player_x
+    propertyAliasHash: -719706128
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - Pos
+      - y
+      Count: 3
+    windowWidth: 200
+    _propertyAlias: Player_y
+    propertyAliasHash: 846377813
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: playerSensor0
   isInvariant: 0
   isFixedSize: 0
-  operationPerPropertyIndexes: 5aec3622c6aec6baebfc706d161ad117999e29290b0a8a930a0a8a93d2440247073d98d0e763130bbf23fe9c988d7efbe8f4da79
-  operationPerPropertyOperations: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  specificValuePerPropertyIndexes: 5aec3622c6aec6baebfc706d161ad117999e29290b0a8a930a0a8a93d2440247073d98d0e763130bbf23fe9c988d7efbe8f4da79
-  specificValuePerPropertyValues:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
---- !u!114 &1780562958130493400
+  _serializableSensorsTypes: []
+--- !u!114 &3796238315501043888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,10 +206,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177460339381318128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1212236918, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2aa13b928c00d34286809e8edaa818c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8245266531593849708
+--- !u!114 &7483489731109008985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,11 +218,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177460339381318128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1504054938, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: 19718c9808e14cb4ea9449c0fa49bcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   priorityExecuting: 0
---- !u!114 &9109065713816608312
+--- !u!114 &2049688654581762182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,22 +231,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177460339381318128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 383103547, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43caf37b06ba8954abe67548f09c14fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  borning: 0
   enableBrain: 1
   debug: 1
   maintainInputFile: 0
-  _chosenSensorConfigurations:
-  - PlayerSensor
+  _chosenSensorConfigurations: []
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix: Player
-  _AIFileTemplatePath: .\Assets\ThinkEngineer\ThinkEngine\Templates\PlannerBrainTemplateSensorsPlanner1.asp
+  _AIFileTemplatePath: 
   prefabBrain: 1
   solverEnum: 1
   _executeReasonerOn: When Sensors are ready
   specificAIFile: 0
   globalAIFile: 1
+  solver_options: []
   _priority: 0
 --- !u!1 &5498281004208937054
 GameObject:

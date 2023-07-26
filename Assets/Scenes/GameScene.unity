@@ -2617,9 +2617,9 @@ GameObject:
   m_Component:
   - component: {fileID: 512192256}
   - component: {fileID: 512192260}
-  - component: {fileID: 512192259}
-  - component: {fileID: 512192258}
-  - component: {fileID: 512192257}
+  - component: {fileID: 512192263}
+  - component: {fileID: 512192262}
+  - component: {fileID: 512192261}
   m_Layer: 0
   m_Name: ConstantSensors
   m_TagString: Untagged
@@ -2642,240 +2642,6 @@ Transform:
   m_Father: {fileID: 1924987608}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &512192257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512192255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1612528518, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _savedProperties:
-  - myStrings:
-    - ConstantsSensorData
-    Count: 1
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - IngredientsNames
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Value
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - InputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - OutputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - TimeToCook
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - IsBurningRecipe
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    Count: 2
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - InputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - OutputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - TimeToCut
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - KitchenObjectsNames
-    Count: 2
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    Count: 2
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    Count: 2
-  - myStrings:
-    - ConstantsSensorData
-    - cookingRecipesSos
-    Count: 2
-  _toMapProperties:
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - IngredientsNames
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Value
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - InputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - OutputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - TimeToCook
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CookingRecipes
-    - CookingRecipe
-    - IsBurningRecipe
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - InputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - OutputKOName
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CuttingRecipes
-    - CuttingRecipe
-    - TimeToCut
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - KitchenObjectsNames
-    Count: 2
-  _configurationName: constantSensor
-  isInvariant: 1
-  isFixedSize: 0
-  operationPerPropertyIndexes: eaa701639579bdaab0256fc2aff67fa0546526a30cf8a6b532fed6909fbf9c3d8f4c4d26466a96aa63e8f4e8a23dbf7cc843ef573505b504b5459bc2bc941a1eb65f1f575e0bf8ec
-  operationPerPropertyOperations: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  specificValuePerPropertyIndexes: eaa701639579bdaab0256fc2aff67fa0546526a30cf8a6b532fed6909fbf9c3d8f4c4d26466a96aa63e8f4e8a23dbf7cc843ef573505b504b5459bc2bc941a1eb65f1f575e0bf8ec
-  specificValuePerPropertyValues:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
---- !u!114 &512192258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512192255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1306251035, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &512192259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512192255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1423854136, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &512192260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2912,6 +2678,379 @@ MonoBehaviour:
   CookingRecipes: []
   CuttingRecipes: []
   KitchenObjectsNames: []
+--- !u!114 &512192261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512192255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - ConstantsSensorData
+    Count: 1
+  - myStrings:
+    - ConstantsSensorData
+    - KitchenObjectsNames
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - ConstantsSensorData
+    - KitchenObjectsNames
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - KitchenObjectsNames
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_KitchenObjectsNames
+    propertyAliasHash: 501509846
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - TimeToCut
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_TimeToCut
+    propertyAliasHash: -1946526034
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - OutputKOName
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_OutputKOName
+    propertyAliasHash: 48099414
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - InputKOName
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_InputKOName
+    propertyAliasHash: 802277097
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_Name
+    propertyAliasHash: -123330449
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_CookingRecipe_Name
+    propertyAliasHash: 2063529310
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - InputKOName
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_CookingRecipe_InputKOName
+    propertyAliasHash: -940632818
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - OutputKOName
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_CookingRecipe_OutputKOName
+    propertyAliasHash: 1574565563
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - TimeToCook
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_TimeToCook
+    propertyAliasHash: -1005234014
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - IsBurningRecipe
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_IsBurningRecipe
+    propertyAliasHash: 2042375677
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CompleteRecipes
+      - CompleteRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_CompleteRecipe_Name
+    propertyAliasHash: 1260835401
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CompleteRecipes
+      - CompleteRecipe
+      - IngredientsNames
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_IngredientsNames
+    propertyAliasHash: 773511726
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CompleteRecipes
+      - CompleteRecipe
+      - Value
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: ConstantSensors_Value
+    propertyAliasHash: 7352283
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: constantSensorsSensor
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes: []
+--- !u!114 &512192262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512192255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbfafe6b49a397479dcf9d279b118c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &512192263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512192255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &560452759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6167,6 +6306,7 @@ GameObject:
   - component: {fileID: 1449173828}
   - component: {fileID: 1449173830}
   - component: {fileID: 1449173829}
+  - component: {fileID: 1449173831}
   m_Layer: 0
   m_Name: ThinkEngineUtility
   m_TagString: Untagged
@@ -6213,10 +6353,22 @@ MonoBehaviour:
   m_Script: {fileID: 748951336, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MIN_AVG_FPS: 58
-  MIN_CURRENT_FPS: 50
-  MAX_AVG_FPS: 60
-  MAX_CURRENT_FPS: 55
+--- !u!114 &1449173831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449173827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65fde9b7dc34e844acc72e272dc8e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MIN_AVG_FPS: 0
+  MIN_CURRENT_FPS: 0
+  MAX_AVG_FPS: 0
+  MAX_CURRENT_FPS: 0
 --- !u!1 &1453829731
 GameObject:
   m_ObjectHideFlags: 0

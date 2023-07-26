@@ -3,12 +3,15 @@ import os
 import sys
 from datetime import datetime
 
-path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
+input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
 input_index = -1
 
-brain_file = './PlayerPlanner1.asp'
+streaming_assets_path = '../../StreamingAssets/ThinkEngineer/ThinkEngine/'
 
-solver = '.\\lib\\dlv2.exe --output 1'
+brain_files_pattern = streaming_assets_path + 'PlayerPlanner1*.asp'
+brain_files = []
+
+solver = streaming_assets_path + 'lib/dlv2.exe --output 1'
 
 i = 1
 while i < len(sys.argv):
@@ -16,10 +19,10 @@ while i < len(sys.argv):
         input_index =  int(sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-p', '--path']:
-        path = sys.argv[i + 1]
+        input_path = sys.argv[i + 1]
         i += 1
     elif sys.argv[i] in ['-b', '--brain']:
-        brain_file = sys.argv[i + 1]
+        brain_files.append(sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-s', '--solver']:
         solver = sys.argv[i + 1]
@@ -36,7 +39,7 @@ while i < len(sys.argv):
     i += 1
 
 
-list_of_files = glob.glob(path + "*.txt")
+list_of_files = glob.glob(input_path + "*.txt")
 list_of_files.sort(key=os.path.getctime)
 
 if len(list_of_files) == 0:
@@ -49,6 +52,10 @@ input_file = list_of_files[input_index]
 print("executing with input file:", input_file)
 print("created at:", datetime.fromtimestamp(os.path.getctime(input_file)).strftime('%Y-%m-%d %H:%M:%S'))
 
-run_command = ' '.join([solver, brain_file, input_file])
+if(brain_files == []):
+    brain_files = glob.glob(brain_files_pattern)
+
+
+run_command = ' '.join([solver, *brain_files, input_file])
 print(run_command)
 os.system(run_command)
