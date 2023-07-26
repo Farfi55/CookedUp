@@ -377,7 +377,10 @@ namespace ThinkEngine
         private static void CompleteMapping(string propertyAlias, GameObject gameObject, bool isSensor, ref string partialMapping)
         {
             string cleanPropertyAlias = ASPMapperHelper.AspFormat(propertyAlias);
-            partialMapping = cleanPropertyAlias + "(" + ASPMapperHelper.AspFormat(gameObject.name) + ",objectIndex(Index)," + partialMapping;
+            // partialMapping = cleanPropertyAlias + "(" + ASPMapperHelper.AspFormat(gameObject.name) + ",objectIndex(Index)," + partialMapping;
+            
+            partialMapping = cleanPropertyAlias + "(Name, objectIndex(Index), " + partialMapping;
+            
             partialMapping += ")";
             if (!isSensor)
             {

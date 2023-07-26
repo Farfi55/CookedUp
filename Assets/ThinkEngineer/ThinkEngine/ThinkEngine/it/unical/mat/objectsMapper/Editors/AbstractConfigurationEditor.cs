@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
 using ThinkEngine.Mappers;
@@ -137,6 +137,8 @@ namespace ThinkEngine.Editors
             }
         }
 
+        // recursive method
+        // shows all the properties of the object
         private void ListProperties(MyListString startingProperty, bool needsSpecifications)
         {
             List<MyListString> firstLevel = GetProperties(startingProperty);

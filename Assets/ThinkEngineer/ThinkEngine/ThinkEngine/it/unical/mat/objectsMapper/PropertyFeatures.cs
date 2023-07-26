@@ -57,7 +57,8 @@ namespace ThinkEngine
             }
             if(_propertyAlias!=null && usedPropertyAlias.Contains(propertyAliasHash))
             {
-                usedPropertyAlias.Remove(propertyAliasHash);
+                // remove old property name from usedPropertyAlias when changing it
+                Remove();
             }
             Debug.Log("setting _property_name to " + value);
             _propertyAlias = value;
