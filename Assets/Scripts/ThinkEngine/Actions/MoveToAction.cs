@@ -16,7 +16,7 @@ namespace ThinkEngine.Actions {
         private PlayersManager playersManager;
         private IDManager idManager;
 
-        private Player player;
+        public Player Player { get; private set; }
         private PlayerMovement playerMovement;
         private GameObject target;
         private Vector2Int gridPos;
@@ -34,12 +34,12 @@ namespace ThinkEngine.Actions {
                 Debug.Log($"MoveToAction: PlayerID: {PlayerID}, TargetID: {TargetID}, GridX: {GridX}, GridY: {GridY}");
 
                 if (PlayerID == 0) {
-                    player = PlayersManager.Instance.GetPlayer();
+                    Player = PlayersManager.Instance.GetPlayer();
                 }
                 else
-                    player = idManager.GetGameObject(PlayerID).GetComponent<Player>();
-                
-                playerMovement = player.GetComponent<PlayerMovement>();
+                    Player = idManager.GetGameObject(PlayerID).GetComponent<Player>();
+
+                playerMovement = Player.GetComponent<PlayerMovement>();
 
                 if (UseTarget()) {
                     target = idManager.GetGameObject(TargetID);
@@ -61,19 +61,19 @@ namespace ThinkEngine.Actions {
             }
 
             if (!playerMovement.TryMoveTo(worldPos)) {
-                Debug.LogError($"player {player.name} could not move to {worldPos}");
+                Debug.LogError($"player {Player.name} could not move to {worldPos}");
                 anyError = true;
             }
         }
-        
-        
+
+
         public override bool Done() {
             if (anyError)
                 return true;
 
-            if (UseTarget() && player.GetSelectedGameObject() != target)
+            if (UseTarget() && Player.GetSelectedGameObject() != target)
                 return false;
-            
+
             return !playerMovement.IsMovingUsingNavigation;
         }
     }

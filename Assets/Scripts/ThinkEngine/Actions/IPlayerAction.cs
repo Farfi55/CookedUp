@@ -1,7 +1,9 @@
-﻿namespace ThinkEngine.Actions {
+﻿using Players;
+
+namespace ThinkEngine.Actions {
     public interface IPlayerAction {
         
-        public int PlayerID { get; set; } 
-        
+        int PlayerID { get; set; } 
+        Player Player { get; }
     }
 }
