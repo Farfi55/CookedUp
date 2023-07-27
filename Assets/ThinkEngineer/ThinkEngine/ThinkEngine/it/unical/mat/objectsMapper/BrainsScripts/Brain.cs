@@ -76,11 +76,14 @@ namespace ThinkEngine
         internal SOLVER solverEnum;
         internal string AIFileTemplatePath
         {
-            get
+            get 
             {
-                if (_AIFileTemplatePath == null || !_AIFileTemplatePath.Equals(Path.Combine(Utility.TemplatesFolder, GetType().Name + "Template" + AIFilesPrefix + ".asp")))
+                string aiFileName = (AIFilesPrefix[0] ?? gameObject.name) + GetType().Name + "Template.asp";
+                var aiFileTemplatePath = Path.Combine(Utility.TemplatesFolder, aiFileName);
+                
+                if (_AIFileTemplatePath == null || !_AIFileTemplatePath.Equals(aiFileTemplatePath))
                 {
-                    _AIFileTemplatePath = Path.Combine(Utility.TemplatesFolder, GetType().Name + "Template" + AIFilesPrefix + ".asp");
+                    _AIFileTemplatePath = aiFileTemplatePath;
 
                     if (!File.Exists(_AIFileTemplatePath))
                     {
@@ -88,7 +91,7 @@ namespace ThinkEngine
                         {
                             Directory.CreateDirectory(Utility.TemplatesFolder);
                         }
-                        File.Create(_AIFileTemplatePath);
+                        File.Create(_AIFileTemplatePath).Close();
                     }
                 }
                 return _AIFileTemplatePath;
@@ -228,7 +231,7 @@ namespace ThinkEngine
         internal virtual void GenerateFile()
         {
             string sensorsAsASP;
-            using (StreamWriter fs = File.CreateText(AIFileTemplatePath))
+            using (StreamWriter fs = new StreamWriter(AIFileTemplatePath))
             {
                 fs.Write("%For runtime instantiated GameObject, only the prefab mapping is provided. Use that one substituting the gameobject name accordingly.\n %Sensors.\n");
                 HashSet<string> seenSensorConfNames = new HashSet<string>();
