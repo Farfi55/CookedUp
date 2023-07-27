@@ -2,7 +2,7 @@
 
 namespace ThinkEngine
 {
-    internal interface IActuators
+    public interface IActuators
     {
         List<MonoBehaviourActuator> GetActuatorsList();
     }

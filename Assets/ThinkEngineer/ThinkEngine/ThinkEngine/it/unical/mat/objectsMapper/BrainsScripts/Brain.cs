@@ -237,7 +237,7 @@ namespace ThinkEngine
                         continue;
                     }
                     seenSensorConfNames.Add(sensorConf.ConfigurationName);
-                    foreach (PropertyFeatures features in sensorConf.PropertyFeatures)
+                    foreach (PropertyFeatures features in sensorConf.PropertyFeaturesList)
                     {
                         //Debug.Log(property);
                         sensorsAsASP = MapperManager.GetASPTemplate(features.PropertyAlias, sensorConf.gameObject, features.property, true);

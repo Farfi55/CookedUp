@@ -32,13 +32,11 @@ namespace ThinkEngine
         internal static int updatedSensors;
         internal static long MS;
         private static Dictionary<Brain, List<string>> _instantiatedSensors;
-        private static ConcurrentQueue<KeyValuePair<Brain, object>> _requestedMappings;
         internal static bool _configurationsChanged;
         internal float avgFps = 0;
         internal static float bestAvgFps = 0;
         internal static int frameCount = 0;
         internal static bool destroyed;
-        internal static MonoBehaviourSensorsManager[] monoBehaviourManagers;
         internal static int iteration=0;
         private static Dictionary<Brain, List<string>> InstantiatedSensors
         {
@@ -59,17 +57,21 @@ namespace ThinkEngine
             {
                 return false;
             }
-            foreach (MonoBehaviourSensorsManager manager in Resources.FindObjectsOfTypeAll<MonoBehaviourSensorsManager>())
+            foreach (SensorConfiguration configurationToCompare in Resources.FindObjectsOfTypeAll<SensorConfiguration>())
             {
+                if (configurationToCompare == newSensorConfiguration)
+                {
+                    continue;
+                }
                 if (PrefabStageUtility.GetPrefabStage(newSensorConfiguration.gameObject) != null)
                 {
-                    GameObject managerPrefab = PrefabUtility.GetCorrespondingObjectFromSource(manager.gameObject);
-                    if (managerPrefab != null && newSensorConfiguration.gameObject.Equals(managerPrefab))
+                    GameObject toComparePrefab = PrefabUtility.GetCorrespondingObjectFromSource(configurationToCompare.gameObject);
+                    if (toComparePrefab != null && newSensorConfiguration.gameObject.Equals(toComparePrefab))
                     {
                         continue;
                     }
                 }
-                if (manager != null && manager.ExistsConfigurationOtherThan(name, newSensorConfiguration))
+                if (configurationToCompare != null && configurationToCompare.ConfigurationName == name)
                 {
                     return false;
                 }
@@ -108,37 +110,25 @@ namespace ThinkEngine
 
         private void Update()
         {
-            if(Application.isPlaying)
+            if (Executor.CanRead(false))
             {
-                foreach(List<Sensor> sensors in _sensorsInstances.Values)
+                if (Application.isPlaying)
                 {
-                    for (int i = 0; i < sensors.Count; i++)
+                    foreach (List<Sensor> sensors in _sensorsInstances.Values)
                     {
-                        sensors[i].Update();
-                        sensors[i].Map();
+                        for (int i = 0; i < sensors.Count; i++)
+                        {
+                            sensors[i].Update();
+                        }
                     }
+                    iteration++;
                 }
+                Executor.CanRead(true);
             }
         }
 
         //GMDG
 
-        private static ConcurrentQueue<KeyValuePair<Brain, object>> RequestedMappings
-        {
-            get
-            {
-                if (destroyed)
-                {
-                    throw new Exception("application is closing");
-                }
-                if (_requestedMappings == null)
-                {
-                    _requestedMappings = new ConcurrentQueue<KeyValuePair<Brain, object>>();
-                }
-                //Debug.Log(_requestedMappings.Count);
-                return _requestedMappings;
-            }
-        }
         internal static bool ConfigurationsChanged
         {
             get
@@ -159,15 +149,7 @@ namespace ThinkEngine
         {
             get
             {
-                int num = 0;
-                foreach (MonoBehaviourSensorsManager m in FindObjectsOfType<MonoBehaviourSensorsManager>())
-                {
-                    foreach (List<Sensor> sensors in m.Sensors.Values)
-                    {
-                        num += sensors.Count;
-                    }
-                }
-                return num;
+                return _sensorsInstances.Count;
             }
         }
         #region Unity Messages
@@ -247,10 +229,6 @@ namespace ThinkEngine
                 StartCoroutine(SensorsUpdate());
             }
         }*/
-        MonoBehaviourSensorsManager[] RetrieveSensorsManagers()
-        {
-            return FindObjectsOfType<MonoBehaviourSensorsManager>();
-        }
         /*IEnumerator SensorsUpdate()
         {
             bool first = true;
@@ -324,9 +302,9 @@ namespace ThinkEngine
         internal IEnumerable<string> ConfigurationNames()
         {
             List<string> availableConfigurationNames = new List<string>();
-            foreach (MonoBehaviourSensorsManager manager in Resources.FindObjectsOfTypeAll<MonoBehaviourSensorsManager>())
+            foreach (SensorConfiguration configuration in Resources.FindObjectsOfTypeAll<SensorConfiguration>())
             {
-                availableConfigurationNames.AddRange(manager.GetAllConfigurationNames());
+                availableConfigurationNames.Add(configuration.ConfigurationName);
             }
             return availableConfigurationNames;
         }
@@ -345,18 +323,17 @@ namespace ThinkEngine
             List<SensorConfiguration> toReturn = new List<SensorConfiguration>();
             foreach (string confName in chosenSensorConfigurations)
             {
-                foreach (MonoBehaviourSensorsManager manager in Resources.FindObjectsOfTypeAll<MonoBehaviourSensorsManager>())
+                foreach (SensorConfiguration configuration in Resources.FindObjectsOfTypeAll<SensorConfiguration>())
                 {
 #if UNITY_EDITOR
-                    if (PrefabStageUtility.GetPrefabStage(manager.gameObject) != null)
+                    if (PrefabStageUtility.GetPrefabStage(configuration.gameObject) != null)
                     {
                         continue;
                     }
 #endif
-                    SensorConfiguration currentConfiguration = manager.GetConfiguration(confName);
-                    if (currentConfiguration != null)
+                    if (configuration.ConfigurationName == confName)
                     {
-                        toReturn.Add(currentConfiguration);
+                        toReturn.Add(configuration);
                     }
                 }
             }
@@ -364,9 +341,9 @@ namespace ThinkEngine
         }
         public bool ExistsConfigurationWithName(string name)
         {
-            foreach (MonoBehaviourSensorsManager manager in Resources.FindObjectsOfTypeAll<MonoBehaviourSensorsManager>())
+            foreach (SensorConfiguration configuration in Resources.FindObjectsOfTypeAll<SensorConfiguration>())
             {
-                if (manager.GetConfiguration(name) != null)
+                if (configuration.ConfigurationName ==name )
                 {
                     return true;
                 }
@@ -383,9 +360,9 @@ namespace ThinkEngine
             }
             foreach (string configurationName in configurationNames)
             {
-                foreach (MonoBehaviourSensorsManager manager in FindObjectsOfType<MonoBehaviourSensorsManager>())
+                foreach (SensorConfiguration configuration in FindObjectsOfType<SensorConfiguration>())
                 {
-                    if (manager.GetConfiguration(configurationName) != null)
+                    if (configuration.ConfigurationName == configuration.ConfigurationName )
                     {
                         return true;
                     }
@@ -426,6 +403,7 @@ namespace ThinkEngine
             {
                 InstantiatedSensors[brain] = instantiated;
             }
+
         }
         #endregion
     }

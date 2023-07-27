@@ -7,8 +7,8 @@ using UnityEngine;
 
 namespace ThinkEngine
 {
-    [ExecuteInEditMode, Serializable, RequireComponent(typeof(IndexTracker)), RequireComponent(typeof(MonoBehaviourSensorsManager))]
-    class SensorConfiguration : AbstractConfiguration//, ISerializationCallbackReceiver
+    [ExecuteInEditMode, Serializable, RequireComponent(typeof(IndexTracker))]
+    public class SensorConfiguration : AbstractConfiguration//, ISerializationCallbackReceiver
     {
         public bool isInvariant;
         public bool isFixedSize;
@@ -38,7 +38,17 @@ namespace ThinkEngine
                 }
             }
         }
+        [UnityEditor.Callbacks.DidReloadScripts]
+        static void Reload()
+        {
+            Utility.LoadPrefabs();
 
+        }
+        void Start()
+        {
+            Utility.LoadPrefabs();
+
+        }
         void OnEnable()
         {
             if (Application.isPlaying)
@@ -109,7 +119,7 @@ namespace ThinkEngine
             {
                 throw new Exception("Property not selected");
             }
-            PropertyFeatures.Find(x => x.property.Equals(property)).operation = operation;
+            PropertyFeaturesList.Find(x => x.property.Equals(property)).operation = operation;
         }
         internal void SetSpecificValuePerProperty(MyListString property, string value)
         {
@@ -117,7 +127,7 @@ namespace ThinkEngine
             {
                 throw new Exception("Property not selected");
             }
-            PropertyFeatures.Find(x => x.property.Equals(property)).specificValue = value;
+            PropertyFeaturesList.Find(x => x.property.Equals(property)).specificValue = value;
 
         }
 
@@ -127,7 +137,7 @@ namespace ThinkEngine
             {
                 throw new Exception("Property not selected");
             }
-            PropertyFeatures.Find(x => x.property.Equals(actualProperty)).counter = newCounter;
+            PropertyFeaturesList.Find(x => x.property.Equals(actualProperty)).counter = newCounter;
         }
 
         internal override bool IsSensor()
@@ -181,5 +191,6 @@ public void OnAfterDeserialize()
         {
             return temporaryName.Equals(ConfigurationName) || Utility.SensorsManager.IsConfigurationNameValid(temporaryName, this);
         }
+
     }
 }

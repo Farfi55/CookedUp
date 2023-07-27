@@ -19,9 +19,9 @@ namespace ThinkEngine
 
         //Paths
         private static readonly string rootPath = string.Format("{0}", Path.Combine(Application.dataPath, "Scripts"));
-        private static readonly string generatedCodeRelativePath = Path.Combine("Assets","Scripts","GeneratedCode");
-        private static readonly string generatedCodePath = string.Format(Path.Combine("{0}","GeneratedCode"), rootPath);
-        private static readonly string templateRelativePath = Path.Combine("Assets","Scripts","SensorTemplate.txt");
+        private static readonly string generatedCodeRelativePath = Path.Combine("Assets", "Scripts", "GeneratedCode");
+        private static readonly string generatedCodePath = string.Format(Path.Combine("{0}", "GeneratedCode"), rootPath);
+        private static readonly string templateRelativePath = Path.Combine("Assets", "Scripts", "SensorTemplate.txt");
 
         //Helping data structures
         private static List<string> propertyHierarchyNames;
@@ -38,12 +38,12 @@ namespace ThinkEngine
         private static MyListString currentPropertyHierarchy;
         private static PropertyFeatures currentPropertyFeatures;
 
-        private CodeGenerator() {}
+        private CodeGenerator() { }
 
         //Generate the MonobehaviourSensorManager
         internal static void GenerateCode(List<MyListString> toMapProperties, object objectValue, SensorConfiguration sensorConfiguration)
         {
-            if(sensorConfiguration.ConfigurationName.Equals(string.Empty))
+            if (sensorConfiguration.ConfigurationName.Equals(string.Empty))
             {
                 Debug.LogError("SensorConfiguration name can't be empty!");
                 return;
@@ -54,7 +54,7 @@ namespace ThinkEngine
             foreach (MyListString propertyHierarchy in toMapProperties)
             {
                 currentPropertyHierarchy = propertyHierarchy;
-                currentPropertyFeatures = currentSensorConfiguration.PropertyFeatures.Find(x => x.property.Equals(currentPropertyHierarchy));
+                currentPropertyFeatures = currentSensorConfiguration.PropertyFeaturesList.Find(x => x.property.Equals(currentPropertyHierarchy));
 
                 propertyHierarchyNames = new List<string>();
                 propertyHierarchyTypeNames = new List<string>();
@@ -79,10 +79,10 @@ namespace ThinkEngine
 
                 sensorName = GenerateSensorName(sensorConfiguration);
 
-                //Debug.Log(string.Join(",", propertyHierarchyNames));
-                //Debug.Log(string.Join(",", propertyHierarchyTypeNames));
-                //Debug.Log(string.Join(",", arePropertiesComponent));
-                //Debug.Log(string.Join(",", arePropertiesPrimitive));
+                Debug.Log(string.Join(",", propertyHierarchyNames));
+                Debug.Log(string.Join(",", propertyHierarchyTypeNames));
+                Debug.Log(string.Join(",", arePropertiesComponent));
+                Debug.Log(string.Join(",", arePropertiesPrimitive));
 
                 TextAsset templateTextFile = AssetDatabase.LoadAssetAtPath(templateRelativePath, typeof(TextAsset)) as TextAsset;
                 if (templateTextFile == null)
@@ -155,25 +155,25 @@ namespace ThinkEngine
 
             if (mapperType.IsSubclassOf(typeof(BasicTypeMapper)))
             {
-                addedText = string.Concat(addedText, "" + 
+                addedText = string.Concat(addedText, "" +
                     string.Format("" +
-                    "{0}private List<{1}> values = new List<{1}>();{2}", GetTabs(0),TypeNameOrAlias(finalType), Environment.NewLine));
+                    "{0}private List<{1}> values = new List<{1}>();{2}", GetTabs(0), TypeNameOrAlias(finalType), Environment.NewLine));
             }
-            else if(mapperType.IsSubclassOf(typeof(CollectionMapper)))
+            else if (mapperType.IsSubclassOf(typeof(CollectionMapper)))
             {
-                addedText = string.Concat(addedText, "" + 
+                addedText = string.Concat(addedText, "" +
                     string.Format("" +
                     "{0}private List<List<{1}>> values = new List<List<{1}>>();{2}" +
                     "{0}private List<bool> isIndexActive = new List<bool>();{2}", GetTabs(0), TypeNameOrAlias(((CollectionMapper)mapper).ElementType(finalType)), Environment.NewLine));
 
                 //Indexing for the sensor
-                if(mapperType.Equals(typeof(ASPArrayMapper)) || mapperType.Equals(typeof(ASPListMapper)))
+                if (mapperType.Equals(typeof(ASPArrayMapper)) || mapperType.Equals(typeof(ASPListMapper)))
                 {
                     addedText = string.Concat(addedText, "" +
                         string.Format("{0}private List<int> indicies = new List<int>();\n", GetTabs(0)));
 
                 }
-                else if(mapperType.Equals(typeof(ASPArray2Mapper)))
+                else if (mapperType.Equals(typeof(ASPArray2Mapper)))
                 {
                     addedText = string.Concat(addedText, "" +
                         string.Format("{0}private List<(int, int)> indicies = new List<(int, int)>();\n", GetTabs(0)));
@@ -205,7 +205,7 @@ namespace ThinkEngine
             }
             else if (mapperType.IsSubclassOf(typeof(CollectionMapper)))
             {
-                addedText = string.Concat(addedText, 
+                addedText = string.Concat(addedText,
                     string.Format("" +
                     "{0}mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof({3}));{1}" +
                     "{0}operation = mapper.OperationList()[{2}];{1}" +
@@ -296,6 +296,7 @@ namespace ThinkEngine
                 "{0}}}{4}" +
                 "{0}if(!invariant || first){4}" +
                 "{0}{{{4}" +
+                    "{1}first = false;{4}" +
                     "{2}" +
                     "{3}" +
                 "{0}}}", GetTabs(1), GetTabs(2), CheckIfSensorNeedsManaging(), UpdateSensorValues(), Environment.NewLine));
@@ -306,23 +307,23 @@ namespace ThinkEngine
         private static string ReplaceMap(string text)
         {
             string addedText = string.Empty;
-            
-            if(mapperType.IsSubclassOf(typeof(BasicTypeMapper)))
+
+            if (mapperType.IsSubclassOf(typeof(BasicTypeMapper)))
             {
                 addedText = string.Concat(addedText, "" +
                     string.Format("" +
                     "{0}object operationResult = operation(values, specificValue, counter);{1}" +
                     "{0}return string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult));", GetTabs(1), Environment.NewLine));
             }
-            else if(mapperType.IsSubclassOf(typeof(CollectionMapper)))
+            else if (mapperType.IsSubclassOf(typeof(CollectionMapper)))
             {
                 string indicies = string.Empty;
 
-                if(mapperType.Equals(typeof(ASPArrayMapper)) || mapperType.Equals(typeof(ASPListMapper)))
+                if (mapperType.Equals(typeof(ASPArrayMapper)) || mapperType.Equals(typeof(ASPListMapper)))
                 {
                     indicies = " indicies[i],";
                 }
-                else if(mapperType.Equals(typeof(ASPArray2Mapper)))
+                else if (mapperType.Equals(typeof(ASPArray2Mapper)))
                 {
                     indicies = " indicies[i].Item1, indicies[i].Item2,";
                 }
@@ -399,8 +400,17 @@ namespace ThinkEngine
             string text = string.Empty;
 
             int i = 0;
-            text = string.Concat(text, "" +
-                string.Format("{3}{0} {1}{2} = gameObject.GetComponent<{0}>();\n", propertyHierarchyTypeNames[0], propertyHierarchyNames[0], i, GetTabs(baseOfTabs)));
+
+            if (arePropertiesComponent[i])
+            {
+                text = string.Concat(text, "" +
+                    string.Format("{3}{0} {1}{2} = gameObject.GetComponent<{0}>();\n", propertyHierarchyTypeNames[0], propertyHierarchyNames[0], i, GetTabs(baseOfTabs)));
+            }
+            else
+            {
+                text = string.Concat(text, "" +
+                    string.Format("{3}{0} {1}{2} = gameObject.{1};\n", propertyHierarchyTypeNames[0], propertyHierarchyNames[0], i, GetTabs(baseOfTabs)));
+            }
 
             if (!arePropertiesPrimitive[i])
             {
@@ -413,7 +423,7 @@ namespace ThinkEngine
                 text = string.Concat(text, "" +
                     string.Format("{3}{0} {1}{2} = {4}{5}", propertyHierarchyTypeNames[i], propertyHierarchyNames[i], i, GetTabs(baseOfTabs), propertyHierarchyNames[i - 1], i - 1));
 
-                if (propertyHierarchyTypeNames[i - 1].Equals("GameObject"))
+                if (propertyHierarchyTypeNames[i - 1].Equals("GameObject") && arePropertiesComponent[i])
                 {
                     text = string.Concat(text, "" +
                         string.Format(".GetComponent<{0}>();\n", propertyHierarchyTypeNames[i]));
@@ -424,7 +434,7 @@ namespace ThinkEngine
                         string.Format(".{0};\n", propertyHierarchyNames[i]));
                 }
 
-                
+
                 if (arePropertiesPrimitive[i]) continue;
 
                 text = string.Concat(text, "" +
@@ -448,12 +458,12 @@ namespace ThinkEngine
 
             return text;
         }
-        
+
         private static string GetCollectionElement()
         {
             string text = string.Empty;
 
-            if(mapperType.Equals(typeof(ASPListMapper)))
+            if (mapperType.Equals(typeof(ASPListMapper)))
             {
                 text = string.Format("{0}{1}[i]", propertyHierarchyNames[propertyHierarchyNames.Count - 1], propertyHierarchyNames.Count - 1);
             }
@@ -504,12 +514,12 @@ namespace ThinkEngine
 
             return text;
         }
-        
+
         private static string UpdateSensorValues()
         {
             string text = string.Empty;
 
-            int maxValue = currentSensorConfiguration.PropertyFeatures.Find(x => x.property.Equals(currentPropertyHierarchy)).windowWidth;
+            int maxValue = currentSensorConfiguration.PropertyFeaturesList.Find(x => x.property.Equals(currentPropertyHierarchy)).windowWidth;
 
             //Updating
             if (mapperType.IsSubclassOf(typeof(BasicTypeMapper)))
@@ -555,7 +565,7 @@ namespace ThinkEngine
 
             return text;
         }
-                
+
         #endregion
 
         #region REFLECTION
@@ -576,7 +586,7 @@ namespace ThinkEngine
             while (property.Count > 0)
             {
                 currentProperty = property[0];
-         
+
                 currentObjectValue = RetrieveProperty(currentObjectValue, currentProperty, currentType, out currentType);
                 if (mapper == null)
                 {
@@ -596,7 +606,7 @@ namespace ThinkEngine
 
                 if (currentObjectValue == null)
                 {
-                    if(!ReachPropertyByReflectionByType(propertyHierarchyNames, propertyHierarchyTypeNames, arePropertiesComponent, arePropertiesPrimitive, property, currentType, out finalType, out mapper))
+                    if (!ReachPropertyByReflectionByType(propertyHierarchyNames, propertyHierarchyTypeNames, arePropertiesComponent, arePropertiesPrimitive, property, currentType, out finalType, out mapper))
                     {
                         //Object 's value is null. Is this a problem?
                         Debug.LogError(string.Format("Couldn't find {0}'s objectValue (null) during reflection!", currentProperty));
@@ -778,10 +788,10 @@ namespace ThinkEngine
 
             string aliasName = genericTypeName;
             aliasName = string.Concat(aliasName, "<");
-            for(int i = 0; i < genericArguments.Length; i++)
+            for (int i = 0; i < genericArguments.Length; i++)
             {
                 aliasName = string.Concat(aliasName, RecursiveGenericTypeName(genericArguments[i]));
-                if(i < genericArguments.Length - 1)
+                if (i < genericArguments.Length - 1)
                 {
                     string.Concat(aliasName, ", ");
                 }

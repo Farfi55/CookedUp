@@ -18,16 +18,6 @@ namespace ThinkEngine.Editors
             sensorConfiguration = target as SensorConfiguration;
             base.Reset();
         }
-        void OnDestroy()
-        {
-            if (!Application.isPlaying && target == null && go != null)
-            {
-                if (go.GetComponent<SensorConfiguration>() == null)
-                {
-                    DestroyImmediate(go.GetComponent<MonoBehaviourSensorsManager>());
-                }
-            }
-        }
         override public void OnInspectorGUI()
         {
             if (!configurePropertyMode)
@@ -50,7 +40,7 @@ namespace ThinkEngine.Editors
         private void ConfigureProperty()
         {
             EditorGUILayout.HelpBox("Configure advanced feature of the property",MessageType.Info);
-            PropertyFeatures features = configuration.PropertyFeatures.Find(x => x.property.Equals(actualProperty));
+            PropertyFeatures features = configuration.PropertyFeaturesList.Find(x => x.property.Equals(actualProperty));
             EditorGUILayout.BeginHorizontal();
             tempPropertyName = EditorGUILayout.TextField("Property Alias:", tempPropertyName);
             if (GUILayout.Button("Save"))
@@ -77,6 +67,7 @@ namespace ThinkEngine.Editors
             {
                 configurePropertyMode = false;
                 actualProperty = null;
+                tempPropertyName = configuration.ConfigurationName;
             }
         }
 
@@ -135,40 +126,49 @@ namespace ThinkEngine.Editors
 
         protected override void SpecificFields(MyListString property)
         {
+            PropertyFeatures propertyFeatures = configuration.PropertyFeaturesList.Find(x => x.property.Equals(property));
+            if (propertyFeatures == null)
+            {
+                return;
+            }
+            string alias = propertyFeatures.PropertyAlias;
+            EditorGUILayout.LabelField("Alias: "+ alias);
             if (GUILayout.Button("Configure"))
             {
                 configurePropertyMode = true;
                 actualProperty = property;
-                tempPropertyName = configuration.PropertyFeatures.Find(x => x.property.Equals(actualProperty)).PropertyAlias;
+                tempPropertyName = alias;
             }
+
         }
-            /*
-            protected override void SpecificFields(MyListString property)
-            {
-                sensorConfiguration = configuration as SensorConfiguration;
-                if (MapperManager.NeedsAggregates(configuration.ObjectTracker.PropertyType(property)))
-                {
-                    int propertyIndex = property.GetHashCode();
-                    int oldOperation = sensorConfiguration.OperationPerProperty[propertyIndex];
-                    Type propertyType = sensorConfiguration.ObjectTracker.PropertyType(property);
-                    string[] displayedOptions = Enum.GetNames(MapperManager.GetAggregationTypes(propertyType));
-                    int newOperation = EditorGUILayout.Popup(oldOperation, displayedOptions);
-                    if (newOperation != oldOperation)
-                    {
-                        sensorConfiguration.SetOperationPerProperty(property, newOperation);
-                        if (newOperation == MapperManager.GetAggregationSpecificIndex(propertyType))
-                        {
-                            string oldValue = sensorConfiguration.SpecificValuePerProperty[propertyIndex];
-                            string newValue = EditorGUILayout.TextField("Value to track", oldValue);
-                            if (!oldValue.Equals(newValue))
-                            {
-                                sensorConfiguration.SetSpecificValuePerProperty(property, newValue);
-                            }
-                        }
-                    }
-                }
-            }
-            */
-        }
+
+        /*
+protected override void SpecificFields(MyListString property)
+{
+   sensorConfiguration = configuration as SensorConfiguration;
+   if (MapperManager.NeedsAggregates(configuration.ObjectTracker.PropertyType(property)))
+   {
+       int propertyIndex = property.GetHashCode();
+       int oldOperation = sensorConfiguration.OperationPerProperty[propertyIndex];
+       Type propertyType = sensorConfiguration.ObjectTracker.PropertyType(property);
+       string[] displayedOptions = Enum.GetNames(MapperManager.GetAggregationTypes(propertyType));
+       int newOperation = EditorGUILayout.Popup(oldOperation, displayedOptions);
+       if (newOperation != oldOperation)
+       {
+           sensorConfiguration.SetOperationPerProperty(property, newOperation);
+           if (newOperation == MapperManager.GetAggregationSpecificIndex(propertyType))
+           {
+               string oldValue = sensorConfiguration.SpecificValuePerProperty[propertyIndex];
+               string newValue = EditorGUILayout.TextField("Value to track", oldValue);
+               if (!oldValue.Equals(newValue))
+               {
+                   sensorConfiguration.SetSpecificValuePerProperty(property, newValue);
+               }
+           }
+       }
+   }
+}
+*/
+    }
 }
 #endif

@@ -7,7 +7,7 @@ namespace ThinkEngine.Mappers
 {
 
 
-    internal class InstantiationInformation
+    public class InstantiationInformation
     {
         internal GameObject instantiateOn;
         internal object currentObjectOfTheHierarchy;

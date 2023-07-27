@@ -11,7 +11,7 @@ namespace ThinkEngine.Mappers
             for (int i = 0; i < hierarchyLevel.Length; i++)
             {
                 // first char must be a letter
-                if(clean == "" && ! char.IsLetter(hierarchyLevel[i]))
+                if (clean == "" && !char.IsLetter(hierarchyLevel[i]))
                     continue;
 
                 // other chars must be letters, digits or _
@@ -20,14 +20,14 @@ namespace ThinkEngine.Mappers
                     clean += hierarchyLevel[i];
                 }
             }
-            
+
             if (clean == "")
                 throw new ArgumentException("InvalidName, cannot generate a valid ASP name from " + hierarchyLevel);
-            
+
             // first letter must be lowercase
             clean = char.ToLower(clean[0]) + (clean.Length > 1 ? clean.Substring(1) : "");
-            
-            
+
+
             return clean;
         }
 

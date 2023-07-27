@@ -58,7 +58,7 @@ namespace ThinkEngine
                     break;
                 }
             }
-            if (FindObjectOfType<MonoBehaviourSensorsManager>() != null)
+            if (FindObjectOfType<SensorConfiguration>() != null)
             {
                 using (StreamWriter fs = new StreamWriter(sensorsUpdateRate, true))
                 {
@@ -97,7 +97,7 @@ namespace ThinkEngine
 
                 fs.Close();
             }
-            if (FindObjectOfType<MonoBehaviourSensorsManager>() != null && !Executor._canRead)//if Executors can not read, sensors are updating
+            if (FindObjectOfType<SensorConfiguration>() != null && !Executor._canRead)//if Executors can not read, sensors are updating
             {
                 using (StreamWriter fs = new StreamWriter(sensorsUpdateRate, true))
                 {

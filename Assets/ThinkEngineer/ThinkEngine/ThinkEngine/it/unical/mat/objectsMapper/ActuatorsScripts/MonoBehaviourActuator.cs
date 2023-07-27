@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ThinkEngine
 {
     [RequireComponent(typeof(IndexTracker))]
-    internal class MonoBehaviourActuator : MonoBehaviour
+    public  class MonoBehaviourActuator : MonoBehaviour
     {
         internal string configurationName;
         private object toPass;

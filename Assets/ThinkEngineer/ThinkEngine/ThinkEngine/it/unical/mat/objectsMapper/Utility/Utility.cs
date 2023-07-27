@@ -17,7 +17,7 @@ namespace ThinkEngine
 
     public static class Utility
     {
-        public static BindingFlags BindingAttr = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static;
+        public static BindingFlags BindingAttr = BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static;
         private static List<string> _triggerMethodsToShow;
         internal static ScriptableObject _triggerClass;
         private static GameObject _hiddenGameObject;

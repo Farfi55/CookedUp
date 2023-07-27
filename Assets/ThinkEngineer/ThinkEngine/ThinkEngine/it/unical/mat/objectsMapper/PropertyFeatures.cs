@@ -14,6 +14,8 @@ namespace ThinkEngine
         [SerializeField,HideInInspector]
         internal int windowWidth = 200;
         [SerializeField,HideInInspector]
+        internal string configurationName;
+        [SerializeField,HideInInspector]
         private string _propertyAlias;
         [SerializeField,HideInInspector]
         private int propertyAliasHash;
@@ -37,10 +39,10 @@ namespace ThinkEngine
             }
         }
 
-        internal PropertyFeatures(GameObject go, MyListString p)
+        internal PropertyFeatures(string configurationName, MyListString p)
         {
             property = p.GetClone();
-            GeneratePropertyName(go.name);
+            GeneratePropertyName(configurationName);
         }
 
         private void ValidateNameAndAssign(string value)
@@ -57,18 +59,22 @@ namespace ThinkEngine
             }
             if(_propertyAlias!=null && usedPropertyAlias.Contains(propertyAliasHash))
             {
-                // remove old property name from usedPropertyAlias when changing it
-                Remove();
+                usedPropertyAlias.Remove(propertyAliasHash);
             }
             Debug.Log("setting _property_name to " + value);
+            if (!value.StartsWith(configurationName))
+            {
+                configurationName = "";
+            }
             _propertyAlias = value;
             propertyAliasHash = PropertyAlias.GetHashCode();
             usedPropertyAlias.Add(propertyAliasHash);
         }
 
-        private void GeneratePropertyName(string goName)
+        private void GeneratePropertyName(string confName)
         {
-            string prefix = goName;
+            string prefix = confName;
+            configurationName = confName;
             string suffix ="";
             int count = 0;
             Debug.Log(property);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ThinkEngine.Mappers.BaseMappers
 {
-    interface IDataMapper
+    public interface IDataMapper
     {
         bool NeedsSpecifications(Type type);
         bool NeedsAggregates(Type type);

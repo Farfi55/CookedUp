@@ -8,13 +8,13 @@ using System.Reflection;
 
 namespace ThinkEngine
 {
-    internal abstract class Sensor
+    public abstract class Sensor
     {
-        internal bool invariant;
+        protected bool invariant;
         protected bool first=true; //GMDG private
         protected GameObject gameObject; //GMDG default (private)
-        MonoBehaviourSensorsManager manager; //GMDG not necessary
-        internal SensorConfiguration configuration;
+        //MonoBehaviourSensorsManager manager; //GMDG not necessary
+        protected SensorConfiguration configuration;
         private MyListString property;
         private List<IInfoAndValue> _propertyInfo;
         protected bool ready; //GMDG private, default value false
@@ -43,10 +43,10 @@ namespace ThinkEngine
         public void Configure(InstantiationInformation information, string mapping)
         {
             gameObject = information.instantiateOn;
-            manager = gameObject.GetComponent<MonoBehaviourSensorsManager>();
+            //manager = gameObject.GetComponent<MonoBehaviourSensorsManager>();
             configuration = (SensorConfiguration)information.configuration;
             property = new MyListString(information.propertyHierarchy.myStrings);
-            PropertyFeatures features = information.configuration.PropertyFeatures.Find(x => x.property.Equals(property));
+            PropertyFeatures features = information.configuration.PropertyFeaturesList.Find(x => x.property.Equals(property));
             PropertyInfo.AddRange(information.hierarchyInfo);
             if (information.instantiateOn.GetComponent<IndexTracker>() == null)
             {
@@ -117,13 +117,13 @@ namespace ThinkEngine
         //GMDG
         protected string mappingTemplate = string.Empty;
 
-        internal abstract void Initialize(SensorConfiguration sensorConfiguration);
+        public abstract void Initialize(SensorConfiguration sensorConfiguration);
 
-        internal abstract void Destroy();
+        public abstract void Destroy();
 
-        internal abstract void Update();
+        public abstract void Update();
 
-        internal abstract string Map();
+        public abstract string Map();
         //GMDG
     }
 }

@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
 using ThinkEngine.Mappers;
@@ -110,6 +110,10 @@ namespace ThinkEngine.Editors
                 toUse = EditorStyles.textField;
             }
             bool save = GUILayout.Button("Save");
+            if (GUILayout.Button("RefreshDefaultAlias"))
+            {
+                configuration.RefreshDefaultPropertiesAlias();
+            }
             GUI.enabled = true;
             EditorGUILayout.Space();
             EditorGUILayout.EndHorizontal();
@@ -137,15 +141,18 @@ namespace ThinkEngine.Editors
             }
         }
 
-        // recursive method
-        // shows all the properties of the object
+
         private void ListProperties(MyListString startingProperty, bool needsSpecifications)
         {
+            float originalLabelSize = EditorGUIUtility.labelWidth;
+
+            EditorGUIUtility.labelWidth = 7;
             List<MyListString> firstLevel = GetProperties(startingProperty);
             foreach (MyListString property in firstLevel)
             {
                 bool wasActive = IsActive(property);
                 EditorGUILayout.BeginHorizontal();
+
                 bool isActive = toggleType[IsExpandable(property)](property[property.Count-1], wasActive);
                 if (wasActive != isActive)
                 {
@@ -153,6 +160,7 @@ namespace ThinkEngine.Editors
                 }
                 if (isActive && needsSpecifications)
                 {
+                    
                     SpecificFields(property);
                 }
                 EditorGUILayout.EndHorizontal();
@@ -165,6 +173,7 @@ namespace ThinkEngine.Editors
                     EditorGUI.indentLevel--;
                 }
             }
+            EditorGUIUtility.labelWidth = originalLabelSize;
         }
         
         List<MyListString> GetProperties(MyListString startingPoint = null)
@@ -180,6 +189,7 @@ namespace ThinkEngine.Editors
             return configuration.ObjectTracker.IsPropertyExpandable(property);
         }
         protected abstract void SpecificFields(MyListString property);
+
 
     }
 }

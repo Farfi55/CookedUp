@@ -7,7 +7,7 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine.Mappers
 {
-    internal abstract class BasicTypeMapper : IDataMapper
+    public abstract class BasicTypeMapper : IDataMapper
     {
         #region SUPPORT CLASSES
         private class BasicTypeInfoAndValue : IInfoAndValue
@@ -206,7 +206,7 @@ namespace ThinkEngine.Mappers
             {
                 Debug.Log(information.propertyHierarchy);
             }*/
-            PropertyFeatures propertyFeatures = ((SensorConfiguration)information.configuration).PropertyFeatures.Find(x => x.property.Equals(information.propertyHierarchy));
+            PropertyFeatures propertyFeatures = ((SensorConfiguration)information.configuration).PropertyFeaturesList.Find(x => x.property.Equals(information.propertyHierarchy));
             int operationIndex = propertyFeatures.operation;
             additionalInfo.operation = OperationList()[operationIndex];
             if (GetAggregationStreamOperationsIndexes().Contains(operationIndex))

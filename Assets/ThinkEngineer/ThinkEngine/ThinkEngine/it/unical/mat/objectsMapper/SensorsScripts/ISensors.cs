@@ -2,7 +2,7 @@
 
 namespace ThinkEngine
 {
-    interface ISensors
+    public interface ISensors
     {
         List<Sensor> GetSensorsList();
     }

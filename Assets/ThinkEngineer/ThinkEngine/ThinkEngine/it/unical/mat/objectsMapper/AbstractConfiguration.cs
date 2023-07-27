@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ThinkEngine
 {
     [Serializable, ExecuteInEditMode]
-    internal abstract class AbstractConfiguration : MonoBehaviour
+    public abstract class AbstractConfiguration : MonoBehaviour
     {
         internal ObjectTracker _objectTracker;
         internal ObjectTracker ObjectTracker
@@ -40,7 +40,7 @@ namespace ThinkEngine
         internal List<MyListString> _toMapProperties;
         [SerializeField, HideInInspector]
         internal List<PropertyFeatures> _propertyFeatures;
-        internal List<PropertyFeatures> PropertyFeatures
+        internal List<PropertyFeatures> PropertyFeaturesList
         {
             get
             {
@@ -104,7 +104,7 @@ namespace ThinkEngine
             _objectTracker = new ObjectTracker(gameObject);
             SavedProperties = new List<MyListString>();
             ToMapProperties = new List<MyListString>();
-            PropertyFeatures = new List<PropertyFeatures>();
+            PropertyFeaturesList = new List<PropertyFeatures>();
         }
         internal bool IsPropertySelected(MyListString property)
         {
@@ -119,7 +119,7 @@ namespace ThinkEngine
                 if (ObjectTracker.IsFinal(property))
                 {
                     ToMapProperties.Add(property);
-                    PropertyFeatures.Add(new PropertyFeatures(gameObject, property));
+                    PropertyFeaturesList.Add(new PropertyFeatures(ConfigurationName, property));
                 }
             }
             else
@@ -129,7 +129,24 @@ namespace ThinkEngine
                 if (ToMapProperties.Contains(property))
                 {
                     ToMapProperties.Remove(property);
-                    PropertyFeatures.RemoveAll(x => x.property.Equals(property));
+                    PropertyFeatures p =PropertyFeaturesList.Find(x => x.property.Equals(property));
+                    p.Remove();
+                    PropertyFeaturesList.Remove(p) ;
+                }
+            }
+        }
+
+        internal void RefreshDefaultPropertiesAlias()
+        {
+            foreach(PropertyFeatures p in PropertyFeaturesList)
+            {
+                Debug.Log(p.PropertyAlias);
+                if(p.configurationName != "")
+                {
+                    Debug.Log("changing " + p.PropertyAlias);
+                    p.PropertyAlias = ConfigurationName+ p.PropertyAlias.Substring(p.configurationName.Length);
+                    p.configurationName = ConfigurationName;
+                    Debug.Log("changed " + p.PropertyAlias);
                 }
             }
         }
