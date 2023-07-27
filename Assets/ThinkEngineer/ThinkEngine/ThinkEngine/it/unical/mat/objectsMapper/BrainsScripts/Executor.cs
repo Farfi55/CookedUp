@@ -201,7 +201,9 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
                         KillProcess(handler);
                         return;
                     }
-                    factsPath = Path.Combine(Path.GetTempPath(), "ThinkEngineFacts", brain.brainName + "_" + ASPMapperHelper.AspFormat(System.DateTime.Now.ToString()) + "_" + (facts_id++) + ".txt");
+                    
+                    string time = System.DateTime.Now.ToString("yyyy.MM.dd_HH.mm.ss");
+                    factsPath = Path.Combine(Path.GetTempPath(), "ThinkEngineFacts", brain.brainName + "_" + time + "_" + (facts_id++) + ".txt");
 
                     using (StreamWriter fs = new StreamWriter(factsPath, true))
                     {
