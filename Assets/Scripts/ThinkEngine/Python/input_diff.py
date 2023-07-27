@@ -4,7 +4,7 @@ import sys
 import subprocess
 from datetime import datetime
 
-path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
+input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
 index_file_A = -1
 index_file_B = -2
 
@@ -17,7 +17,7 @@ while i < len(sys.argv):
         index_file_B =  int(sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-p', '--path']:
-        path = sys.argv[i + 1]
+        input_path = sys.argv[i + 1]
         i += 1
     elif sys.argv[i] in ['-b', '--brain']:
         brain_file = sys.argv[i + 1]
@@ -37,7 +37,7 @@ while i < len(sys.argv):
     i += 1
 
 
-list_of_files = glob.glob(path + "*.txt")
+list_of_files = glob.glob(input_path + "*.txt")
 list_of_files.sort(key=os.path.getctime)
 
 if len(list_of_files) == 0:

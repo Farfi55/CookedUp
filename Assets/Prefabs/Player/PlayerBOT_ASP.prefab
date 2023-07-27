@@ -87,6 +87,7 @@ MonoBehaviour:
   playerBot: {fileID: 7760931143083286729}
   HasSelectedInteractable: 0
   SelectedInteractableType: 
+  SelectedInteractableID: 0
 --- !u!114 &5782462475890788620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
-  _configurationName: playerSensor0
+  _configurationName: playerSensor
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes: []
