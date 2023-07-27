@@ -36,14 +36,44 @@ def handle_args():
         print("No option given")
         exit(1)
             
+def clear_folder(path, preserve_meta_files=True):
+    if not preserve_meta_files:
+        shutil.rmtree(path)
+    else:
+        for filename in os.listdir(path):
+            file_path = os.path.join(path, filename)
+            try:
+                if os.path.isfile(file_path) and not filename.endswith(".meta"):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    clear_folder(file_path, preserve_meta_files)
+            except Exception as e:
+                print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+def clear_meta_folder (path):
+    for filename in os.listdir(path):
+        file_path = os.path.join(path, filename)
+        try:
+            if os.path.isfile(file_path) and filename.endswith(".meta"):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                clear_meta_folder(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+
 
 def pull_from_repo():
-    shutil.rmtree(repo_in_project_path)
-    shutil.copytree(repo_path, repo_in_project_path)
+    clear_folder(repo_in_project_path)
+    print(f"folder {repo_in_project_path} cleared")
+    shutil.copytree(repo_path, repo_in_project_path, dirs_exist_ok=True)
+
 
 def push_to_repo():
-    shutil.rmtree(repo_path)
+    clear_folder(repo_path, preserve_meta_files=False)
+    print(f"folder {repo_path} cleared")
     shutil.copytree(repo_in_project_path, repo_path)
+    clear_meta_folder(repo_path)
 
 
 def main():
