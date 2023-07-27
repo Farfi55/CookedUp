@@ -109,21 +109,23 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
         }
         internal virtual void Run()
         {
-            int facts_id=0;
-            if (!Directory.Exists(Path.GetTempPath() + @"ThinkEngineFacts"+Utility.slash))
+            int facts_id=0; 
+            if (!Directory.Exists(Path.Combine(Path.GetTempPath(), "ThinkEngineFacts", brain.brainName)))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + @"ThinkEngineFacts" + Utility.slash);
+                if (!Directory.Exists(Path.Combine(Path.GetTempPath(), "ThinkEngineFacts")))
+                {
+                    Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "ThinkEngineFacts"));
+                }
+                Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "ThinkEngineFacts", brain.brainName));
             }
             reason = true;
 
             encoding = GetProgramInstance();
-            foreach (string fileName in Directory.GetFiles(Utility.StreamingAssetsContent))
+            List<string> filesToCheck = new List<string>();
+            LookForFiles(Utility.StreamingAssetsContent, ref filesToCheck);
+            foreach (string fileName in filesToCheck)
             {
-                string actualFileName = fileName.Substring(fileName.LastIndexOf(Utility.slash) + 1);
-                if (actualFileName.StartsWith(brain.AIFilesPrefix) && (actualFileName.EndsWith(GetCurrentFileExtension()) || actualFileName.EndsWith(".py")))
-                {
-                    encoding.AddFilesPath(fileName);
-                }
+                TryToAddEncoding(fileName);
             }
 
             if (encoding.FilesPaths.Count == 0)
@@ -201,9 +203,8 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
                         KillProcess(handler);
                         return;
                     }
-                    
-                    string time = System.DateTime.Now.ToString("yyyy.MM.dd_HH.mm.ss");
-                    factsPath = Path.Combine(Path.GetTempPath(), "ThinkEngineFacts", brain.brainName + "_" + time + "_" + (facts_id++) + ".txt");
+                    string time = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                    factsPath = Path.Combine(Path.GetTempPath(), "ThinkEngineFacts",brain.brainName, brain.brainName + "_" + time + "_" + (facts_id++) + ".txt");
 
                     using (StreamWriter fs = new StreamWriter(factsPath, true))
                     {
@@ -271,6 +272,32 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
 
             }
             KillProcess(handler);
+        }
+
+        private void LookForFiles(string path, ref List<string> filesToCheck)
+        {
+            filesToCheck.AddRange(Directory.GetFiles(path));
+            string[] dir = Directory.GetDirectories(path);
+            if(dir.Length == 0)
+            {
+                return;
+            }
+            foreach(string file in dir)
+            {
+                LookForFiles(file, ref filesToCheck);
+            }
+        }
+
+        private void TryToAddEncoding(string fileName)
+        {
+            string actualFileName = fileName.Substring(fileName.LastIndexOf(Utility.slash) + 1);
+            foreach (string prefix in brain.AIFilesPrefix)
+            {
+                if (actualFileName.StartsWith(prefix) && (actualFileName.EndsWith(GetCurrentFileExtension()) || actualFileName.EndsWith(".py")))
+                {
+                    encoding.AddFilesPath(fileName);
+                }
+            }
         }
 
         private static void KillProcess(Handler handler)

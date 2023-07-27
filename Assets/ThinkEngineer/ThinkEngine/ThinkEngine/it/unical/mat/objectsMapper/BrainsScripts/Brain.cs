@@ -66,8 +66,8 @@ namespace ThinkEngine
         }
         [SerializeField, HideInInspector]
         internal string AIFilesPath = Utility.StreamingAssetsContent;
-        [SerializeField, HideInInspector]
-        internal string AIFilesPrefix;
+        [SerializeField]
+        internal List<string> AIFilesPrefix;
         [SerializeField, HideInInspector]
         protected string _AIFileTemplatePath;
         [SerializeField, HideInInspector]
@@ -162,16 +162,19 @@ namespace ThinkEngine
             foreach (string fileName in Directory.GetFiles(Utility.StreamingAssetsContent))
             {
                 string actualFileName = fileName.Substring(fileName.LastIndexOf(Utility.slash) + 1);
-                if (actualFileName.StartsWith(AIFilesPrefix))
+                foreach (string prefix in AIFilesPrefix)
                 {
-                    string extension = actualFileName.Substring(actualFileName.LastIndexOf(".") + 1);
-                    if (FileExtension.Equals("") && SupportedFileExtensions.Contains(extension))
+                    if (actualFileName.StartsWith(prefix))
                     {
-                        _fileExtension = extension;
-                    }
-                    else if (!extension.Equals(FileExtension) && SupportedFileExtensions.Contains(extension))
-                    {
-                        Debug.LogError("Multiple paradigms encoding found. You should either use " + FileExtension + " or " + extension + " for " + AIFilesPrefix);
+                        string extension = actualFileName.Substring(actualFileName.LastIndexOf(".") + 1);
+                        if (FileExtension.Equals("") && SupportedFileExtensions.Contains(extension))
+                        {
+                            _fileExtension = extension;
+                        }
+                        else if (!extension.Equals(FileExtension) && SupportedFileExtensions.Contains(extension))
+                        {
+                            Debug.LogError("Multiple paradigms encoding found. You should either use " + FileExtension + " or " + extension + " for " + AIFilesPrefix);
+                        }
                     }
                 }
             }

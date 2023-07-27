@@ -253,46 +253,6 @@ namespace ThinkEngine.Editors
                 brainTarget.globalAIFile = true;
             }
         }
-        private void ConfigurePrefabAIFile()
-        {
-            string currentTrue = "";
-            if (brainTarget.specificAIFile)
-            {
-                currentTrue = "Specific";
-            }
-            if (brainTarget.globalAIFile)
-            {
-                currentTrue = "Global";
-            }
-            EditorGUILayout.HelpBox("You are configuring a Prefab. Please choose if you want \n" +
-                "to use a specific ASP program file for each instantiation or a global one!", MessageType.Warning, true);
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            brainTarget.specificAIFile = EditorGUILayout.ToggleLeft("Specific file.", brainTarget.specificAIFile);
-            brainTarget.globalAIFile = EditorGUILayout.ToggleLeft("Global file.", brainTarget.globalAIFile);
-            GUILayout.FlexibleSpace();
-            EditorGUILayout.EndHorizontal();
-            ExclusiveTogglesCheck(currentTrue);
-            if (brainTarget.specificAIFile)
-            {
-                EditorGUILayout.HelpBox("At runtime the system will look for the following files pattern \n" +
-                    "in which \" nameOfTheInstantiation will be the name of the GameObject instantiated at runtime.", MessageType.Warning, true);
-                GUI.enabled = false;
-                brainTarget.AIFilesPrefix = @"nameOfTheInstantiation"+GetAIFilesPrefixSpecifications();
-                EditorGUILayout.TextField("ASP Files Pattern", brainTarget.AIFilesPrefix + "*.asp");
-                GUI.enabled = true;
-                EditorGUILayout.HelpBox("DO NOT use the default GameObject name when instantiating.", MessageType.Warning, true);
-            }
-            if (brainTarget.globalAIFile)
-            {
-                GUI.enabled = false;
-                brainTarget.AIFilesPrefix = brainTarget.gameObject.name;
-                EditorGUILayout.TextField("AI File Path", brainTarget.AIFilesPrefix);
-                GUI.enabled = true;
-            }
-
-
-        }
         private void ShowNotEditableInformations()
         {
             EditorGUILayout.BeginHorizontal();
@@ -305,17 +265,6 @@ namespace ThinkEngine.Editors
                 EditorUtility.OpenWithDefaultApp(Path.Combine(brainTarget.AIFilesPath));
             }
             EditorGUILayout.EndHorizontal();
-            if (!brainTarget.prefabBrain)
-            {
-                GUI.enabled = false;
-                brainTarget.AIFilesPrefix = Target.gameObject.name+GetAIFilesPrefixSpecifications();
-                EditorGUILayout.TextField("AI Files Pattern", brainTarget.AIFilesPrefix + "*.asp");//(asp | pddl | dlp)");
-                GUI.enabled = true;
-            }
-            else
-            {
-                ConfigurePrefabAIFile();
-            }
         }
 
         protected virtual string GetAIFilesPrefixSpecifications() 
