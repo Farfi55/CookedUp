@@ -90,19 +90,22 @@ namespace ThinkEngine
                     Debug.LogError(string.Format("Template file not found in {0}!", templateRelativePath));
                     return;
                 }
-                string content = templateTextFile.text;
-                if (File.Exists(string.Format("{0}/{1}.cs", generatedCodePath, sensorName)) && !EditorUtility.DisplayDialog(string.Format("Generated code file already exists in {0}", generatedCodeRelativePath), "Do you want to overwite it?", "Yes", "No"))
+                string content = CreateText(templateTextFile.text);
+                string path = Path.Combine(generatedCodePath, sensorName + ".cs");
+                
+                // confirm overwrite
+                if (File.Exists(path) && !EditorUtility.DisplayDialog(string.Format("Generated code file already exists in {0}", generatedCodeRelativePath), "Do you want to overwite it?", "Yes", "No"))
                 {
                     return;
                 }
-                using (StreamWriter sw = new StreamWriter(string.Format("{0}/{1}.cs", generatedCodePath, sensorName)))
-                {
-                    //Text Generation
-                    content = CreateText(content);
-                    sw.WriteLine(content);
-                    sw.Close();
-                }
+                
+                // create folder if not exists
+                if (!Directory.Exists(generatedCodePath)) 
+                    Directory.CreateDirectory(generatedCodePath);
+                
+                File.WriteAllText(path, content);
 
+                // Refresh the unity asset database
                 AssetDatabase.ImportAsset(generatedCodeRelativePath, ImportAssetOptions.ForceSynchronousImport);
                 AssetDatabase.Refresh();
             }
