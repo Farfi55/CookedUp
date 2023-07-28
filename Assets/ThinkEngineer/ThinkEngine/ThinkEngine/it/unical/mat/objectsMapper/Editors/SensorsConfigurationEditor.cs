@@ -67,7 +67,7 @@ namespace ThinkEngine.Editors
             {
                 configurePropertyMode = false;
                 actualProperty = null;
-                tempPropertyName = configuration.ConfigurationName;
+                GUI.FocusControl(null);
             }
         }
 

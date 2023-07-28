@@ -11,7 +11,7 @@ namespace ThinkEngine.Editors
     [CustomEditor(typeof(AbstractConfiguration))]
     internal abstract class AbstractConfigurationEditor : Editor
     {
-        string temporaryName;
+        protected string temporaryName;
         protected AbstractConfiguration configuration;
         static readonly Dictionary<bool, ToggleType> toggleType;
         protected GameObject go;
