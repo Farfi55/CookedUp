@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using ThinkEngine.Mappers;
+using static ThinkEngine.Mappers.OperationContainer;
+
+namespace ThinkEngine
+{
+    class CLASS_NAME : Sensor
+    {
+		private int counter;
+        private object specificValue;
+        private Operation operation;
+FIELDS
+		/*
+		//Singleton
+        protected static Sensor instance = null;
+
+        internal static Sensor Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+					instance = new CLASS_NAME();
+                }
+                return instance;
+            }
+        }*/
+
+		public override void Initialize(SensorConfiguration sensorConfiguration)
+		{
+            // Debug.Log("Initialize method called!");
+			this.gameObject = sensorConfiguration.gameObject;
+			ready = true;
+INITIALIZATION
+		}
+
+		public override void Destroy()
+		{
+            // Debug.Log("Destroy method called!");
+			//instance = null;
+		}
+
+		public override void Update()
+		{
+            // Debug.Log("Update method called!");
+UPDATE
+		}
+
+		public override string Map()
+		{
+            // Debug.Log("Map method called!");
+MAP
+		}
+    }
+}

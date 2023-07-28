@@ -152,6 +152,126 @@ MonoBehaviour:
     - Pos
     - y
     Count: 3
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasSelectedInteractable
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableType
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableID
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasRecipe
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - RecipeName
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasPlate
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - PlateForRecipeID
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasMissingIngredients
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - MissingIngredientsNames
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasInvalidIngredients
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - X
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - Y
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    Count: 1
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
   _toMapProperties:
   - myStrings:
     - GridPositionSensorData
@@ -163,6 +283,115 @@ MonoBehaviour:
     - Pos
     - y
     Count: 3
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasSelectedInteractable
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableType
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableID
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasRecipe
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - RecipeName
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasPlate
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - PlateForRecipeID
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasMissingIngredients
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - MissingIngredientsNames
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasInvalidIngredients
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - X
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - Y
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObject
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
   _propertyFeatures:
   - property:
       myStrings:
@@ -190,10 +419,391 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
-  _configurationName: playerSensor
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_ID
+    propertyAliasHash: -99470979
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_Type
+    propertyAliasHash: 1617223006
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_Name
+    propertyAliasHash: 898114863
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - HasSelectedInteractable
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasSelectedInteractable
+    propertyAliasHash: -531059057
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - SelectedInteractableType
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_SelectedInteractableType
+    propertyAliasHash: 1804031213
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - SelectedInteractableID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_SelectedInteractableID
+    propertyAliasHash: -1549504404
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - HasRecipe
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasRecipe
+    propertyAliasHash: 715253896
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - RecipeName
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_RecipeName
+    propertyAliasHash: -568456149
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - HasPlate
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasPlate
+    propertyAliasHash: 778752094
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - PlateForRecipeID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_PlateForRecipeID
+    propertyAliasHash: -1455713310
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - HasMissingIngredients
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasMissingIngredients
+    propertyAliasHash: 912543046
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - MissingIngredientsNames
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_MissingIngredientsNames
+    propertyAliasHash: 1958768310
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - HasInvalidIngredients
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasInvalidIngredients
+    propertyAliasHash: -1600386787
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - X
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_X
+    propertyAliasHash: 263106358
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - Y
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_Y
+    propertyAliasHash: -1302977583
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - Count
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_Container_Count
+    propertyAliasHash: 1437557887
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasSpace
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasSpace
+    propertyAliasHash: -350284396
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasAny
+    propertyAliasHash: 670887916
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObject
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_KitchenObject_Name
+    propertyAliasHash: -1628376365
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObject
+      - ID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_KitchenObject_ID
+    propertyAliasHash: -1221714555
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObject
+      - ContainerID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_KitchenObject_ContainerID
+    propertyAliasHash: -996404380
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - Name
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_FirstKitchenObject_Name
+    propertyAliasHash: -1125898535
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_FirstKitchenObject_ID
+    propertyAliasHash: -1905527025
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ContainerID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_FirstKitchenObject_ContainerID
+    propertyAliasHash: 1277166146
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - SizeLimit
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_Container_SizeLimit
+    propertyAliasHash: -2109270578
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_Player
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 7abb614a97f534542b5a39c66929bc63, type: 3}
+    typeName: ThinkEngine.S_Player0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8bb5bea316747cc45b2695fe8504872d, type: 3}
+    typeName: ThinkEngine.S_Player1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 5f40a6e88237f9641805945fc499e48c, type: 3}
+    typeName: ThinkEngine.S_Player2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f82e96d4fb545394abb38699e525b69d, type: 3}
+    typeName: ThinkEngine.S_Player3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d58759ba242f6ca4d9373de73e69e752, type: 3}
+    typeName: ThinkEngine.S_Player4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 42481609479685e4eb30186a76f8a0bc, type: 3}
+    typeName: ThinkEngine.S_Player5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: df03132f874d5514096157c0a169a1b6, type: 3}
+    typeName: ThinkEngine.S_Player6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3a2706c883014944fa34d7d286012d4f, type: 3}
+    typeName: ThinkEngine.S_Player7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 30810bd612f41db4f855fc4d9c837876, type: 3}
+    typeName: ThinkEngine.S_Player8, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 21f7cd566bce78449b721aa5341cff3a, type: 3}
+    typeName: ThinkEngine.S_Player9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 5df344a4909f1d3478cfd05276947212, type: 3}
+    typeName: ThinkEngine.S_Player10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2c45360ee79c23a429859793486e96c8, type: 3}
+    typeName: ThinkEngine.S_Player11, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 971232610eb2f31469cf1401d06141b3, type: 3}
+    typeName: ThinkEngine.S_Player12, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: c623757c8a4d4114b87d9d70601c17b3, type: 3}
+    typeName: ThinkEngine.S_Player13, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 21d6bf8317b81034e9ce8c134fe5b490, type: 3}
+    typeName: ThinkEngine.S_Player14, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 199c0644d5e42874b83855790bb9e340, type: 3}
+    typeName: ThinkEngine.S_Player15, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8521f5012046a474eacbd4c719bb6411, type: 3}
+    typeName: ThinkEngine.S_Player16, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 824666c452014724aacfba0119f234af, type: 3}
+    typeName: ThinkEngine.S_Player17, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: bf8ba1037e823de4b83f5c788f7659d7, type: 3}
+    typeName: ThinkEngine.S_Player18, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0369ed75d65fb234fb1489a168356753, type: 3}
+    typeName: ThinkEngine.S_Player19, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 73b573aab1853c249b4f02797286b823, type: 3}
+    typeName: ThinkEngine.S_Player20, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f78a501f4d57a794da12a5288375bf9f, type: 3}
+    typeName: ThinkEngine.S_Player21, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 672f2b44115206e4883d057aac470392, type: 3}
+    typeName: ThinkEngine.S_Player22, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: ca10154805f8e0747961096527761e2c, type: 3}
+    typeName: ThinkEngine.S_Player23, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &3796238315501043888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +846,8 @@ MonoBehaviour:
   debug: 1
   maintainInputFile: 0
   _chosenSensorConfigurations:
-  - playerSensor
   - constantSensor
+  - s_Player
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix: []
   prefabBrain: 1

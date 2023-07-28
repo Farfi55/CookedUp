@@ -73,7 +73,6 @@ def push_to_repo():
     clear_folder(repo_path, preserve_meta_files=False)
     print(f"folder {repo_path} cleared")
     shutil.copytree(repo_in_project_path, repo_path)
-    clear_meta_folder(repo_path)
 
 
 def main():
