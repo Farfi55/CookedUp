@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 7547468693740168070}
   - component: {fileID: 2754376379838779097}
   - component: {fileID: 5848850704354807169}
-  - component: {fileID: 10946456694699675}
   - component: {fileID: 406383213852124881}
   m_Layer: 6
   m_Name: CounterSensor
@@ -265,18 +264,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &10946456694699675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555674165902371461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbfafe6b49a397479dcf9d279b118c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &406383213852124881
@@ -368,6 +355,14 @@ MonoBehaviour:
     - KOContainerSensorData
     - HasSpace
     Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    Count: 2
   _toMapProperties:
   - myStrings:
     - BaseSensorData
@@ -449,6 +444,7 @@ MonoBehaviour:
       - ID
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_ID
     propertyAliasHash: -959272000
     operation: 0
@@ -460,6 +456,7 @@ MonoBehaviour:
       - Type
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_Type
     propertyAliasHash: -1644391227
     operation: 0
@@ -471,6 +468,7 @@ MonoBehaviour:
       - Name
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_Name
     propertyAliasHash: 1521276762
     operation: 0
@@ -482,6 +480,7 @@ MonoBehaviour:
       - X
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_X
     propertyAliasHash: -672402683
     operation: 0
@@ -493,6 +492,7 @@ MonoBehaviour:
       - Y
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_Y
     propertyAliasHash: -672402684
     operation: 0
@@ -504,6 +504,7 @@ MonoBehaviour:
       - ContainerID
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_ContainerID
     propertyAliasHash: -1574754401
     operation: 0
@@ -515,6 +516,7 @@ MonoBehaviour:
       - SizeLimit
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_SizeLimit
     propertyAliasHash: 205934797
     operation: 0
@@ -526,6 +528,7 @@ MonoBehaviour:
       - Count
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_Count
     propertyAliasHash: -798627724
     operation: 0
@@ -539,6 +542,7 @@ MonoBehaviour:
       - Name
       Count: 4
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_KitchenObject_Name
     propertyAliasHash: 1535936526
     operation: 0
@@ -552,6 +556,7 @@ MonoBehaviour:
       - ID
       Count: 4
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_KitchenObject_ID
     propertyAliasHash: 647994600
     operation: 0
@@ -565,6 +570,7 @@ MonoBehaviour:
       - ContainerID
       Count: 4
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_KitchenObject_ContainerID
     propertyAliasHash: -1804770333
     operation: 0
@@ -577,6 +583,7 @@ MonoBehaviour:
       - Name
       Count: 3
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_FirstKitchenObject_Name
     propertyAliasHash: 280252894
     operation: 0
@@ -589,6 +596,7 @@ MonoBehaviour:
       - ID
       Count: 3
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_FirstKitchenObject_ID
     propertyAliasHash: -1377132084
     operation: 0
@@ -601,6 +609,7 @@ MonoBehaviour:
       - ContainerID
       Count: 3
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_FirstKitchenObject_ContainerID
     propertyAliasHash: -1659913887
     operation: 0
@@ -612,6 +621,7 @@ MonoBehaviour:
       - HasAny
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_HasAny
     propertyAliasHash: 234997133
     operation: 0
@@ -623,6 +633,7 @@ MonoBehaviour:
       - HasSpace
       Count: 2
     windowWidth: 200
+    configurationName: 
     _propertyAlias: CounterSensor_HasSpace
     propertyAliasHash: 172605435
     operation: 0

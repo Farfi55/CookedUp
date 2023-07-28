@@ -1,3 +1,4 @@
+using System;
 using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
 using UnityEngine;
@@ -14,6 +15,10 @@ namespace KitchenObjects
         public KitchenObjectsContainer Container => container;
 
         public bool IsInContainer => container != null;
+        
+                
+        public event EventHandler OnDestroyed;
+        
 
         public bool SetContainer(KitchenObjectsContainer newContainer) {
             var oldContainer = container;
@@ -86,6 +91,10 @@ namespace KitchenObjects
 
             plateKitchenObject = null;
             return false;
+        }
+
+        private void OnDestroy() {
+            OnDestroyed?.Invoke(this, EventArgs.Empty);
         }
     }
 }

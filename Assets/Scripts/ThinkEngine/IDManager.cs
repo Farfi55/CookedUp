@@ -29,10 +29,15 @@ namespace ThinkEngine {
             return idMap[id];
         }
         
-        public void RemoveGameObject(int id) {
+        public void RemoveID(int id) {
             idMap.Remove(id);
         }
-        
-        
+
+        public void RemoveID(GameObject gameObject) {
+            var id = gameObject.GetInstanceID();
+            idMap.Remove(id);
+        }
+
+
     }
 }

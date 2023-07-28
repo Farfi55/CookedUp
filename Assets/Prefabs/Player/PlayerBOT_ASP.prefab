@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2827248408471330802}
-  - component: {fileID: 5739049984190683848}
   - component: {fileID: 7628295424075867432}
   - component: {fileID: 1315881604085460173}
+  - component: {fileID: 5739049984190683848}
   - component: {fileID: 5782462475890788620}
   - component: {fileID: 5210427582374644628}
-  - component: {fileID: 1043049013687419134}
   - component: {fileID: 690487446233426465}
   - component: {fileID: 3796238315501043888}
   - component: {fileID: 7483489731109008985}
@@ -41,20 +40,6 @@ Transform:
   m_Father: {fileID: 7724352490623143304}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5739049984190683848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177460339381318128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffec12c8ce4a40df835e0efefc106036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1522296519013336370}
-  Pos: {x: 0, y: 0}
 --- !u!114 &7628295424075867432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +73,27 @@ MonoBehaviour:
   HasSelectedInteractable: 0
   SelectedInteractableType: 
   SelectedInteractableID: 0
+  HasRecipe: 0
+  RecipeName: 
+  HasPlate: 0
+  PlateForRecipeID: 0
+  HasMissingIngredients: 0
+  MissingIngredientsNames: []
+  HasInvalidIngredients: 0
+--- !u!114 &5739049984190683848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177460339381318128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffec12c8ce4a40df835e0efefc106036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1522296519013336370}
+  Pos: {x: 0, y: 0}
 --- !u!114 &5782462475890788620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,18 +127,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1043049013687419134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177460339381318128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbfafe6b49a397479dcf9d279b118c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &690487446233426465
@@ -177,6 +171,7 @@ MonoBehaviour:
       - x
       Count: 3
     windowWidth: 200
+    configurationName: 
     _propertyAlias: Player_x
     propertyAliasHash: -719706128
     operation: 0
@@ -189,6 +184,7 @@ MonoBehaviour:
       - y
       Count: 3
     windowWidth: 200
+    configurationName: 
     _propertyAlias: Player_y
     propertyAliasHash: 846377813
     operation: 0
@@ -239,10 +235,11 @@ MonoBehaviour:
   enableBrain: 1
   debug: 1
   maintainInputFile: 0
-  _chosenSensorConfigurations: []
+  _chosenSensorConfigurations:
+  - playerSensor
+  - constantSensor
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
-  AIFilesPrefix: Player
-  _AIFileTemplatePath: 
+  AIFilesPrefix: []
   prefabBrain: 1
   solverEnum: 1
   _executeReasonerOn: When Sensors are ready
@@ -298,17 +295,17 @@ PrefabInstance:
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.9698586
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.6148071
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}

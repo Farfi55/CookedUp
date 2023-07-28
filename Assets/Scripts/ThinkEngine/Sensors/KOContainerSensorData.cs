@@ -40,7 +40,7 @@ namespace ThinkEngine.Sensors {
             Count = container.Count;
             
             foreach (var oldKitchenObject in KitchenObjects)
-                idManager.RemoveGameObject(oldKitchenObject.ID);
+                idManager.RemoveID(oldKitchenObject.ID);
             
             KitchenObjects.Clear();
 
@@ -54,7 +54,7 @@ namespace ThinkEngine.Sensors {
         }
 
         private void OnDestroy() {
-            idManager.RemoveGameObject(ContainerID);
+            idManager.RemoveID(ContainerID);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace ThinkEngine.Sensors {
         }
         
         private void OnDestroy() {
-            idManager.RemoveGameObject(ID);
+            idManager.RemoveID(ID);
         }
     }
 }

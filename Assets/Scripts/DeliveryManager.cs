@@ -20,6 +20,7 @@ public class DeliveryManager : MonoBehaviour {
     [SerializeField] private CompleteRecipeSOList recipes;
 
     private readonly ObservableCollection<CompleteRecipeSO> waitingRecipeSOs = new();
+    
     public ObservableCollection<CompleteRecipeSO> WaitingRecipeSOs => waitingRecipeSOs;
 
 

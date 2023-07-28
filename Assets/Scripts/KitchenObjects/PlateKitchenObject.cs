@@ -13,7 +13,6 @@ namespace KitchenObjects
         [SerializeField] private CompleteRecipeSOList recipes;
         public CompleteRecipeSOList Recipes => recipes;
 
-        public event EventHandler OnValidIngredientsChanged;
 
         private List<CompleteRecipeSO> validCompleteRecipes = new();
         private readonly HashSet<KitchenObjectSO> validIngredients = new();
@@ -24,6 +23,8 @@ namespace KitchenObjects
         private KitchenObjectsContainer ingredientsContainer;
 
         public KitchenObjectsContainer IngredientsContainer => ingredientsContainer;
+
+        public event EventHandler OnValidIngredientsChanged;
 
 
         private void Awake() {
