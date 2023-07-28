@@ -206,9 +206,15 @@ namespace ThinkEngine
             }
         }
         
-        internal string GetAIFileTemplatePath()
-        {
-            string aiFileName = (AIFilesPrefix[0] ?? gameObject.name) + GetType().Name + "Template.asp";
+        internal string GetAIFileTemplatePath() {
+            string aiFileName = gameObject.name;
+            // if(AIFilesPrefix != null && AIFilesPrefix.Count > 0) {
+            //     aiFileName = string.Join("-", AIFilesPrefix);
+            // }
+            var brainIndex = GetComponents(GetType()).ToList().IndexOf(this);
+            
+
+            aiFileName += GetType().Name + brainIndex + "Template.asp";
             var aiFileTemplatePath = Path.Combine(Utility.TemplatesFolder, aiFileName);
             return aiFileTemplatePath;
         }
