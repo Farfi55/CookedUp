@@ -511,6 +511,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 4
       addedObject: {fileID: 8184252068606889188}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4707198003888383650}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1 &397785941995737951 stripped
 GameObject:
@@ -533,6 +537,140 @@ MonoBehaviour:
   platesCounter: {fileID: 7627238358203562126}
   PlatesLimit: 0
   PlatesCount: 0
+--- !u!114 &4707198003888383650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397785941995737951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesLimit
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesCount
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesLimit
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesCount
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_ID
+    propertyAliasHash: 1731767521
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_Type
+    propertyAliasHash: -2114553404
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_Name
+    propertyAliasHash: 1051114711
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlatesCounterSensorData
+      - PlatesLimit
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_PlatesLimit
+    propertyAliasHash: -1609723656
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlatesCounterSensorData
+      - PlatesCount
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_PlatesCount
+    propertyAliasHash: -245155836
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_PlatesCounter
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 21aee60171c7b55449a86bb2a8d38351, type: 3}
+    typeName: ThinkEngine.S_PlatesCounter0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 6925acb0af87ae145acdf4a8aca37fc4, type: 3}
+    typeName: ThinkEngine.S_PlatesCounter1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 38e265a631c5e3740b6c05689f05f425, type: 3}
+    typeName: ThinkEngine.S_PlatesCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 32f1d9311fc60ad4aa93396119de7161, type: 3}
+    typeName: ThinkEngine.S_PlatesCounter3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2f355752f56415d4c8bc0f89103dfe53, type: 3}
+    typeName: ThinkEngine.S_PlatesCounter4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1763550275166000104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

@@ -1877,6 +1877,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 4
       addedObject: {fileID: 5716684368828120971}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2665629869143266600}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1 &347334088737814022 stripped
 GameObject:
@@ -1931,6 +1935,120 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containerCounter: {fileID: 4675046536754652606}
   KOType: 
+--- !u!114 &2665629869143266600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814283341669267121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - ContainerCounterSensorData
+    Count: 1
+  - myStrings:
+    - ContainerCounterSensorData
+    - KOType
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - ContainerCounterSensorData
+    - KOType
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_ContainerCounter
+    _propertyAlias: s_ContainerCounter_ID
+    propertyAliasHash: 1820604669
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: s_ContainerCounter
+    _propertyAlias: s_ContainerCounter_Type
+    propertyAliasHash: 555209950
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: s_ContainerCounter
+    _propertyAlias: s_ContainerCounter_Name
+    propertyAliasHash: -163898193
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ContainerCounterSensorData
+      - KOType
+      Count: 2
+    windowWidth: 200
+    configurationName: s_ContainerCounter
+    _propertyAlias: s_ContainerCounter_KOType
+    propertyAliasHash: 830087976
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_ContainerCounter
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 6b927e40ea05f4f42b9896d2c316db27, type: 3}
+    typeName: ThinkEngine.S_ContainerCounter0, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 421b4058afaabd647b0b406456c3aa3c, type: 3}
+    typeName: ThinkEngine.S_ContainerCounter1, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 234cca8f98cbeb140b35fdddf917c812, type: 3}
+    typeName: ThinkEngine.S_ContainerCounter2, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 283a1407cd18db949a6de9594f8bfa28, type: 3}
+    typeName: ThinkEngine.S_ContainerCounter3, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &9134415419468882019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

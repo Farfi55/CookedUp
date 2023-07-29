@@ -25,8 +25,8 @@ namespace ThinkEngine
 #if UNITY_EDITOR
             if (scriptAsset)
             {
-                string assemblyQualifiedName = scriptAsset.GetClass()?.AssemblyQualifiedName;
-                if (TypeIsValid(assemblyQualifiedName))
+                // string assemblyQualifiedName = scriptAsset.GetClass()?.AssemblyQualifiedName;
+                if (TypeIsValid(scriptAsset.GetClass()))
                 {
                     typeName = scriptAsset.GetClass()?.AssemblyQualifiedName;
                 }
@@ -54,6 +54,10 @@ namespace ThinkEngine
         private bool TypeIsValid(string assemblyQualifiedName)
         {
             return Type.GetType(assemblyQualifiedName).IsSubclassOf(typeof(Sensor));
+        }
+        private bool TypeIsValid(Type type)
+        {
+            return type.IsSubclassOf(typeof(Sensor));
         }
     }
 }
