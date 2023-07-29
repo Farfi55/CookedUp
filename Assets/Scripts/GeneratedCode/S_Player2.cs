@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<string> values = new List<string>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_ID(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_Name(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -61,13 +61,14 @@ namespace ThinkEngine
 				first = false;
 				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
 				if(BaseSensorData0 == null) return;
-				int ID1 = BaseSensorData0.ID;
+				string Name1 = BaseSensorData0.Name;
+				if(Name1 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(ID1);
+				values.Add(Name1);
 			}
 		}
 

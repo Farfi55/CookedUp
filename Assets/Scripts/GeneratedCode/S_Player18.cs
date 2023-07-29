@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
+using ThinkEngine.Models;
 using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
 
@@ -13,7 +14,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<bool> values = new List<bool>();
+		private List<string> values = new List<string>();
 
 		/*
 		//Singleton
@@ -36,10 +37,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_HasSpace(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_FirstKitchenObject_Name(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -61,13 +62,16 @@ namespace ThinkEngine
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
 				if(KOContainerSensorData0 == null) return;
-				bool HasSpace1 = KOContainerSensorData0.HasSpace;
+				KitchenObject FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
+				if(FirstKitchenObject1 == null) return;
+				string Name2 = FirstKitchenObject1.Name;
+				if(Name2 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(HasSpace1);
+				values.Add(Name2);
 			}
 		}
 

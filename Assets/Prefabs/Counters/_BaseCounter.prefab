@@ -301,9 +301,6 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - KOContainerSensorData
-    Count: 1
-  - myStrings:
-    - KOContainerSensorData
     - ContainerID
     Count: 2
   - myStrings:
@@ -363,6 +360,9 @@ MonoBehaviour:
     - KOContainerSensorData
     - FirstKitchenObject
     Count: 2
+  - myStrings:
+    - BaseSensorData
+    Count: 1
   _toMapProperties:
   - myStrings:
     - BaseSensorData
@@ -445,8 +445,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_ID
-    propertyAliasHash: -959272000
+    _propertyAlias: s_Counter_ID
+    propertyAliasHash: 1634240232
     operation: 0
     specificValue: 
     counter: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_Type
-    propertyAliasHash: -1644391227
+    _propertyAlias: s_Counter_Type
+    propertyAliasHash: 1220614195
     operation: 0
     specificValue: 
     counter: 0
@@ -469,8 +469,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_Name
-    propertyAliasHash: 1521276762
+    _propertyAlias: s_Counter_Name
+    propertyAliasHash: 2127681278
     operation: 0
     specificValue: 
     counter: 0
@@ -481,8 +481,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_X
-    propertyAliasHash: -672402683
+    _propertyAlias: s_Counter_X
+    propertyAliasHash: 1221219203
     operation: 0
     specificValue: 
     counter: 0
@@ -493,8 +493,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_Y
-    propertyAliasHash: -672402684
+    _propertyAlias: s_Counter_Y
+    propertyAliasHash: 1221219204
     operation: 0
     specificValue: 
     counter: 0
@@ -505,8 +505,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_ContainerID
-    propertyAliasHash: -1574754401
+    _propertyAlias: s_Counter_ContainerID
+    propertyAliasHash: -1504534515
     operation: 0
     specificValue: 
     counter: 0
@@ -517,8 +517,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_SizeLimit
-    propertyAliasHash: 205934797
+    _propertyAlias: s_Counter_SizeLimit
+    propertyAliasHash: -1169685765
     operation: 0
     specificValue: 
     counter: 0
@@ -529,8 +529,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_Count
-    propertyAliasHash: -798627724
+    _propertyAlias: s_Counter_Count
+    propertyAliasHash: 95033988
     operation: 0
     specificValue: 
     counter: 0
@@ -543,8 +543,8 @@ MonoBehaviour:
       Count: 4
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_KitchenObject_Name
-    propertyAliasHash: 1535936526
+    _propertyAlias: s_Counter_KitchenObject_Name
+    propertyAliasHash: -853503986
     operation: 0
     specificValue: 
     counter: 0
@@ -557,8 +557,8 @@ MonoBehaviour:
       Count: 4
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_KitchenObject_ID
-    propertyAliasHash: 647994600
+    _propertyAlias: s_Counter_KitchenObject_ID
+    propertyAliasHash: 1008606116
     operation: 0
     specificValue: 
     counter: 0
@@ -571,8 +571,8 @@ MonoBehaviour:
       Count: 4
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_KitchenObject_ContainerID
-    propertyAliasHash: -1804770333
+    _propertyAlias: s_Counter_KitchenObject_ContainerID
+    propertyAliasHash: -1774701467
     operation: 0
     specificValue: 
     counter: 0
@@ -584,8 +584,8 @@ MonoBehaviour:
       Count: 3
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_FirstKitchenObject_Name
-    propertyAliasHash: 280252894
+    _propertyAlias: s_Counter_FirstKitchenObject_Name
+    propertyAliasHash: 192973646
     operation: 0
     specificValue: 
     counter: 0
@@ -597,8 +597,8 @@ MonoBehaviour:
       Count: 3
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_FirstKitchenObject_ID
-    propertyAliasHash: -1377132084
+    _propertyAlias: s_Counter_FirstKitchenObject_ID
+    propertyAliasHash: -1055931124
     operation: 0
     specificValue: 
     counter: 0
@@ -610,8 +610,8 @@ MonoBehaviour:
       Count: 3
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_FirstKitchenObject_ContainerID
-    propertyAliasHash: -1659913887
+    _propertyAlias: s_Counter_FirstKitchenObject_ContainerID
+    propertyAliasHash: 1280707335
     operation: 0
     specificValue: 
     counter: 0
@@ -622,8 +622,8 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_HasAny
-    propertyAliasHash: 234997133
+    _propertyAlias: s_Counter_HasAny
+    propertyAliasHash: 942396395
     operation: 0
     specificValue: 
     counter: 0
@@ -634,12 +634,51 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: 
-    _propertyAlias: CounterSensor_HasSpace
-    propertyAliasHash: 172605435
+    _propertyAlias: s_Counter_HasSpace
+    propertyAliasHash: -330967711
     operation: 0
     specificValue: 
     counter: 0
-  _configurationName: counterSensor
+  _configurationName: s_Counter
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 81256952dd5e07b4f8e95675b23f21c8, type: 3}
+    typeName: ThinkEngine.S_Counter0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 77685abee269038439d15e10edf63888, type: 3}
+    typeName: ThinkEngine.S_Counter1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2fcb1ba84e07c8e49839eead87ab408e, type: 3}
+    typeName: ThinkEngine.S_Counter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 1ae6ea462b56a854db87ad55b05d624a, type: 3}
+    typeName: ThinkEngine.S_Counter3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 1889a45daaf4cf14f8c8cf83902a876f, type: 3}
+    typeName: ThinkEngine.S_Counter4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 22428aab7fd3b5a488d0ece70a875422, type: 3}
+    typeName: ThinkEngine.S_Counter5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: aaff88686ef38604ab1751b117ee76a7, type: 3}
+    typeName: ThinkEngine.S_Counter6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 94c269eaf400e3e4e87213c9f5317e7c, type: 3}
+    typeName: ThinkEngine.S_Counter7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e085dc32f055286458c30e6abf7c6a01, type: 3}
+    typeName: ThinkEngine.S_Counter8, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b1606560f2205b34686443299e97bccb, type: 3}
+    typeName: ThinkEngine.S_Counter9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 6d089a5dbf4dea64aa0c9eec087a4091, type: 3}
+    typeName: ThinkEngine.S_Counter10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0b48db9803ad2c94a94cfb8a410cd4ba, type: 3}
+    typeName: ThinkEngine.S_Counter11, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 40cf49c4dc0e4214ebe16a0dfc1115b5, type: 3}
+    typeName: ThinkEngine.S_Counter12, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

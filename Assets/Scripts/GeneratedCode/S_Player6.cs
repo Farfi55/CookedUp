@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<bool> values = new List<bool>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_SelectedInteractableType(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_HasRecipe(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -61,14 +61,13 @@ namespace ThinkEngine
 				first = false;
 				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
 				if(PlayerSensorData0 == null) return;
-				string SelectedInteractableType1 = PlayerSensorData0.SelectedInteractableType;
-				if(SelectedInteractableType1 == null) return;
+				bool HasRecipe1 = PlayerSensorData0.HasRecipe;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(SelectedInteractableType1);
+				values.Add(HasRecipe1);
 			}
 		}
 

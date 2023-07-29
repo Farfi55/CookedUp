@@ -39,7 +39,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "Player_x(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_ID(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,17 +59,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
-				if(GridPositionSensorData0 == null) return;
-				Vector2Int Pos1 = GridPositionSensorData0.Pos;
-				if(Pos1 == null) return;
-				int x2 = Pos1.x;
+				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
+				if(BaseSensorData0 == null) return;
+				int ID1 = BaseSensorData0.ID;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(x2);
+				values.Add(ID1);
 			}
 		}
 

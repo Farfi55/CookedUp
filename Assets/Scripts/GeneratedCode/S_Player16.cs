@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<bool> values = new List<bool>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_Y(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_HasSpace(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,15 +59,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
-				if(GridPositionSensorData0 == null) return;
-				int Y1 = GridPositionSensorData0.Y;
+				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
+				if(KOContainerSensorData0 == null) return;
+				bool HasSpace1 = KOContainerSensorData0.HasSpace;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Y1);
+				values.Add(HasSpace1);
 			}
 		}
 

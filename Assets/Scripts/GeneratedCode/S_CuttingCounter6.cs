@@ -2,18 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
+using ThinkEngine.Models;
+using ThinkEngine.Sensors.Counters;
 using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class S_Player23 : Sensor
+    class S_CuttingCounter6 : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<string> values = new List<string>();
 
 		/*
 		//Singleton
@@ -25,7 +26,7 @@ namespace ThinkEngine
             {
                 if (instance == null)
                 {
-					instance = new S_Player23();
+					instance = new S_CuttingCounter6();
                 }
                 return instance;
             }
@@ -36,10 +37,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_Container_SizeLimit(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_CuttingCounter_CurrentCuttingRecipe_OutputKOName(cuttingCounterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,15 +60,18 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				if(KOContainerSensorData0 == null) return;
-				int SizeLimit1 = KOContainerSensorData0.SizeLimit;
+				CuttingCounterSensorData CuttingCounterSensorData0 = gameObject.GetComponent<CuttingCounterSensorData>();
+				if(CuttingCounterSensorData0 == null) return;
+				CuttingRecipe CurrentCuttingRecipe1 = CuttingCounterSensorData0.CurrentCuttingRecipe;
+				if(CurrentCuttingRecipe1 == null) return;
+				string OutputKOName2 = CurrentCuttingRecipe1.OutputKOName;
+				if(OutputKOName2 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(SizeLimit1);
+				values.Add(OutputKOName2);
 			}
 		}
 

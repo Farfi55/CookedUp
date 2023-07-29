@@ -39,7 +39,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_HasPlate(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_HasMissingIngredients(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -61,13 +61,13 @@ namespace ThinkEngine
 				first = false;
 				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
 				if(PlayerSensorData0 == null) return;
-				bool HasPlate1 = PlayerSensorData0.HasPlate;
+				bool HasMissingIngredients1 = PlayerSensorData0.HasMissingIngredients;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(HasPlate1);
+				values.Add(HasMissingIngredients1);
 			}
 		}
 

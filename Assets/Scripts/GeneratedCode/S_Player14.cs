@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<bool> values = new List<bool>();
+		private List<int> values = new List<int>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_HasInvalidIngredients(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_Y(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,15 +59,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
-				if(PlayerSensorData0 == null) return;
-				bool HasInvalidIngredients1 = PlayerSensorData0.HasInvalidIngredients;
+				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
+				if(GridPositionSensorData0 == null) return;
+				int Y1 = GridPositionSensorData0.Y;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(HasInvalidIngredients1);
+				values.Add(Y1);
 			}
 		}
 

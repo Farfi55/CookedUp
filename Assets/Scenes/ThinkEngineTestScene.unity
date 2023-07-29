@@ -425,17 +425,17 @@ PrefabInstance:
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
@@ -479,18 +479,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
+      propertyPath: prefabBrain
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
       propertyPath: _AIFileTemplatePath
       value: .\Assets\ThinkEngineer\ThinkEngine\Templates\playerPlannerBrainTemplate.asp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
-        type: 3}
-      propertyPath: AIFilesPrefix.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
-        type: 3}
-      propertyPath: AIFilesPrefix.Array.data[0]
-      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
@@ -499,13 +494,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
+      propertyPath: _chosenSensorConfigurations.Array.data[0]
+      value: s_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: _chosenSensorConfigurations.Array.data[1]
+      value: s_Const
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
       propertyPath: _chosenSensorConfigurations.Array.data[2]
-      value: counterSensor
+      value: s_CuttingCounter
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: _chosenSensorConfigurations.Array.data[3]
-      value: cuttingCounterSensor
+      value: s_Counter
       objectReference: {fileID: 0}
     - target: {fileID: 5782462475890788620, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
@@ -794,7 +799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586783816}
   m_LocalRotation: {x: -0.4652329, y: -0.00024333593, z: 0.00012995349, w: -0.8851882}
-  m_LocalPosition: {x: 2.1085062, y: 5.696606, z: -7.2991886}
+  m_LocalPosition: {x: 0.75, y: 6, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1909,30 +1914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1895200525}
     m_Modifications:
-    - target: {fileID: 482501837550185785, guid: b2e3c40625d0b404db69ece0abf38b76,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482501837550185785, guid: b2e3c40625d0b404db69ece0abf38b76,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1763550275166000104, guid: b2e3c40625d0b404db69ece0abf38b76,
         type: 3}
       propertyPath: m_Name
       value: PlatesCounter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212188084436756236, guid: b2e3c40625d0b404db69ece0abf38b76,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212188084436756236, guid: b2e3c40625d0b404db69ece0abf38b76,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7091884424846706061, guid: b2e3c40625d0b404db69ece0abf38b76,
         type: 3}
@@ -2184,7 +2169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895200524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2463,9 +2448,9 @@ MonoBehaviour:
       - KitchenObjectsNames
       Count: 2
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_KitchenObjectsNames
-    propertyAliasHash: 86429275
+    configurationName: s_Const
+    _propertyAlias: s_Const_KitchenObjectsNames
+    propertyAliasHash: -496711944
     operation: 0
     specificValue: 
     counter: 0
@@ -2477,9 +2462,9 @@ MonoBehaviour:
       - Name
       Count: 4
     windowWidth: 108
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CompleteRecipe_Name
-    propertyAliasHash: -1362175490
+    configurationName: s_Const
+    _propertyAlias: s_Const_CompleteRecipe_Name
+    propertyAliasHash: -766420929
     operation: 0
     specificValue: 
     counter: 0
@@ -2491,9 +2476,9 @@ MonoBehaviour:
       - IngredientsNames
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CompleteRecipe_IngredientNames
-    propertyAliasHash: 1538074198
+    configurationName: s_Const
+    _propertyAlias: s_Const_CompleteRecipe_IngredientNames
+    propertyAliasHash: -823537687
     operation: 0
     specificValue: 
     counter: 0
@@ -2505,9 +2490,9 @@ MonoBehaviour:
       - Value
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CompleteRecipe_Value
-    propertyAliasHash: 1121082842
+    configurationName: s_Const
+    _propertyAlias: s_Const_CompleteRecipe_Value
+    propertyAliasHash: 289789283
     operation: 0
     specificValue: 
     counter: 0
@@ -2519,9 +2504,9 @@ MonoBehaviour:
       - Name
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CookingRecipe_Name
-    propertyAliasHash: 391567279
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_Name
+    propertyAliasHash: 1082092852
     operation: 0
     specificValue: 
     counter: 0
@@ -2533,9 +2518,9 @@ MonoBehaviour:
       - OutputKOName
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CookingRecipe_OutputKOName
-    propertyAliasHash: 901969130
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_OutputKOName
+    propertyAliasHash: -56214667
     operation: 0
     specificValue: 
     counter: 0
@@ -2547,9 +2532,9 @@ MonoBehaviour:
       - TimeToCook
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CookingRecipe_TimeToCook
-    propertyAliasHash: 450304854
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_TimeToCook
+    propertyAliasHash: -724588329
     operation: 0
     specificValue: 
     counter: 0
@@ -2561,9 +2546,9 @@ MonoBehaviour:
       - IsBurningRecipe
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CookingRecipe_IsBurningRecipe
-    propertyAliasHash: -1465639715
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_IsBurningRecipe
+    propertyAliasHash: -850219988
     operation: 0
     specificValue: 
     counter: 0
@@ -2575,9 +2560,9 @@ MonoBehaviour:
       - Name
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CuttingRecipe_Name
-    propertyAliasHash: 269696209
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_Name
+    propertyAliasHash: -1683308104
     operation: 0
     specificValue: 
     counter: 0
@@ -2589,9 +2574,9 @@ MonoBehaviour:
       - InputKOName
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CuttingRecipe_InputKOName
-    propertyAliasHash: -1065909037
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_InputKOName
+    propertyAliasHash: 699681824
     operation: 0
     specificValue: 
     counter: 0
@@ -2603,9 +2588,9 @@ MonoBehaviour:
       - OutputKOName
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CuttingRecipe_OutputKOName
-    propertyAliasHash: 1919140234
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_OutputKOName
+    propertyAliasHash: 383875859
     operation: 0
     specificValue: 
     counter: 0
@@ -2617,9 +2602,9 @@ MonoBehaviour:
       - TimeToCut
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CuttingRecipe_TimeToCut
-    propertyAliasHash: -363152126
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_TimeToCut
+    propertyAliasHash: 985920603
     operation: 0
     specificValue: 
     counter: 0
@@ -2631,16 +2616,19 @@ MonoBehaviour:
       - InputKOName
       Count: 4
     windowWidth: 200
-    configurationName: constantSensor
-    _propertyAlias: constantSensor_CookingRecipe_InputKOName
-    propertyAliasHash: 1642790801
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_InputKOName
+    propertyAliasHash: -1210373480
     operation: 0
     specificValue: 
     counter: 0
-  _configurationName: constantSensor
+  _configurationName: s_Const
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 6db9fac68074905409caa2a9466d509e, type: 3}
+    typeName: ThinkEngine.S_Const0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &1947309477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2665,6 +2653,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2126300228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2055417563
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_Name
+      value: _BaseCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1001 &2089199605
 PrefabInstance:
   m_ObjectHideFlags: 0

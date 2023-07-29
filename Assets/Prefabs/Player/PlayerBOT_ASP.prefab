@@ -143,16 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
-    - GridPositionSensorData
-    - Pos
-    - x
-    Count: 3
-  - myStrings:
-    - GridPositionSensorData
-    - Pos
-    - y
-    Count: 3
-  - myStrings:
     - BaseSensorData
     - ID
     Count: 2
@@ -214,9 +204,6 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - KOContainerSensorData
-    Count: 1
-  - myStrings:
-    - KOContainerSensorData
     - Count
     Count: 2
   - myStrings:
@@ -271,19 +258,13 @@ MonoBehaviour:
   - myStrings:
     - KOContainerSensorData
     - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
     Count: 2
   _toMapProperties:
   - myStrings:
-    - GridPositionSensorData
-    - Pos
-    - x
-    Count: 3
-  - myStrings:
-    - GridPositionSensorData
-    - Pos
-    - y
-    Count: 3
-  - myStrings:
     - BaseSensorData
     - ID
     Count: 2
@@ -392,33 +373,11 @@ MonoBehaviour:
     - KOContainerSensorData
     - SizeLimit
     Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
   _propertyFeatures:
-  - property:
-      myStrings:
-      - GridPositionSensorData
-      - Pos
-      - x
-      Count: 3
-    windowWidth: 200
-    configurationName: 
-    _propertyAlias: Player_x
-    propertyAliasHash: -719706128
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - GridPositionSensorData
-      - Pos
-      - y
-      Count: 3
-    windowWidth: 200
-    configurationName: 
-    _propertyAlias: Player_y
-    propertyAliasHash: 846377813
-    operation: 0
-    specificValue: 
-    counter: 0
   - property:
       myStrings:
       - BaseSensorData
@@ -728,6 +687,18 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - ContainerID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_ContainerID
+    propertyAliasHash: -101990704
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_Player
   isInvariant: 0
   isFixedSize: 0
@@ -801,9 +772,6 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: 672f2b44115206e4883d057aac470392, type: 3}
     typeName: ThinkEngine.S_Player22, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: ca10154805f8e0747961096527761e2c, type: 3}
-    typeName: ThinkEngine.S_Player23, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &3796238315501043888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,10 +814,13 @@ MonoBehaviour:
   debug: 1
   maintainInputFile: 0
   _chosenSensorConfigurations:
-  - constantSensor
   - s_Player
+  - s_Const
+  - s_Counter
+  - s_CuttingCounter
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
-  AIFilesPrefix: []
+  AIFilesPrefix:
+  - player
   prefabBrain: 1
   solverEnum: 1
   _executeReasonerOn: When Sensors are ready

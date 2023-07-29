@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<string> values = new List<string>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "Player_y(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_Type(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,17 +59,16 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
-				if(GridPositionSensorData0 == null) return;
-				Vector2Int Pos1 = GridPositionSensorData0.Pos;
-				if(Pos1 == null) return;
-				int y2 = Pos1.y;
+				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
+				if(BaseSensorData0 == null) return;
+				string Type1 = BaseSensorData0.Type;
+				if(Type1 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(y2);
+				values.Add(Type1);
 			}
 		}
 

@@ -8,766 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _configurationName
-      value: cuttingCounterSensor
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[6].Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[7].Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[8].Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[9].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[5].Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[6].Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[7].Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[8].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[9].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[10].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[11].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[12].Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[13].Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[14].Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[10].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[11].Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[12].Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[13].Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5]._propertyAlias
-      value: CounterSensor_KitchenObject_Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5].property.Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6]._propertyAlias
-      value: CounterSensor_KitchenObject_ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6].property.Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7]._propertyAlias
-      value: CounterSensor_KitchenObject_ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7].property.Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8]._propertyAlias
-      value: CounterSensor_FirstKitchenObject_Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8].property.Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9]._propertyAlias
-      value: CounterSensor_FirstKitchenObject_ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9].property.Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10]._propertyAlias
-      value: CounterSensor_FirstKitchenObject_ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].property.Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11]._propertyAlias
-      value: CounterSensor_HasAny
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11].property.Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[12]._propertyAlias
-      value: CounterSensor_HasSpace
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[12].property.Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[13]._propertyAlias
-      value: CuttingCounterSensor_ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[13].property.Count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[14]._propertyAlias
-      value: CuttingCounterSensor_SizeLimit
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[15]._propertyAlias
-      value: CuttingCounterSensor_KOContainerSensorData_Count
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5].propertyAliasHash
-      value: 1535936526
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6].propertyAliasHash
-      value: 647994600
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7].propertyAliasHash
-      value: -1804770333
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8].propertyAliasHash
-      value: 280252894
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9].propertyAliasHash
-      value: -1377132084
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].propertyAliasHash
-      value: -1659913887
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11].propertyAliasHash
-      value: 234997133
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[12].propertyAliasHash
-      value: 172605435
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[13].propertyAliasHash
-      value: 784830013
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[14].propertyAliasHash
-      value: 777321891
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[15].propertyAliasHash
-      value: 2028431872
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[6].myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[7].myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[8].myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[9].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[5].myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[8].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[10].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[11].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[12].myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[13].myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[14].myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[13].myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[6].myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[6].myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[6].myStrings.Array.data[3]
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[3]
-      value: ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[9].myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[9].myStrings.Array.data[2]
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[9].myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[5].myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[5].myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[5].myStrings.Array.data[3]
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[3]
-      value: ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[8].myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[8].myStrings.Array.data[2]
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[8].myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[2]
-      value: ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[10].myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[10].myStrings.Array.data[2]
-      value: ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[10].myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[1]
-      value: HasAny
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[1]
-      value: HasSpace
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[14].myStrings.Array.data[1]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[15].myStrings.Array.data[1]
-      value: SizeLimit
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _savedProperties.Array.data[16].myStrings.Array.data[1]
-      value: Count
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[1]
-      value: HasAny
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[1]
-      value: HasSpace
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[13].myStrings.Array.data[1]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[14].myStrings.Array.data[1]
-      value: SizeLimit
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _toMapProperties.Array.data[15].myStrings.Array.data[1]
-      value: Count
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5].property.myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8].property.myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5].property.myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5].property.myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[5].property.myStrings.Array.data[3]
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[3]
-      value: ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.data[1]
-      value: KitchenObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.data[2]
-      value: KitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8].property.myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8].property.myStrings.Array.data[2]
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[8].property.myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[2]
-      value: ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[3]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[1]
-      value: FirstKitchenObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[1]
-      value: HasAny
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[1]
-      value: HasSpace
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[2]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.data[1]
-      value: ContainerID
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[14].property.myStrings.Array.data[1]
-      value: SizeLimit
-      objectReference: {fileID: 0}
-    - target: {fileID: 406383213852124881, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[15].property.myStrings.Array.data[1]
-      value: Count
-      objectReference: {fileID: 0}
     - target: {fileID: 1219806043548265481, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1690,6 +930,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 4
       addedObject: {fileID: 4967597725627556090}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3483652847706595726}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1 &2983422634056588087 stripped
 GameObject:
@@ -1770,6 +1014,273 @@ MonoBehaviour:
     InputKOName: 
     OutputKOName: 
     TimeToCut: 0
+--- !u!114 &3483652847706595726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790734018359499648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    Count: 1
+  - myStrings:
+    - CuttingCounterSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - CanCut
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - TimeRemainingToCut
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - Name
+    Count: 3
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - InputKOName
+    Count: 3
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - OutputKOName
+    Count: 3
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - TimeToCut
+    Count: 3
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - CanCut
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - TimeRemainingToCut
+    Count: 2
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - Name
+    Count: 3
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - InputKOName
+    Count: 3
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - OutputKOName
+    Count: 3
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
+    - TimeToCut
+    Count: 3
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_ID
+    propertyAliasHash: -1608470868
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_HasAny
+    propertyAliasHash: -2018451715
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - CanCut
+      Count: 2
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_CanCut
+    propertyAliasHash: -1000948173
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - TimeRemainingToCut
+      Count: 2
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_TimeRemainingToCut
+    propertyAliasHash: -1412122443
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - CurrentCuttingRecipe
+      - Name
+      Count: 3
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_Name
+    propertyAliasHash: 1757587582
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - CurrentCuttingRecipe
+      - InputKOName
+      Count: 3
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_InputKOName
+    propertyAliasHash: 81319662
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - CurrentCuttingRecipe
+      - OutputKOName
+      Count: 3
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_OutputKOName
+    propertyAliasHash: -1580491663
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - CuttingCounterSensorData
+      - CurrentCuttingRecipe
+      - TimeToCut
+      Count: 3
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_TimeToCut
+    propertyAliasHash: -1052651999
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_Type
+    propertyAliasHash: -101453971
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: s_CuttingCounter
+    _propertyAlias: s_CuttingCounter_Name
+    propertyAliasHash: 503343918
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_CuttingCounter
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 7a92172ecab86f34d944f47176e42bd3, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 5ef70bede7f43ec468184e95d4146da1, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: feeb33a8a4a0c6942843890a2ec65f56, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3f5c793c8719cba47ade613a8ded7818, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 057d8bf7ec6de544c905012df855e9b2, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: bd01912f509614044baa5041a9288e90, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4cd7642006c6ccd4fbc984ee206d81c0, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 33a730d4b65d472489249ca3031f5980, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 31d3b4dce6d4b5d45a911b452063d06e, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter8, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: bd93231677ceb36408086db19b46175f, type: 3}
+    typeName: ThinkEngine.S_CuttingCounter9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &6013770029883936082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

@@ -39,7 +39,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_Name(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_SelectedInteractableType(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,16 +59,16 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				if(BaseSensorData0 == null) return;
-				string Name1 = BaseSensorData0.Name;
-				if(Name1 == null) return;
+				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
+				if(PlayerSensorData0 == null) return;
+				string SelectedInteractableType1 = PlayerSensorData0.SelectedInteractableType;
+				if(SelectedInteractableType1 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Name1);
+				values.Add(SelectedInteractableType1);
 			}
 		}
 

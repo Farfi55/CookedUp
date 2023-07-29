@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Models;
 using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
 
@@ -40,7 +39,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_FirstKitchenObject_ContainerID(player,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_ContainerID(player,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -62,15 +61,13 @@ namespace ThinkEngine
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
 				if(KOContainerSensorData0 == null) return;
-				KitchenObject FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-				if(FirstKitchenObject1 == null) return;
-				int ContainerID2 = FirstKitchenObject1.ContainerID;
+				int ContainerID1 = KOContainerSensorData0.ContainerID;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(ContainerID2);
+				values.Add(ContainerID1);
 			}
 		}
 
