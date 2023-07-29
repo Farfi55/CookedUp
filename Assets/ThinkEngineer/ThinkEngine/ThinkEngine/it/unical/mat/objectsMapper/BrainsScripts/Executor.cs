@@ -296,6 +296,7 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
                 if (actualFileName.StartsWith(prefix) && (actualFileName.EndsWith(GetCurrentFileExtension()) || actualFileName.EndsWith(".py")))
                 {
                     encoding.AddFilesPath(fileName);
+                    return;
                 }
             }
         }

@@ -100,11 +100,9 @@ namespace ThinkEngine
         {
             if(!_sensorsInstances.ContainsKey(configurationName))
                 return;
-
-            foreach (var sensor in listOfGeneratedSensors) 
-            {
-                _sensorsInstances[configurationName].Remove(sensor);
-            }
+            
+            _sensorsInstances[configurationName].RemoveAll(sensor => listOfGeneratedSensors.Contains(sensor));
+            
 
             if (_sensorsInstances[configurationName].Count <= 0) 
             {
