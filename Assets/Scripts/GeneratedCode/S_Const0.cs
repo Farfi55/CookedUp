@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
+using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine

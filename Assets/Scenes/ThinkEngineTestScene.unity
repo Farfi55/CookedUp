@@ -514,8 +514,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
+      propertyPath: AIFilesPrefix.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
       propertyPath: AIFilesPrefix.Array.data[0]
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: AIFilesPrefix.Array.data[1]
+      value: Common
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
