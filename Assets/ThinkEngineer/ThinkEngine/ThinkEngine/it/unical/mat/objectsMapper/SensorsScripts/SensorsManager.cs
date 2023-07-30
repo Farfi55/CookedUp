@@ -376,13 +376,19 @@ namespace ThinkEngine
         {
             ConcurrentBag<string> mapping = new ConcurrentBag<string>(); ;
             List<Sensor> sensors = RetrieveBrainsSensors(brain);
-            Parallel.ForEach(sensors, sensor =>
-            {
-                if (sensor != null)
-                {
-                    mapping.Add(brain.ActualSensorEncoding(sensor.Map()));
+
+            Parallel.ForEach(sensors, sensor => {
+                if (sensor != null) {
+                    try {
+                        string sensorEncoding = sensor.Map();
+                        mapping.Add(brain.ActualSensorEncoding(sensorEncoding));
+                    }
+                    catch (Exception e) {
+                        Debug.LogError($"Error while mapping sensor {sensor} of brain {brain.brainName}\n{e}");
+                    }
                 }
             });
+        
             brain.sensorsMapping = string.Join("", mapping);
 
         }
