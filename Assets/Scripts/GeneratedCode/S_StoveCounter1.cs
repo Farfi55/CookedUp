@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
+using ThinkEngine.Sensors.Counters;
 using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<bool> values = new List<bool>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_StoveCounter_Type(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_StoveCounter_HasAny(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,16 +59,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				if(BaseSensorData0 == null) return;
-				string Type1 = BaseSensorData0.Type;
-				if(Type1 == null) return;
+				StoveCounterSensorData StoveCounterSensorData0 = gameObject.GetComponent<StoveCounterSensorData>();
+				if(StoveCounterSensorData0 == null) return;
+				bool HasAny1 = StoveCounterSensorData0.HasAny;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Type1);
+				values.Add(HasAny1);
 			}
 		}
 

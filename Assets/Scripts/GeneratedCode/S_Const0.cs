@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
@@ -41,8 +40,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Const_KitchenObjectsNames(constantSensors,objectIndex(1),{0},{1})." + Environment.NewLine;			
-            ConstantsSensorData ConstantsSensorData0 = gameObject.GetComponent<ConstantsSensorData>();
+			mappingTemplate = "s_Const_KitchenObjectsNames(constantSensors,objectIndex(2),{0},{1})." + Environment.NewLine;			ConstantsSensorData ConstantsSensorData0 = gameObject.GetComponent<ConstantsSensorData>();
 			if(ConstantsSensorData0 == null) return;
 			List<string> KitchenObjectsNames1 = ConstantsSensorData0.KitchenObjectsNames;
 			if(KitchenObjectsNames1 == null) return;

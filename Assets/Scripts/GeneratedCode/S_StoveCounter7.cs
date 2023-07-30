@@ -40,7 +40,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_StoveCounter_CurrentCookingRecipe_Name(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_StoveCounter_CurrentCookingRecipe_OutputKOName(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -64,14 +64,14 @@ namespace ThinkEngine
 				if(StoveCounterSensorData0 == null) return;
 				CookingRecipe CurrentCookingRecipe1 = StoveCounterSensorData0.CurrentCookingRecipe;
 				if(CurrentCookingRecipe1 == null) return;
-				string Name2 = CurrentCookingRecipe1.Name;
-				if(Name2 == null) return;
+				string OutputKOName2 = CurrentCookingRecipe1.OutputKOName;
+				if(OutputKOName2 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Name2);
+				values.Add(OutputKOName2);
 			}
 		}
 

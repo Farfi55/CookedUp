@@ -483,6 +483,11 @@ PrefabInstance:
       propertyPath: _toMapProperties.Array.data[17].myStrings.Array.data[1]
       value: PlatesCount
       objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7627238358203562126}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -501,7 +506,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: 3
+      insertIndex: 2
       addedObject: {fileID: 7627238358203562126}
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -555,14 +560,6 @@ MonoBehaviour:
     - ID
     Count: 2
   - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
-    Count: 2
-  - myStrings:
     - PlatesCounterSensorData
     - PlatesLimit
     Count: 2
@@ -574,14 +571,6 @@ MonoBehaviour:
   - myStrings:
     - BaseSensorData
     - ID
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
     Count: 2
   - myStrings:
     - PlatesCounterSensorData
@@ -601,30 +590,6 @@ MonoBehaviour:
     configurationName: s_PlatesCounter
     _propertyAlias: s_PlatesCounter_ID
     propertyAliasHash: 1731767521
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Type
-      Count: 2
-    windowWidth: 200
-    configurationName: s_PlatesCounter
-    _propertyAlias: s_PlatesCounter_Type
-    propertyAliasHash: -2114553404
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Name
-      Count: 2
-    windowWidth: 200
-    configurationName: s_PlatesCounter
-    _propertyAlias: s_PlatesCounter_Name
-    propertyAliasHash: 1051114711
     operation: 0
     specificValue: 
     counter: 0
@@ -664,12 +629,6 @@ MonoBehaviour:
       PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 38e265a631c5e3740b6c05689f05f425, type: 3}
     typeName: ThinkEngine.S_PlatesCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 32f1d9311fc60ad4aa93396119de7161, type: 3}
-    typeName: ThinkEngine.S_PlatesCounter3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 2f355752f56415d4c8bc0f89103dfe53, type: 3}
-    typeName: ThinkEngine.S_PlatesCounter4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &1763550275166000104 stripped
 GameObject:

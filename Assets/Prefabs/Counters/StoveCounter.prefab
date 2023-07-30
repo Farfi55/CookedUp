@@ -180,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -827,6 +827,11 @@ PrefabInstance:
       propertyPath: _toMapProperties.Array.data[24].myStrings.Array.data[2]
       value: IsBurningRecipe
       objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7204163521988350823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -849,7 +854,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 7204163521988350823}
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -966,14 +971,6 @@ MonoBehaviour:
     - ID
     Count: 2
   - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
-    Count: 2
-  - myStrings:
     - StoveCounterSensorData
     Count: 1
   - myStrings:
@@ -1027,14 +1024,6 @@ MonoBehaviour:
     - ID
     Count: 2
   - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
-    Count: 2
-  - myStrings:
     - StoveCounterSensorData
     - HasAny
     Count: 2
@@ -1085,30 +1074,6 @@ MonoBehaviour:
     configurationName: s_StoveCounter
     _propertyAlias: s_StoveCounter_ID
     propertyAliasHash: -655425131
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Type
-      Count: 2
-    windowWidth: 200
-    configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_Type
-    propertyAliasHash: -1350232412
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Name
-      Count: 2
-    windowWidth: 200
-    configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_Name
-    propertyAliasHash: -228097017
     operation: 0
     specificValue: 
     counter: 0
@@ -1258,12 +1223,6 @@ MonoBehaviour:
       PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 02f493a9a60f3bd4f8310abe05334ceb, type: 3}
     typeName: ThinkEngine.S_StoveCounter9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 69fadd2829a76a54cbd73183c6bf16aa, type: 3}
-    typeName: ThinkEngine.S_StoveCounter10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: ad6c6b6d96f6e6f46b6490a644b69859, type: 3}
-    typeName: ThinkEngine.S_StoveCounter11, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!4 &6034013152658884737 stripped
 Transform:

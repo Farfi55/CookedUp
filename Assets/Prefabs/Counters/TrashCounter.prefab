@@ -662,6 +662,11 @@ PrefabInstance:
       propertyPath: _savedProperties.Array.data[19].myStrings.Array.data[1]
       value: Pos
       objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: -5320740118341121294}
     m_RemovedComponents:
     - {fileID: 3036923615982257712, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
     m_RemovedGameObjects: []
@@ -677,7 +682,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: -5320740118341121294}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1 &4268982779582616665 stripped

@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566a8fa7979943d5a357cd35b3f24343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2505507797107206706}
+  target: {fileID: 3791372828026636509}
   ID: 0
   Type: 
   Name: 
@@ -362,6 +362,9 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - BaseSensorData
+    Count: 1
+  - myStrings:
+    - KOContainerSensorData
     Count: 1
   _toMapProperties:
   - myStrings:

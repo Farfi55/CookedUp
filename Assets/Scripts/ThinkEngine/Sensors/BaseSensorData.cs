@@ -5,7 +5,7 @@ namespace ThinkEngine.Sensors {
     public class BaseSensorData : MonoBehaviour {
         
         private IDManager idManager;
-        [SerializeField] private GameObject target;
+        [SerializeField] private MonoBehaviour target;
         
         [Header("Sensor Data")]
         public int ID;
@@ -14,7 +14,7 @@ namespace ThinkEngine.Sensors {
 
         private void Start() {
             idManager = IDManager.Instance;
-            ID = idManager.GetID(target);
+            ID = idManager.GetID(target.gameObject);
             Type = target.GetType().Name;
             Name = target.name;
         }

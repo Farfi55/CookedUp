@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
+using ThinkEngine.Models;
 using ThinkEngine.Sensors.Counters;
 using static ThinkEngine.Mappers.OperationContainer;
 
@@ -13,7 +14,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<string> values = new List<string>();
 
 		/*
 		//Singleton
@@ -36,10 +37,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_StoveCounter_TimeRemainingToCook(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_StoveCounter_CurrentCookingRecipe_Name(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -61,13 +62,16 @@ namespace ThinkEngine
 				first = false;
 				StoveCounterSensorData StoveCounterSensorData0 = gameObject.GetComponent<StoveCounterSensorData>();
 				if(StoveCounterSensorData0 == null) return;
-				int TimeRemainingToCook1 = StoveCounterSensorData0.TimeRemainingToCook;
+				CookingRecipe CurrentCookingRecipe1 = StoveCounterSensorData0.CurrentCookingRecipe;
+				if(CurrentCookingRecipe1 == null) return;
+				string Name2 = CurrentCookingRecipe1.Name;
+				if(Name2 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(TimeRemainingToCook1);
+				values.Add(Name2);
 			}
 		}
 

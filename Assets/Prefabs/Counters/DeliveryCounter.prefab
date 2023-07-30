@@ -1295,6 +1295,11 @@ PrefabInstance:
       propertyPath: _savedProperties.Array.data[18].myStrings.Array.data[1]
       value: KitchenObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6549937804582856043}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1317,7 +1322,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 6549937804582856043}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1 &4326585056123523088 stripped

@@ -1850,6 +1850,11 @@ PrefabInstance:
       propertyPath: _toMapProperties.Array.data[16].myStrings.Array.data[1]
       value: KOType
       objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 4675046536754652606}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 3036923615982257712, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
@@ -1953,14 +1958,6 @@ MonoBehaviour:
     - ID
     Count: 2
   - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
-    Count: 2
-  - myStrings:
     - ContainerCounterSensorData
     Count: 1
   - myStrings:
@@ -1971,14 +1968,6 @@ MonoBehaviour:
   - myStrings:
     - BaseSensorData
     - ID
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
     Count: 2
   - myStrings:
     - ContainerCounterSensorData
@@ -1994,30 +1983,6 @@ MonoBehaviour:
     configurationName: s_ContainerCounter
     _propertyAlias: s_ContainerCounter_ID
     propertyAliasHash: 1820604669
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Type
-      Count: 2
-    windowWidth: 200
-    configurationName: s_ContainerCounter
-    _propertyAlias: s_ContainerCounter_Type
-    propertyAliasHash: 555209950
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Name
-      Count: 2
-    windowWidth: 200
-    configurationName: s_ContainerCounter
-    _propertyAlias: s_ContainerCounter_Name
-    propertyAliasHash: -163898193
     operation: 0
     specificValue: 
     counter: 0
@@ -2042,12 +2007,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 421b4058afaabd647b0b406456c3aa3c, type: 3}
     typeName: ThinkEngine.S_ContainerCounter1, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 234cca8f98cbeb140b35fdddf917c812, type: 3}
-    typeName: ThinkEngine.S_ContainerCounter2, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 283a1407cd18db949a6de9594f8bfa28, type: 3}
-    typeName: ThinkEngine.S_ContainerCounter3, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &9134415419468882019 stripped
 Transform:

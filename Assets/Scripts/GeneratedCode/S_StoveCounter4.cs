@@ -39,7 +39,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_StoveCounter_CanCook(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_StoveCounter_IsBurning(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -61,13 +61,13 @@ namespace ThinkEngine
 				first = false;
 				StoveCounterSensorData StoveCounterSensorData0 = gameObject.GetComponent<StoveCounterSensorData>();
 				if(StoveCounterSensorData0 == null) return;
-				bool CanCook1 = StoveCounterSensorData0.CanCook;
+				bool IsBurning1 = StoveCounterSensorData0.IsBurning;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(CanCook1);
+				values.Add(IsBurning1);
 			}
 		}
 

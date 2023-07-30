@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
+using ThinkEngine.Sensors.Counters;
 using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<int> values = new List<int>();
 
 		/*
 		//Singleton
@@ -36,10 +36,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_PlatesCounter_Name(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_PlatesCounter_PlatesCount(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,16 +59,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				if(BaseSensorData0 == null) return;
-				string Name1 = BaseSensorData0.Name;
-				if(Name1 == null) return;
+				PlatesCounterSensorData PlatesCounterSensorData0 = gameObject.GetComponent<PlatesCounterSensorData>();
+				if(PlatesCounterSensorData0 == null) return;
+				int PlatesCount1 = PlatesCounterSensorData0.PlatesCount;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Name1);
+				values.Add(PlatesCount1);
 			}
 		}
 

@@ -14,7 +14,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<int> values = new List<int>();
 
 		/*
 		//Singleton
@@ -37,10 +37,10 @@ namespace ThinkEngine
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_StoveCounter_CurrentCookingRecipe_InputKOName(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_StoveCounter_CurrentCookingRecipe_TimeToCook(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -64,14 +64,13 @@ namespace ThinkEngine
 				if(StoveCounterSensorData0 == null) return;
 				CookingRecipe CurrentCookingRecipe1 = StoveCounterSensorData0.CurrentCookingRecipe;
 				if(CurrentCookingRecipe1 == null) return;
-				string InputKOName2 = CurrentCookingRecipe1.InputKOName;
-				if(InputKOName2 == null) return;
+				int TimeToCook2 = CurrentCookingRecipe1.TimeToCook;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(InputKOName2);
+				values.Add(TimeToCook2);
 			}
 		}
 

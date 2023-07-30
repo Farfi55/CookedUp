@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
+using ThinkEngine.Sensors.Counters;
 using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
@@ -39,7 +39,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_ContainerCounter_Type(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_ContainerCounter_KOType(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
 
 		}
 
@@ -59,16 +59,16 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				if(BaseSensorData0 == null) return;
-				string Type1 = BaseSensorData0.Type;
-				if(Type1 == null) return;
+				ContainerCounterSensorData ContainerCounterSensorData0 = gameObject.GetComponent<ContainerCounterSensorData>();
+				if(ContainerCounterSensorData0 == null) return;
+				string KOType1 = ContainerCounterSensorData0.KOType;
+				if(KOType1 == null) return;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Type1);
+				values.Add(KOType1);
 			}
 		}
 
