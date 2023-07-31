@@ -4,9 +4,9 @@ import sys
 import subprocess
 from datetime import datetime
 
-input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
+input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/Player/'
 index_file_A = -1
-index_file_B = -2
+index_file_B = 0
 
 i = 1
 while i < len(sys.argv):

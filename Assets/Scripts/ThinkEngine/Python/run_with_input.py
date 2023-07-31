@@ -3,12 +3,15 @@ import os
 import sys
 from datetime import datetime
 
-input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
+input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/Player/'
 input_index = -1
 
 streaming_assets_path = '../../StreamingAssets/ThinkEngineer/ThinkEngine/'
 
-brain_files_pattern = streaming_assets_path + 'PlayerPlanner1*.asp'
+brain_files_patterns = [
+    streaming_assets_path + 'Player*.asp',
+    streaming_assets_path + 'Common*.asp',
+]
 brain_files = []
 
 solver = streaming_assets_path + 'lib/dlv2.exe --output 1'
@@ -53,7 +56,8 @@ print("executing with input file:", input_file)
 print("created at:", datetime.fromtimestamp(os.path.getctime(input_file)).strftime('%Y-%m-%d %H:%M:%S'))
 
 if(brain_files == []):
-    brain_files = glob.glob(brain_files_pattern)
+    for brain_files_pattern in brain_files_patterns:
+        brain_files += glob.glob(brain_files_pattern)
 
 
 run_command = ' '.join([solver, *brain_files, input_file])

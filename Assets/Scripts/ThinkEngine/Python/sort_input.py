@@ -26,6 +26,7 @@ while i < len(sys.argv):
 
 if len(files) == 0:
     list_of_files = glob.glob(path + "*.txt")
+    list_of_files += glob.glob(path + "**/*.txt")
     files = list_of_files
 
 i = 0

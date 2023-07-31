@@ -18,6 +18,8 @@ while i < len(sys.argv):
 
 # remove all files in path
 list_of_files = glob.glob(input_path + "*.txt")
+list_of_files += glob.glob(input_path + "**/*.txt")
+
 for f in tqdm(list_of_files):
     os.remove(f)
 
