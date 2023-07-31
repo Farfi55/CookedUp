@@ -27,7 +27,7 @@ namespace ThinkEngine.Actions {
                 Player = PlayersManager.Instance.GetPlayer();
             }
             else
-                Player = idManager.GetGameObject(PlayerID).GetComponent<Player>();
+                Player = idManager.GetComponentFromID<Player>(PlayerID);
 
             if (TargetID != 0) {
                 target = idManager.GetGameObject(TargetID);
