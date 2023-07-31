@@ -177,7 +177,6 @@ GameObject:
   - component: {fileID: 7951942665552708947}
   - component: {fileID: 7547468693740168070}
   - component: {fileID: 2754376379838779097}
-  - component: {fileID: 5848850704354807169}
   - component: {fileID: 406383213852124881}
   m_Layer: 6
   m_Name: CounterSensor
@@ -254,18 +253,6 @@ MonoBehaviour:
     ContainerID: 0
   HasSpace: 0
   HasAny: 0
---- !u!114 &5848850704354807169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555674165902371461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &406383213852124881
 MonoBehaviour:
   m_ObjectHideFlags: 0

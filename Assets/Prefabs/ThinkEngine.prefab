@@ -32,7 +32,7 @@ Transform:
   - {fileID: 7995285632865977274}
   - {fileID: 6118038214754642774}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4890247115689387458
 GameObject:
@@ -44,7 +44,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7995285632865977274}
   - component: {fileID: 6509852216361517940}
-  - component: {fileID: 4762202043394152175}
   - component: {fileID: 8452929670334776411}
   m_Layer: 0
   m_Name: ConstantSensors
@@ -104,18 +103,6 @@ MonoBehaviour:
   CookingRecipes: []
   CuttingRecipes: []
   KitchenObjectsNames: []
---- !u!114 &4762202043394152175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890247115689387458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8452929670334776411
 MonoBehaviour:
   m_ObjectHideFlags: 0

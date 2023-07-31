@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1315881604085460173}
   - component: {fileID: 5739049984190683848}
   - component: {fileID: 5782462475890788620}
-  - component: {fileID: 5210427582374644628}
   - component: {fileID: 690487446233426465}
   - component: {fileID: 3796238315501043888}
   - component: {fileID: 7483489731109008985}
@@ -117,18 +116,6 @@ MonoBehaviour:
     ContainerID: 0
   HasSpace: 0
   HasAny: 0
---- !u!114 &5210427582374644628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177460339381318128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9ac3e5ce4fb674d836f69c88336067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &690487446233426465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +250,9 @@ MonoBehaviour:
     - KOContainerSensorData
     - ContainerID
     Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    Count: 1
   _toMapProperties:
   - myStrings:
     - BaseSensorData
@@ -812,15 +802,19 @@ MonoBehaviour:
   borning: 0
   enableBrain: 1
   debug: 1
-  maintainInputFile: 0
+  maintainInputFile: 1
   _chosenSensorConfigurations:
   - s_Player
   - s_Const
-  - s_Counter
   - s_CuttingCounter
+  - s_Counter
+  - s_PlatesCounter
+  - s_ContainerCounter
+  - s_StoveCounter
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix:
-  - player
+  - Player
+  - Common
   prefabBrain: 1
   solverEnum: 1
   _executeReasonerOn: When Sensors are ready
