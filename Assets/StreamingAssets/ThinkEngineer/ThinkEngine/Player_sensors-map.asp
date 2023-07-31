@@ -28,8 +28,10 @@
 
 % ================================== PLAYER ==================================
 
+
 player_ID_Index(ID,Index) :- s_Player_ID(_,objectIndex(Index),ID).
 player_ID(ID) :- player_ID_Index(ID,_).
+curr_Player_ID(ID) :- player_ID(ID).
 
 player(ID, Type, Name) :- 
     s_Player_ID(_,objectIndex(Index),ID),
@@ -58,21 +60,6 @@ player_SelectedInteractable(PlayerID, InteractableID, InteractableType) :-
     s_Player_SelectedInteractableID(_,objectIndex(Index),InteractableID),
     s_Player_SelectedInteractableType(_,objectIndex(Index),InteractableType).
 
-player_HasRecipe(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasRecipe(_,objectIndex(Index), true).
-
-player_HasNoRecipe(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasRecipe(_,objectIndex(Index), false).
-
-
-player_Recipe(PlayerID, RecipeName) :-
-    player_HasRecipe(PlayerID),
-    player_ID_Index(PlayerID,Index),
-    s_Player_RecipeName(_,objectIndex(Index),RecipeName).
-
-
 % Player Plate
 
 player_HasPlate(ID) :-
@@ -87,6 +74,34 @@ player_Plate_ID(PlayerID, PlateID) :-
     player_HasPlate(PlayerID),
     player_ID_Index(PlayerID,Index),
     s_Player_PlateForRecipeID(_,objectIndex(Index),PlateID).
+
+player_IsPlateBeingCarried(PlayerID) :-
+    player_HasPlate(PlayerID),
+    player_KitchenObject(PlayerID, PlateID, _),
+    player_Plate_ID(PlayerID, PlateID).
+
+% ID of the container that the plate is in
+player_Plate_Container_ID(PlayerID, PlateID, ContainerID) :-
+    player_HasPlate(PlayerID),
+    player_Plate_ID(PlayerID, PlateID),
+    plate_Container_ID(PlateID, ContainerID).
+
+% Player Recipe
+
+player_HasRecipe(ID) :-
+    player_ID_Index(ID,Index),
+    s_Player_HasRecipe(_,objectIndex(Index), true).
+
+player_HasNoRecipe(ID) :-
+    player_ID_Index(ID,Index),
+    s_Player_HasRecipe(_,objectIndex(Index), false).
+
+
+player_Recipe(PlayerID, RecipeName) :-
+    player_HasRecipe(PlayerID),
+    player_ID_Index(PlayerID,Index),
+    s_Player_RecipeName(_,objectIndex(Index),RecipeName).
+
 
 
 % Player Recipe Ingredients
@@ -114,6 +129,11 @@ player_HasInvalidIngredients(ID) :-
 player_HasNoInvalidIngredients(ID) :-
     player_ID_Index(ID,Index),
     s_Player_HasInvalidIngredients(_,objectIndex(Index), false).
+
+player_HasCompletedRecipe(ID) :-
+    player_HasRecipe(ID),
+    player_HasNoMissingIngredients(ID),
+    player_HasNoInvalidIngredients(ID).
 
 
 % Player Container
@@ -250,8 +270,6 @@ containerCounter_KOType(ID, KitchenObjectType) :-
 %s_PlatesCounter_ID(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_PlatesLimit(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_PlatesCount(counterSensor,objectIndex(Index),Value).
-
-% TODO: Plates Counter
 
 platesCounter_ID_Index(ID,Index) :- 
     s_PlatesCounter_ID(_,objectIndex(Index),ID).
@@ -513,6 +531,5 @@ plate_CompletedRecipe(PlateID, RecipeName) :-
     c_COMPLETE_RECIPE_NAME(RecipeName),
     not plate_AnyMissingIngredients(PlateID, RecipeName),
     not plate_InvalidIngredients(PlateID, RecipeName).
-
 
 

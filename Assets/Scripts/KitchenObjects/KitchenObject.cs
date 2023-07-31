@@ -76,6 +76,7 @@ namespace KitchenObjects {
         public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO,
             KitchenObjectsContainer container = null) {
             var kitchenObject = Instantiate(kitchenObjectSO.Prefab);
+            kitchenObject.name = kitchenObjectSO.name;
             kitchenObject.SetContainer(container);
             return kitchenObject;
         }

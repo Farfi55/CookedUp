@@ -479,6 +479,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: prefabBrain
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049688654581762182, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
       propertyPath: _AIFileTemplatePath
       value: .\Assets\ThinkEngineer\ThinkEngine\Templates\playerPlannerBrainTemplate.asp
       objectReference: {fileID: 0}
@@ -607,7 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStateProgressTracker: {fileID: 1836588172}
   onPlayersReadyTime: 2
-  timeToStart: 3
+  timeToStart: 0.1
   timeToPlay: 120
   startingState: 1
 --- !u!1 &376506787

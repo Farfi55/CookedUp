@@ -38,6 +38,13 @@ actionArgument(ActionOrder, "TargetID", TargetID) :- a_PickUp(ActionOrder, _, Ta
 % ================================== Drop ==================================
 
 % a_Drop(ActionOrder, PlayerID, TargetInteractableID).
+% a_Place(ActionOrder, PlayerID, TargetInteractableID).
+
+a_Drop(ActionOrder, PlayerID, TargetInteractableID) :- 
+    a_Place(ActionOrder, PlayerID, TargetInteractableID).
+
+a_Place(ActionOrder, PlayerID, TargetInteractableID) :- 
+    a_Drop(ActionOrder, PlayerID, TargetInteractableID).
 
 applyAction(ActionOrder, "DropAction") :- 
     a_Drop(ActionOrder, _, _).
