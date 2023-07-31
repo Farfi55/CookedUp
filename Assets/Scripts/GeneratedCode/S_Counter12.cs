@@ -15,43 +15,26 @@ namespace ThinkEngine
 		private BasicTypeMapper mapper;
 		private List<bool> values = new List<bool>();
 
-		/*
-		//Singleton
-        protected static Sensor instance = null;
-
-        internal static Sensor Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-					instance = new S_Counter12();
-                }
-                return instance;
-            }
-        }*/
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
             // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
+			int index = gameObject.GetInstanceID();
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Counter_HasSpace(counterSensor,objectIndex(1),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Counter_HasSpace(counterSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
 		public override void Destroy()
 		{
-            // Debug.Log("Destroy method called!");
-			//instance = null;
 		}
 
 		public override void Update()
 		{
-            // Debug.Log("Update method called!");
 			if(!ready)
 			{
 				return;
@@ -73,9 +56,15 @@ namespace ThinkEngine
 
 		public override string Map()
 		{
-            // Debug.Log("Map method called!");
 			object operationResult = operation(values, specificValue, counter);
-			return string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult));
+			if(operationResult != null)
+			{
+				return string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult));
+			}
+			else
+			{
+				return "";
+			}
 		}
     }
 }

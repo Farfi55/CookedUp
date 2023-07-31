@@ -17,21 +17,6 @@ namespace ThinkEngine
 		private List<bool> isIndexActive = new List<bool>();
 		private List<int> indicies = new List<int>();
 
-		/*
-		//Singleton
-        protected static Sensor instance = null;
-
-        internal static Sensor Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-					instance = new S_Const0();
-                }
-                return instance;
-            }
-        }*/
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
@@ -39,9 +24,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+            int index = gameObject.GetInstanceID();
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Const_KitchenObjectsNames(constantSensors,objectIndex(2),{0},{1})." + Environment.NewLine;			ConstantsSensorData ConstantsSensorData0 = gameObject.GetComponent<ConstantsSensorData>();
+			mappingTemplate = "s_Const_KitchenObjectsNames(constantSensors,objectIndex("+index+"),{0},{1})." + Environment.NewLine;			ConstantsSensorData ConstantsSensorData0 = gameObject.GetComponent<ConstantsSensorData>();
 			if(ConstantsSensorData0 == null) return;
 			List<string> KitchenObjectsNames1 = ConstantsSensorData0.KitchenObjectsNames;
 			if(KitchenObjectsNames1 == null) return;
@@ -57,13 +43,10 @@ namespace ThinkEngine
 
 		public override void Destroy()
 		{
-            // Debug.Log("Destroy method called!");
-			//instance = null;
 		}
 
 		public override void Update()
 		{
-            // Debug.Log("Update method called!");
 			if(!ready)
 			{
 				return;
@@ -117,7 +100,6 @@ namespace ThinkEngine
 
 		public override string Map()
 		{
-            // Debug.Log("Map method called!");
 			string mapping = string.Empty;
 			for(int i = 0; i < values.Count; i++)
 			{

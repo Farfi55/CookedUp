@@ -1034,14 +1034,8 @@ MonoBehaviour:
   _savedProperties:
   - myStrings:
     - BaseSensorData
-    Count: 1
-  - myStrings:
-    - BaseSensorData
     - ID
     Count: 2
-  - myStrings:
-    - CuttingCounterSensorData
-    Count: 1
   - myStrings:
     - CuttingCounterSensorData
     - HasAny
@@ -1217,29 +1211,21 @@ MonoBehaviour:
   isFixedSize: 0
   _serializableSensorsTypes:
   - scriptAsset: {fileID: 11500000, guid: 7a92172ecab86f34d944f47176e42bd3, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: 5ef70bede7f43ec468184e95d4146da1, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: feeb33a8a4a0c6942843890a2ec65f56, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: 3f5c793c8719cba47ade613a8ded7818, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: 057d8bf7ec6de544c905012df855e9b2, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: bd01912f509614044baa5041a9288e90, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: 4cd7642006c6ccd4fbc984ee206d81c0, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
   - scriptAsset: {fileID: 11500000, guid: 33a730d4b65d472489249ca3031f5980, type: 3}
-    typeName: ThinkEngine.S_CuttingCounter7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: 
 --- !u!4 &6013770029883936082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
