@@ -3,8 +3,7 @@ using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
 using UnityEngine;
 
-namespace KitchenObjects
-{
+namespace KitchenObjects {
     public class KitchenObject : MonoBehaviour {
         [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
@@ -15,10 +14,11 @@ namespace KitchenObjects
         public KitchenObjectsContainer Container => container;
 
         public bool IsInContainer => container != null;
-        
-                
+
+
         public event EventHandler OnDestroyed;
-        
+        public event EventHandler<ValueChangedEvent<KitchenObjectsContainer>> OnContainerChanged;
+
 
         public bool SetContainer(KitchenObjectsContainer newContainer) {
             var oldContainer = container;
@@ -48,13 +48,12 @@ namespace KitchenObjects
             }
 
             SetVisible(IsInContainer);
+            OnContainerChanged?.Invoke(this, new(oldContainer, newContainer));
             return true;
         }
 
 
-
         public void RemoveFromContainer() => SetContainer(null);
-
 
 
         /// <summary>
@@ -74,7 +73,8 @@ namespace KitchenObjects
             gameObject.SetActive(visible);
         }
 
-        public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO, KitchenObjectsContainer container = null) {
+        public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO,
+            KitchenObjectsContainer container = null) {
             var kitchenObject = Instantiate(kitchenObjectSO.Prefab);
             kitchenObject.SetContainer(container);
             return kitchenObject;
@@ -82,7 +82,7 @@ namespace KitchenObjects
 
         public virtual bool InteractWith(KitchenObject currentKitchenObject) { return false; }
 
-    
+
         public bool TryGetPlate(out PlateKitchenObject plateKitchenObject) {
             if (this is PlateKitchenObject plate) {
                 plateKitchenObject = plate;

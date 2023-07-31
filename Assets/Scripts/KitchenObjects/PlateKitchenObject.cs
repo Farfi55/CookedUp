@@ -64,13 +64,9 @@ namespace KitchenObjects
         }
 
         private void UpdateValidIngredients() {
-            List<KitchenObjectSO> ingredientsSO = new();
-            foreach (var ingredient in ingredientsContainer.KitchenObjects) {
-                ingredientsSO.Add(ingredient.KitchenObjectSO);
-            }
-
+            List<KitchenObjectSO> ingredientsSO = ingredientsContainer.AsKitchenObjectSOs();
+            
             validCompleteRecipes = recipes.RecipeSOList.Where(finalPlate => finalPlate.IsValidFor(ingredientsSO)).ToList();
-
 
             validIngredients.Clear();
             foreach (var finalPlate in validCompleteRecipes) {

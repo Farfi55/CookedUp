@@ -47,22 +47,6 @@
 %s_CuttingCounter_CurrentCuttingRecipe_InputKOName(cuttingCounterSensor,objectIndex(Index),Value).
 %s_CuttingCounter_CurrentCuttingRecipe_OutputKOName(cuttingCounterSensor,objectIndex(Index),Value).
 %s_CuttingCounter_CurrentCuttingRecipe_TimeToCut(cuttingCounterSensor,objectIndex(Index),Value).
-%s_Counter_ID(counterSensor,objectIndex(Index),Value).
-%s_Counter_Type(counterSensor,objectIndex(Index),Value).
-%s_Counter_Name(counterSensor,objectIndex(Index),Value).
-%s_Counter_X(counterSensor,objectIndex(Index),Value).
-%s_Counter_Y(counterSensor,objectIndex(Index),Value).
-%s_Counter_ContainerID(counterSensor,objectIndex(Index),Value).
-%s_Counter_SizeLimit(counterSensor,objectIndex(Index),Value).
-%s_Counter_Count(counterSensor,objectIndex(Index),Value).
-%s_Counter_KitchenObject_Name(counterSensor,objectIndex(Index),Index1,Value).
-%s_Counter_KitchenObject_ID(counterSensor,objectIndex(Index),Index1,Value).
-%s_Counter_KitchenObject_ContainerID(counterSensor,objectIndex(Index),Index1,Value).
-%s_Counter_FirstKitchenObject_Name(counterSensor,objectIndex(Index),Value).
-%s_Counter_FirstKitchenObject_ID(counterSensor,objectIndex(Index),Value).
-%s_Counter_FirstKitchenObject_ContainerID(counterSensor,objectIndex(Index),Value).
-%s_Counter_HasAny(counterSensor,objectIndex(Index),Value).
-%s_Counter_HasSpace(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_ID(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_PlatesLimit(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_PlatesCount(counterSensor,objectIndex(Index),Value).
@@ -78,7 +62,22 @@
 %s_StoveCounter_CurrentCookingRecipe_OutputKOName(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_CurrentCookingRecipe_TimeToCook(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe(counterSensor,objectIndex(Index),Value).
-%For ASP programs:
+%s_Plate_ID(plateSensor,objectIndex(Index),Value).
+%s_Plate_Type(plateSensor,objectIndex(Index),Value).
+%s_Plate_Name(plateSensor,objectIndex(Index),Value).
+%s_Plate_ContainerID(plateSensor,objectIndex(Index),Value).
+%s_Plate_Count(plateSensor,objectIndex(Index),Value).
+%s_Plate_KitchenObject_Name(plateSensor,objectIndex(Index),Index1,Value).
+%s_Plate_KitchenObject_ID(plateSensor,objectIndex(Index),Index1,Value).
+%s_Plate_KitchenObject_ContainerID(plateSensor,objectIndex(Index),Index1,Value).
+%s_Plate_FirstKitchenObject_Name(plateSensor,objectIndex(Index),Value).
+%s_Plate_FirstKitchenObject_ID(plateSensor,objectIndex(Index),Value).
+%s_Plate_FirstKitchenObject_ContainerID(plateSensor,objectIndex(Index),Value).
+%s_Plate_HasSpace(plateSensor,objectIndex(Index),Value).
+%s_Plate_HasAny(plateSensor,objectIndex(Index),Value).
+%s_Plate_SizeLimit(plateSensor,objectIndex(Index),Value).
+%s_Plate_OwnerContainerID(plateSensor,objectIndex(Index),Value).
+%s_Plate_IsInContainer(plateSensor,objectIndex(Index),Value).
 % Predicates for Action invokation.
 % applyAction(OrderOfExecution,ActionClassName).
 % actionArgument(ActionOrder,ArgumentName, ArgumentValue).

@@ -811,6 +811,7 @@ MonoBehaviour:
   - s_PlatesCounter
   - s_ContainerCounter
   - s_StoveCounter
+  - s_Plate
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix:
   - Player
