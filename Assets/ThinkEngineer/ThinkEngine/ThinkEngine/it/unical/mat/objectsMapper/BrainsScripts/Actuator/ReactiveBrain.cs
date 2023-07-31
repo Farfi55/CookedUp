@@ -8,7 +8,7 @@ using BrainsScripts.Specialitations.ASP;
 
 namespace ThinkEngine
 {
-    [ExecuteAlways, RequireComponent(typeof(IndexTracker))]
+    [ExecuteAlways]
     public class ReactiveBrain : Brain
     {
         #region Serialized Fieds
@@ -59,9 +59,9 @@ namespace ThinkEngine
                     continue;
                 }
                 seenActuatorConfNames.Add(actuatorConf.ConfigurationName);
-                foreach (MyListString property in actuatorConf.ToMapProperties)
+                foreach (PropertyFeatures features in actuatorConf.PropertyFeaturesList)
                 {
-                    string actuatorMappingAsASP = MapperManager.GetASPTemplate(actuatorConf.ConfigurationName, actuatorConf.gameObject, property);
+                    string actuatorMappingAsASP = string.Format(MapperManager.GetASPTemplate(features.PropertyAlias, actuatorConf.gameObject, features.property),actuatorConf.ConfigurationName);
                     toReturn += ActualActuatorEncoding(actuatorMappingAsASP);
                 }
             }

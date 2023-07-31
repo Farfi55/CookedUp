@@ -191,17 +191,18 @@ namespace ThinkEngine
             string addedText = string.Empty;
 
             string mapping = string.Empty;
-            int index = currentSensorConfiguration.gameObject.GetComponent<IndexTracker>().CurrentIndex;
+            int index = currentSensorConfiguration.gameObject.GetInstanceID();
 
             if (mapperType.IsSubclassOf(typeof(BasicTypeMapper)))
             {
                 addedText = string.Concat(addedText,
                     string.Format("" +
+                    "{0}int index = gameObject.GetInstanceID();{1}" +
                     "{0}mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof({3}));{1}" +
                     "{0}operation = mapper.OperationList()[{2}];{1}" +
                     "{0}counter = {4};{1}", GetTabs(1), Environment.NewLine, currentPropertyFeatures.operation, TypeNameOrAlias(finalType), currentPropertyFeatures.counter));
 
-                mapping = currentPropertyFeatures.PropertyAlias + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(" + index + ")," + "{0}" + ").";
+                mapping = currentPropertyFeatures.PropertyAlias + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(\"+index+\")," + "{0}" + ").";
                 addedText = string.Concat(addedText,
                     string.Format("" +
                     "{0}mappingTemplate = \"{1}\" + Environment.NewLine;{2}", GetTabs(1), mapping, Environment.NewLine));
@@ -217,7 +218,7 @@ namespace ThinkEngine
 
                 if (mapperType.Equals(typeof(ASPArrayMapper)))
                 {
-                    mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(" + index + ")," + "{0},{1}" + ").";
+                    mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(\"+index+\")," + "{0},{1}" + ").";
                     addedText = string.Concat(addedText,
                         string.Format("" +
                         "{0}mappingTemplate = \"{1}\" + Environment.NewLine;{2}", GetTabs(1), mapping, Environment.NewLine));
@@ -235,7 +236,7 @@ namespace ThinkEngine
                 }
                 else if (mapperType.Equals(typeof(ASPArray2Mapper)))
                 {
-                    mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(" + index + ")," + "{0},{1},{2}" + ").";
+                    mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(\"+index+\")," + "{0},{1},{2}" + ").";
                     addedText = string.Concat(addedText,
                         string.Format("" +
                         "{0}mappingTemplate = \"{1}\" + Environment.NewLine;{2}", GetTabs(1), mapping, Environment.NewLine));
@@ -256,7 +257,7 @@ namespace ThinkEngine
                 }
                 else if (mapperType.Equals(typeof(ASPListMapper)))
                 {
-                    mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(" + index + ")," + "{0},{1}" + ").";
+                    mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(\"+index+\")," + "{0},{1}" + ").";
                     addedText = string.Concat(addedText,
                         string.Format("" +
                         "{0}mappingTemplate = \"{1}\" + Environment.NewLine;", GetTabs(1), mapping));
@@ -315,8 +316,15 @@ namespace ThinkEngine
             {
                 addedText = string.Concat(addedText, "" +
                     string.Format("" +
-                    "{0}object operationResult = operation(values, specificValue, counter);{1}" +
-                    "{0}return string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult));", GetTabs(1), Environment.NewLine));
+                    "{0}object operationResult = operation(values, specificValue, counter);{2}" +
+                    "{0}if(operationResult != null){2}"+
+                    "{0}{{{2}" +
+                        "{1}return string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult));{2}"+
+                    "{0}}}{2}"+
+                    "{0}else{2}"+
+                    "{0}{{{2}" +
+                        "{1}return \"\";{2}" +
+                    "{0}}}", GetTabs(1),GetTabs(2), Environment.NewLine));
             }
             else if (mapperType.IsSubclassOf(typeof(CollectionMapper)))
             {

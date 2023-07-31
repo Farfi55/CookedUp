@@ -382,7 +382,7 @@ namespace ThinkEngine
             if (!isSensor)
             {
                 partialMapping = "setOnActuator(" + partialMapping;
-                partialMapping += ") :-objectIndex(" + cleanPropertyAlias + ", Index), .";
+                partialMapping += ") :-objectIndex({0}, Index), .";
             }
             else
             {

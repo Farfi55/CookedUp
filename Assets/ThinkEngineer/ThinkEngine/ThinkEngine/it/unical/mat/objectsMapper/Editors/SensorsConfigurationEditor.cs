@@ -10,9 +10,6 @@ namespace ThinkEngine.Editors
     class SensorsConfigurationEditor : AbstractConfigurationEditor
     {
         SensorConfiguration sensorConfiguration;
-        private bool configurePropertyMode;
-        private MyListString actualProperty;
-        string tempPropertyName;
         void Reset()
         {
             sensorConfiguration = target as SensorConfiguration;
@@ -37,38 +34,12 @@ namespace ThinkEngine.Editors
             }
         }
 
-        private void ConfigureProperty()
+        protected override void VirtualFields(PropertyFeatures features)
         {
-            EditorGUILayout.HelpBox("Configure advanced feature of the property",MessageType.Info);
-            PropertyFeatures features = configuration.PropertyFeaturesList.Find(x => x.property.Equals(actualProperty));
-            EditorGUILayout.BeginHorizontal();
-            tempPropertyName = EditorGUILayout.TextField("Property Alias:", tempPropertyName);
-            if (GUILayout.Button("Save"))
-            {
-                try
-                {
-                    features.PropertyAlias = tempPropertyName;
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message == "InvalidName")
-                    {
-                        Debug.LogError("The name " + tempPropertyName + " can not be used.");
-                        tempPropertyName = features.PropertyAlias;
-                        GUI.FocusControl(null);
-                    }
-                }
-            }
-            EditorGUILayout.EndHorizontal();
+            
             features.windowWidth = EditorGUILayout.IntSlider("Aggregation Window:", features.windowWidth, 1, 200);
             ShowOperationChoice(features);
             serializedObject.ApplyModifiedProperties();
-            if (GUILayout.Button("Done", GUILayout.Width(200)))
-            {
-                configurePropertyMode = false;
-                actualProperty = null;
-                GUI.FocusControl(null);
-            }
         }
 
         private void ShowOperationChoice(PropertyFeatures features)
@@ -124,23 +95,6 @@ namespace ThinkEngine.Editors
             }
         }
 
-        protected override void SpecificFields(MyListString property)
-        {
-            PropertyFeatures propertyFeatures = configuration.PropertyFeaturesList.Find(x => x.property.Equals(property));
-            if (propertyFeatures == null)
-            {
-                return;
-            }
-            string alias = propertyFeatures.PropertyAlias;
-            EditorGUILayout.LabelField("Alias: "+ alias);
-            if (GUILayout.Button("Configure"))
-            {
-                configurePropertyMode = true;
-                actualProperty = property;
-                tempPropertyName = alias;
-            }
-
-        }
 
         /*
 protected override void SpecificFields(MyListString property)

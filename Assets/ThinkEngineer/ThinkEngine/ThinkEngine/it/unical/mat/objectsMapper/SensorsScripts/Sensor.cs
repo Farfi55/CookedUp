@@ -48,11 +48,7 @@ namespace ThinkEngine
             property = new MyListString(information.propertyHierarchy.myStrings);
             PropertyFeatures features = information.configuration.PropertyFeaturesList.Find(x => x.property.Equals(property));
             PropertyInfo.AddRange(information.hierarchyInfo);
-            if (information.instantiateOn.GetComponent<IndexTracker>() == null)
-            {
-                information.instantiateOn.AddComponent<IndexTracker>();
-            }
-            int index = information.instantiateOn.GetComponent<IndexTracker>().CurrentIndex;
+            int index = information.instantiateOn.GetInstanceID();
             //_mapping = ASPMapperHelper.AspFormat(configuration.ConfigurationName) + "(" + ASPMapperHelper.AspFormat(gameObject.name) + ",objectIndex(" + index + ")," + mapping + ")." + Environment.NewLine;
             _mapping = ASPMapperHelper.AspFormat(features.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(gameObject.name) + ",objectIndex(" + index + ")," + mapping + ")." + Environment.NewLine;
             invariant = information.invariant;

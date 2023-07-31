@@ -18,13 +18,68 @@ namespace ThinkEngine.Editors
         static GUIStyle redText;
         static GUIStyle toUse;
 
+        protected bool configurePropertyMode;
+        protected MyListString actualProperty;
+        protected string tempPropertyName;
         protected void Reset()
         {
             configuration = target as AbstractConfiguration;
             go = configuration.gameObject;
             temporaryName = configuration.ConfigurationName;
         }
-       
+
+
+        protected void SpecificFields(MyListString property)
+        {
+            PropertyFeatures propertyFeatures = configuration.PropertyFeaturesList.Find(x => x.property.Equals(property));
+            if (propertyFeatures == null)
+            {
+                return;
+            }
+            string alias = propertyFeatures.PropertyAlias;
+            EditorGUILayout.LabelField("Alias: " + alias);
+            if (GUILayout.Button("Configure"))
+            {
+                configurePropertyMode = true;
+                actualProperty = property;
+                tempPropertyName = alias;
+            }
+
+        }
+        protected void ConfigureProperty()
+        {
+            EditorGUILayout.HelpBox("Configure advanced feature of the property", MessageType.Info);
+            PropertyFeatures features = configuration.PropertyFeaturesList.Find(x => x.property.Equals(actualProperty));
+            EditorGUILayout.BeginHorizontal();
+            tempPropertyName = EditorGUILayout.TextField("Property Alias:", tempPropertyName);
+            if (GUILayout.Button("Save"))
+            {
+                try
+                {
+                    features.PropertyAlias = tempPropertyName;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message == "InvalidName")
+                    {
+                        Debug.LogError("The name " + tempPropertyName + " can not be used.");
+                        tempPropertyName = features.PropertyAlias;
+                        GUI.FocusControl(null);
+                    }
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+            VirtualFields(features);
+            if (GUILayout.Button("Done", GUILayout.Width(200)))
+            {
+                configurePropertyMode = false;
+                actualProperty = null;
+                GUI.FocusControl(null);
+            }
+        }
+
+        protected abstract void VirtualFields(PropertyFeatures features);
+
         static AbstractConfigurationEditor()
         {
             toggleType = new Dictionary<bool, ToggleType>
@@ -188,8 +243,6 @@ namespace ThinkEngine.Editors
         {
             return configuration.ObjectTracker.IsPropertyExpandable(property);
         }
-        protected abstract void SpecificFields(MyListString property);
-
 
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace ThinkEngine
 {
-    [RequireComponent(typeof(IndexTracker))]
     public  class MonoBehaviourActuator : MonoBehaviour
     {
         internal string configurationName;
@@ -57,8 +56,8 @@ namespace ThinkEngine
             configurationName = information.configuration.ConfigurationName;
             property = new MyListString(information.propertyHierarchy.myStrings);
             PropertyInfo.AddRange(information.hierarchyInfo);
-            int index = GetComponent<IndexTracker>().CurrentIndex;
-            _mapping = "setOnActuator(" + ASPMapperHelper.AspFormat(configurationName) + "(" + ASPMapperHelper.AspFormat(gameObject.name) + ",objectIndex(" + index + ")," + mapping + "))";
+            PropertyFeatures features = information.configuration.PropertyFeaturesList.Find(x => x.property.Equals(property));
+            _mapping = "setOnActuator("+ ASPMapperHelper.AspFormat(features.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(gameObject.name) + ",objectIndex(" + gameObject.GetInstanceID() + ")," + mapping + "))";     
             List<object> temp = new List<object>();
             for (int i = 0; i < PropertyInfo.Count; i++)
             {
@@ -108,19 +107,23 @@ namespace ThinkEngine
         }
         internal string Parse(AnswerSet answerSet)
         {
-            string pattern = "objectIndex\\(([0-9]+)\\)";
+            string pattern = "objectIndex\\((-?[0-9]+)\\)";
             Regex regex = new Regex(@pattern);
-            int myIndex = gameObject.GetComponent<IndexTracker>().CurrentIndex;
             foreach (string literal in answerSet.GetAnswerSet())
             {
+                Debug.Log(literal+ "     VS      "+mappingToCompare);
                 string literalPrefix = literal.Substring(0, Math.Min(mappingToCompare.Length, literal.Length));
                 Match matcher = regex.Match(literalPrefix);
-                if (matcher.Success && int.Parse(matcher.Groups[1].Value) == myIndex)//if the index of the object associated to the actuator is different from the one of the literal
+                if (matcher.Success && int.Parse(matcher.Groups[1].Value) == gameObject.GetInstanceID())//if the index of the object associated to the actuator is different from the one of the literal
                 {
+                    Debug.Log("Regex matched");
                     if (literalPrefix.Contains(mappingToCompare))
                     {
+                    Debug.Log("Full match");
                         string partialRes = literal.Substring(mappingToCompare.Length);
                         partialRes = partialRes.Remove(partialRes.IndexOf(suffix));
+                        Debug.Log(partialRes);
+
                         return partialRes.Trim('\"', ' ');//trim " to avoid conversion problems
                     }
                 }

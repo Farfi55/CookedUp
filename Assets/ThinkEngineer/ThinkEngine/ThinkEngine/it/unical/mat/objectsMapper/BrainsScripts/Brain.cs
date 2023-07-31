@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace ThinkEngine
 {
-    [ExecuteAlways, RequireComponent(typeof(IndexTracker))]
+    [ExecuteAlways]
     public abstract class Brain : MonoBehaviour
     {
         [SerializeField, HideInInspector]
@@ -73,7 +73,6 @@ namespace ThinkEngine
         internal bool prefabBrain;
         [SerializeField, HideInInspector]
         internal SOLVER solverEnum;
-        
         [SerializeField, HideInInspector]
         protected string _executeReasonerOn;
         internal string ExecuteReasonerOn
@@ -280,7 +279,6 @@ namespace ThinkEngine
         }
         void OnApplicationQuit()
         {
-            Debug.Log("Application quit: "+((PlannerBrain)this).Priority);
             if (executor != null)
             {
                 executor.reason = false;

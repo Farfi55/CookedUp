@@ -353,7 +353,7 @@ namespace ThinkEngine
                 {
                     if (InstantiatedActuators[brain].Contains(configuration.ConfigurationName))
                     {
-                        string currentIndex = "objectIndex(" + ASPMapperHelper.AspFormat(configuration.ConfigurationName) + "," + configuration.GetComponent<IndexTracker>().CurrentIndex + ")." + Environment.NewLine;
+                        string currentIndex = "objectIndex(" + ASPMapperHelper.AspFormat(configuration.ConfigurationName) + "," + configuration.gameObject.GetInstanceID() + ")." + Environment.NewLine;
                         toReturn += brain.ActualActuatorEncoding(currentIndex);
                     }
                 }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ThinkEngine
 {
-    [ExecuteInEditMode, Serializable, RequireComponent(typeof(IndexTracker))]
+    [ExecuteInEditMode, Serializable]
     public class SensorConfiguration : AbstractConfiguration//, ISerializationCallbackReceiver
     {
         public bool isInvariant;
