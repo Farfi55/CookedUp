@@ -1,22 +1,22 @@
 {
     "folders": [
-		{
-			"name": "Scripts",
-			"path": "../.."
-		},
-		{
-			"name": "ThinkEngine",
-			"path": "../../../ThinkEngineer/ThinkEngine"
-		},
-		{
-			"name": "StreamingAssets",
-			"path": "../../../StreamingAssets/ThinkEngineer/ThinkEngine"
-		},
-		{
-			"name": "input files",
-			"path": "../../../../../../Users/aless/AppData/Local/Temp/ThinkEngineFacts"
-		}
-	],
+        {
+            "name": "Scripts",
+            "path": "../.."
+        },
+        {
+            "name": "ThinkEngine",
+            "path": "../../../ThinkEngineer/ThinkEngine"
+        },
+        {
+            "name": "StreamingAssets",
+            "path": "../../../StreamingAssets/ThinkEngineer/ThinkEngine"
+        },
+        {
+            "name": "input files",
+            "path": "../../../../../../Users/aless/AppData/Local/Temp/ThinkEngineFacts"
+        }
+    ],
     "settings": {
         "explorer.sortOrder": "modified",
         "files.exclude": {

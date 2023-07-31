@@ -234,7 +234,15 @@ counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName) :-
 %s_ContainerCounter_ID(counterSensor,objectIndex(Index),Value).
 %s_ContainerCounter_KOType(counterSensor,objectIndex(Index),Value).
 
-% TODO: Container Counter
+containerCounter_ID_Index(ID,Index) :- 
+    s_ContainerCounter_ID(_,objectIndex(Index),ID).
+
+containerCounter_ID(ID) :-
+    containerCounter_ID_Index(ID,_).
+
+containerCounter_KOType(ID, KitchenObjectType) :-
+    containerCounter_ID_Index(ID,Index),
+    s_ContainerCounter_KOType(_,objectIndex(Index),KitchenObjectType).
 
 
 % ================================== PLATES COUNTER ==================================
@@ -244,6 +252,17 @@ counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName) :-
 %s_PlatesCounter_PlatesCount(counterSensor,objectIndex(Index),Value).
 
 % TODO: Plates Counter
+
+platesCounter_ID_Index(ID,Index) :- 
+    s_PlatesCounter_ID(_,objectIndex(Index),ID).
+
+platesCounter_ID(ID) :-
+    platesCounter_ID_Index(ID,_).
+
+platesCounter_Limit_Count(ID, PlatesLimit, PlatesCount) :-
+    platesCounter_ID_Index(ID,Index),
+    s_PlatesCounter_PlatesLimit(_,objectIndex(Index),PlatesLimit),
+    s_PlatesCounter_PlatesCount(_,objectIndex(Index),PlatesCount).
 
 
 % ================================== CUTTING COUNTER ==================================
@@ -257,7 +276,46 @@ counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName) :-
 %s_CuttingCounter_CurrentCuttingRecipe_OutputKOName(cuttingCounterSensor,objectIndex(Index),Value).
 %s_CuttingCounter_CurrentCuttingRecipe_TimeToCut(cuttingCounterSensor,objectIndex(Index),Value).
 
-% TODO: Cutting Counter
+cuttingCounter_ID_Index(ID,Index) :- 
+    s_CuttingCounter_ID(_,objectIndex(Index),ID).
+
+cuttingCounter_ID(ID) :-
+    cuttingCounter_ID_Index(ID,_).
+
+cuttingCounter_HasAny(ID) :-
+    cuttingCounter_ID_Index(ID,Index),
+    s_CuttingCounter_HasAny(_,objectIndex(Index), true).
+
+cuttingCounter_HasNone(ID) :-
+    cuttingCounter_ID_Index(ID,Index),
+    s_CuttingCounter_HasAny(_,objectIndex(Index), false).
+
+cuttingCounter_CanCut(ID) :-
+    cuttingCounter_ID_Index(ID,Index),
+    s_CuttingCounter_CanCut(_,objectIndex(Index), true).
+
+cuttingCounter_CannotCut(ID) :-
+    cuttingCounter_ID_Index(ID,Index),
+    s_CuttingCounter_CanCut(_,objectIndex(Index), false).
+
+cuttingCounter_TimeRemainingToCut(ID, TimeRemainingToCut) :-
+    cuttingCounter_ID_Index(ID,Index),
+    cuttingCounter_CanCut(ID),
+    s_CuttingCounter_TimeRemainingToCut(_,objectIndex(Index), TimeRemainingToCut).
+
+cuttingCounter_CurrentCuttingRecipe_Name(ID, RecipeName) :-
+    cuttingCounter_ID_Index(ID,Index),
+    cuttingCounter_CanCut(ID),
+    s_CuttingCounter_CurrentCuttingRecipe_Name(_,objectIndex(Index), RecipeName).
+
+cuttingCounter_CurrentCuttingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCut) :-
+    cuttingCounter_ID_Index(ID,Index),
+    cuttingCounter_CanCut(ID),
+    s_CuttingCounter_CurrentCuttingRecipe_Name(_,objectIndex(Index), RecipeName),
+    s_CuttingCounter_CurrentCuttingRecipe_InputKOName(_,objectIndex(Index), RecipeInput),
+    s_CuttingCounter_CurrentCuttingRecipe_OutputKOName(_,objectIndex(Index), RecipeOutput),
+    s_CuttingCounter_CurrentCuttingRecipe_TimeToCut(_,objectIndex(Index), RecipeTimeToCut).
+
 
 
 % ================================== STOVE COUNTER ==================================
@@ -274,4 +332,187 @@ counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName) :-
 %s_StoveCounter_CurrentCookingRecipe_TimeToCook(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe(counterSensor,objectIndex(Index),Value).
 
-% TODO: Stove Counter
+stoveCounter_ID_Index(ID,Index) :- 
+    s_StoveCounter_ID(_,objectIndex(Index),ID).
+
+stoveCounter_ID(ID) :-
+    stoveCounter_ID_Index(ID,_).
+
+stoveCounter_HasAny(ID) :-
+    stoveCounter_ID_Index(ID,Index),
+    s_StoveCounter_HasAny(_,objectIndex(Index), true).
+
+stoveCounter_HasNone(ID) :-
+    stoveCounter_ID_Index(ID,Index),
+    s_StoveCounter_HasAny(_,objectIndex(Index), false).
+
+stoveCounter_CanCook(ID) :-
+    stoveCounter_ID_Index(ID,Index),
+    s_StoveCounter_CanCook(_,objectIndex(Index), true).
+
+stoveCounter_CannotCook(ID) :-
+    stoveCounter_ID_Index(ID,Index),
+    s_StoveCounter_CanCook(_,objectIndex(Index), false).
+
+stoveCounter_TimeRemainingToCook(ID, TimeRemainingToCook) :-
+    stoveCounter_ID_Index(ID,Index),
+    stoveCounter_CanCook(ID),
+    s_StoveCounter_TimeRemainingToCook(_,objectIndex(Index), TimeRemainingToCook).
+
+stoveCounter_IsBurning(ID) :-
+    stoveCounter_ID_Index(ID,Index),
+    stoveCounter_CanCook(ID),
+    s_StoveCounter_IsBurning(_,objectIndex(Index), true).
+
+stoveCounter_IsNotBurning(ID) :-
+    stoveCounter_ID_Index(ID,Index),
+    stoveCounter_CanCook(ID),
+    s_StoveCounter_IsBurning(_,objectIndex(Index), false).
+
+
+stoveCounter_CurrentCookingRecipe_Name(ID, RecipeName) :-
+    stoveCounter_ID_Index(ID,Index),
+    stoveCounter_CanCook(ID),
+    s_StoveCounter_CurrentCookingRecipe_Name(_,objectIndex(Index), RecipeName).
+
+stoveCounter_CurrentCookingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCook, RecipeIsBurning) :-
+    stoveCounter_ID_Index(ID,Index),
+    stoveCounter_CanCook(ID),
+    s_StoveCounter_CurrentCookingRecipe_Name(_,objectIndex(Index), RecipeName),
+    s_StoveCounter_CurrentCookingRecipe_InputKOName(_,objectIndex(Index), RecipeInput),
+    s_StoveCounter_CurrentCookingRecipe_OutputKOName(_,objectIndex(Index), RecipeOutput),
+    s_StoveCounter_CurrentCookingRecipe_TimeToCook(_,objectIndex(Index), RecipeTimeToCook),
+    s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe(_,objectIndex(Index), RecipeIsBurning).
+
+
+% ================================== OTHER COUNTERS ==================================
+
+%s_Counter_ID(counterSensor,objectIndex(Index),Value).
+%s_Counter_Type(counterSensor,objectIndex(Index),Value).
+%s_Counter_Name(counterSensor,objectIndex(Index),Value).
+
+% CLEAR COUNTER 
+
+clearCounter_ID_Index(ID,Index) :- 
+    s_Counter_ID(_,objectIndex(Index),ID),
+    s_Counter_Type(_,objectIndex(Index),"ClearCounter").
+
+clearCounter_ID(ID) :-
+    clearCounter_ID_Index(ID,_).
+
+% TRASH COUNTER 
+
+trashCounter_ID_Index(ID,Index) :- 
+    s_Counter_ID(_,objectIndex(Index),ID),
+    s_Counter_Type(_,objectIndex(Index),"TrashCounter").
+
+trashCounter_ID(ID) :- 
+    trashCounter_ID_Index(ID,_).
+
+% DELIVERY COUNTER
+
+deliveryCounter_ID_Index(ID,Index) :- 
+    s_Counter_ID(_,objectIndex(Index),ID),
+    s_Counter_Type(_,objectIndex(Index),"DeliveryCounter").
+
+deliveryCounter_ID(ID) :-
+    deliveryCounter_ID_Index(ID,_).
+
+
+% ================================== KITCHEN OBJECTS ==================================
+
+any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, 0) :-
+    player_KitchenObject(OwnerID, KitchenObjectID, KitchenObjectName).
+
+any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex) :-
+    counter_KitchenObjects_Index(OwnerID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
+
+any_KitchenObject(OwnerID, KitchenObjectID, KitchenObjectName) :-
+    any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, _).
+
+% ================================== PLATE KITCHEN OBJECT ==================================
+
+%s_Plate_ID(plateSensor,objectIndex(Index),Value).
+%s_Plate_Type(plateSensor,objectIndex(Index),Value).
+%s_Plate_Name(plateSensor,objectIndex(Index),Value).
+%s_Plate_ContainerID(plateSensor,objectIndex(Index),Value).
+%s_Plate_Count(plateSensor,objectIndex(Index),Value).
+%s_Plate_KitchenObject_Name(plateSensor,objectIndex(Index),Index1,Value).
+%s_Plate_KitchenObject_ID(plateSensor,objectIndex(Index),Index1,Value).
+%s_Plate_KitchenObject_ContainerID(plateSensor,objectIndex(Index),Index1,Value).
+%s_Plate_FirstKitchenObject_Name(plateSensor,objectIndex(Index),Value).
+%s_Plate_FirstKitchenObject_ID(plateSensor,objectIndex(Index),Value).
+%s_Plate_FirstKitchenObject_ContainerID(plateSensor,objectIndex(Index),Value).
+%s_Plate_HasSpace(plateSensor,objectIndex(Index),Value).
+%s_Plate_HasAny(plateSensor,objectIndex(Index),Value).
+%s_Plate_SizeLimit(plateSensor,objectIndex(Index),Value).
+%s_Plate_IsInContainer(plateSensor,objectIndex(Index),Value).
+%s_Plate_OwnerContainerID(plateSensor,objectIndex(Index),Value).
+
+any_Plate(OwnerID, KitchenObjectID) :-
+    any_KitchenObject(OwnerID, KitchenObjectID, "Plate").
+
+plate_ID_Index(PlateID, Index) :-
+    s_Plate_ID(_,objectIndex(Index),PlateID).
+
+plate_ID(PlateID) :-
+    plate_ID_Index(PlateID,_).
+
+plate_IsInContainer(PlateID) :-
+    plate_ID_Index(PlateID, Index),
+    s_Plate_IsInContainer(_,objectIndex(Index), true).
+
+plate_IsNotInContainer(PlateID) :-
+    plate_ID_Index(PlateID, Index),
+    s_Plate_IsInContainer(_,objectIndex(Index), false).
+
+% container which contains the plate
+plate_Container_ID(PlateID, ContainerID) :-
+    plate_ID_Index(PlateID, Index),
+    plate_IsInContainer(PlateID),
+    s_Plate_OwnerContainerID(_,objectIndex(Index),ContainerID).
+
+
+% Plate ingredients
+
+% plate ingredients's container 
+plate_IngredientsContainer_ID(PlateID, IngredientsContainerID) :-
+    plate_ID_Index(PlateID, Index),
+    s_Plate_ContainerID(_,objectIndex(Index),IngredientsContainerID).
+
+plate_HasAnyIngredients(PlateID) :-
+    plate_ID_Index(PlateID, Index),
+    s_Plate_HasAny(_,objectIndex(Index), true).
+
+plate_Ingredients_Count(PlateID, IngredientsCount) :-
+    plate_ID_Index(PlateID, Index),
+    s_Plate_Count(_,objectIndex(Index),IngredientsCount).
+
+plate_Ingredients_Name(PlateID, IngredientName) :-
+    plate_ID_Index(PlateID, Index),
+    s_Plate_FirstKitchenObject_Name(_,objectIndex(Index),IngredientName).
+
+
+% Plate Recipes utilities
+
+plate_MissingIngredients_Name(PlateID, RecipeName, MissingIngredientName) :-
+    plate_ID(PlateID),
+    c_COMPLETE_RECIPE_INGREDIENT(RecipeName, MissingIngredientName),
+    not plate_Ingredients_Name(PlateID, MissingIngredientName).
+
+plate_AnyMissingIngredients(PlateID, RecipeName) :-
+    plate_MissingIngredients_Name(PlateID, RecipeName, _).
+
+plate_InvalidIngredients(PlateID, RecipeName) :-
+    plate_Ingredients_Name(PlateID, IngredientName),
+    c_COMPLETE_RECIPE_NAME(RecipeName),
+    not c_COMPLETE_RECIPE_INGREDIENT(RecipeName, IngredientName).
+
+plate_CompletedRecipe(PlateID, RecipeName) :-
+    plate_ID(PlateID),
+    c_COMPLETE_RECIPE_NAME(RecipeName),
+    not plate_AnyMissingIngredients(PlateID, RecipeName),
+    not plate_InvalidIngredients(PlateID, RecipeName).
+
+
+
