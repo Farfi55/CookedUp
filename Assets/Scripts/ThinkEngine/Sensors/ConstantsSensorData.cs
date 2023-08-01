@@ -11,10 +11,10 @@ namespace ThinkEngine.Sensors {
         [SerializeField] private List<KitchenObjectSO> kitchenObjectsSos;
 
 
-        [HideInInspector] public List<CompleteRecipe> CompleteRecipes;
-        [HideInInspector] public List<CookingRecipe> CookingRecipes;
-        [HideInInspector] public List<CuttingRecipe> CuttingRecipes;
-        [HideInInspector] public List<string> KitchenObjectsNames;
+        public List<CompleteRecipe> CompleteRecipes = new();
+        public List<CookingRecipe> CookingRecipes = new();
+        public List<CuttingRecipe> CuttingRecipes = new();
+        public List<string> KitchenObjectsNames = new();
         
         
         private void Awake() {
