@@ -26,6 +26,7 @@ namespace ThinkEngine
         //Helping data structures
         private static List<string> propertyHierarchyNames;
         private static List<string> propertyHierarchyTypeNames;
+        private static List<string> propertyHierarchyTypeNamespaces;
         private static List<bool> arePropertiesComponent; //knows if the relative property is a component or a property/field
         private static List<bool> arePropertiesPrimitive;
 
@@ -58,6 +59,7 @@ namespace ThinkEngine
 
                 propertyHierarchyNames = new List<string>();
                 propertyHierarchyTypeNames = new List<string>();
+                propertyHierarchyTypeNamespaces = new List<string>();
                 arePropertiesComponent = new List<bool>(); //knows if the relative property is a component or a property/field
                 arePropertiesPrimitive = new List<bool>();
 
@@ -79,10 +81,11 @@ namespace ThinkEngine
 
                 sensorName = GenerateSensorName(sensorConfiguration);
 
-                Debug.Log(string.Join(",", propertyHierarchyNames));
-                Debug.Log(string.Join(",", propertyHierarchyTypeNames));
-                Debug.Log(string.Join(",", arePropertiesComponent));
-                Debug.Log(string.Join(",", arePropertiesPrimitive));
+                Debug.Log(string.Join(", ", propertyHierarchyNames));
+                Debug.Log(string.Join(", ", propertyHierarchyTypeNames));
+                Debug.Log(string.Join(", ", propertyHierarchyTypeNamespaces));
+                Debug.Log(string.Join(", ", arePropertiesComponent));
+                Debug.Log(string.Join(", ", arePropertiesPrimitive));
 
                 TextAsset templateTextFile = AssetDatabase.LoadAssetAtPath(templateRelativePath, typeof(TextAsset)) as TextAsset;
                 if (templateTextFile == null)
@@ -124,6 +127,9 @@ namespace ThinkEngine
 
         private static string CreateText(string text)
         {
+            //USING NAME_SPACES
+            text = ReplaceUsing(text);
+
             //CLASS_NAME
             text = ReplaceClassName(text);
 
@@ -140,6 +146,28 @@ namespace ThinkEngine
             text = ReplaceMap(text);
 
             return text;
+        }
+
+        private static string ReplaceUsing(string text)
+        {
+
+            string addedText = string.Empty;
+
+            propertyHierarchyTypeNamespaces.Add("System");
+            propertyHierarchyTypeNamespaces.Add("System.Collections.Generic");
+            propertyHierarchyTypeNamespaces.Add("ThinkEngine.Mappers");
+            propertyHierarchyTypeNamespaces.Add("static ThinkEngine.Mappers.OperationContainer");
+
+            propertyHierarchyTypeNamespaces = propertyHierarchyTypeNamespaces.Distinct().ToList(); //Deleting duplicates from namespaces
+
+            for (int i = 0; i < propertyHierarchyTypeNamespaces.Count; i++)
+            {
+                if (propertyHierarchyTypeNamespaces[i] == null || propertyHierarchyTypeNamespaces[i].Equals(string.Empty)) continue;
+                addedText = string.Concat(addedText, "" +
+                    string.Format("using {0};{1}", propertyHierarchyTypeNamespaces[i], Environment.NewLine));
+            }
+
+            return text.Replace("USINGS", addedText);
         }
 
         private static string ReplaceClassName(string text)
@@ -211,6 +239,7 @@ namespace ThinkEngine
             {
                 addedText = string.Concat(addedText,
                     string.Format("" +
+                    "{0}int index = gameObject.GetInstanceID();{1}" +
                     "{0}mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof({3}));{1}" +
                     "{0}operation = mapper.OperationList()[{2}];{1}" +
                     "{0}counter = {4};{1}", GetTabs(1), Environment.NewLine, currentPropertyFeatures.operation, TypeNameOrAlias(((CollectionMapper)mapper).ElementType(finalType)), currentPropertyFeatures.counter));
@@ -260,7 +289,7 @@ namespace ThinkEngine
                     mapping = ASPMapperHelper.AspFormat(currentPropertyFeatures.PropertyAlias) + "(" + ASPMapperHelper.AspFormat(currentSensorConfiguration.gameObject.name) + ",objectIndex(\"+index+\")," + "{0},{1}" + ").";
                     addedText = string.Concat(addedText,
                         string.Format("" +
-                        "{0}mappingTemplate = \"{1}\" + Environment.NewLine;", GetTabs(1), mapping));
+                        "{0}mappingTemplate = \"{1}\" + Environment.NewLine;{2}", GetTabs(1), mapping, Environment.NewLine));
 
                     addedText = string.Concat(addedText, GetOperationToTargetProperty(1));
 
@@ -399,7 +428,7 @@ namespace ThinkEngine
                             "{1}{{\n" +
                                 "{2}isIndexActive[i] = true;\n" +
                             "{1}}}\n" +
-                        "{0}}}", GetTabs(2), GetTabs(3), GetTabs(4), GetCollectionElement()));
+                        "{0}}}\n", GetTabs(2), GetTabs(3), GetTabs(4), GetCollectionElement()));
                 }
             }
 
@@ -444,7 +473,6 @@ namespace ThinkEngine
                     text = string.Concat(text, "" +
                         string.Format(".{0};\n", propertyHierarchyNames[i]));
                 }
-
 
                 if (arePropertiesPrimitive[i]) continue;
 
@@ -610,6 +638,7 @@ namespace ThinkEngine
 
                 propertyHierarchyNames.Add(currentProperty);
                 propertyHierarchyTypeNames.Add(TypeNameOrAlias(currentType));
+                propertyHierarchyTypeNamespaces.Add(currentType.Namespace);
                 arePropertiesComponent.Add(currentType.IsSubclassOf(typeof(Component)));
                 arePropertiesPrimitive.Add(currentType.IsPrimitive);
 
@@ -617,7 +646,7 @@ namespace ThinkEngine
 
                 if (currentObjectValue == null)
                 {
-                    if (!ReachPropertyByReflectionByType(propertyHierarchyNames, propertyHierarchyTypeNames, arePropertiesComponent, arePropertiesPrimitive, property, currentType, out finalType, out mapper))
+                    if (!ReachPropertyByReflectionByType(property, currentType, out finalType, out mapper))
                     {
                         //Object 's value is null. Is this a problem?
                         Debug.LogError(string.Format("Couldn't find {0}'s objectValue (null) during reflection!", currentProperty));
@@ -676,7 +705,7 @@ namespace ThinkEngine
         }
 
         //This method return true if it succeeds, false otherwise
-        private static bool ReachPropertyByReflectionByType(List<string> propertyHierarchyNames, List<string> propertyHierarchyTypeNames, List<bool> arePropertiesComponent, List<bool> arePropertiesPrimitive, MyListString property, Type currentType, out Type finalType, out IDataMapper mapper)
+        private static bool ReachPropertyByReflectionByType(MyListString property, Type currentType, out Type finalType, out IDataMapper mapper)
         {
             finalType = null;
             mapper = null;
@@ -707,6 +736,7 @@ namespace ThinkEngine
 
                     propertyHierarchyNames.Add(currentProperty);
                     propertyHierarchyTypeNames.Add(TypeNameOrAlias(currentType));
+                    propertyHierarchyTypeNamespaces.Add(currentType.Namespace);
                     arePropertiesComponent.Add(currentType.IsSubclassOf(typeof(Component)));
                     arePropertiesPrimitive.Add(currentType.IsPrimitive);
 

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using ThinkEngine.Mappers;
-using static ThinkEngine.Mappers.OperationContainer;
+USINGS
 
 namespace ThinkEngine
 {
@@ -15,7 +11,6 @@ FIELDS
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
-            // Debug.Log("Initialize method called!");
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 INITIALIZATION

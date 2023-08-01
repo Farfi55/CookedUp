@@ -380,13 +380,7 @@ namespace ThinkEngine
             {
                 if (sensor != null)
                 {
-                    try {
-                        string sensorEncoding = sensor.Map();
-                        mapping.Add(brain.ActualSensorEncoding(sensorEncoding));
-                    }
-                    catch (Exception e) {
-                        Debug.LogError($"Error while mapping sensor {sensor} of brain {brain.brainName}\n{e}");
-                    }
+                    mapping.Add(brain.ActualSensorEncoding(sensor.Map()));
                 }
             });
             brain.sensorsMapping = string.Join("", mapping);
