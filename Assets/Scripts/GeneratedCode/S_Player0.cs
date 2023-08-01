@@ -1,9 +1,9 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_ID(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_ID(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 

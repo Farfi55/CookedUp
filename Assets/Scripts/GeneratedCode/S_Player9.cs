@@ -1,9 +1,9 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_PlateForRecipeID(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_SizeLimit(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +41,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
-				if(PlayerSensorData0 == null) return;
-				int PlateForRecipeID1 = PlayerSensorData0.PlateForRecipeID;
+				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
+				if(KOContainerSensorData0 == null) return;
+				int SizeLimit1 = KOContainerSensorData0.SizeLimit;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(PlateForRecipeID1);
+				values.Add(SizeLimit1);
 			}
 		}
 

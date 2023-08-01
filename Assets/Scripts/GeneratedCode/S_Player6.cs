@@ -1,9 +1,9 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
@@ -13,7 +13,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<bool> values = new List<bool>();
+		private List<int> values = new List<int>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_HasRecipe(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_X(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +41,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
-				if(PlayerSensorData0 == null) return;
-				bool HasRecipe1 = PlayerSensorData0.HasRecipe;
+				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
+				if(GridPositionSensorData0 == null) return;
+				int X1 = GridPositionSensorData0.X;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(HasRecipe1);
+				values.Add(X1);
 			}
 		}
 

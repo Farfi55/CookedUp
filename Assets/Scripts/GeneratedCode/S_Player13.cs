@@ -1,9 +1,10 @@
+using ThinkEngine.Sensors;
+using ThinkEngine.Models;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
@@ -24,7 +25,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_X(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_FirstKitchenObject_ContainerID(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +42,17 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
-				if(GridPositionSensorData0 == null) return;
-				int X1 = GridPositionSensorData0.X;
+				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
+				if(KOContainerSensorData0 == null) return;
+				KitchenObject FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
+				if(FirstKitchenObject1 == null) return;
+				int ContainerID2 = FirstKitchenObject1.ContainerID;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(X1);
+				values.Add(ContainerID2);
 			}
 		}
 

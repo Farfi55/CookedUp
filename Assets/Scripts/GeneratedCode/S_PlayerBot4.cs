@@ -1,13 +1,13 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
-    class S_Player22 : Sensor
+    class S_PlayerBot4 : Sensor
     {
 		private int counter;
         private object specificValue;
@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_ContainerID(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_PlayerBot_PlateForRecipeID(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +41,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				if(KOContainerSensorData0 == null) return;
-				int ContainerID1 = KOContainerSensorData0.ContainerID;
+				PlayerBotSensorData PlayerBotSensorData0 = gameObject.GetComponent<PlayerBotSensorData>();
+				if(PlayerBotSensorData0 == null) return;
+				int PlateForRecipeID1 = PlayerBotSensorData0.PlateForRecipeID;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(ContainerID1);
+				values.Add(PlateForRecipeID1);
 			}
 		}
 

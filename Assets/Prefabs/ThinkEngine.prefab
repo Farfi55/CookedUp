@@ -30,6 +30,7 @@ Transform:
   m_Children:
   - {fileID: 5013276493541865579}
   - {fileID: 7995285632865977274}
+  - {fileID: 2362953439842287050}
   - {fileID: 6118038214754642774}
   m_Father: {fileID: 0}
   m_RootOrder: -1
@@ -46,7 +47,7 @@ GameObject:
   - component: {fileID: 6509852216361517940}
   - component: {fileID: 8452929670334776411}
   m_Layer: 0
-  m_Name: ConstantSensors
+  m_Name: ConstantsSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +125,18 @@ MonoBehaviour:
     Count: 1
   - myStrings:
     - ConstantsSensorData
+    - CuttingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
     - KitchenObjectsNames
     Count: 2
   _toMapProperties:
@@ -145,6 +158,156 @@ MonoBehaviour:
     specificValue: 
     counter: 0
   _configurationName: s_Const
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes: []
+--- !u!1 &4988682422684167771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2362953439842287050}
+  - component: {fileID: 8293235815740697044}
+  - component: {fileID: 7853516740463181676}
+  m_Layer: 0
+  m_Name: DeliverySensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2362953439842287050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988682422684167771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8293235815740697044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988682422684167771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5bd74ee06f4812b7ee6d7266899acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Recipes: []
+--- !u!114 &7853516740463181676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988682422684167771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - DeliverySensorData
+    Count: 1
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    Count: 2
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    - CompleteRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  _toMapProperties:
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    - CompleteRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - Recipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - Recipes
+      - CompleteRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_Recipes_Name
+    propertyAliasHash: 1141289150
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - Recipes
+      - CompleteRecipe
+      - IngredientsNames
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_Recipes_IngredientsNames
+    propertyAliasHash: 528827321
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - Recipes
+      - CompleteRecipe
+      - Value
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_Recipes_Value
+    propertyAliasHash: -622096598
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_Delivery
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes: []

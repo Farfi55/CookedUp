@@ -30,9 +30,7 @@ namespace ThinkEngine.Actions {
         public override State Prerequisite() {
             if (idManager == null) {
                 idManager = IDManager.Instance;
-
-                Debug.Log($"MoveToAction: PlayerID: {PlayerID}, TargetID: {TargetID}, GridX: {GridX}, GridY: {GridY}");
-
+                
                 if (PlayerID == 0) {
                     Player = PlayersManager.Instance.GetPlayer();
                 }
@@ -44,6 +42,8 @@ namespace ThinkEngine.Actions {
                 if (UseTarget()) {
                     target = idManager.GetGameObject(TargetID);
                     worldPos = target.transform.position;
+                    
+                    Debug.Log($"MoveToAction: {Player.name} moving to {target.name}");
                 }
                 else {
                     gridManager = GridManager.Instance;

@@ -21,22 +21,22 @@ PrefabInstance:
     - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3596888
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.89
+      value: 0.5185175
       objectReference: {fileID: 0}
     - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -73,6 +73,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2029042653951248891, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: playerBot
+      value: 
+      objectReference: {fileID: 943945516212414302}
+    - target: {fileID: 3922019416580132864, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
+    - target: {fileID: 3922019416930424153, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
     - target: {fileID: 4706379898146698279, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: interactionDistance
@@ -88,7 +103,19 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2997092725135300230}
-    m_RemovedComponents: []
+    - target: {fileID: 8705932941902692090, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705932941902692090, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: stopAllWhenUsingInput
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2080688144074571001, guid: 6ce8b785e5b102e4697dca18dbf2b0f7, type: 3}
+    - {fileID: 7012568207997486434, guid: 6ce8b785e5b102e4697dca18dbf2b0f7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -100,6 +127,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2226446289430712526}
+    - targetCorrespondingSourceObject: {fileID: 5309849979930694854, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 5519439253821777966}
+    - targetCorrespondingSourceObject: {fileID: 5309849979930694854, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5500732969991809172}
   m_SourcePrefab: {fileID: 100100000, guid: 6ce8b785e5b102e4697dca18dbf2b0f7, type: 3}
 --- !u!114 &1159126610422619227 stripped
 MonoBehaviour:
@@ -113,6 +148,239 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47679560b8d4e7ab42988687209e6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2411611682236806759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5309849979930694854, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7550184035747259041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5519439253821777966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411611682236806759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c98d16899a44bfa74b7ab5087d04c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2997092725135300230}
+  playerBot: {fileID: 943945516212414302}
+  HasRecipe: 0
+  RecipeName: 
+  HasPlate: 0
+  PlateForRecipeID: 0
+  HasMissingIngredients: 0
+  MissingIngredientsNames: []
+  HasInvalidIngredients: 0
+--- !u!114 &5500732969991809172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411611682236806759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    Count: 1
+  - myStrings:
+    - PlayerBotSensorData
+    - HasRecipe
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - RecipeName
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasPlate
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - PlateForRecipeID
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasMissingIngredients
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - MissingIngredientsNames
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasInvalidIngredients
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasRecipe
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - RecipeName
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasPlate
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - PlateForRecipeID
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasMissingIngredients
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - MissingIngredientsNames
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - HasInvalidIngredients
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_ID
+    propertyAliasHash: 1958065322
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - HasRecipe
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_HasRecipe
+    propertyAliasHash: -1667977817
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - RecipeName
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_RecipeName
+    propertyAliasHash: 771090166
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - HasPlate
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_HasPlate
+    propertyAliasHash: -825071185
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - PlateForRecipeID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_PlateForRecipeID
+    propertyAliasHash: -2051590749
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - HasMissingIngredients
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_HasMissingIngredients
+    propertyAliasHash: 1238656557
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - MissingIngredientsNames
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_MissingIngredientsNames
+    propertyAliasHash: -84479033
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - HasInvalidIngredients
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_HasInvalidIngredients
+    propertyAliasHash: 1990872656
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_PlayerBot
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 8092785ebef084140b94b121970dfe89, type: 3}
+    typeName: ThinkEngine.S_PlayerBot0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: de72b966b5449194a8035a1ae35d3dcc, type: 3}
+    typeName: ThinkEngine.S_PlayerBot1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7d0cda859a3fbf2419597a4827821e62, type: 3}
+    typeName: ThinkEngine.S_PlayerBot2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e9cf0ab0962021440b89740632d56730, type: 3}
+    typeName: ThinkEngine.S_PlayerBot3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: ae66fee1e3ebbaf4b900ebd3aa772559, type: 3}
+    typeName: ThinkEngine.S_PlayerBot4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e9a1c2e8a649b3245930bef1812ebd70, type: 3}
+    typeName: ThinkEngine.S_PlayerBot5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: c17fa19f49170f94d947b85ae3b315f0, type: 3}
+    typeName: ThinkEngine.S_PlayerBot6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4ce36c63a38d6dd46b5870d69f60e2db, type: 3}
+    typeName: ThinkEngine.S_PlayerBot7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &2997092725135300230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4706379898146698279, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,

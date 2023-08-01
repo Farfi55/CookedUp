@@ -1,19 +1,19 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
-    class S_Player21 : Sensor
+    class S_PlayerBot3 : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<bool> values = new List<bool>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_Container_SizeLimit(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_PlayerBot_HasPlate(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +41,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				if(KOContainerSensorData0 == null) return;
-				int SizeLimit1 = KOContainerSensorData0.SizeLimit;
+				PlayerBotSensorData PlayerBotSensorData0 = gameObject.GetComponent<PlayerBotSensorData>();
+				if(PlayerBotSensorData0 == null) return;
+				bool HasPlate1 = PlayerBotSensorData0.HasPlate;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(SizeLimit1);
+				values.Add(HasPlate1);
 			}
 		}
 

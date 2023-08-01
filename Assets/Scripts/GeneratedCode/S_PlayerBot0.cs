@@ -1,20 +1,19 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Models;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
-    class S_Player18 : Sensor
+    class S_PlayerBot0 : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<int> values = new List<int>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -22,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_FirstKitchenObject_Name(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_PlayerBot_ID(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -42,18 +41,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				if(KOContainerSensorData0 == null) return;
-				KitchenObject FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-				if(FirstKitchenObject1 == null) return;
-				string Name2 = FirstKitchenObject1.Name;
-				if(Name2 == null) return;
+				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
+				if(BaseSensorData0 == null) return;
+				int ID1 = BaseSensorData0.ID;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Name2);
+				values.Add(ID1);
 			}
 		}
 

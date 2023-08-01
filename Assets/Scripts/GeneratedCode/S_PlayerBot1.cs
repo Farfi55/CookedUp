@@ -1,13 +1,13 @@
+using ThinkEngine.Sensors;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
-    class S_Player16 : Sensor
+    class S_PlayerBot1 : Sensor
     {
 		private int counter;
         private object specificValue;
@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_HasSpace(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_PlayerBot_HasRecipe(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +41,15 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				if(KOContainerSensorData0 == null) return;
-				bool HasSpace1 = KOContainerSensorData0.HasSpace;
+				PlayerBotSensorData PlayerBotSensorData0 = gameObject.GetComponent<PlayerBotSensorData>();
+				if(PlayerBotSensorData0 == null) return;
+				bool HasRecipe1 = PlayerBotSensorData0.HasRecipe;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(HasSpace1);
+				values.Add(HasRecipe1);
 			}
 		}
 

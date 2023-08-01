@@ -1,9 +1,10 @@
+using ThinkEngine.Sensors;
+using ThinkEngine.Models;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ThinkEngine.Mappers;
-using ThinkEngine.Sensors;
 using static ThinkEngine.Mappers.OperationContainer;
+
 
 namespace ThinkEngine
 {
@@ -13,7 +14,7 @@ namespace ThinkEngine
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<bool> values = new List<bool>();
+		private List<int> values = new List<int>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +22,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Player_HasInvalidIngredients(player,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_FirstKitchenObject_ID(playerSensors,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -41,15 +42,17 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				PlayerSensorData PlayerSensorData0 = gameObject.GetComponent<PlayerSensorData>();
-				if(PlayerSensorData0 == null) return;
-				bool HasInvalidIngredients1 = PlayerSensorData0.HasInvalidIngredients;
+				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
+				if(KOContainerSensorData0 == null) return;
+				KitchenObject FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
+				if(FirstKitchenObject1 == null) return;
+				int ID2 = FirstKitchenObject1.ID;
 
 				if (values.Count == 200)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(HasInvalidIngredients1);
+				values.Add(ID2);
 			}
 		}
 
