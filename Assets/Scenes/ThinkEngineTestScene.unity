@@ -2277,6 +2277,727 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[0].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[2].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[15].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[16].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].windowWidth
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1].windowWidth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0]._propertyAlias
+      value: s_Const_CompleteRecipe_Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1]._propertyAlias
+      value: s_Const_CompleteRecipe_Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2]._propertyAlias
+      value: s_Const_CookingRecipe_Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[3]._propertyAlias
+      value: s_Const_CookingRecipe_OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[4]._propertyAlias
+      value: s_Const_CookingRecipe_TimeToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[5]._propertyAlias
+      value: s_Const_CookingRecipe_IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6]._propertyAlias
+      value: s_Const_CuttingRecipe_Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7]._propertyAlias
+      value: s_Const_CuttingRecipe_InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[8]._propertyAlias
+      value: s_Const_CuttingRecipe_OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9]._propertyAlias
+      value: s_Const_CuttingRecipe_TimeToCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10]._propertyAlias
+      value: s_Const_CookingRecipe_InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11]._propertyAlias
+      value: s_Const_CompleteRecipe_IngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12]._propertyAlias
+      value: s_Const_ConstantsSensorData_KitchenObjectsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[0].typeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].propertyAliasHash
+      value: -766420929
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1].propertyAliasHash
+      value: 289789283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2].propertyAliasHash
+      value: 1082092852
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[3].propertyAliasHash
+      value: -56214667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[4].propertyAliasHash
+      value: -724588329
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[5].propertyAliasHash
+      value: -850219988
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].propertyAliasHash
+      value: -1683308104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7].propertyAliasHash
+      value: 699681824
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[8].propertyAliasHash
+      value: 383875859
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].propertyAliasHash
+      value: 985920603
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].propertyAliasHash
+      value: -1210373480
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].propertyAliasHash
+      value: 453925698
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].propertyAliasHash
+      value: -2039346060
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[0].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[2].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[0].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 6db9fac68074905409caa2a9466d509e,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[15].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[16].myStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[0].myStrings.Array.data[1]
+      value: CuttingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[2].myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[2].myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[2].myStrings.Array.data[3]
+      value: Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[3].myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[3].myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[3].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[4].myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[4].myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[4].myStrings.Array.data[3]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[5].myStrings.Array.data[3]
+      value: TimeToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[6].myStrings.Array.data[3]
+      value: IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[1]
+      value: CuttingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[2]
+      value: CuttingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[1]
+      value: CuttingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[2]
+      value: CuttingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[9].myStrings.Array.data[3]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[1].myStrings.Array.data[3]
+      value: Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[2].myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[2].myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[2].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[3].myStrings.Array.data[3]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[4].myStrings.Array.data[3]
+      value: TimeToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[5].myStrings.Array.data[3]
+      value: IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[1]
+      value: CuttingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[2]
+      value: CuttingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[8].myStrings.Array.data[3]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[3]
+      value: TimeToCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[10].myStrings.Array.data[3]
+      value: TimeToCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[3]
+      value: TimeToCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.data[3]
+      value: IngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[15].myStrings.Array.data[1]
+      value: KitchenObjectsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[15].myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[15].myStrings.Array.data[3]
+      value: IngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[16].myStrings.Array.data[1]
+      value: KitchenObjectsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[3]
+      value: IngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[1]
+      value: KitchenObjectsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1].property.myStrings.Array.data[3]
+      value: Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2].property.myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2].property.myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2].property.myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[3].property.myStrings.Array.data[3]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[4].property.myStrings.Array.data[3]
+      value: TimeToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[5].property.myStrings.Array.data[3]
+      value: IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[1]
+      value: CuttingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[2]
+      value: CuttingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[8].property.myStrings.Array.data[3]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[3]
+      value: TimeToCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[1]
+      value: CookingRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[2]
+      value: CookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[3]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[1]
+      value: CompleteRecipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[2]
+      value: CompleteRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[3]
+      value: IngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[1]
+      value: KitchenObjectsNames
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
