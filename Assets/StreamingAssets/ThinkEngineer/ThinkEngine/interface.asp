@@ -1,3 +1,37 @@
+% ================================== ACTIONS ==================================
+
+a_MoveTo_Target(ActionIndex, PlayerID, TargetID).
+a_MoveTo_Pos(ActionIndex, PlayerID, GridX,GridY).
+
+a_PickUp(ActionIndex, PlayerID, TargetInteractableID).
+
+a_Drop(ActionIndex, PlayerID, TargetInteractableID).
+a_Place(ActionIndex, PlayerID, TargetInteractableID).
+
+a_Cut(ActionIndex, PlayerID, TargetInteractableID).
+
+a_WaitToCook(ActionIndex, PlayerID, TargetInteractableID).
+
+a_Wait(ActionIndex, PlayerID, MilliSecondsToWait).
+a_Wait(ActionIndex, PlayerID).
+
+
+% ================================== CONSTANTS ==================================
+
+
+c_KO_NAME(KitchenObjectName).
+
+c_COMPLETE_RECIPE(RecipeName, RecipeValue).
+c_COMPLETE_RECIPE_NAME(RecipeName).
+c_COMPLETE_RECIPE_INGREDIENT(RecipeName, IngredientName).
+
+c_COOKING_RECIPE(RecipeName, InputKOName, OutputKOName, TimeToCook, IsBurningRecipe).
+c_COOKING_RECIPE_NAME(RecipeName).
+
+c_CUTTING_RECIPE(RecipeName, InputKOName, OutputKOName, TimeToCut).
+c_CUTTING_RECIPE_NAME(RecipeName) :-
+
+
 % ================================== PLAYER ==================================
 
 player_ID_Index(ID,Index).

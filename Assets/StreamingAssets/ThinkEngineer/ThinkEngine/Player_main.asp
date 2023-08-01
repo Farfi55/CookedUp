@@ -300,6 +300,64 @@ a_Wait(ActionIndex, PlayerID) :-
 
 
 
+% ========================== STATE PICK UP COMPLETED PLATE ==========================
+
+statePUCP_Target(TargetID) :-
+    state_PickUp_CompletedPlate,
+    curr_Player_ID(PlayerID),
+    player_Plate_Container_ID(PlayerID, PlateID, TargetID).
+
+
+a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+    state_PickUp_CompletedPlate,
+    ActionIndex = FirstActionIndex,
+    firstActionIndex(FirstActionIndex),
+    curr_Player_ID(PlayerID),
+    statePUCP_Target(TargetID).
+
+a_PickUp(ActionIndex, PlayerID, TargetID) :-
+    state_PickUp_CompletedPlate,
+    ActionIndex = FirstActionIndex + 1,
+    firstActionIndex(FirstActionIndex),
+    curr_Player_ID(PlayerID),
+    statePUCP_Target(TargetID).
+
+
+a_Wait(ActionIndex, PlayerID) :-
+    state_PickUp_CompletedPlate,
+    ActionIndex = FirstActionIndex + 2,
+    firstActionIndex(FirstActionIndex),
+    curr_Player_ID(PlayerID).
+
+% ========================== STATE DELIVER ==========================
+
+
+stateD_Target(TargetID) :-
+    state_Deliver,
+    deliveryCounter_ID(TargetID),
+    counter_HasSpace(TargetID).
+
+
+a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+    state_Deliver,
+    ActionIndex = FirstActionIndex,
+    firstActionIndex(FirstActionIndex),
+    curr_Player_ID(PlayerID),
+    stateD_Target(TargetID).
+
+a_Place(ActionIndex, PlayerID, TargetID) :-
+    state_Deliver,
+    ActionIndex = FirstActionIndex + 1,
+    firstActionIndex(FirstActionIndex),
+    curr_Player_ID(PlayerID),
+    stateD_Target(TargetID).
+
+a_Wait(ActionIndex, PlayerID) :-
+    state_Deliver,
+    ActionIndex = FirstActionIndex + 2,
+    firstActionIndex(FirstActionIndex),
+    curr_Player_ID(PlayerID).
+
 
     
 #show state/1.
