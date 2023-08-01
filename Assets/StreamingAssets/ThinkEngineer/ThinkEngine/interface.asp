@@ -46,25 +46,6 @@ player_HasSelectedInteractable(ID).
 player_HasNoSelectedInteractable(ID).
 player_SelectedInteractable(PlayerID, InteractableID, InteractableType).
 
-% Player Plate
-player_HasPlate(ID).
-player_HasNoPlate(ID).
-player_Plate_ID(PlayerID, PlateID).
-
-% Player Recipe
-player_HasRecipe(ID).
-player_HasNoRecipe(ID).
-player_Recipe(PlayerID, RecipeName).
-
-% Player Recipe Ingredients
-player_HasMissingIngredients(ID).
-player_HasNoMissingIngredients(ID).
-player_MissingIngredients_Index(PlayerID, IngredientName, Index).
-player_MissingIngredients(PlayerID, IngredientName).
-player_HasInvalidIngredients(ID).
-player_HasNoInvalidIngredients(ID).
-player_HasCompletedRecipe(ID).
-
 % Player Container
 player_Container_Count(ID, Count).
 player_HasSpace(ID).
@@ -74,6 +55,30 @@ player_HasNone(ID).
 
 % Player Kitchen Objects
 player_KitchenObject(PlayerID, KitchenObjectID, KitchenObjectName).
+
+% ================================== PLAYER BOT ==================================
+
+% Player Plate
+playerBot_HasPlate(ID).
+playerBot_HasNoPlate(ID).
+playerBot_Plate_ID(PlayerID, PlateID).
+playerBot_IsPlateBeingCarried
+
+% Player Recipe
+playerBot_HasRecipe(ID).
+playerBot_HasNoRecipe(ID).
+playerBot_Recipe(PlayerID, RecipeName).
+
+% Player Recipe Ingredients
+playerBot_HasMissingIngredients(ID).
+playerBot_HasNoMissingIngredients(ID).
+playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index).
+playerBot_MissingIngredients(PlayerID, IngredientName).
+playerBot_HasInvalidIngredients(ID).
+playerBot_HasNoInvalidIngredients(ID).
+playerBot_HasCompletedRecipe(ID).
+
+
 
 % ================================== COUNTERS ==================================
 

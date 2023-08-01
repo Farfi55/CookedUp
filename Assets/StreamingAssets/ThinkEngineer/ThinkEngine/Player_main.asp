@@ -2,37 +2,37 @@
 % FIND THE STATE WE ARE IN
 
 state_WaitingForRecipe :- 
-curr_Player_ID(PlayerID),
-player_HasNoRecipe(PlayerID).
+    curr_Player_ID(PlayerID),
+    playerBot_HasNoRecipe(PlayerID).
 
 state_PickUp_Plate :-
     curr_Player_ID(PlayerID),
-    player_HasRecipe(PlayerID),
-    player_HasNoPlate(PlayerID).
+    playerBot_HasRecipe(PlayerID),
+    playerBot_HasNoPlate(PlayerID).
 
 state_PlacePlate :-
     curr_Player_ID(PlayerID),
-    player_HasPlate(PlayerID),
-    player_IsPlateBeingCarried(PlayerID),
-    not player_HasCompletedRecipe(PlayerID).
+    playerBot_HasPlate(PlayerID),
+    playerBot_IsPlateBeingCarried(PlayerID),
+    not playerBot_HasCompletedRecipe(PlayerID).
 
 state_GetIngredients :-
     curr_Player_ID(PlayerID),
-    player_HasPlate(PlayerID),
-    not player_IsPlateBeingCarried(PlayerID),
-    not player_HasCompletedRecipe(PlayerID).
+    playerBot_HasPlate(PlayerID),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    not playerBot_HasCompletedRecipe(PlayerID).
 
 state_PickUp_CompletedPlate :-
     curr_Player_ID(PlayerID),
-    player_HasPlate(PlayerID),
-    not player_IsPlateBeingCarried(PlayerID),
-    player_HasCompletedRecipe(PlayerID).
+    playerBot_HasPlate(PlayerID),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    playerBot_HasCompletedRecipe(PlayerID).
 
 state_Delivery :-
     curr_Player_ID(PlayerID),
-    player_HasPlate(PlayerID),
-    player_IsPlateBeingCarried(PlayerID),
-    player_HasCompletedRecipe(PlayerID).
+    playerBot_HasPlate(PlayerID),
+    playerBot_IsPlateBeingCarried(PlayerID),
+    playerBot_HasCompletedRecipe(PlayerID).
 
 state("WaitingForRecipe") :- state_WaitingForRecipe.
 state("PickUp_Plate") :- state_PickUp_Plate.
@@ -48,7 +48,7 @@ firstActionIndex(1).
 
 % ========================== STATE PICKUP PLATE ==========================
 
-state_PickUp_Plate__Target(PlateCounterID) :-
+statePUP_Target(PlateCounterID) :-
     state_PickUp_Plate,
     platesCounter_ID(PlateCounterID),
     counter_HasAny(PlateCounterID).
@@ -59,7 +59,7 @@ a_MoveTo_Target(ActionIndex, PlayerID, PlatesCounterID) :-
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     curr_Player_ID(PlayerID),
-    state_PickUp_Plate__Target(PlatesCounterID).
+    statePUP_Target(PlatesCounterID).
 
 
 a_PickUp(ActionIndex, PlayerID, PlatesCounterID) :-
@@ -67,7 +67,7 @@ a_PickUp(ActionIndex, PlayerID, PlatesCounterID) :-
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
     curr_Player_ID(PlayerID),
-    state_PickUp_Plate__Target(PlatesCounterID).
+    statePUP_Target(PlatesCounterID).
 
 a_Wait(ActionIndex, PlayerID) :-
     state_PickUp_Plate,
@@ -141,7 +141,7 @@ ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) :-
 stateGI_nextIngredient(IngredientName) :-
     state_GetIngredients,
     curr_Player_ID(PlayerID),
-    player_MissingIngredients_Index(PlayerID, IngredientName, 0).
+    playerBot_MissingIngredients_Index(PlayerID, IngredientName, 0).
 
 
 subStateGI("Available") :- 
@@ -194,7 +194,7 @@ stateGI_Target2(TargetID) :-
 
 stateGI_Target_Final(TargetID) :-
     state_GetIngredients,
-    player_Plate_Container_ID(PlayerID, _, TargetID).
+    playerBot_Plate_Container_ID(PlayerID, _, TargetID).
     
 
 
@@ -305,7 +305,7 @@ a_Wait(ActionIndex, PlayerID) :-
 statePUCP_Target(TargetID) :-
     state_PickUp_CompletedPlate,
     curr_Player_ID(PlayerID),
-    player_Plate_Container_ID(PlayerID, PlateID, TargetID).
+    playerBot_Plate_Container_ID(PlayerID, PlateID, TargetID).
 
 
 a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-

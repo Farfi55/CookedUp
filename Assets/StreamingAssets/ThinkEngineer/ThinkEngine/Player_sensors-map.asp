@@ -4,13 +4,6 @@
 %s_Player_HasSelectedInteractable(player,objectIndex(Index),Value).
 %s_Player_SelectedInteractableType(player,objectIndex(Index),Value).
 %s_Player_SelectedInteractableID(player,objectIndex(Index),Value).
-%s_Player_HasRecipe(player,objectIndex(Index),Value).
-%s_Player_RecipeName(player,objectIndex(Index),Value).
-%s_Player_HasPlate(player,objectIndex(Index),Value).
-%s_Player_PlateForRecipeID(player,objectIndex(Index),Value).
-%s_Player_HasMissingIngredients(player,objectIndex(Index),Value).
-%s_Player_MissingIngredientsNames(player,objectIndex(Index),Index1,Value).
-%s_Player_HasInvalidIngredients(player,objectIndex(Index),Value).
 %s_Player_X(player,objectIndex(Index),Value).
 %s_Player_Y(player,objectIndex(Index),Value).
 %s_Player_Container_Count(player,objectIndex(Index),Value).
@@ -31,7 +24,7 @@
 
 player_ID_Index(ID,Index) :- s_Player_ID(_,objectIndex(Index),ID).
 player_ID(ID) :- player_ID_Index(ID,_).
-curr_Player_ID(ID) :- player_ID(ID).
+curr_Player_ID(ID) :- playerBot_ID(ID).
 
 player(ID, Type, Name) :- 
     s_Player_ID(_,objectIndex(Index),ID),
@@ -59,82 +52,6 @@ player_SelectedInteractable(PlayerID, InteractableID, InteractableType) :-
     player_ID_Index(PlayerID,Index),
     s_Player_SelectedInteractableID(_,objectIndex(Index),InteractableID),
     s_Player_SelectedInteractableType(_,objectIndex(Index),InteractableType).
-
-% Player Plate
-
-player_HasPlate(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasPlate(_,objectIndex(Index), true).
-
-player_HasNoPlate(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasPlate(_,objectIndex(Index), false).
-
-player_Plate_ID(PlayerID, PlateID) :-
-    player_HasPlate(PlayerID),
-    player_ID_Index(PlayerID,Index),
-    s_Player_PlateForRecipeID(_,objectIndex(Index),PlateID).
-
-player_IsPlateBeingCarried(PlayerID) :-
-    player_HasPlate(PlayerID),
-    player_KitchenObject(PlayerID, PlateID, _),
-    player_Plate_ID(PlayerID, PlateID).
-
-% ID of the container that the plate is in
-player_Plate_Container_ID(PlayerID, PlateID, ContainerID) :-
-    player_HasPlate(PlayerID),
-    player_Plate_ID(PlayerID, PlateID),
-    plate_Container_ID(PlateID, ContainerID).
-
-% Player Recipe
-
-player_HasRecipe(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasRecipe(_,objectIndex(Index), true).
-
-player_HasNoRecipe(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasRecipe(_,objectIndex(Index), false).
-
-
-player_Recipe(PlayerID, RecipeName) :-
-    player_HasRecipe(PlayerID),
-    player_ID_Index(PlayerID,Index),
-    s_Player_RecipeName(_,objectIndex(Index),RecipeName).
-
-
-
-% Player Recipe Ingredients
-
-player_HasMissingIngredients(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasMissingIngredients(_,objectIndex(Index), true).
-
-player_HasNoMissingIngredients(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasMissingIngredients(_,objectIndex(Index), false).
-
-player_MissingIngredients_Index(PlayerID, IngredientName, Index) :-
-    player_HasMissingIngredients(PlayerID),
-    player_ID_Index(PlayerID,Index1),
-    s_Player_MissingIngredientsNames(_,objectIndex(Index1),Index,IngredientName).
-
-player_MissingIngredients(PlayerID, IngredientName) :- 
-    player_MissingIngredients_Index(PlayerID, IngredientName, _).
-
-player_HasInvalidIngredients(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasInvalidIngredients(_,objectIndex(Index), true).
-
-player_HasNoInvalidIngredients(ID) :-
-    player_ID_Index(ID,Index),
-    s_Player_HasInvalidIngredients(_,objectIndex(Index), false).
-
-player_HasCompletedRecipe(ID) :-
-    player_HasRecipe(ID),
-    player_HasNoMissingIngredients(ID),
-    player_HasNoInvalidIngredients(ID).
-
 
 % Player Container
 
@@ -166,6 +83,108 @@ player_KitchenObject(PlayerID, KitchenObjectID, KitchenObjectName) :-
     s_Player_FirstKitchenObject_ID(_,objectIndex(Index), KitchenObjectID),
     s_Player_FirstKitchenObject_Name(_,objectIndex(Index), KitchenObjectName).
     % s_Player_FirstKitchenObject_ContainerID(_,objectIndex(Index),ContainerID).
+
+
+% ================================== PLAYER BOT ==================================
+
+%s_PlayerBot_ID(playerSensors,objectIndex(Index),Value).
+%s_PlayerBot_HasRecipe(playerSensors,objectIndex(Index),Value).
+%s_PlayerBot_RecipeName(playerSensors,objectIndex(Index),Value).
+%s_PlayerBot_HasPlate(playerSensors,objectIndex(Index),Value).
+%s_PlayerBot_PlateForRecipeID(playerSensors,objectIndex(Index),Value).
+%s_PlayerBot_HasMissingIngredients(playerSensors,objectIndex(Index),Value).
+%s_PlayerBot_MissingIngredientsNames(playerSensors,objectIndex(Index),Index1,Value).
+%s_PlayerBot_HasInvalidIngredients(playerSensors,objectIndex(Index),Value).
+
+playerBot_ID_Index(ID,Index) :- 
+    s_PlayerBot_ID(_,objectIndex(Index),ID).
+
+playerBot_ID(ID) :- 
+    playerBot_ID_Index(ID,_).
+
+player_IsBot(ID) :- 
+    player_ID(ID),
+    playerBot_ID(ID).
+
+player_IsNotBot(ID) :- 
+    player_ID(ID),
+    not player_IsBot(ID).
+
+% Player Plate
+
+playerBot_HasPlate(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasPlate(_,objectIndex(Index), true).
+
+playerBot_HasNoPlate(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasPlate(_,objectIndex(Index), false).
+
+playerBot_Plate_ID(PlayerID, PlateID) :-
+    playerBot_HasPlate(PlayerID),
+    playerBot_ID_Index(PlayerID,Index),
+    s_PlayerBot_PlateForRecipeID(_,objectIndex(Index),PlateID).
+
+playerBot_IsPlateBeingCarried(PlayerID) :-
+    playerBot_HasPlate(PlayerID),
+    player_KitchenObject(PlayerID, PlateID, _),
+    playerBot_Plate_ID(PlayerID, PlateID).
+
+% ID of the container that the plate is in
+playerBot_Plate_Container_ID(PlayerID, PlateID, ContainerID) :-
+    playerBot_HasPlate(PlayerID),
+    playerBot_Plate_ID(PlayerID, PlateID),
+    plate_Container_ID(PlateID, ContainerID).
+
+% Player Recipe
+
+playerBot_HasRecipe(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasRecipe(_,objectIndex(Index), true).
+
+playerBot_HasNoRecipe(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasRecipe(_,objectIndex(Index), false).
+
+
+playerBot_Recipe(PlayerID, RecipeName) :-
+    playerBot_HasRecipe(PlayerID),
+    playerBot_ID_Index(PlayerID,Index),
+    s_PlayerBot_RecipeName(_,objectIndex(Index),RecipeName).
+
+
+
+% Player Recipe Ingredients
+
+playerBot_HasMissingIngredients(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasMissingIngredients(_,objectIndex(Index), true).
+
+playerBot_HasNoMissingIngredients(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasMissingIngredients(_,objectIndex(Index), false).
+
+playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index) :-
+    playerBot_HasMissingIngredients(PlayerID),
+    playerBot_ID_Index(PlayerID,Index1),
+    s_PlayerBot_MissingIngredientsNames(_,objectIndex(Index1),Index,IngredientName).
+
+playerBot_MissingIngredients(PlayerID, IngredientName) :- 
+    playerBot_MissingIngredients_Index(PlayerID, IngredientName, _).
+
+playerBot_HasInvalidIngredients(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasInvalidIngredients(_,objectIndex(Index), true).
+
+playerBot_HasNoInvalidIngredients(ID) :-
+    playerBot_ID_Index(ID,Index),
+    s_PlayerBot_HasInvalidIngredients(_,objectIndex(Index), false).
+
+playerBot_HasCompletedRecipe(ID) :-
+    playerBot_HasRecipe(ID),
+    playerBot_HasNoMissingIngredients(ID),
+    playerBot_HasNoInvalidIngredients(ID).
+
 
 
 
