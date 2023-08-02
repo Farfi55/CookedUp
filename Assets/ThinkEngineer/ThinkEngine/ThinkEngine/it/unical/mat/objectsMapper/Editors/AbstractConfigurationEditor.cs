@@ -133,6 +133,7 @@ namespace ThinkEngine.Editors
                     configuration.RefreshObjectTracker();
                 }
                 ListProperties(new MyListString(), true);
+                configuration.RemovedNonExistingProperties();
                 bool clear = GUILayout.Button("Clear");
                 if (clear)
                 {

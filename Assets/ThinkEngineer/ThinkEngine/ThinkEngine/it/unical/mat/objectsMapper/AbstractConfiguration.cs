@@ -55,6 +55,18 @@ namespace ThinkEngine
                 _propertyFeatures = value;
             }
         }
+        internal List<bool> _foundProperties;
+        internal List<bool> FoundProperties
+        {
+            get
+            {
+                if(_foundProperties == null)
+                {
+                    _foundProperties = new List<bool>(new bool[SavedProperties.Count]);
+                }
+                return _foundProperties;
+            }
+        }
         internal List<MyListString> ToMapProperties
         {
             get
@@ -104,17 +116,37 @@ namespace ThinkEngine
             _objectTracker = new ObjectTracker(gameObject);
             SavedProperties = new List<MyListString>();
             ToMapProperties = new List<MyListString>();
+            foreach (PropertyFeatures property in PropertyFeaturesList)
+            {
+                property.Remove();
+            }
             PropertyFeaturesList = new List<PropertyFeatures>();
         }
         internal bool IsPropertySelected(MyListString property)
         {
-            return SavedProperties.Contains(property);
+            if(SavedProperties.Contains(property))
+            {
+                FoundProperties[SavedProperties.IndexOf(property)] = true;
+                return true;
+            }
+            return false;
+        }
+        internal void RemovedNonExistingProperties()
+        {
+
+            List<MyListString> toRemove = SavedProperties.FindAll(x => !FoundProperties[SavedProperties.IndexOf(x)]);
+            foreach (MyListString property in toRemove)
+            {
+                ToggleProperty(property, false);
+            }
+            _foundProperties = new List<bool>(new bool[SavedProperties.Count]);
         }
         internal void ToggleProperty(MyListString property, bool isActive)
         {
             if (isActive)
             {
                 SavedProperties.Add(property);
+                FoundProperties.Add(true);
                 PropertySelected(property);
                 if (ObjectTracker.IsFinal(property))
                 {
@@ -125,6 +157,7 @@ namespace ThinkEngine
             else
             {
                 PropertyDeleted(property);
+                FoundProperties.RemoveAt(SavedProperties.IndexOf(property));
                 SavedProperties.Remove(property);
                 if (ToMapProperties.Contains(property))
                 {
