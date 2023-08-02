@@ -391,7 +391,10 @@ namespace ThinkEngine
             List<Sensor> sensors = new List<Sensor>();
             foreach (string sensorConf in InstantiatedSensors[brain])
             {
-                sensors.AddRange(_sensorsInstances[sensorConf]);
+                if (_sensorsInstances.ContainsKey(sensorConf))
+                {
+                    sensors.AddRange(_sensorsInstances[sensorConf]);
+                }
             }
             return sensors;
         }
