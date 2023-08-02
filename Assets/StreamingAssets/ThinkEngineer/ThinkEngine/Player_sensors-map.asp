@@ -44,7 +44,7 @@ player_HasSelectedInteractable(ID) :-
 
 player_HasNoSelectedInteractable(ID) :- 
     player_ID_Index(ID,Index),
-    s_Player_HasSelectedInteractable(_,objectIndex(Index), false).
+    not player_HasSelectedInteractable(ID).
 
 player_SelectedInteractable(PlayerID, InteractableID, InteractableType) :-
     player_HasSelectedInteractable(PlayerID),
@@ -64,7 +64,7 @@ player_HasSpace(ID) :-
 
 player_HasNoSpace(ID) :-
     player_ID_Index(ID,Index),
-    s_Player_HasSpace(_,objectIndex(Index), false).
+    not player_HasSpace(ID).
 
 player_HasAny(ID) :-
     player_ID_Index(ID,Index),
@@ -72,7 +72,7 @@ player_HasAny(ID) :-
 
 player_HasNone(ID) :-
     player_ID_Index(ID,Index),
-    s_Player_HasAny(_,objectIndex(Index), false).
+    not player_HasAny(ID).
 
 % Player Kitchen Objects
 
@@ -117,7 +117,7 @@ playerBot_HasPlate(ID) :-
 
 playerBot_HasNoPlate(ID) :-
     playerBot_ID_Index(ID,Index),
-    s_PlayerBot_HasPlate(_,objectIndex(Index), false).
+    not playerBot_HasPlate(ID).
 
 playerBot_Plate_ID(PlayerID, PlateID) :-
     playerBot_HasPlate(PlayerID),
@@ -143,7 +143,7 @@ playerBot_HasRecipe(ID) :-
 
 playerBot_HasNoRecipe(ID) :-
     playerBot_ID_Index(ID,Index),
-    s_PlayerBot_HasRecipe(_,objectIndex(Index), false).
+    not playerBot_HasRecipe(ID).
 
 
 playerBot_Recipe(PlayerID, RecipeName) :-
@@ -161,7 +161,7 @@ playerBot_HasMissingIngredients(ID) :-
 
 playerBot_HasNoMissingIngredients(ID) :-
     playerBot_ID_Index(ID,Index),
-    s_PlayerBot_HasMissingIngredients(_,objectIndex(Index), false).
+    not playerBot_HasMissingIngredients(ID).
 
 playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index) :-
     playerBot_HasMissingIngredients(PlayerID),
@@ -177,7 +177,7 @@ playerBot_HasInvalidIngredients(ID) :-
 
 playerBot_HasNoInvalidIngredients(ID) :-
     playerBot_ID_Index(ID,Index),
-    s_PlayerBot_HasInvalidIngredients(_,objectIndex(Index), false).
+    not playerBot_HasInvalidIngredients(ID).
 
 playerBot_HasCompletedRecipe(ID) :-
     playerBot_HasRecipe(ID),
@@ -236,7 +236,7 @@ counter_HasSpace(ID) :-
 
 counter_HasNoSpace(ID) :-
     counter_ID_Index(ID,Index),
-    s_Counter_HasSpace(_,objectIndex(Index), false).
+    not counter_HasSpace(ID).
 
 counter_HasAny(ID) :-
     counter_ID_Index(ID,Index),
@@ -244,7 +244,7 @@ counter_HasAny(ID) :-
 
 counter_HasNone(ID) :-
     counter_ID_Index(ID,Index),
-    s_Counter_HasAny(_,objectIndex(Index), false).
+    not counter_HasAny(ID).
 
 % Counter Kitchen Objects
 
@@ -324,7 +324,7 @@ cuttingCounter_HasAny(ID) :-
 
 cuttingCounter_HasNone(ID) :-
     cuttingCounter_ID_Index(ID,Index),
-    s_CuttingCounter_HasAny(_,objectIndex(Index), false).
+    not cuttingCounter_HasAny(ID).
 
 cuttingCounter_CanCut(ID) :-
     cuttingCounter_ID_Index(ID,Index),
@@ -332,7 +332,7 @@ cuttingCounter_CanCut(ID) :-
 
 cuttingCounter_CannotCut(ID) :-
     cuttingCounter_ID_Index(ID,Index),
-    s_CuttingCounter_CanCut(_,objectIndex(Index), false).
+    not cuttingCounter_CanCut(ID).
 
 cuttingCounter_TimeRemainingToCut(ID, TimeRemainingToCut) :-
     cuttingCounter_ID_Index(ID,Index),
@@ -380,7 +380,7 @@ stoveCounter_HasAny(ID) :-
 
 stoveCounter_HasNone(ID) :-
     stoveCounter_ID_Index(ID,Index),
-    s_StoveCounter_HasAny(_,objectIndex(Index), false).
+    not stoveCounter_HasAny(ID).
 
 stoveCounter_CanCook(ID) :-
     stoveCounter_ID_Index(ID,Index),
@@ -388,7 +388,7 @@ stoveCounter_CanCook(ID) :-
 
 stoveCounter_CannotCook(ID) :-
     stoveCounter_ID_Index(ID,Index),
-    s_StoveCounter_CanCook(_,objectIndex(Index), false).
+    not stoveCounter_CanCook(ID).
 
 stoveCounter_TimeRemainingToCook(ID, TimeRemainingToCook) :-
     stoveCounter_ID_Index(ID,Index),
@@ -403,7 +403,7 @@ stoveCounter_IsBurning(ID) :-
 stoveCounter_IsNotBurning(ID) :-
     stoveCounter_ID_Index(ID,Index),
     stoveCounter_CanCook(ID),
-    s_StoveCounter_IsBurning(_,objectIndex(Index), false).
+    not stoveCounter_IsBurning(ID).
 
 
 stoveCounter_CurrentCookingRecipe_Name(ID, RecipeName) :-
@@ -500,7 +500,7 @@ plate_IsInContainer(PlateID) :-
 
 plate_IsNotInContainer(PlateID) :-
     plate_ID_Index(PlateID, Index),
-    s_Plate_IsInContainer(_,objectIndex(Index), false).
+    not plate_IsInContainer(PlateID).
 
 % container which contains the plate
 plate_Container_ID(PlateID, ContainerID) :-

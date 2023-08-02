@@ -49,13 +49,13 @@ namespace Players {
         }
 
         private void SetPlate(PlateKitchenObject plate) {
-            var oldValue = Plate;
-            if (oldValue == plate)
+            var oldPlate = Plate;
+            if (oldPlate == plate)
                 return;
 
-            if (oldValue != null) {
-                oldValue.IngredientsContainer.OnKitchenObjectsChanged -= InvokePlateIngredientsChanged;
-                oldValue.OnDestroyed -= OnPlateDestroyed;
+            if (oldPlate != null) {
+                oldPlate.IngredientsContainer.OnKitchenObjectsChanged -= InvokePlateIngredientsChanged;
+                oldPlate.OnDestroyed -= OnPlateDestroyed;
             }
 
             Plate = plate;
@@ -65,7 +65,7 @@ namespace Players {
                 Plate.OnDestroyed += OnPlateDestroyed;
             }
 
-            OnPlateChanged?.Invoke(this, new ValueChangedEvent<PlateKitchenObject>(oldValue, Plate));
+            OnPlateChanged?.Invoke(this, new ValueChangedEvent<PlateKitchenObject>(oldPlate, Plate));
             
             if (Plate != null) {
                 var ingredientsContainer = Plate.IngredientsContainer;
@@ -81,7 +81,10 @@ namespace Players {
             OnPlateIngredientsChanged?.Invoke(this, e);
         }
 
-        private void OnPlateDestroyed(object o, EventArgs eventArgs) => SetPlate(null);
+        private void OnPlateDestroyed(object o, EventArgs eventArgs) {
+            Debug.Log("Plate destroyed");
+            SetPlate(null);
+        }
 
 
         void Update() {

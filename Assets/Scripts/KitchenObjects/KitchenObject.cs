@@ -60,7 +60,9 @@ namespace KitchenObjects {
         /// Removes itself from the current holder and destroys itself.
         /// </summary>
         public void DestroySelf() {
+            Debug.Log($"{name} destroy self");
             RemoveFromContainer();
+            OnDestroyed?.Invoke(this, EventArgs.Empty);
             Destroy(gameObject);
         }
 
@@ -92,10 +94,6 @@ namespace KitchenObjects {
 
             plateKitchenObject = null;
             return false;
-        }
-
-        private void OnDestroy() {
-            OnDestroyed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
