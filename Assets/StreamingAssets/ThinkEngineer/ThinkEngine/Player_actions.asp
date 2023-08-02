@@ -68,18 +68,18 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_Cut(ActionIndex, _, Targe
 
 % a_WaitToCook(ActionIndex, PlayerID, TargetInteractableID).
 
-applyAction(ActionIndex, "CookAction") :- 
-    a_Cook(ActionIndex, _, _).
+applyAction(ActionIndex, "WaitToCookAction") :- 
+    a_WaitToCook(ActionIndex, _, _).
 
-actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_Cook(ActionIndex, PlayerID, _).
-actionArgument(ActionIndex, "TargetID", TargetID) :- a_Cook(ActionIndex, _, TargetID).
+actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_WaitToCook(ActionIndex, PlayerID, _).
+actionArgument(ActionIndex, "TargetID", TargetID) :- a_WaitToCook(ActionIndex, _, TargetID).
 
 % ================================== Wait ==================================
 
 % a_Wait(ActionIndex, PlayerID, MilliSecondsToWait).
 % a_Wait(ActionIndex, PlayerID).
 
-a_Wait_DefaultMilliSecondsToWait(200).
+a_Wait_DefaultMilliSecondsToWait(300).
 
 a_Wait(ActionIndex, PlayerID, MilliSecondsToWait) :- 
     a_Wait_DefaultMilliSecondsToWait(MilliSecondsToWait),

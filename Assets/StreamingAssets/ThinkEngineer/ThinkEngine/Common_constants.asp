@@ -44,4 +44,63 @@ c_CUTTING_RECIPE(RecipeName, InputKOName, OutputKOName, TimeToCut) :-
 c_CUTTING_RECIPE_NAME(RecipeName) :-
     c_CUTTING_RECIPE(RecipeName, _, _, _).
 
+c_KO_NAME("Bread").
+c_KO_NAME("Cabbage").
+c_KO_NAME("CabbageSlices").
+c_KO_NAME("CheeseBlock").
+c_KO_NAME("CheeseSlices").
+c_KO_NAME("MeatPattyBurned").
+c_KO_NAME("MeatPattyCooked").
+c_KO_NAME("MeatPattyUncooked").
+c_KO_NAME("Plate").
+c_KO_NAME("Tomato").
+c_KO_NAME("TomatoSlices").
 
+
+c_COMPLETE_RECIPE_NAME("Burger", 10).
+c_COMPLETE_RECIPE_NAME("CheeseBurger", 15).
+c_COMPLETE_RECIPE_NAME("MegaBurger", 30).
+c_COMPLETE_RECIPE_NAME("Salad", 8).
+
+c_COMPLETE_RECIPE_INGREDIENT("Burger", "Bread").
+c_COMPLETE_RECIPE_INGREDIENT("Burger", "MeatPattyCooked").
+
+c_COMPLETE_RECIPE_INGREDIENT("CheeseBurger", "Bread").
+c_COMPLETE_RECIPE_INGREDIENT("CheeseBurger", "MeatPattyCooked").
+c_COMPLETE_RECIPE_INGREDIENT("CheeseBurger", "CheeseSlices").
+
+c_COMPLETE_RECIPE_INGREDIENT("MegaBurger", "Bread").
+c_COMPLETE_RECIPE_INGREDIENT("MegaBurger", "MeatPattyCooked").
+c_COMPLETE_RECIPE_INGREDIENT("MegaBurger", "CheeseSlices").
+c_COMPLETE_RECIPE_INGREDIENT("MegaBurger", "TomatoSlices").
+c_COMPLETE_RECIPE_INGREDIENT("MegaBurger", "CabbageSlices").
+
+c_COMPLETE_RECIPE_INGREDIENT("Salad", "TomatoSlices").
+c_COMPLETE_RECIPE_INGREDIENT("Salad", "CabbageSlices").
+
+
+c_COOKING_RECIPE(
+    "MeatPattyUncooked-MeatPattyCooked", 
+    "MeatPattyUncooked", "MeatPattyCooked", 
+    5000, false).
+
+c_COOKING_RECIPE(
+    "MeatPattyCooked-MeatPattyBurned", 
+    "MeatPattyCooked", "MeatPattyBurned", 
+    3500, true).
+
+
+c_CUTTING_RECIPE(
+    "Cabbage-CabbageSlices", 
+    "Cabbage", "CabbageSlices", 
+    2000).
+
+c_CUTTING_RECIPE(
+    "Tomato-TomatoSlices", 
+    "Tomato", "TomatoSlices", 
+    1000).
+
+c_CUTTING_RECIPE(
+    "CheeseBlock-CheeseSlices", 
+    "CheeseBlock", "CheeseSlices", 
+    1500).

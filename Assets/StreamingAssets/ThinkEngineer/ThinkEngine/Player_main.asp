@@ -1,5 +1,5 @@
-% STEP 1
-% FIND THE STATE WE ARE IN
+curr_Player_ID(ID) :- player(ID, _, "PlayerBOT_ASP").
+
 
 state_WaitingForRecipe :- 
     curr_Player_ID(PlayerID),
@@ -44,7 +44,7 @@ state("Delivery") :- state_Delivery.
 
 :- #count{X: state(X)} != 1.
 
-firstActionIndex(1).
+firstActionIndex(0).
 
 % ========================== STATE PICKUP PLATE ==========================
 
@@ -333,27 +333,27 @@ a_Wait(ActionIndex, PlayerID) :-
 
 
 stateD_Target(TargetID) :-
-    state_Deliver,
+    state_Delivery,
     deliveryCounter_ID(TargetID),
     counter_HasSpace(TargetID).
 
 
 a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
-    state_Deliver,
+    state_Delivery,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     curr_Player_ID(PlayerID),
     stateD_Target(TargetID).
 
 a_Place(ActionIndex, PlayerID, TargetID) :-
-    state_Deliver,
+    state_Delivery,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
     curr_Player_ID(PlayerID),
     stateD_Target(TargetID).
 
 a_Wait(ActionIndex, PlayerID) :-
-    state_Deliver,
+    state_Delivery,
     ActionIndex = FirstActionIndex + 2,
     firstActionIndex(FirstActionIndex),
     curr_Player_ID(PlayerID).
@@ -363,3 +363,5 @@ a_Wait(ActionIndex, PlayerID) :-
 #show state/1.
 #show applyAction/2.
 #show actionArgument/3.
+#show subStateGI/1.
+#show stateGI_nextIngredient/1.
