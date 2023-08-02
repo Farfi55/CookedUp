@@ -84,6 +84,7 @@ MonoBehaviour:
   - s_Delivery
   - s_ContainerCounter
   - s_StoveCounter
+  - s_Counter
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix:
   - Player
@@ -116,7 +117,7 @@ PrefabInstance:
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}

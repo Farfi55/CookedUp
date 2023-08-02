@@ -41,7 +41,7 @@ namespace Counters
             }
 
 
-            base.InvokeOnInteractAlternate(new InteractableEvent(player));
+            base.InvokeOnInteract(new InteractableEvent(player));
         }
 
     }

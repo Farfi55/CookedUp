@@ -21,6 +21,7 @@
         "explorer.sortOrder": "modified",
         "files.exclude": {
             "**/*.meta": true
-        }
+        },
+        "diffEditor.codeLens": true
     }
 }

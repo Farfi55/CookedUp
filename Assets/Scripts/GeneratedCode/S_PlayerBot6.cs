@@ -70,11 +70,11 @@ namespace ThinkEngine
 				}
 				else if(MissingIngredientsNames1.Count < isIndexActive.Count)
 				{
-					for(int i = MissingIngredientsNames1.Count; i < isIndexActive.Count; i++)
-					{
-						indicies.RemoveAt(isIndexActive.Count - 1);
-						isIndexActive.RemoveAt(isIndexActive.Count - 1);
-						values.RemoveAt(isIndexActive.Count - 1);
+					for(int i = MissingIngredientsNames1.Count; i < isIndexActive.Count; i++) {
+                        var index = isIndexActive.Count - 1;
+						indicies.RemoveAt(index);
+						isIndexActive.RemoveAt(index);
+						values.RemoveAt(index);
 					}
 				}
 				for(int i = 0; i < values.Count; i++)

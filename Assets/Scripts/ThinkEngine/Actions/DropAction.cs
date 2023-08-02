@@ -44,8 +44,6 @@ namespace ThinkEngine.Actions
             }
 
             if(Player.TryInteract()) {
-                Debug.Log($"player interacted with the target {Target.name}");
-                
                 if (hasInteracted) {
                     OnDone();
                     return true;

@@ -23,6 +23,8 @@ namespace ThinkEngine.Actions
             }
             
             cookingRecipe = stoveCounter.CurrentCookingRecipe;
+
+            Debug.Log($"WaitToCookAction: {Player.name} waiting to cook {cookingRecipe.name}");
         }
 
         public override State Prerequisite() {
@@ -42,12 +44,16 @@ namespace ThinkEngine.Actions
         }
 
         private void OnRecipeChanged(object sender, ValueChangedEvent<BaseRecipeSO> e) {
+            var newKO = stoveCounter.Container.KitchenObject;
+            Debug.Log($"WaitToCookAction: {Player.name} recipe changed to {e.NewValue?.name ?? "null"}");
+            if(newKO != null && newKO.IsSameType(cookingRecipe.Input))
+                return;
+            
             isDone = true;
             
             // if the recipe has changed and the result is what we expected as output of the recipe
             // then we are successful
-            var outputKO = stoveCounter.Container.KitchenObject;
-            hasCookedSuccessfully = outputKO != null && outputKO.IsSameType(cookingRecipe.Output);
+            hasCookedSuccessfully = newKO != null && newKO.IsSameType(cookingRecipe.Output);
         }
 
         public override bool Done() {
