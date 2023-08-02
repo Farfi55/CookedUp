@@ -19,6 +19,8 @@ public class DeliveryManager : MonoBehaviour {
 
     [SerializeField] private CompleteRecipeSOList recipes;
 
+    [SerializeField] private List<CompleteRecipeSO> startingRecipes;
+
     private readonly ObservableCollection<CompleteRecipeSO> waitingRecipeSOs = new();
     
     public ObservableCollection<CompleteRecipeSO> WaitingRecipeSOs => waitingRecipeSOs;
@@ -47,7 +49,7 @@ public class DeliveryManager : MonoBehaviour {
             Debug.LogError("Multiple DeliveryManagers in scene!");
             Destroy(gameObject);
         }
-
+        
         progressTracker = GetComponent<ProgressTracker>();
     }
 
@@ -57,7 +59,12 @@ public class DeliveryManager : MonoBehaviour {
         progressTracker.SetTotalWork(timeForNewRequest);
         progressTracker.OnProgressComplete += ProgressTrackerOnOnProgressComplete;
 
-        for (int i = 0; i < startingWaitingRequests; i++) {
+        foreach (var startingRecipe in startingRecipes) {
+            AddRecipe(startingRecipe);
+        }
+        startingRecipes.Clear();
+        
+        for (int i = waitingRecipeSOs.Count; i < startingWaitingRequests; i++) {
             CreateNewRecipe();
         }
     }
@@ -74,12 +81,17 @@ public class DeliveryManager : MonoBehaviour {
         CreateNewRecipe();
     }
 
+    
     private void CreateNewRecipe() {
         var completeRecipeSO = recipes.RecipeSOList.GetRandomElement();
-        waitingRecipeSOs.Add(completeRecipeSO);
+        AddRecipe(completeRecipeSO);
+    }
+    
+    private void AddRecipe(CompleteRecipeSO recipeSO) {
+        waitingRecipeSOs.Add(recipeSO);
         progressTracker.ResetProgress();
-        OnRecipeCreated?.Invoke(this, completeRecipeSO);
-        Debug.Log($"New recipe request: {completeRecipeSO.DisplayName}");
+        OnRecipeCreated?.Invoke(this, recipeSO);
+        Debug.Log($"New recipe request: {recipeSO.DisplayName}");
     }
 
 
