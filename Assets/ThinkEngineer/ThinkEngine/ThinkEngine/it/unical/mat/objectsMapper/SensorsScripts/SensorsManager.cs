@@ -92,7 +92,7 @@ namespace ThinkEngine
             }
             else
             {
-                _sensorsInstances[configurationName] = listOfGeneratedSensors;
+                _sensorsInstances[configurationName] = new List<Sensor>(listOfGeneratedSensors);
             }
         }
 
