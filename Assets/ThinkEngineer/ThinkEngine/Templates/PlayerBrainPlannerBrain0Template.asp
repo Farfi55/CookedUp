@@ -6,8 +6,6 @@
 %s_Player_HasSelectedInteractable(playerSensors,objectIndex(Index),Value).
 %s_Player_SelectedInteractableType(playerSensors,objectIndex(Index),Value).
 %s_Player_SelectedInteractableID(playerSensors,objectIndex(Index),Value).
-%s_Player_X(playerSensors,objectIndex(Index),Value).
-%s_Player_Y(playerSensors,objectIndex(Index),Value).
 %s_Player_ContainerID(playerSensors,objectIndex(Index),Value).
 %s_Player_SizeLimit(playerSensors,objectIndex(Index),Value).
 %s_Player_Count(playerSensors,objectIndex(Index),Value).
@@ -54,9 +52,7 @@
 %s_PlatesCounter_ID(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_PlatesLimit(counterSensor,objectIndex(Index),Value).
 %s_PlatesCounter_PlatesCount(counterSensor,objectIndex(Index),Value).
-%s_Delivery_Recipes_Name(deliverySensor,objectIndex(Index),Index1,Value).
-%s_Delivery_Recipes_IngredientsNames(deliverySensor,objectIndex(Index),Index1,Index2,Value).
-%s_Delivery_Recipes_Value(deliverySensor,objectIndex(Index),Index1,Value).
+%s_Delivery_WaitingRecipesNames(deliverySensor,objectIndex(Index),Index1,Value).
 %s_ContainerCounter_ID(counterSensor,objectIndex(Index),Value).
 %s_ContainerCounter_KOType(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_ID(counterSensor,objectIndex(Index),Value).
@@ -69,6 +65,22 @@
 %s_StoveCounter_CurrentCookingRecipe_OutputKOName(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_CurrentCookingRecipe_TimeToCook(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe(counterSensor,objectIndex(Index),Value).
+%s_Counter_ID(counterSensor,objectIndex(Index),Value).
+%s_Counter_Type(counterSensor,objectIndex(Index),Value).
+%s_Counter_Name(counterSensor,objectIndex(Index),Value).
+%s_Counter_X(counterSensor,objectIndex(Index),Value).
+%s_Counter_Y(counterSensor,objectIndex(Index),Value).
+%s_Counter_ContainerID(counterSensor,objectIndex(Index),Value).
+%s_Counter_SizeLimit(counterSensor,objectIndex(Index),Value).
+%s_Counter_Count(counterSensor,objectIndex(Index),Value).
+%s_Counter_KitchenObject_Name(counterSensor,objectIndex(Index),Index1,Value).
+%s_Counter_KitchenObject_ID(counterSensor,objectIndex(Index),Index1,Value).
+%s_Counter_KitchenObject_ContainerID(counterSensor,objectIndex(Index),Index1,Value).
+%s_Counter_FirstKitchenObject_Name(counterSensor,objectIndex(Index),Value).
+%s_Counter_FirstKitchenObject_ID(counterSensor,objectIndex(Index),Value).
+%s_Counter_FirstKitchenObject_ContainerID(counterSensor,objectIndex(Index),Value).
+%s_Counter_HasAny(counterSensor,objectIndex(Index),Value).
+%s_Counter_HasSpace(counterSensor,objectIndex(Index),Value).
 % Predicates for Action invokation.
 % applyAction(OrderOfExecution,ActionClassName).
 % actionArgument(ActionOrder,ArgumentName, ArgumentValue).

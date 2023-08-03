@@ -9,7 +9,7 @@ namespace ThinkEngine.Sensors {
     public class DeliverySensorData : MonoBehaviour {
         private DeliveryManager deliveryManager;
         
-        [Header("Sensor Data")] public List<CompleteRecipe> Recipes = new();
+        [Header("Sensor Data")] public List<string> WaitingRecipesNames = new();
 
         private void Start() {
             deliveryManager = DeliveryManager.Instance;
@@ -30,7 +30,7 @@ namespace ThinkEngine.Sensors {
         private void OnRecipeDelivered(object sender, RecipeDeliveryEvent e) => UpdateRecipesData();
 
         private void UpdateRecipesData() {
-            Recipes = deliveryManager.WaitingRecipeSOs.ToList().ConvertAll(completeRecipeSO => new CompleteRecipe(completeRecipeSO));
+            WaitingRecipesNames = deliveryManager.WaitingRecipeSOs.ToList().ConvertAll(completeRecipeSO => completeRecipeSO.name);
         }
     }
 }

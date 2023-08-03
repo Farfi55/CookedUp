@@ -3,7 +3,7 @@ import os
 import sys
 from datetime import datetime
 
-input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/PlayerBrain/'
+input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/Player/'
 input_index = -1
 
 streaming_assets_path = 'C:\Dev\CookedUp\Assets\StreamingAssets\ThinkEngineer\ThinkEngine/'

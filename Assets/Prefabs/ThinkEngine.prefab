@@ -118,11 +118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
-    - scene
+    - ConstantsSensorData
     Count: 1
   - myStrings:
     - ConstantsSensorData
-    Count: 1
+    - KitchenObjectsNames
+    Count: 2
   - myStrings:
     - ConstantsSensorData
     - CuttingRecipes
@@ -137,13 +138,153 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - ConstantsSensorData
-    - KitchenObjectsNames
-    Count: 2
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Name
+    Count: 4
   _toMapProperties:
   - myStrings:
     - ConstantsSensorData
     - KitchenObjectsNames
     Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Value
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    - CompleteRecipe
+    - Name
+    Count: 4
   _propertyFeatures:
   - property:
       myStrings:
@@ -152,8 +293,176 @@ MonoBehaviour:
       Count: 2
     windowWidth: 200
     configurationName: s_Const
-    _propertyAlias: s_Const_KitchenObjectsNames
-    propertyAliasHash: -496711944
+    _propertyAlias: s_Const_KitchenObjectsNames0
+    propertyAliasHash: 172248648
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_Name
+    propertyAliasHash: -1683308104
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - InputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_InputKOName
+    propertyAliasHash: 699681824
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - OutputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_OutputKOName
+    propertyAliasHash: 383875859
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - TimeToCut
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_TimeToCut
+    propertyAliasHash: 985920603
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - IsBurningRecipe
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_IsBurningRecipe
+    propertyAliasHash: -850219988
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - TimeToCook
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_TimeToCook
+    propertyAliasHash: -724588329
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - OutputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_OutputKOName
+    propertyAliasHash: -56214667
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - InputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_InputKOName
+    propertyAliasHash: -1210373480
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_Name
+    propertyAliasHash: 1082092852
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CompleteRecipes
+      - CompleteRecipe
+      - Value
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CompleteRecipe_Value
+    propertyAliasHash: 289789283
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CompleteRecipes
+      - CompleteRecipe
+      - IngredientsNames
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CompleteRecipe_IngredientsNames
+    propertyAliasHash: 453925698
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CompleteRecipes
+      - CompleteRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CompleteRecipe_Name
+    propertyAliasHash: -766420929
     operation: 0
     specificValue: 
     counter: 0
@@ -206,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5bd74ee06f4812b7ee6d7266899acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Recipes: []
+  WaitingRecipesNames: []
 --- !u!114 &7853516740463181676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,92 +534,33 @@ MonoBehaviour:
     Count: 1
   - myStrings:
     - DeliverySensorData
-    - Recipes
+    - WaitingRecipesNames
     Count: 2
-  - myStrings:
-    - DeliverySensorData
-    - Recipes
-    - CompleteRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - DeliverySensorData
-    - Recipes
-    - CompleteRecipe
-    - IngredientsNames
-    Count: 4
-  - myStrings:
-    - DeliverySensorData
-    - Recipes
-    - CompleteRecipe
-    - Value
-    Count: 4
   _toMapProperties:
   - myStrings:
     - DeliverySensorData
-    - Recipes
-    - CompleteRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - DeliverySensorData
-    - Recipes
-    - CompleteRecipe
-    - IngredientsNames
-    Count: 4
-  - myStrings:
-    - DeliverySensorData
-    - Recipes
-    - CompleteRecipe
-    - Value
-    Count: 4
+    - WaitingRecipesNames
+    Count: 2
   _propertyFeatures:
   - property:
       myStrings:
       - DeliverySensorData
-      - Recipes
-      - CompleteRecipe
-      - Name
-      Count: 4
+      - WaitingRecipesNames
+      Count: 2
     windowWidth: 200
     configurationName: s_Delivery
-    _propertyAlias: s_Delivery_Recipes_Name
-    propertyAliasHash: 1141289150
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - DeliverySensorData
-      - Recipes
-      - CompleteRecipe
-      - IngredientsNames
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Delivery
-    _propertyAlias: s_Delivery_Recipes_IngredientsNames
-    propertyAliasHash: 528827321
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - DeliverySensorData
-      - Recipes
-      - CompleteRecipe
-      - Value
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Delivery
-    _propertyAlias: s_Delivery_Recipes_Value
-    propertyAliasHash: -622096598
+    _propertyAlias: s_Delivery_WaitingRecipesNames
+    propertyAliasHash: -1431180329
     operation: 0
     specificValue: 
     counter: 0
   _configurationName: s_Delivery
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: d52278ac7f111c240b36d1d4263412ed, type: 3}
+    typeName: ThinkEngine.s_Delivery_WaitingRecipesNames, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &5500973982305564121
 GameObject:
   m_ObjectHideFlags: 0

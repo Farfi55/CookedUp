@@ -1,101 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2178363246314966110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6191842357701506035}
-  - component: {fileID: 5647543402946989565}
-  - component: {fileID: 7436012076395894500}
-  - component: {fileID: 4174639737708941340}
-  m_Layer: 0
-  m_Name: PlayerBrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6191842357701506035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178363246314966110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7724352490623143304}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5647543402946989565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178363246314966110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2aa13b928c00d34286809e8edaa818c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7436012076395894500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178363246314966110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19718c9808e14cb4ea9449c0fa49bcc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  priorityExecuting: 0
---- !u!114 &4174639737708941340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178363246314966110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43caf37b06ba8954abe67548f09c14fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  borning: 0
-  enableBrain: 1
-  debug: 0
-  maintainInputFile: 1
-  _chosenSensorConfigurations:
-  - s_Player
-  - s_PlayerBot
-  - s_Plate
-  - s_CuttingCounter
-  - s_PlatesCounter
-  - s_Delivery
-  - s_ContainerCounter
-  - s_StoveCounter
-  - s_Counter
-  AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
-  AIFilesPrefix:
-  - Player
-  - Common
-  prefabBrain: 0
-  solverEnum: 1
-  _executeReasonerOn: When Sensors are ready
-  specificAIFile: 0
-  globalAIFile: 0
-  solver_options: []
-  _priority: 0
 --- !u!1001 &7398794834033969047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,35 +8,891 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2411611682236806759, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[8].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[9].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[10].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[16].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[17].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[13].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[15].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6]._propertyAlias
+      value: s_Player_ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7]._propertyAlias
+      value: s_Player_SizeLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[8]._propertyAlias
+      value: s_Player_Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9]._propertyAlias
+      value: s_Player_KitchenObject_Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].property.Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10]._propertyAlias
+      value: s_Player_KitchenObject_ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11]._propertyAlias
+      value: s_Player_KitchenObject_ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12]._propertyAlias
+      value: s_Player_FirstKitchenObject_Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13]._propertyAlias
+      value: s_Player_FirstKitchenObject_ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].property.Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[14]._propertyAlias
+      value: s_Player_FirstKitchenObject_ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[15]._propertyAlias
+      value: s_Player_HasSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[15].property.Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[16]._propertyAlias
+      value: s_Player_HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[16].property.Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].propertyAliasHash
+      value: -101990704
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7].propertyAliasHash
+      value: 587007382
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[8].propertyAliasHash
+      value: 1922717623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].propertyAliasHash
+      value: -1628376365
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].propertyAliasHash
+      value: -1221714555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].propertyAliasHash
+      value: -996404380
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].propertyAliasHash
+      value: -1125898535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].propertyAliasHash
+      value: -1905527025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[14].propertyAliasHash
+      value: 1277166146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[15].propertyAliasHash
+      value: -350284396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[16].propertyAliasHash
+      value: 670887916
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[8].myStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[10].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[16].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[17].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[13].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[15].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[8].myStrings.Array.data[0]
+      value: KOContainerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[9].myStrings.Array.data[0]
+      value: KOContainerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[9].myStrings.Array.data[1]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[0]
+      value: KOContainerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[1]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.data[0]
+      value: KOContainerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[7].myStrings.Array.data[1]
+      value: SizeLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[8].myStrings.Array.data[1]
+      value: Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[1]
+      value: KitchenObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[2]
+      value: KitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[10].myStrings.Array.data[1]
+      value: SizeLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[1]
+      value: Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[1]
+      value: KitchenObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[1]
+      value: KitchenObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[2]
+      value: KitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[13].myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.data[2]
+      value: KitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[14].myStrings.Array.data[3]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[15].myStrings.Array.data[3]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[16].myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[17].myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[17].myStrings.Array.data[2]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].myStrings.Array.data[2]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.data[2]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.data[1]
+      value: HasSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.data[1]
+      value: HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[1]
+      value: KitchenObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[2]
+      value: KitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[3]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[3]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[2]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[13].myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[13].myStrings.Array.data[2]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[14].myStrings.Array.data[2]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[15].myStrings.Array.data[1]
+      value: HasSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.data[1]
+      value: HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[15].property.myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[16].property.myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[0]
+      value: KOContainerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[1]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.data[0]
+      value: KOContainerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[7].property.myStrings.Array.data[1]
+      value: SizeLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[8].property.myStrings.Array.data[1]
+      value: Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[1]
+      value: KitchenObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[2]
+      value: KitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[3]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[1]
+      value: KitchenObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[2]
+      value: KitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[3]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[3]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[2]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.data[2]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[14].property.myStrings.Array.data[2]
+      value: ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[15].property.myStrings.Array.data[1]
+      value: HasSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572074951739035519, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[16].property.myStrings.Array.data[1]
+      value: HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[0].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0]._propertyAlias
+      value: s_PlayerBot_HasRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1]._propertyAlias
+      value: s_PlayerBot_RecipeName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2]._propertyAlias
+      value: s_PlayerBot_HasPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[3]._propertyAlias
+      value: s_PlayerBot_PlateForRecipeID
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[4]._propertyAlias
+      value: s_PlayerBot_HasMissingIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[5]._propertyAlias
+      value: s_PlayerBot_MissingIngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6]._propertyAlias
+      value: s_PlayerBot_HasInvalidIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].propertyAliasHash
+      value: -1667977817
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1].propertyAliasHash
+      value: 771090166
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2].propertyAliasHash
+      value: -825071185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[3].propertyAliasHash
+      value: -2051590749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[4].propertyAliasHash
+      value: 1238656557
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[5].propertyAliasHash
+      value: -84479033
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].propertyAliasHash
+      value: 1990872656
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[0].myStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[0].myStrings.Array.data[0]
+      value: PlayerBotSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[1].myStrings.Array.data[1]
+      value: HasRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[2].myStrings.Array.data[1]
+      value: RecipeName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[3].myStrings.Array.data[1]
+      value: HasPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[4].myStrings.Array.data[1]
+      value: PlateForRecipeID
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[5].myStrings.Array.data[1]
+      value: HasMissingIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[6].myStrings.Array.data[1]
+      value: MissingIngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[7].myStrings.Array.data[1]
+      value: HasInvalidIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].myStrings.Array.data[0]
+      value: PlayerBotSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[0].myStrings.Array.data[1]
+      value: HasRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[1].myStrings.Array.data[1]
+      value: RecipeName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[2].myStrings.Array.data[1]
+      value: HasPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[3].myStrings.Array.data[1]
+      value: PlateForRecipeID
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[4].myStrings.Array.data[1]
+      value: HasMissingIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[5].myStrings.Array.data[1]
+      value: MissingIngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[6].myStrings.Array.data[1]
+      value: HasInvalidIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.myStrings.Array.data[0]
+      value: PlayerBotSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[0].property.myStrings.Array.data[1]
+      value: HasRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[1].property.myStrings.Array.data[1]
+      value: RecipeName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[2].property.myStrings.Array.data[1]
+      value: HasPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[3].property.myStrings.Array.data[1]
+      value: PlateForRecipeID
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[4].property.myStrings.Array.data[1]
+      value: HasMissingIngredients
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[5].property.myStrings.Array.data[1]
+      value: MissingIngredientsNames
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500732969991809172, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[6].property.myStrings.Array.data[1]
+      value: HasInvalidIngredients
+      objectReference: {fileID: 0}
     - target: {fileID: 6821382789833421473, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dba792b574c201a4eabfe983aa82805a, type: 2}
+      objectReference: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
     - target: {fileID: 6821382791626291192, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dba792b574c201a4eabfe983aa82805a, type: 2}
+      objectReference: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
+    - target: {fileID: 7146784663560534928, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: playerColorSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 84dab6cb03376644da42075cd5244425,
+        type: 2}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.348052
+      value: 2.429255
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.97584057
+      value: 0.48163223
       objectReference: {fileID: 0}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
@@ -176,16 +936,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 981684771856321055, guid: 64ef46de98a59db49833984ec72c298a,
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2411611682236806759, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2122583609496107947}
+    - targetCorrespondingSourceObject: {fileID: 2411611682236806759, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6191842357701506035}
-    m_AddedComponents: []
+      addedObject: {fileID: 8873392148487948575}
+    - targetCorrespondingSourceObject: {fileID: 2411611682236806759, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7631294001576655426}
   m_SourcePrefab: {fileID: 100100000, guid: 64ef46de98a59db49833984ec72c298a, type: 3}
---- !u!4 &7724352490623143304 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 981684771856321055, guid: 64ef46de98a59db49833984ec72c298a,
+--- !u!1 &5177460339381318128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2411611682236806759, guid: 64ef46de98a59db49833984ec72c298a,
     type: 3}
   m_PrefabInstance: {fileID: 7398794834033969047}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2122583609496107947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177460339381318128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43caf37b06ba8954abe67548f09c14fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borning: 0
+  enableBrain: 1
+  debug: 0
+  maintainInputFile: 1
+  _chosenSensorConfigurations:
+  - s_Player
+  - s_PlayerBot
+  - s_Plate
+  - s_CuttingCounter
+  - s_PlatesCounter
+  - s_Delivery
+  - s_ContainerCounter
+  - s_StoveCounter
+  - s_Counter
+  AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
+  AIFilesPrefix:
+  - Player
+  - Common
+  prefabBrain: 0
+  solverEnum: 1
+  _executeReasonerOn: When Sensors are ready
+  specificAIFile: 0
+  globalAIFile: 0
+  solver_options: []
+  _priority: 0
+--- !u!114 &8873392148487948575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177460339381318128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2aa13b928c00d34286809e8edaa818c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7631294001576655426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177460339381318128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19718c9808e14cb4ea9449c0fa49bcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priorityExecuting: 0

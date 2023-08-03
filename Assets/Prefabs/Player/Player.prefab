@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 6797346015501511738}
   - component: {fileID: 6319924191727955422}
   m_Layer: 0
-  m_Name: PlayerSensors
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,14 +396,6 @@ MonoBehaviour:
     - SelectedInteractableID
     Count: 2
   - myStrings:
-    - GridPositionSensorData
-    - X
-    Count: 2
-  - myStrings:
-    - GridPositionSensorData
-    - Y
-    Count: 2
-  - myStrings:
     - KOContainerSensorData
     Count: 1
   - myStrings:
@@ -491,14 +483,6 @@ MonoBehaviour:
   - myStrings:
     - PlayerSensorData
     - SelectedInteractableID
-    Count: 2
-  - myStrings:
-    - GridPositionSensorData
-    - X
-    Count: 2
-  - myStrings:
-    - GridPositionSensorData
-    - Y
     Count: 2
   - myStrings:
     - KOContainerSensorData
@@ -623,30 +607,6 @@ MonoBehaviour:
     configurationName: s_Player
     _propertyAlias: s_Player_SelectedInteractableID
     propertyAliasHash: -1549504404
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - GridPositionSensorData
-      - X
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_X
-    propertyAliasHash: 263106358
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - GridPositionSensorData
-      - Y
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_Y
-    propertyAliasHash: -1302977583
     operation: 0
     specificValue: 
     counter: 0
