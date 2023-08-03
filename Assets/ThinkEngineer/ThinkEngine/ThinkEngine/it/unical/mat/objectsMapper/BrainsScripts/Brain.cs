@@ -129,7 +129,7 @@ namespace ThinkEngine
             {
                 triggerClass = Utility.TriggerClass;
                 StartCoroutine(Init());
-                whoAmIFact = "currentBrainID("+GetInstanceID()+")."+Environment.NewLine;
+                whoAmIFact = "currentBrainID("+gameObject.GetInstanceID()+")."+Environment.NewLine;
             }
         }
 
