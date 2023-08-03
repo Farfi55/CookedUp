@@ -9,8 +9,8 @@ input_index = -1
 streaming_assets_path = 'C:\Dev\CookedUp\Assets\StreamingAssets\ThinkEngineer\ThinkEngine/'
 
 brain_files_patterns = [
-    streaming_assets_path + 'Player*.asp',
-    streaming_assets_path + 'Common*.asp',
+    streaming_assets_path + '**/Player*.asp',
+    streaming_assets_path + '**/Common*.asp',
 ]
 brain_files = []
 
@@ -57,7 +57,7 @@ print("created at:", datetime.fromtimestamp(os.path.getctime(input_file)).strfti
 
 if(brain_files == []):
     for brain_files_pattern in brain_files_patterns:
-        brain_files += glob.glob(brain_files_pattern)
+        brain_files += glob.glob(brain_files_pattern, recursive=True)
 
 
 run_command = ' '.join([solver, *brain_files, input_file])

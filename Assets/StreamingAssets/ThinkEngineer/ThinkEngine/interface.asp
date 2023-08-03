@@ -2,6 +2,7 @@
 
 currentBrainID(Id).
 
+
 % ================================== ACTIONS ==================================
 
 a_MoveTo_Target(ActionIndex, TargetID).
@@ -21,7 +22,6 @@ a_Wait(ActionIndex).
 
 
 % ================================== CONSTANTS ==================================
-
 
 c_KO_NAME(KitchenObjectName).
 
@@ -60,6 +60,7 @@ player_HasNone(ID).
 % Player Kitchen Objects
 player_KitchenObject(PlayerID, KitchenObjectID, KitchenObjectName).
 
+
 % ================================== PLAYER BOT ==================================
 
 % Player Plate
@@ -83,90 +84,12 @@ playerBot_HasNoInvalidIngredients(ID).
 playerBot_HasCompletedRecipe(ID).
 
 
-
-% ================================== COUNTERS ==================================
-
-counter_ID_Index(ID,Index).
-counter(ID, Type, Name).
-counter_Pos(ID, X, Y).
-
-% Counter Container
-counter_ContainerID(ID, ContainerID).
-counter_Container_Count(ID, Count).
-counter_HasSpace(ID).
-counter_HasNoSpace(ID).
-counter_HasAny(ID).
-counter_HasNone(ID).
-
-% Counter Kitchen Objects
-counter_KitchenObject(CounterID, KitchenObjectID, KitchenObjectName).
-counter_KitchenObjects_Index(CounterID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
-counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName).
-
-% ================================== CONTAINER COUNTER ==================================
-
-
-containerCounter_ID_Index(ID,Index).
-containerCounter_ID(ID).
-containerCounter_KOType(ID, KitchenObjectType).
-
-% ================================== PLATES COUNTER ==================================
-
-platesCounter_ID_Index(ID,Index).
-platesCounter_ID(ID).
-platesCounter_Limit_Count(ID, PlatesLimit, PlatesCount).
-
-% ================================== CUTTING COUNTER ==================================
-
-cuttingCounter_ID_Index(ID,Index).
-cuttingCounter_ID(ID).
-cuttingCounter_HasAny(ID).
-cuttingCounter_HasNone(ID).
-cuttingCounter_CanCut(ID).
-cuttingCounter_CannotCut(ID).
-cuttingCounter_TimeRemainingToCut(ID, TimeRemainingToCut).
-cuttingCounter_CurrentCuttingRecipe_Name(ID, RecipeName).
-cuttingCounter_CurrentCuttingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCut).
-
-
-% ================================== STOVE COUNTER ==================================
-
-
-
-stoveCounter_ID_Index(ID,Index).
-stoveCounter_ID(ID).
-stoveCounter_HasAny(ID).
-stoveCounter_HasNone(ID).
-stoveCounter_CanCook(ID).
-stoveCounter_CannotCook(ID).
-stoveCounter_TimeRemainingToCook(ID, TimeRemainingToCook).
-stoveCounter_IsBurning(ID).
-stoveCounter_IsNotBurning(ID).
-
-stoveCounter_CurrentCookingRecipe_Name(ID, RecipeName).
-stoveCounter_CurrentCookingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCook, RecipeIsBurning).
-
-% ================================== OTHER COUNTERS ==================================
-
-
-% CLEAR COUNTER 
-
-clearCounter_ID_Index(ID,Index).
-clearCounter_ID(ID).
-% TRASH COUNTER 
-
-trashCounter_ID_Index(ID,Index).
-trashCounter_ID(ID).
-% DELIVERY COUNTER
-
-deliveryCounter_ID_Index(ID,Index).
-deliveryCounter_ID(ID).
-
 % ================================== KITCHEN OBJECTS ==================================
 
 any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, 0).
 any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
 any_KitchenObject(OwnerID, KitchenObjectID, KitchenObjectName).
+
 
 % ================================== PLATE KITCHEN OBJECT ==================================
 
@@ -190,3 +113,87 @@ plate_MissingIngredients_Name(PlateID, RecipeName, MissingIngredientName).
 plate_AnyMissingIngredients(PlateID, RecipeName).
 plate_InvalidIngredients(PlateID, RecipeName).
 plate_CompletedRecipe(PlateID, RecipeName).
+
+
+% ================================== COUNTERS ==================================
+
+counter_ID_Index(ID,Index).
+counter(ID, Type, Name).
+counter_Pos(ID, X, Y).
+
+% Counter Container
+counter_ContainerID(ID, ContainerID).
+counter_Container_Count(ID, Count).
+counter_HasSpace(ID).
+counter_HasNoSpace(ID).
+counter_HasAny(ID).
+counter_HasNone(ID).
+
+% Counter Kitchen Objects
+counter_KitchenObject(CounterID, KitchenObjectID, KitchenObjectName).
+counter_KitchenObjects_Index(CounterID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
+counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName).
+
+
+% ================================== CONTAINER COUNTER ==================================
+
+
+containerCounter_ID_Index(ID,Index).
+containerCounter_ID(ID).
+containerCounter_KOType(ID, KitchenObjectType).
+
+
+% ================================== PLATES COUNTER ==================================
+
+platesCounter_ID_Index(ID,Index).
+platesCounter_ID(ID).
+platesCounter_Limit_Count(ID, PlatesLimit, PlatesCount).
+
+
+% ================================== CUTTING COUNTER ==================================
+
+cuttingCounter_ID_Index(ID,Index).
+cuttingCounter_ID(ID).
+cuttingCounter_HasAny(ID).
+cuttingCounter_HasNone(ID).
+cuttingCounter_CanCut(ID).
+cuttingCounter_CannotCut(ID).
+cuttingCounter_TimeRemainingToCut(ID, TimeRemainingToCut).
+cuttingCounter_CurrentCuttingRecipe_Name(ID, RecipeName).
+cuttingCounter_CurrentCuttingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCut).
+
+
+% ================================== STOVE COUNTER ==================================
+
+stoveCounter_ID_Index(ID,Index).
+stoveCounter_ID(ID).
+stoveCounter_HasAny(ID).
+stoveCounter_HasNone(ID).
+stoveCounter_CanCook(ID).
+stoveCounter_CannotCook(ID).
+stoveCounter_TimeRemainingToCook(ID, TimeRemainingToCook).
+stoveCounter_IsBurning(ID).
+stoveCounter_IsNotBurning(ID).
+
+stoveCounter_CurrentCookingRecipe_Name(ID, RecipeName).
+stoveCounter_CurrentCookingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCook, RecipeIsBurning).
+
+
+% ================================== CLEAR COUNTERS ==================================
+
+clearCounter_ID_Index(ID,Index).
+clearCounter_ID(ID).
+
+
+% ================================== TRASH COUNTERS ==================================
+
+trashCounter_ID_Index(ID,Index).
+trashCounter_ID(ID).
+
+
+% ================================== DELIVERY COUNTERS ==================================
+
+deliveryCounter_ID_Index(ID,Index).
+deliveryCounter_ID(ID).
+
+

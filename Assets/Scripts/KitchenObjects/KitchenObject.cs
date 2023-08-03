@@ -6,7 +6,7 @@ using UnityEngine;
 namespace KitchenObjects {
     public class KitchenObject : MonoBehaviour {
         [SerializeField] private KitchenObjectSO kitchenObjectSO;
-
+        [SerializeField] private GameObject visuals;
         private KitchenObjectsContainer container;
 
 

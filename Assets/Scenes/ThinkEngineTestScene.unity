@@ -2766,12 +2766,7 @@ PrefabInstance:
     - target: {fileID: 7627238358203562126, guid: b2e3c40625d0b404db69ece0abf38b76,
         type: 3}
       propertyPath: timeToSpawnPlate
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8014295344908907332, guid: b2e3c40625d0b404db69ece0abf38b76,
-        type: 3}
-      propertyPath: sizeLimit
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3358,6 +3353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerBOT_ASP
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122583609496107947, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: AIFilesPrefix.Array.data[0]
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
