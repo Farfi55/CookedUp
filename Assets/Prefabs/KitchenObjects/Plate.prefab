@@ -746,10 +746,10 @@ MonoBehaviour:
     typeName: ThinkEngine.S_Plate10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: dc340dae0bbbe2c4695202e379d9c8ce, type: 3}
-    typeName: ThinkEngine.S_Plate10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    typeName: ThinkEngine.S_Plate11, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: b7276d0eb034f464abdb781df0b99670, type: 3}
-    typeName: ThinkEngine.S_Plate10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    typeName: ThinkEngine.S_Plate12, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &7436485431918110857
 GameObject:

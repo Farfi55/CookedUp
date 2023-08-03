@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6440946968829065954}
   - component: {fileID: 2305633455088201913}
   - component: {fileID: 1108968505049058868}
+  - component: {fileID: 858462025619495217}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Transform:
   - {fileID: 360705754518109073}
   - {fileID: 7302588419084019902}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &4706379898146698279
 MonoBehaviour:
@@ -198,6 +199,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepDistance: 0.85
+--- !u!114 &858462025619495217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645957809171568415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c35bd83af979204a97878741270ff28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMeshRenderers:
+  - {fileID: 3922019416580132864}
+  - {fileID: 3922019416930424153}
+  playerColorSO: {fileID: 11400000, guid: 49dc5b046c8cc414088b9809ab348bdf, type: 2}
 --- !u!1 &4766982840128355688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1030,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4327219500921633628}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
+--- !u!23 &3922019416580132864 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3294758250785316822, guid: 1c5dda3c7cd3cf742afcade5419faeab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2005397939776196566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3922019416930424153 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3294758251441920655, guid: 1c5dda3c7cd3cf742afcade5419faeab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2005397939776196566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3922019417101181937 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab,

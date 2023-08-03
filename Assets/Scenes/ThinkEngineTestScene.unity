@@ -1272,6 +1272,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 397361828267244551, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: playerColorSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 884347ea9ff1c3e42801be9923bb0128,
+        type: 2}
     - target: {fileID: 1522296519013336370, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_RootOrder
@@ -1342,6 +1348,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBrain
       objectReference: {fileID: 0}
+    - target: {fileID: 4037379426354196591, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ead4e305e7c244b418af43ccfd3c5aac, type: 2}
+    - target: {fileID: 4037379428050597174, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ead4e305e7c244b418af43ccfd3c5aac, type: 2}
     - target: {fileID: 4174639737708941340, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: debug
@@ -2121,6 +2137,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6821382789833421473, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 353eec077b4390b43aab98adeac15a1e, type: 2}
+    - target: {fileID: 6821382791626291192, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 353eec077b4390b43aab98adeac15a1e, type: 2}
+    - target: {fileID: 7146784663560534928, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: playerColorSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 00b2524ccc87a1d4ba7cc5def8cc2243,
+        type: 2}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_RootOrder

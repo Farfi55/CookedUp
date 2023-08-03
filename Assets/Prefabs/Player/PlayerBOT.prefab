@@ -82,12 +82,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
+      objectReference: {fileID: 2100000, guid: dba792b574c201a4eabfe983aa82805a, type: 2}
     - target: {fileID: 3922019416930424153, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
+      objectReference: {fileID: 2100000, guid: dba792b574c201a4eabfe983aa82805a, type: 2}
     - target: {fileID: 4706379898146698279, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: interactionDistance
@@ -127,6 +127,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2226446289430712526}
+    - targetCorrespondingSourceObject: {fileID: 1645957809171568415, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4384214508507437981}
     - targetCorrespondingSourceObject: {fileID: 5309849979930694854, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       insertIndex: 3
@@ -436,3 +440,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4384214508507437981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083823707326641598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa4e2b7eea887941aaaac76bff51e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kitchenObjectIndicatorPrefab: {fileID: 4232821089626987065, guid: d3cb00bf14acc4c49b4a89c3fe8c4647,
+    type: 3}
+  player: {fileID: 2997092725135300230}
+  playerBot: {fileID: 943945516212414302}

@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borning: 0
   enableBrain: 1
-  debug: 1
+  debug: 0
   maintainInputFile: 1
   _chosenSensorConfigurations:
   - s_Player
@@ -89,7 +89,7 @@ MonoBehaviour:
   AIFilesPrefix:
   - Player
   - Common
-  prefabBrain: 1
+  prefabBrain: 0
   solverEnum: 1
   _executeReasonerOn: When Sensors are ready
   specificAIFile: 0
@@ -108,12 +108,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ead4e305e7c244b418af43ccfd3c5aac, type: 2}
+      objectReference: {fileID: 2100000, guid: dba792b574c201a4eabfe983aa82805a, type: 2}
     - target: {fileID: 6821382791626291192, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ead4e305e7c244b418af43ccfd3c5aac, type: 2}
+      objectReference: {fileID: 2100000, guid: dba792b574c201a4eabfe983aa82805a, type: 2}
     - target: {fileID: 8326456615457620645, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_RootOrder
