@@ -1,19 +1,23 @@
+% ================================== BUILT IN ==================================
+
+currentBrainID(Id).
+
 % ================================== ACTIONS ==================================
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID).
-a_MoveTo_Pos(ActionIndex, PlayerID, GridX,GridY).
+a_MoveTo_Target(ActionIndex, TargetID).
+a_MoveTo_Pos(ActionIndex, GridX,GridY).
 
-a_PickUp(ActionIndex, PlayerID, TargetInteractableID).
+a_PickUp(ActionIndex, TargetInteractableID).
 
-a_Drop(ActionIndex, PlayerID, TargetInteractableID).
-a_Place(ActionIndex, PlayerID, TargetInteractableID).
+a_Drop(ActionIndex, TargetInteractableID).
+a_Place(ActionIndex, TargetInteractableID).
 
-a_Cut(ActionIndex, PlayerID, TargetInteractableID).
+a_Cut(ActionIndex, TargetInteractableID).
 
-a_WaitToCook(ActionIndex, PlayerID, TargetInteractableID).
+a_WaitToCook(ActionIndex, TargetInteractableID).
 
-a_Wait(ActionIndex, PlayerID, MilliSecondsToWait).
-a_Wait(ActionIndex, PlayerID).
+a_Wait(ActionIndex, MilliSecondsToWait).
+a_Wait(ActionIndex).
 
 
 % ================================== CONSTANTS ==================================

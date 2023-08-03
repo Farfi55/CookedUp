@@ -1,6 +1,3 @@
-curr_Player_ID(ID) :- player(ID, _, "PlayerBOT_ASP").
-
-
 state_WaitingForRecipe :- 
     curr_Player_ID(PlayerID),
     playerBot_HasNoRecipe(PlayerID).
@@ -54,26 +51,23 @@ statePUP_Target(PlateCounterID) :-
     counter_HasAny(PlateCounterID).
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, PlatesCounterID) :-
+a_MoveTo_Target(ActionIndex, PlatesCounterID) :-
     state_PickUp_Plate,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     statePUP_Target(PlatesCounterID).
 
 
-a_PickUp(ActionIndex, PlayerID, PlatesCounterID) :-
+a_PickUp(ActionIndex, PlatesCounterID) :-
     state_PickUp_Plate,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     statePUP_Target(PlatesCounterID).
 
-a_Wait(ActionIndex, PlayerID) :-
+a_Wait(ActionIndex) :-
     state_PickUp_Plate,
     ActionIndex = FirstActionIndex + 2,
-    firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID).
+    firstActionIndex(FirstActionIndex).
 
 % ========================== STATE PLACE PLATE ==========================
 
@@ -83,25 +77,22 @@ state_PlacePlate__Target(TargetID) :-
     counter_HasSpace(TargetID).
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+a_MoveTo_Target(ActionIndex, TargetID) :-
     state_PlacePlate,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     state_PlacePlate__Target(TargetID).
 
-a_Place(ActionIndex, PlayerID, TargetID) :-
+a_Place(ActionIndex, TargetID) :-
     state_PlacePlate,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     state_PlacePlate__Target(TargetID).
 
-a_Wait(ActionIndex, PlayerID) :-
+a_Wait(ActionIndex) :-
     state_PlacePlate,
     ActionIndex = FirstActionIndex + 2,
-    firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID).
+    firstActionIndex(FirstActionIndex).
     
 
 % ========================== STATE GET INGREDIENTS ==========================
@@ -199,74 +190,68 @@ stateGI_Target_Final(TargetID) :-
 
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+a_MoveTo_Target(ActionIndex, TargetID) :-
     state_GetIngredients,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target1(TargetID).
 
 
-a_PickUp(ActionIndex, PlayerID, TargetID) :-
+a_PickUp(ActionIndex, TargetID) :-
     state_GetIngredients,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target1(TargetID).
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+a_MoveTo_Target(ActionIndex, TargetID) :-
     state_GetIngredients,
+    not subStateGI("Available"),
     ActionIndex = FirstActionIndex + 2,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target2(TargetID).
 
 
 
 
-a_Place(ActionIndex, PlayerID, TargetID) :- 
+a_Place(ActionIndex, TargetID) :- 
     state_GetIngredients,
     not subStateGI("Available"),
     ActionIndex = FirstActionIndex + 3,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target2(TargetID).
 
 
 % needs cooking
-a_WaitToCook(ActionIndex, PlayerID, TargetID) :-
+a_WaitToCook(ActionIndex, TargetID) :-
     state_GetIngredients,
     subStateGI("NeedsCooking"),
     ActionIndex = FirstActionIndex + 4,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target2(TargetID).
 
 
 % needs cutting
-a_Cut(ActionIndex, PlayerID, TargetID) :-
+a_Cut(ActionIndex, TargetID) :-
     state_GetIngredients,
     subStateGI("NeedsCutting"),
     ActionIndex = FirstActionIndex + 4,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target2(TargetID).
 
 
-a_PickUp(ActionIndex, PlayerID, TargetID) :-
+a_PickUp(ActionIndex, TargetID) :-
     state_GetIngredients,
     not subStateGI("Available"),
     ActionIndex = FirstActionIndex + 5,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target2(TargetID).
 
 
 finalActionIndex(Index) :-
     state_GetIngredients,
     firstActionIndex(FirstActionIndex),
-    Index = FirstActionIndex + 3,
+    Index = FirstActionIndex + 2,
     subStateGI("Available").
 
 finalActionIndex(Index) :-
@@ -277,26 +262,23 @@ finalActionIndex(Index) :-
 
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+a_MoveTo_Target(ActionIndex, TargetID) :-
     state_GetIngredients,
     ActionIndex = FinalActionIndex,
     finalActionIndex(FinalActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target_Final(TargetID).
 
-a_Place(ActionIndex, PlayerID, TargetID) :- 
+a_Place(ActionIndex, TargetID) :- 
     state_GetIngredients,
     ActionIndex = FinalActionIndex + 1,
     finalActionIndex(FinalActionIndex),
-    curr_Player_ID(PlayerID),
     stateGI_Target_Final(TargetID).
 
 
-a_Wait(ActionIndex, PlayerID) :-
+a_Wait(ActionIndex) :-
     state_GetIngredients,
     ActionIndex = FinalActionIndex + 2,
-    finalActionIndex(FinalActionIndex),
-    curr_Player_ID(PlayerID).
+    finalActionIndex(FinalActionIndex).
 
 
 
@@ -308,26 +290,23 @@ statePUCP_Target(TargetID) :-
     playerBot_Plate_Container_ID(PlayerID, PlateID, TargetID).
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+a_MoveTo_Target(ActionIndex, TargetID) :-
     state_PickUp_CompletedPlate,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     statePUCP_Target(TargetID).
 
-a_PickUp(ActionIndex, PlayerID, TargetID) :-
+a_PickUp(ActionIndex, TargetID) :-
     state_PickUp_CompletedPlate,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     statePUCP_Target(TargetID).
 
 
-a_Wait(ActionIndex, PlayerID) :-
+a_Wait(ActionIndex) :-
     state_PickUp_CompletedPlate,
     ActionIndex = FirstActionIndex + 2,
-    firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID).
+    firstActionIndex(FirstActionIndex).
 
 % ========================== STATE DELIVER ==========================
 
@@ -338,25 +317,22 @@ stateD_Target(TargetID) :-
     counter_HasSpace(TargetID).
 
 
-a_MoveTo_Target(ActionIndex, PlayerID, TargetID) :-
+a_MoveTo_Target(ActionIndex, TargetID) :-
     state_Delivery,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateD_Target(TargetID).
 
-a_Place(ActionIndex, PlayerID, TargetID) :-
+a_Place(ActionIndex, TargetID) :-
     state_Delivery,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID),
     stateD_Target(TargetID).
 
-a_Wait(ActionIndex, PlayerID) :-
+a_Wait(ActionIndex) :-
     state_Delivery,
     ActionIndex = FirstActionIndex + 2,
-    firstActionIndex(FirstActionIndex),
-    curr_Player_ID(PlayerID).
+    firstActionIndex(FirstActionIndex).
 
 
     
@@ -365,3 +341,9 @@ a_Wait(ActionIndex, PlayerID) :-
 #show actionArgument/3.
 #show subStateGI/1.
 #show stateGI_nextIngredient/1.
+#show stateGI_Target1/1.
+#show stateGI_Target2/1.
+#show stateGI_Target_Final/1.
+#show playerBot_Plate_Container_ID/3.
+#show playerBot_Plate_ID/2.
+#show plate_ID/1.

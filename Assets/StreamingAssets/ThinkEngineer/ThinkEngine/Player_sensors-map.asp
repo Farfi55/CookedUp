@@ -25,6 +25,11 @@
 player_ID_Index(ID,Index) :- s_Player_ID(_,objectIndex(Index),ID).
 player_ID(ID) :- player_ID_Index(ID,_).
 
+curr_Player_ID(ID) :- 
+    playerBot_ID_Index(ID, Index), 
+    currentBrainID(Index).
+
+
 player(ID, Type, Name) :- 
     s_Player_ID(_,objectIndex(Index),ID),
     s_Player_Type(_,objectIndex(Index),Type),
