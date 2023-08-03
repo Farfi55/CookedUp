@@ -208,6 +208,7 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
 
                     using (StreamWriter fs = new StreamWriter(factsPath, true))
                     {
+                        fs.Write(brain.whoAmIFact);
                         SpecificFactsWriting(brain, fs);
                         fs.Write(brain.sensorsMapping);
                         fs.Close();

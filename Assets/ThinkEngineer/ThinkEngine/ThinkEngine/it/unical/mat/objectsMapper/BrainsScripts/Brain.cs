@@ -106,6 +106,7 @@ namespace ThinkEngine
         internal bool solverWaiting;
         public List<string> solver_options;
         internal string brainName;
+        internal string whoAmIFact;
 
         void OnEnable()
         {
@@ -128,6 +129,7 @@ namespace ThinkEngine
             {
                 triggerClass = Utility.TriggerClass;
                 StartCoroutine(Init());
+                whoAmIFact = "currentBrainID("+GetInstanceID()+")."+Environment.NewLine;
             }
         }
 
