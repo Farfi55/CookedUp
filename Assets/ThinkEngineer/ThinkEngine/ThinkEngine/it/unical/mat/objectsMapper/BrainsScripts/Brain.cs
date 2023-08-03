@@ -107,6 +107,7 @@ namespace ThinkEngine
         public List<string> solver_options;
         internal string brainName;
         internal string whoAmIFact;
+        internal int brainID;
 
         void OnEnable()
         {
@@ -129,7 +130,8 @@ namespace ThinkEngine
             {
                 triggerClass = Utility.TriggerClass;
                 StartCoroutine(Init());
-                whoAmIFact = "currentBrainID("+gameObject.GetInstanceID()+")."+Environment.NewLine;
+                brainID = gameObject.GetInstanceID();
+                whoAmIFact = "currentBrainID("+brainID+")."+Environment.NewLine;
             }
         }
 
