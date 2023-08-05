@@ -70,6 +70,8 @@ namespace Counters
                     player.CurrentKitchenObject.SetContainer(Container);
                     if (IsFull())
                         progressTracker.SetProgress(0);
+                    plate.GetComponent<KitchenObjectPlayer>()?.SetPlayer(null);
+                    
                     InvokeOnInteract(new InteractableEvent(player));
                 }
                 else if (Container.HasAny()) {

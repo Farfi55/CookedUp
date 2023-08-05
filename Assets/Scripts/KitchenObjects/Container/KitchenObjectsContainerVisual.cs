@@ -38,14 +38,12 @@ namespace KitchenObjects.Container
                     Debug.LogError($"The number of kitchen objects parents ({kitchenObjectsParents.Length}) is less than the container size limit ({container.SizeLimit})", this);
                 }
             }
-            UpdateTransforms();
+            UpdateVisuals();
         }
 
-        private void OnKitchenObjectsChanged(object sender, KitchenObjectsChangedEvent e) {
-            UpdateTransforms();
-        }
+        private void OnKitchenObjectsChanged(object sender, KitchenObjectsChangedEvent e) => UpdateVisuals();
 
-        private void UpdateTransforms()
+        private void UpdateVisuals()
         {
             var oldKitchenObjects = new List<KitchenObject>(kitchenObjects);
             kitchenObjects = container.GetKitchenObjectsInOrder();
@@ -64,7 +62,7 @@ namespace KitchenObjects.Container
 
             if (type == Type.Custom)
             {
-                customArrangement.SetTrasforms(kitchenObjects);
+                customArrangement.SetTransforms(kitchenObjects);
             }
             else
             {
@@ -104,7 +102,7 @@ namespace KitchenObjects.Container
 
         public void SetCustomArrangement(ICustomArrangementProvider customArrangement) {
             this.customArrangement = customArrangement;
-            customArrangement.SetTrasforms(kitchenObjects);
+            customArrangement.SetTransforms(kitchenObjects);
 
             if (type != Type.Custom) {
                 Debug.Log($"The container {container.name} is now using a custom arrangement", this);

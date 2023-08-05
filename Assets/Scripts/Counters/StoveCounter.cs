@@ -92,8 +92,7 @@ namespace Counters
                 return;
 
             var outputKOSO = CurrentCookingRecipe.Output;
-            Container.KitchenObject.DestroySelf();
-            KitchenObject.CreateInstance(outputKOSO, Container);
+            KitchenObject.ConvertKitchenObject(Container.KitchenObject, outputKOSO);
         }
 
 

@@ -18,9 +18,9 @@ namespace ThinkEngine.Sensors {
         
         // ReSharper disable once CollectionNeverQueried.Global
         // ReSharper disable once FieldCanBeMadeReadOnly.Global
-        public List<KitchenObject> KitchenObjects = new();
+        public List<KitchenObjectASP> KitchenObjects = new();
         
-        public KitchenObject FirstKitchenObject;
+        public KitchenObjectASP FirstKitchenObject;
         public bool HasSpace;
         public bool HasAny;
 
@@ -45,12 +45,12 @@ namespace ThinkEngine.Sensors {
             KitchenObjects.Clear();
 
             foreach (var kitchenObject in container.KitchenObjects)
-                KitchenObjects.Add(new KitchenObject(kitchenObject));
+                KitchenObjects.Add(new KitchenObjectASP(kitchenObject));
 
             HasSpace = container.HasSpace();
             HasAny = container.HasAny();
             
-            FirstKitchenObject = HasAny ? new KitchenObject(container.KitchenObject) : null;
+            FirstKitchenObject = HasAny ? new KitchenObjectASP(container.KitchenObject) : null;
         }
 
         private void OnDestroy() {

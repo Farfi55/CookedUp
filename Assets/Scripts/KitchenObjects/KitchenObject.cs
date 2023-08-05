@@ -72,7 +72,7 @@ namespace KitchenObjects {
 
 
         public void SetVisible(bool visible) {
-            gameObject.SetActive(visible);
+            visuals.SetActive(visible);
         }
 
         public static KitchenObject CreateInstance(KitchenObjectSO kitchenObjectSO,
@@ -83,7 +83,7 @@ namespace KitchenObjects {
             return kitchenObject;
         }
 
-        public virtual bool InteractWith(KitchenObject currentKitchenObject) { return false; }
+        public virtual bool InteractWith(KitchenObject otherKitchenObject) { return false; }
 
 
         public bool TryGetPlate(out PlateKitchenObject plateKitchenObject) {
@@ -94,6 +94,25 @@ namespace KitchenObjects {
 
             plateKitchenObject = null;
             return false;
+        }
+
+        public static KitchenObject ConvertKitchenObject(KitchenObject originalKO, KitchenObjectSO newKOSO) {
+            var container = originalKO.Container;
+            return ConvertKitchenObject(originalKO, newKOSO, container);
+        }
+
+
+        public static KitchenObject ConvertKitchenObject(KitchenObject originalKO, KitchenObjectSO newKOSO, KitchenObjectsContainer container) {
+            var player = originalKO.GetComponent<KitchenObjectPlayer>()?.Player;
+            originalKO.DestroySelf();
+            
+            var newKO = CreateInstance(newKOSO, container);
+            
+            if (player != null && newKO.TryGetComponent(out KitchenObjectPlayer koPlayer)) {
+                koPlayer.SetPlayer(player);
+            }
+            
+            return newKO;
         }
     }
 }

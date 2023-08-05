@@ -77,8 +77,9 @@ namespace Counters
                     InvokeOnInteract(new InteractableEvent(player));
                 }
                 else if(player.Container.HasAny()) {
-                    if (player.CurrentKitchenObject.InteractWith(Container.KitchenObject))
+                    if (player.CurrentKitchenObject.InteractWith(Container.KitchenObject)) {
                         InvokeOnInteract(new InteractableEvent(player));
+                    }
                 }
             }
 
@@ -107,9 +108,8 @@ namespace Counters
                 return;
 
             KitchenObjectSO outputKOSO = CurrentCuttingRecipe.Output;
-
-            Container.KitchenObject.DestroySelf();
-            KitchenObject.CreateInstance(outputKOSO, Container);
+            
+            KitchenObject.ConvertKitchenObject(Container.KitchenObject, outputKOSO);
         }
 
         public CuttingRecipeSO GetRecipeFor(KitchenObjectSO kitchenObjectSO) {
