@@ -10,6 +10,9 @@ a_MoveTo_Pos(ActionIndex, GridX,GridY).
 
 a_PickUp(ActionIndex, TargetInteractableID).
 
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName).
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+
 a_Drop(ActionIndex, TargetInteractableID).
 a_Place(ActionIndex, TargetInteractableID).
 

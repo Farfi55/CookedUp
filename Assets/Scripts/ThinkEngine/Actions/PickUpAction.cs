@@ -1,13 +1,14 @@
-﻿using ThinkEngine.Planning;
+﻿using System;
+using ThinkEngine.Planning;
 using UnityEngine;
 
 namespace ThinkEngine.Actions
 {
     public class PickUpAction : InteractAction
     {
-        private bool hasInteracted;
-        private bool hasPickedUp;
-
+        protected bool HasInteracted;
+        protected bool HasPickedUp;
+        
 
         public override State Prerequisite() {
             var state = base.Prerequisite();
@@ -27,13 +28,13 @@ namespace ThinkEngine.Actions
         }
 
         private void OnInteract(object sender, InteractableEvent e) {
-            hasInteracted = true;
-            hasPickedUp = Player.HasKitchenObject();
+            HasInteracted = true;
+            HasPickedUp = Player.HasKitchenObject();
         }
 
         public override bool Done() {
 
-            if (hasInteracted) {
+            if (HasInteracted) {
                 OnDone();
                 return true;
             }
@@ -45,7 +46,7 @@ namespace ThinkEngine.Actions
 
             if(Player.TryInteract()) {
                 Debug.Log($"player interacted with the target {Target.name}");
-                if(hasInteracted) {
+                if(HasInteracted) {
                     OnDone();
                     return true;
                 }
@@ -56,7 +57,7 @@ namespace ThinkEngine.Actions
 
         private void OnDone()
         {
-            if (hasPickedUp)
+            if (HasPickedUp)
                 Debug.Log($"{Player.name} picked up a kitchen object {Target.name}");
             else
                 Debug.LogError($"{Player.name} did not pick up anything {Target.name}");

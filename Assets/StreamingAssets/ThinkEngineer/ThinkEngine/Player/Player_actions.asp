@@ -34,6 +34,25 @@ applyAction(ActionIndex, "PickUpAction") :-
 actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_PickUp(ActionIndex, _), curr_Player_ID(PlayerID).
 actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUp(ActionIndex, TargetID).
 
+% ================================== Pick Up Ingredient ==================================
+
+% a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName).
+% a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+    a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName),
+    curr_Player_ID(PlayerID),
+    playerBot_Recipe(PlayerID, RecipeName).
+
+applyAction(ActionIndex, "PickUpIngredientAction") :- 
+    a_PickUpIngredient(ActionIndex, _, _, _).
+
+actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_PickUpIngredient(ActionIndex, _, _, _), curr_Player_ID(PlayerID).
+actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUpIngredient(ActionIndex, TargetID, _, _).
+actionArgument(ActionIndex, "IngredientName", IngredientName) :- a_PickUpIngredient(ActionIndex, _, IngredientName, _).
+actionArgument(ActionIndex, "RecipeName", RecipeName) :- a_PickUpIngredient(ActionIndex, _, _, RecipeName).
+
+
 
 % ================================== Drop ==================================
 

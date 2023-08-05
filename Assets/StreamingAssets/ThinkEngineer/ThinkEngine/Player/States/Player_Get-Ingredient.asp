@@ -99,8 +99,16 @@ a_MoveTo_Target(ActionIndex, TargetID) :-
     firstActionIndex(FirstActionIndex),
     stateGI_Target1(TargetID).
 
+a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
+    subStateGI("Available"),
+    state_GetIngredient,
+    ActionIndex = FirstActionIndex + 1,
+    firstActionIndex(FirstActionIndex),
+    stateGI_Target1(TargetID),
+    stateGI_nextIngredient(IngredientName).
 
 a_PickUp(ActionIndex, TargetID) :-
+    not subStateGI("Available"),
     state_GetIngredient,
     ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
@@ -143,12 +151,13 @@ a_Cut(ActionIndex, TargetID) :-
     stateGI_Target2(TargetID).
 
 
-a_PickUp(ActionIndex, TargetID) :-
+a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
     state_GetIngredient,
     not subStateGI("Available"),
     ActionIndex = FirstActionIndex + 5,
     firstActionIndex(FirstActionIndex),
-    stateGI_Target2(TargetID).
+    stateGI_Target2(TargetID),
+    stateGI_nextIngredient(IngredientName).
 
 
 finalActionIndex(Index) :-

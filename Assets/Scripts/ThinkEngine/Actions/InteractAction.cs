@@ -7,8 +7,8 @@ namespace ThinkEngine.Actions {
         public int PlayerID { get; set; }
         public int TargetID { get; set; }
 
-        private PlayersManager playersManager;
-        private IDManager idManager;
+        protected PlayersManager PlayersManager;
+        protected IDManager IDManager;
 
         public Player Player { get; private set; }
 
@@ -21,16 +21,16 @@ namespace ThinkEngine.Actions {
         protected bool AnyError;
 
         protected virtual void Setup() {
-            idManager = IDManager.Instance;
+            IDManager = IDManager.Instance;
 
             if (PlayerID == 0) {
                 Player = PlayersManager.Instance.GetPlayer();
             }
             else
-                Player = idManager.GetComponentFromID<Player>(PlayerID);
+                Player = IDManager.GetComponentFromID<Player>(PlayerID);
 
             if (TargetID != 0) {
-                target = idManager.GetGameObject(TargetID);
+                target = IDManager.GetGameObject(TargetID);
                 
                 if (!target.TryGetComponent(out interactable)) {
                     Debug.LogError($"Target {target.name} does not have an IInteractable component!");
@@ -46,7 +46,7 @@ namespace ThinkEngine.Actions {
         }
 
         public override State Prerequisite() {
-            if (idManager == null) {
+            if (IDManager == null) {
                 Setup();
             }
 
