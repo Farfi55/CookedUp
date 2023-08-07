@@ -24,6 +24,11 @@ namespace ThinkEngine.Actions
         }
 
         public override void Do() {
+            if (!TryMoveToTarget()) {
+                Debug.LogError($"{Player.name} cannot move to {Target.name}");
+                AnyError = true;
+            }
+            
             Interactable.OnInteract += OnInteract;
         }
 
@@ -33,16 +38,20 @@ namespace ThinkEngine.Actions
         }
 
         public override State Done() {
-
+            if (AnyError)
+                return State.ABORT;
+            
             if (HasInteracted) {
                 OnDone();
                 return State.READY;
             }
             
-            if (Player.GetSelectedGameObject() != Target) {
-                Debug.LogError("player is not looking at the target anymore");
+            if (Player.GetSelectedGameObject() != Target)
                 return State.WAIT;
-            }
+            
+            // if (!HasReachedTarget) {
+            //     return State.WAIT;
+            // }
 
             if(Player.TryInteract()) {
                 Debug.Log($"player interacted with the target {Target.name}");
@@ -63,6 +72,7 @@ namespace ThinkEngine.Actions
                 Debug.LogError($"{Player.name} did not pick up anything {Target.name}");
 
             Interactable.OnInteract -= OnInteract;
+            UnsubscribeMoveToEvents();
         }
     }
 }

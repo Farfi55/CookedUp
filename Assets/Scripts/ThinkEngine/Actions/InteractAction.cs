@@ -70,11 +70,6 @@ namespace ThinkEngine.Actions {
             if (AnyError)
                 return State.ABORT;
 
-            if (Player.GetSelectedGameObject() != target) {
-                Debug.Log($"player is not looking at the target anymore");
-                return State.WAIT;
-            }
-
             return State.READY;
         }
 
@@ -90,13 +85,19 @@ namespace ThinkEngine.Actions {
         }
 
         protected virtual void OnMoveToTargetCanceled(object sender, EventArgs e) {
+            Debug.Log($"player has canceled the move to the target {Target.name}");
             HasReachedTarget = false;
-            PlayerMovement.OnMoveToCompleted -= OnMoveToTargetComplete;
-            PlayerMovement.OnMoveToCanceled -= OnMoveToTargetCanceled;
+            UnsubscribeMoveToEvents();
         }
 
         protected virtual void OnMoveToTargetComplete(object sender, EventArgs e) {
+            Debug.Log($"player has reached the target {Target.name}");
             HasReachedTarget = true;
+            UnsubscribeMoveToEvents();
+        }
+        
+        protected void UnsubscribeMoveToEvents()
+        {
             PlayerMovement.OnMoveToCompleted -= OnMoveToTargetComplete;
             PlayerMovement.OnMoveToCanceled -= OnMoveToTargetCanceled;
         }

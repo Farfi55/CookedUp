@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using KitchenObjects.ScriptableObjects;
 using UnityEngine;
 
@@ -49,5 +50,16 @@ namespace ThinkEngine {
             CuttingRecipeNameMap = new(cuttingRecipeNameMap);
         }
 
+        public CookingRecipeSO GetCookingRecipeFromInput(KitchenObjectSO inputKO) {
+            return cookingRecipeNameMap.Values.FirstOrDefault(cookingRecipe => cookingRecipe.Input == inputKO);
+        }
+        
+        public CuttingRecipeSO GetCuttingRecipeFromInput(KitchenObjectSO inputKO) {
+            return cuttingRecipeNameMap.Values.FirstOrDefault(cuttingRecipe => cuttingRecipe.Input == inputKO);
+        }
+        
+        public List<CompleteRecipeSO> GetCompleteRecipesContainingInput(KitchenObjectSO inputKO) {
+            return completeRecipeNameMap.Values.Where(completeRecipe => completeRecipe.Ingredients.Contains(inputKO)).ToList();
+        }
     }
 }
