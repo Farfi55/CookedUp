@@ -599,7 +599,7 @@ PrefabInstance:
     - target: {fileID: 6628822601044198386, guid: b47e227d2d8cc5e4a9f4d5f484439501,
         type: 3}
       propertyPath: m_Name
-      value: ClearCounter_1
+      value: ClearCounter_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -745,7 +745,7 @@ PrefabInstance:
     - target: {fileID: 6628822601044198386, guid: b47e227d2d8cc5e4a9f4d5f484439501,
         type: 3}
       propertyPath: m_Name
-      value: ClearCounter
+      value: ClearCounter_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2076,7 +2076,7 @@ PrefabInstance:
     - target: {fileID: 6628822601044198386, guid: b47e227d2d8cc5e4a9f4d5f484439501,
         type: 3}
       propertyPath: m_Name
-      value: ClearCounter_3
+      value: ClearCounter_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3110,15 +3110,15 @@ Transform:
   - {fileID: 2038731560}
   - {fileID: 817826046}
   - {fileID: 1276165474}
-  - {fileID: 1509830184}
   - {fileID: 1482994236}
   - {fileID: 606573347}
   - {fileID: 91661382}
   - {fileID: 95559641}
-  - {fileID: 1226890709}
   - {fileID: 2103447788}
-  - {fileID: 798877969}
   - {fileID: 1305803106}
+  - {fileID: 1509830184}
+  - {fileID: 798877969}
+  - {fileID: 1226890709}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3200,7 +3200,7 @@ PrefabInstance:
     - target: {fileID: 6628822601044198386, guid: b47e227d2d8cc5e4a9f4d5f484439501,
         type: 3}
       propertyPath: m_Name
-      value: ClearCounter_2
+      value: ClearCounter_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3426,6 +3426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerBOT_ASP
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708879081929429265, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: interactionDistance
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

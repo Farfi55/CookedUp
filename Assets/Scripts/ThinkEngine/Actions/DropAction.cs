@@ -1,4 +1,5 @@
-﻿using ThinkEngine.Planning;
+﻿using System;
+using ThinkEngine.Planning;
 using UnityEngine;
 
 namespace ThinkEngine.Actions {
@@ -32,28 +33,31 @@ namespace ThinkEngine.Actions {
         private void OnInteract(object sender, InteractableEvent e) {
             hasInteracted = true;
             hasDropped = !Player.HasKitchenObject();
+            PlayerMovement.StopAll();
         }
 
         public override State Done() {
-            if (AnyError) 
+            if (AnyError) {
+                OnDone();
                 return State.ABORT;
+            }
 
             if (hasInteracted) {
                 OnDone();
                 return State.READY;
             }
             
-            if (Player.GetSelectedGameObject() != Target)
-                return State.WAIT;
+            if(HasReachedTarget && !IsTargetInRange())
+                HasReachedTarget = false;
             
-            // if (!HasReachedTarget) {
-            //     return State.WAIT;
-            // }
+            if (!HasReachedTarget && !IsMoving) {
+                TryMoveToTarget();
+            }
             
-            if (Player.TryInteract()) {
-                if (hasInteracted) {
+            if (IsTargetSelected() && Player.TryInteract()) {
+                if (hasInteracted || (HasTargetContainer && !TargetContainer.HasSpace())) {
                     OnDone();
-                    return State.READY;
+                    return hasDropped ? State.READY : State.ABORT;
                 }
             }
 
@@ -69,5 +73,6 @@ namespace ThinkEngine.Actions {
             Interactable.OnInteract -= OnInteract;
             UnsubscribeMoveToEvents();
         }
+        
     }
 }

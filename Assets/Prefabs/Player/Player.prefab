@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 1.7
-  interactionRange: 0.3
+  interactionRadius: 0.3
   interactionLayerMask:
     serializedVersion: 2
     m_Bits: 64

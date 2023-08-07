@@ -35,25 +35,23 @@ namespace ThinkEngine.Actions
         private void OnInteract(object sender, InteractableEvent e) {
             HasInteracted = true;
             HasPickedUp = Player.HasKitchenObject();
+            PlayerMovement.StopAll();
         }
 
         public override State Done() {
-            if (AnyError)
-                return State.ABORT;
-            
-            if (HasInteracted) {
+            if (AnyError) {
                 OnDone();
-                return State.READY;
+                return State.ABORT;
             }
             
-            if (Player.GetSelectedGameObject() != Target)
-                return State.WAIT;
+            if(HasReachedTarget && !IsTargetInRange())
+                HasReachedTarget = false;
             
-            // if (!HasReachedTarget) {
-            //     return State.WAIT;
-            // }
-
-            if(Player.TryInteract()) {
+            if (!HasReachedTarget && !IsMoving) {
+                TryMoveToTarget();
+            }
+            
+            if(IsTargetSelected() && Player.TryInteract()) {
                 Debug.Log($"player interacted with the target {Target.name}");
                 if(HasInteracted) {
                     OnDone();
@@ -73,6 +71,7 @@ namespace ThinkEngine.Actions
 
             Interactable.OnInteract -= OnInteract;
             UnsubscribeMoveToEvents();
+            PlayerMovement.StopAll();
         }
     }
 }

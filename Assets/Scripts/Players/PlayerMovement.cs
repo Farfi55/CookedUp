@@ -144,7 +144,7 @@ namespace Players {
             return false;
         }
 
-        private void StopAll() {
+        public void StopAll() {
             StopMoving();
             StopLookingAt();
         }

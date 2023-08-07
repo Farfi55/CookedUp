@@ -16,9 +16,11 @@ namespace Players {
 
         public bool HasKitchenObject() => CurrentKitchenObject != null;
 
-        [SerializeField, Range(0f, 10f)] float interactionDistance = 1f;
-        [SerializeField, Range(0f, 3f)] float interactionRange = 0.3f;
+        [SerializeField, Range(0f, 10f)] private float interactionDistance = 1f;
+        [SerializeField, Range(0f, 3f)] private float interactionRadius = 0.3f;
+        public float InteractionDistance => interactionDistance;
 
+        
         [SerializeField] private LayerMask interactionLayerMask;
         
 
@@ -38,6 +40,7 @@ namespace Players {
         /// Determines the direction of the selection ray 
         /// </summary>
         public Vector2 SelectionDirection { get; set; }
+
 
 
         public event EventHandler<ValueChangedEvent<IInteractable>> OnSelectedInteractableChanged;
@@ -125,7 +128,7 @@ namespace Players {
 
             Vector3 pos = transform.position + moveDirection * interactionDistance;
 
-            int hitsCount = Physics.SphereCastNonAlloc(pos, interactionRange, moveDirection, hitBuffer, interactionDistance,
+            int hitsCount = Physics.SphereCastNonAlloc(pos, interactionRadius, moveDirection, hitBuffer, interactionDistance,
                 interactionLayerMask);
 
             selectedInteractable = GetBestInteractable(hitsCount);

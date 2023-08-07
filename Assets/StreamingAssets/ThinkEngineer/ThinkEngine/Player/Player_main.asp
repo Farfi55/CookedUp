@@ -24,6 +24,16 @@ state_GetIngredient :-
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
+state("AddIngredient") :- state_AddIngredient.
+state_AddIngredient :-
+    curr_Player_ID(PlayerID),
+    playerBot_HasPlate(PlayerID),
+    player_HasAny(PlayerID),
+    player_KitchenObject(PlayerID, _, KitchenObjectName),
+    playerBot_MissingIngredients(PlayerID, KitchenObjectName),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    not playerBot_HasCompletedRecipe(PlayerID).
+
 
 state("DropIngredient") :- state_DropIngredient.
 state_DropIngredient :-
@@ -59,6 +69,8 @@ state_Deliver :-
 
 
 :- #count{X: state(X)} != 1.
+
+:- #count{ActionName: applyAction(ActionIndex, ActionName)} > 1, applyAction(ActionIndex, _).
 
 firstActionIndex(0).
 

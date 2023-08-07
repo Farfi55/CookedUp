@@ -1,4 +1,5 @@
 ﻿using System;
+using KitchenObjects.Container;
 using Players;
 using ThinkEngine.Planning;
 using UnityEngine;
@@ -21,8 +22,11 @@ namespace ThinkEngine.Actions {
 
         private GameObject target;
         private IInteractable interactable;
+        protected KitchenObjectsContainer TargetContainer;
+        protected bool HasTargetContainer => TargetContainer != null;
         
         protected bool HasReachedTarget = false;
+        public bool IsMoving => PlayerMovement.IsMoving;
 
         protected bool AnyError;
 
@@ -55,6 +59,7 @@ namespace ThinkEngine.Actions {
                     Debug.LogError($"Target {target.name} does not have an IInteractable component!");
                     AnyError = true;
                 }
+                TargetContainer = target.GetComponent<KitchenObjectsContainer>();
             }
             else {
                 Debug.LogError("TargetID was not set!");
@@ -73,7 +78,14 @@ namespace ThinkEngine.Actions {
             return State.READY;
         }
 
-        protected virtual bool TryMoveToTarget() {
+        
+        protected float GetDistanceToTarget() => Vector3.Distance(Player.transform.position, Target.transform.position);
+        
+        protected bool IsTargetInRange() => GetDistanceToTarget() <= Player.InteractionDistance;
+        
+        protected bool IsTargetSelected() => Target == Player.GetSelectedGameObject();
+        
+        protected bool TryMoveToTarget() {
             HasReachedTarget = false;
             
             if (PlayerMovement.TryMoveToAndLookAt(Target.transform)) {
@@ -84,14 +96,14 @@ namespace ThinkEngine.Actions {
             return false;
         }
 
-        protected virtual void OnMoveToTargetCanceled(object sender, EventArgs e) {
-            Debug.Log($"player has canceled the move to the target {Target.name}");
+        protected void OnMoveToTargetCanceled(object sender, EventArgs e) {
+            Debug.Log($"{GetType().Name}: player has canceled the move to the target {Target.name}");
             HasReachedTarget = false;
             UnsubscribeMoveToEvents();
         }
 
-        protected virtual void OnMoveToTargetComplete(object sender, EventArgs e) {
-            Debug.Log($"player has reached the target {Target.name}");
+        protected void OnMoveToTargetComplete(object sender, EventArgs e) {
+            Debug.Log($"{GetType().Name}: player has reached the target {Target.name}");
             HasReachedTarget = true;
             UnsubscribeMoveToEvents();
         }
