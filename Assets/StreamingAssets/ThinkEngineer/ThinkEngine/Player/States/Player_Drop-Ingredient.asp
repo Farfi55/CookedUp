@@ -13,22 +13,15 @@ stateDI_Target(TargetID) :-
     not containerCounter_KOType(TargetID, KitchenObjectType),
     trashCounter_ID(TargetID).
     
-
-a_MoveTo_Target(ActionIndex, TargetID) :-
+a_Place(ActionIndex, TargetID) :-
     state_DropIngredient,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     stateDI_Target(TargetID).
 
-a_Place(ActionIndex, TargetID) :-
-    state_DropIngredient,
-    ActionIndex = FirstActionIndex + 1,
-    firstActionIndex(FirstActionIndex),
-    stateDI_Target(TargetID).
-
 a_Wait(ActionIndex) :-
     state_DropIngredient,
-    ActionIndex = FirstActionIndex + 2,
+    ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex).
 
 

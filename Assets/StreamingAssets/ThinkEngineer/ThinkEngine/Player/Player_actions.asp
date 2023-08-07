@@ -34,10 +34,11 @@ applyAction(ActionIndex, "PickUpAction") :-
 actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_PickUp(ActionIndex, _), curr_Player_ID(PlayerID).
 actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUp(ActionIndex, TargetID).
 
+
 % ================================== Pick Up Ingredient ==================================
 
-% a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName).
 % a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+% a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName).
 
 a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
     a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName),
@@ -52,6 +53,37 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUpIngredient(ActionIn
 actionArgument(ActionIndex, "IngredientName", IngredientName) :- a_PickUpIngredient(ActionIndex, _, IngredientName, _).
 actionArgument(ActionIndex, "RecipeName", RecipeName) :- a_PickUpIngredient(ActionIndex, _, _, RecipeName).
 
+
+% ================================== Pick Up Ingredient To Cook ==================================
+
+% a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+% a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName).
+
+a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+    a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName),
+    curr_Player_ID(PlayerID),
+    playerBot_Recipe(PlayerID, RecipeName).
+
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+    a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+
+actionArgument(ActionIndex, "RequiresCooking", true) :- a_PickUpIngredient_ToCook(ActionIndex, _, _, _).
+
+
+% ================================== Pick Up Ingredient To Cook ==================================
+
+% a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+% a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName).
+
+a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+    a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName),
+    curr_Player_ID(PlayerID),
+    playerBot_Recipe(PlayerID, RecipeName).
+
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+    a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+
+actionArgument(ActionIndex, "RequiresCutting", true) :- a_PickUpIngredient_ToCut(ActionIndex, _, _, _).
 
 
 % ================================== Drop ==================================

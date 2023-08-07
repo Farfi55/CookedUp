@@ -92,43 +92,39 @@ stateGI_Target_Final(TargetID) :-
     
 
 
-
-a_MoveTo_Target(ActionIndex, TargetID) :-
-    state_GetIngredient,
-    ActionIndex = FirstActionIndex,
-    firstActionIndex(FirstActionIndex),
-    stateGI_Target1(TargetID).
-
 a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
     subStateGI("Available"),
     state_GetIngredient,
-    ActionIndex = FirstActionIndex + 1,
+    ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     stateGI_Target1(TargetID),
     stateGI_nextIngredient(IngredientName).
 
-a_PickUp(ActionIndex, TargetID) :-
-    not subStateGI("Available"),
+a_PickUpIngredient_ToCook(ActionIndex, TargetID, IngredientName) :-
+    subStateGI("NeedsCooking"),
     state_GetIngredient,
-    ActionIndex = FirstActionIndex + 1,
+    ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    stateGI_Target1(TargetID).
+    stateGI_Target1(TargetID),
+    stateGI_nextIngredient(ResultingIngredientName),
+    ingredient_NeedsCooking(ResultingIngredientName, _, IngredientName).
 
 
-a_MoveTo_Target(ActionIndex, TargetID) :-
+a_PickUpIngredient_ToCut(ActionIndex, TargetID, IngredientName) :-
+    subStateGI("NeedsCutting"),
     state_GetIngredient,
-    not subStateGI("Available"),
-    ActionIndex = FirstActionIndex + 2,
+    ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    stateGI_Target2(TargetID).
-
+    stateGI_Target1(TargetID),
+    stateGI_nextIngredient(ResultingIngredientName),
+    ingredient_NeedsCutting(ResultingIngredientName, _, IngredientName).
 
 
 
 a_Place(ActionIndex, TargetID) :- 
     state_GetIngredient,
     not subStateGI("Available"),
-    ActionIndex = FirstActionIndex + 3,
+    ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex),
     stateGI_Target2(TargetID).
 
@@ -137,7 +133,7 @@ a_Place(ActionIndex, TargetID) :-
 a_WaitToCook(ActionIndex, TargetID) :-
     state_GetIngredient,
     subStateGI("NeedsCooking"),
-    ActionIndex = FirstActionIndex + 4,
+    ActionIndex = FirstActionIndex + 2,
     firstActionIndex(FirstActionIndex),
     stateGI_Target2(TargetID).
 
@@ -146,7 +142,7 @@ a_WaitToCook(ActionIndex, TargetID) :-
 a_Cut(ActionIndex, TargetID) :-
     state_GetIngredient,
     subStateGI("NeedsCutting"),
-    ActionIndex = FirstActionIndex + 4,
+    ActionIndex = FirstActionIndex + 2,
     firstActionIndex(FirstActionIndex),
     stateGI_Target2(TargetID).
 
@@ -154,7 +150,7 @@ a_Cut(ActionIndex, TargetID) :-
 a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
     state_GetIngredient,
     not subStateGI("Available"),
-    ActionIndex = FirstActionIndex + 5,
+    ActionIndex = FirstActionIndex + 3,
     firstActionIndex(FirstActionIndex),
     stateGI_Target2(TargetID),
     stateGI_nextIngredient(IngredientName).
@@ -163,31 +159,24 @@ a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
 finalActionIndex(Index) :-
     state_GetIngredient,
     firstActionIndex(FirstActionIndex),
-    Index = FirstActionIndex + 2,
+    Index = FirstActionIndex + 1,
     subStateGI("Available").
 
 finalActionIndex(Index) :-
     state_GetIngredient,
     firstActionIndex(FirstActionIndex),
-    Index = FirstActionIndex + 6,
+    Index = FirstActionIndex + 4,
     not subStateGI("Available").
 
 
-
-a_MoveTo_Target(ActionIndex, TargetID) :-
-    state_GetIngredient,
-    ActionIndex = FinalActionIndex,
-    finalActionIndex(FinalActionIndex),
-    stateGI_Target_Final(TargetID).
-
 a_Place(ActionIndex, TargetID) :- 
     state_GetIngredient,
-    ActionIndex = FinalActionIndex + 1,
+    ActionIndex = FinalActionIndex,
     finalActionIndex(FinalActionIndex),
     stateGI_Target_Final(TargetID).
 
 
 a_Wait(ActionIndex) :-
     state_GetIngredient,
-    ActionIndex = FinalActionIndex + 2,
+    ActionIndex = FinalActionIndex + 1,
     finalActionIndex(FinalActionIndex).

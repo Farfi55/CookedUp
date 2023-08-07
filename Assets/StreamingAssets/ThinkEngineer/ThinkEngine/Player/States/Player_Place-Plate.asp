@@ -6,19 +6,13 @@ state_PlacePlate__Target(TargetID) :-
     counter_HasSpace(TargetID).
 
 
-a_MoveTo_Target(ActionIndex, TargetID) :-
+a_Place(ActionIndex, TargetID) :-
     state_PlacePlate,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     state_PlacePlate__Target(TargetID).
 
-a_Place(ActionIndex, TargetID) :-
-    state_PlacePlate,
-    ActionIndex = FirstActionIndex + 1,
-    firstActionIndex(FirstActionIndex),
-    state_PlacePlate__Target(TargetID).
-
 a_Wait(ActionIndex) :-
     state_PlacePlate,
-    ActionIndex = FirstActionIndex + 2,
+    ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex).

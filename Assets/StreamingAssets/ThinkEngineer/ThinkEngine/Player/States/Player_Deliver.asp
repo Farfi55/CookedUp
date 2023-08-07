@@ -5,16 +5,9 @@ stateD_Target(TargetID) :-
     deliveryCounter_ID(TargetID),
     counter_HasSpace(TargetID).
 
-
-a_MoveTo_Target(ActionIndex, TargetID) :-
-    state_Deliver,
-    ActionIndex = FirstActionIndex,
-    firstActionIndex(FirstActionIndex),
-    stateD_Target(TargetID).
-
 a_Place(ActionIndex, TargetID) :-
     state_Deliver,
-    ActionIndex = FirstActionIndex + 1,
+    ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     stateD_Target(TargetID).
 

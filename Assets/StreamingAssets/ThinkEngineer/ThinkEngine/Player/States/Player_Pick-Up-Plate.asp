@@ -6,20 +6,13 @@ statePUP_Target(PlateCounterID) :-
     counter_HasAny(PlateCounterID).
 
 
-a_MoveTo_Target(ActionIndex, PlatesCounterID) :-
+a_PickUp(ActionIndex, PlatesCounterID) :-
     state_PickUp_Plate,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
     statePUP_Target(PlatesCounterID).
 
-
-a_PickUp(ActionIndex, PlatesCounterID) :-
-    state_PickUp_Plate,
-    ActionIndex = FirstActionIndex + 1,
-    firstActionIndex(FirstActionIndex),
-    statePUP_Target(PlatesCounterID).
-
 a_Wait(ActionIndex) :-
     state_PickUp_Plate,
-    ActionIndex = FirstActionIndex + 2,
+    ActionIndex = FirstActionIndex + 1,
     firstActionIndex(FirstActionIndex).
