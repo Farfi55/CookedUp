@@ -67,14 +67,14 @@ namespace ThinkEngine.Actions {
         }
 
 
-        public override bool Done() {
+        public override State Done() {
             if (anyError)
-                return true;
+                return State.ABORT;
 
             if (UseTarget() && Player.GetSelectedGameObject() != target)
-                return false;
+                return State.WAIT;
 
-            return !playerMovement.IsMovingUsingNavigation;
+            return playerMovement.IsMovingUsingNavigation ? State.WAIT : State.READY;
         }
     }
 }

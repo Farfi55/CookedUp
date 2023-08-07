@@ -803,6 +803,8 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: 8c08c48fb0e341d45b5f7cce31bb1e2b, type: 3}
     typeName: ThinkEngine.S_Player15, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts: []
 --- !u!1 &8650454984087082880
 GameObject:
   m_ObjectHideFlags: 0

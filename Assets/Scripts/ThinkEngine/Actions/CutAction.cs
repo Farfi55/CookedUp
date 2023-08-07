@@ -51,16 +51,16 @@ namespace ThinkEngine.Actions
             hasCutSuccessfully = outputKO != null && outputKO.IsSameType(cuttingRecipe.Output);
         }
 
-        public override bool Done() {
+        public override State Done() {
             if (AnyError)
-                return true;
+                return State.ABORT;
             
             if (isDone) {
                 OnDone();
-                return true;
+                return hasCutSuccessfully ? State.READY : State.ABORT;
             }
 
-            return false;
+            return State.WAIT;
         }
         
         

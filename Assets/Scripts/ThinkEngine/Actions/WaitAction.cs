@@ -40,10 +40,10 @@ namespace ThinkEngine.Actions
 
         public override void Do() { }
 
-        public override bool Done() {
+        public override State Done() {
             timeElapsed += Time.deltaTime;
             
-            return timeElapsed >= timeToWaitFloat;
+            return timeElapsed >= timeToWaitFloat ? State.READY : State.WAIT;
         }
     }
 }

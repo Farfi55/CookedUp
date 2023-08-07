@@ -31,25 +31,25 @@ namespace ThinkEngine.Actions
             hasDropped = !Player.HasKitchenObject();
         }
 
-        public override bool Done() {
+        public override State Done() {
 
             if (hasInteracted) {
                 OnDone();
-                return true;
+                return State.READY;
             }
             
             if (Player.GetSelectedGameObject() != Target) {
                 Debug.LogError("player is not looking at the target anymore");
-                return false;
+                return State.WAIT;
             }
 
             if(Player.TryInteract()) {
                 if (hasInteracted) {
                     OnDone();
-                    return true;
+                    return State.READY;
                 }
             }
-            return false;
+            return State.WAIT;
         }
 
         private void OnDone() {

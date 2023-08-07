@@ -56,22 +56,21 @@ namespace ThinkEngine.Actions
             hasCookedSuccessfully = newKO != null && newKO.IsSameType(cookingRecipe.Output);
         }
 
-        public override bool Done() {
+        public override State Done() {
             if (AnyError)
-                return true;
+                return State.ABORT;
             
             if (isDone) {
                 OnDone();
-                return true;
+                return hasCookedSuccessfully ? State.READY : State.ABORT;
             }
 
-            return false;
+            return State.WAIT;
         }
         
         
         private void OnDone() {
             stoveCounter.OnRecipeChanged -= OnRecipeChanged;
-            
         }
     }
 }

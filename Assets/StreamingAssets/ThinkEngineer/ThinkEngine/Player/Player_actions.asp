@@ -12,7 +12,7 @@ a_MoveTo_Generic(ActionIndex) :-
 
 applyAction(ActionIndex, "MoveToAction") :- a_MoveTo_Generic(ActionIndex).
 
-actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_MoveTo_Generic(ActionIndex, PlayerID), curr_Player_ID(PlayerID).
+actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_MoveTo_Generic(ActionIndex), curr_Player_ID(PlayerID).
 
 % using a_MoveTo_Target
     actionArgument(ActionIndex, "TargetID", TargetID) :- a_MoveTo_Target(ActionIndex, TargetID).
