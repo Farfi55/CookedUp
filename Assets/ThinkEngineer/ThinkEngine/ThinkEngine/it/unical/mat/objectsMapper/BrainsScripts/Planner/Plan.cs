@@ -100,7 +100,16 @@ namespace ThinkEngine.Planning
                 {
                     Action next = Next();
                     next.Do();
-                    yield return new WaitUntil(() => next.Done());
+                    State done = next.Done();
+                    while (done == State.WAIT)
+                    {
+                        yield return null;
+                        done = next.Done();
+                    }
+                    if (done == State.ABORT)
+                    {
+                        break;
+                    }
                 }
                 else
                 {

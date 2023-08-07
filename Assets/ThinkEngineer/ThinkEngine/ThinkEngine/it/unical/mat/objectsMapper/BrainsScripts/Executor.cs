@@ -46,7 +46,7 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
             }
         }
         int lastSensorIteration = -1;
-        
+
         protected Brain brain;
         protected string factsPath;
         protected readonly Stopwatch stopwatch = new Stopwatch();
@@ -203,9 +203,8 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
                         KillProcess(handler);
                         return;
                     }
-
                     string time = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-                    string factsFileName = string.Join("_", brain.brainName, time, facts_id++, brain.brainID ) + ".txt";
+                    string factsFileName = string.Join("_", brain.brainName, time, facts_id++, brain.brainID) + ".txt";
                     factsPath = Path.Combine(Path.GetTempPath(), "ThinkEngineFacts", brain.brainName, factsFileName);
                     using (StreamWriter fs = new StreamWriter(factsPath, true))
                     {
@@ -213,7 +212,6 @@ namespace ThinkEngine.it.unical.mat.objectsMapper.BrainsScripts
                         SpecificFactsWriting(brain, fs);
                         fs.Write(brain.sensorsMapping);
                     }
-
                     if (brain.debug)
                     {
                         Debug.Log(factsPath);

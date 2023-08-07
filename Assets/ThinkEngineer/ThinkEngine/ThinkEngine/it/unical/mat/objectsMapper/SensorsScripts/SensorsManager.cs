@@ -91,7 +91,6 @@ namespace ThinkEngine
                 _sensorsInstances[configurationName] = new List<Sensor>();
             }
             _sensorsInstances[configurationName].AddRange(listOfGeneratedSensors);
-
         }
 
         internal static void UnsubscribeSensors(List<Sensor> listOfGeneratedSensors, string configurationName)

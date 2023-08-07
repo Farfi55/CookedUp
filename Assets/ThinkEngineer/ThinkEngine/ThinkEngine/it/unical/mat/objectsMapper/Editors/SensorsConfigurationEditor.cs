@@ -17,6 +17,11 @@ namespace ThinkEngine.Editors
         }
         override public void OnInspectorGUI()
         {
+            if (!EditorApplication.isCompiling && sensorConfiguration.generatedCode)
+            {
+                sensorConfiguration.generatedCode = false;
+                CodeGenerator.AttachSensorsScripts(sensorConfiguration);
+            }
             if (!configurePropertyMode)
             {
                 DrawPropertiesExcluding(serializedObject, new string[] { });
@@ -26,6 +31,7 @@ namespace ThinkEngine.Editors
                 if (generate && configuration.ToMapProperties.Count > 0)
                 {
                     CodeGenerator.GenerateCode(configuration.ToMapProperties, configuration.gameObject, sensorConfiguration);
+                    sensorConfiguration.generatedCode = true;
                 }
             }
             else

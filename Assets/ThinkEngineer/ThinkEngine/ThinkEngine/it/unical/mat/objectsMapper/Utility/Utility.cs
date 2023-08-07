@@ -78,7 +78,7 @@ namespace ThinkEngine
 #if UNITY_EDITOR
                     if (!EditorApplication.isCompiling)
                     {
-                        _triggerClass = ScriptableObject.CreateInstance("ThinkEngine.ThinkEngineTrigger");
+                        _triggerClass = ScriptableObject.CreateInstance("ThinkEngineTrigger");
 
                     }
 #endif

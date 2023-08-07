@@ -13,7 +13,7 @@ namespace ThinkEngine.Planning
         public Plan belongingTO;
         public abstract State Prerequisite();
         public abstract void Do();
-        public abstract bool Done();
+        public abstract State Done();
 
         public int CompareTo(Action other)
         {

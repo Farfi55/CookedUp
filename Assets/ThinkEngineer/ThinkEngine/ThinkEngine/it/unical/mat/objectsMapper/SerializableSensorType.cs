@@ -17,7 +17,12 @@ namespace ThinkEngine
         [SerializeField]
         [HideInInspector]
         private string typeName;
-
+#if UNITY_EDITOR
+        public SerializableSensorType(MonoScript retrieved)
+        {
+            this.scriptAsset = retrieved;
+        }
+#endif
         public Type ScriptType { get; private set; }
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()

@@ -44,6 +44,24 @@ namespace ThinkEngine
         private CodeGenerator() { }
 
         //Generate the MonobehaviourSensorManager
+#if UNITY_EDITOR
+        internal static void AttachSensorsScripts(SensorConfiguration sensorConfiguration)
+        {
+            /*foreach (string monoScript in AssetDatabase.FindAssets("t:MonoScript", new string[] { "Assets/Scripts/GeneratedCode" }))
+            {
+                Debug.Log("Found this asset: "+monoScript);
+                Debug.Log(AssetDatabase.GUIDToAssetPath(monoScript));
+            }*/
+            sensorConfiguration._serializableSensorsTypes.Clear();
+            foreach (PropertyFeatures pF in sensorConfiguration.PropertyFeaturesList) {
+                MonoScript retrieved = AssetDatabase.LoadAssetAtPath(Path.Combine("Assets", "Scripts", "GeneratedCode", pF.PropertyAlias + ".cs"),typeof(MonoScript)) as MonoScript;
+                if (retrieved != null)
+                {
+                    sensorConfiguration._serializableSensorsTypes.Add(new SerializableSensorType(retrieved));
+                }
+            }
+        }
+#endif
         internal static void GenerateCode(List<MyListString> toMapProperties, object objectValue, SensorConfiguration sensorConfiguration)
         {
             if (sensorConfiguration.ConfigurationName.Equals(string.Empty))
@@ -51,7 +69,14 @@ namespace ThinkEngine
                 Debug.LogError("SensorConfiguration name can't be empty!");
                 return;
             }
-
+            foreach (string path in sensorConfiguration.generatedScripts)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+            sensorConfiguration.generatedScripts.Clear();
             currentSensorConfiguration = sensorConfiguration;
 
             foreach (MyListString propertyHierarchy in toMapProperties)
@@ -114,7 +139,7 @@ namespace ThinkEngine
                     Directory.CreateDirectory(generatedCodePath);
 
                 File.WriteAllText(path, content);
-
+                sensorConfiguration.generatedScripts.Add(path);
                 
             }
             // Refresh the unity asset database
@@ -502,7 +527,6 @@ namespace ThinkEngine
 
         private static string GetOperationToTargetProperty(int baseOfTabs, int positionInHierarchy)
         {
-            //Debug.Log(positionInHierarchy + " " + finalType.Name);
             string text = string.Empty;
             if (positionInHierarchy == iDataMapperTypes.Count)
             {
@@ -863,18 +887,6 @@ namespace ThinkEngine
 
                 bool returnFalse = currentObjectValue == null && !ReachPropertyByReflectionByType(property, currentType, out finalType, out mapper);
                 Type tempType = currentType;
-                if (tempMapper != null && mapper is CollectionMapper collectionMapper)
-                {
-                    //Debug.Log("Found a CollectionMapper");
-                    iDataMapperTypes.Add(mapper.GetType());
-                    numberOfCollectionMappers++;
-                    currentType = collectionMapper.ElementType(currentType);
-                    //Debug.Log("The new currentType is " + currentType.Name);
-                }
-                else
-                {
-                    iDataMapperTypes.Add(null);
-                }
                 if (currentObjectValue == null)
                 {
                     if (returnFalse)
@@ -888,6 +900,21 @@ namespace ThinkEngine
                 }
                 else
                 {
+
+                    if (tempMapper != null && mapper is CollectionMapper collectionMapper)
+                    {
+                        //Debug.Log("Found a CollectionMapper");
+                        iDataMapperTypes.Add(mapper.GetType());
+                        numberOfCollectionMappers++;
+                        currentType = collectionMapper.ElementType(currentType);
+                        propertyHierarchyTypeNamespaces.Add(currentType.Namespace);
+
+                        //Debug.Log("The new currentType is " + currentType.Name);
+                    }
+                    else
+                    {
+                        iDataMapperTypes.Add(null);
+                    }
                     propertyHierarchyNames.Add(currentProperty);
                     propertyHierarchyTypeNames.Add(TypeNameOrAlias(tempType));
                     propertyHierarchyTypeNamespaces.Add(tempType.Namespace);
@@ -983,6 +1010,7 @@ namespace ThinkEngine
                         iDataMapperTypes.Add(mapper.GetType());
                         numberOfCollectionMappers++;
                         currentType = collectionMapper.ElementType(currentType);
+                        propertyHierarchyTypeNamespaces.Add(currentType.Namespace);
                         //Debug.Log("The new currentType is " + currentType.Name);
                     }
                     else
@@ -1004,7 +1032,7 @@ namespace ThinkEngine
                         finalType = currentType;
                         if (mapper is CollectionMapper collectionMapper2)
                         {
-                            mapper = MapperManager.GetMapper(collectionMapper2.ElementType(finalType));
+                            mapper = MapperManager.GetMapper(collectionMapper2.ElementType(tempType));
                         }
                     }
                 }
@@ -1079,7 +1107,22 @@ namespace ThinkEngine
             }
 
             // Default to CLR type name
+            if(type.IsNested)
+            {
+                return NameForNestedType(type);
+            }
             return type.Name;
+        }
+
+        private static string NameForNestedType(Type type)
+        {
+            string toReturn = type.DeclaringType + ".";
+            propertyHierarchyTypeNamespaces.Add(type.DeclaringType.Namespace);
+            if(type.DeclaringType.IsNested)
+            {
+                return toReturn +"."+NameForNestedType(type.DeclaringType)+"."+type.Name;
+            }
+            return toReturn+type.Name;
         }
 
         private static string RecursiveGenericTypeName(Type type)
