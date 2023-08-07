@@ -18,7 +18,7 @@ namespace Players {
         public bool IsMovingUsingInput { get; private set; } = false;
         public bool IsMovingUsingNavigation { get; private set; } = false;
 
-        private bool HasAgent => agent != null;
+        public bool HasAgent => agent != null;
         
         public Vector2 MovementInput { get; set; } = Vector2.zero;
 
@@ -27,8 +27,10 @@ namespace Players {
         [SerializeField] private bool stopAllWhenUsingInput = true;
         private bool HasLookAtTarget => lookAtTarget != null;
 
-
-        public event EventHandler OnDestinationReached;
+        public event EventHandler OnMoveToStarted;
+        public event EventHandler OnMoveToCompleted;
+        public event EventHandler OnMoveToCanceled;
+        
         public event EventHandler OnLookAtTargetCompleted;
 
 
@@ -93,7 +95,7 @@ namespace Players {
             IsMovingUsingNavigation = false;
             agent.ResetPath();
             agent.velocity = Vector3.zero;
-            OnDestinationReached?.Invoke(this, EventArgs.Empty);
+            OnMoveToCompleted?.Invoke(this, EventArgs.Empty);
         }
 
 
@@ -120,12 +122,25 @@ namespace Players {
                 Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
-        public bool TryMoveTo(Vector3 position) {
-            if (HasAgent && agent.SetDestination(position)) {
-                IsMovingUsingNavigation = true;
+        public bool TryMoveToAndLookAt(Transform target) {
+            if (TryMoveTo(target.position)) {
+                LookAt(target);
                 return true;
             }
-
+            StopLookingAt();
+            return false;
+        }
+            
+            
+            
+        public bool TryMoveTo(Vector3 position) {
+            StopMoving();
+            
+            if (HasAgent && agent.SetDestination(position)) {
+                IsMovingUsingNavigation = true;
+                OnMoveToStarted?.Invoke(this, EventArgs.Empty);
+                return true;
+            }
             return false;
         }
 
@@ -137,7 +152,11 @@ namespace Players {
         public void StopMoving() {
             if (HasAgent)
                 agent.ResetPath();
+            var hadDestination = IsMovingUsingNavigation;
             IsMovingUsingNavigation = false;
+            
+            if (hadDestination)
+                OnMoveToCanceled?.Invoke(this, EventArgs.Empty);
         }
 
         public void LookAt(Transform target) {
