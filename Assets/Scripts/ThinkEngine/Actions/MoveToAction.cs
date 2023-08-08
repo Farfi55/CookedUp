@@ -27,31 +27,32 @@ namespace ThinkEngine.Actions {
 
         bool anyError;
 
-        public override State Prerequisite() {
-            if (idManager == null) {
-                idManager = IDManager.Instance;
+
+        public override void Init() {
+            idManager = IDManager.Instance;
                 
-                if (PlayerID == 0) {
-                    Player = PlayersManager.Instance.GetPlayer();
-                }
-                else
-                    Player = idManager.GetComponentFromID<Player>(PlayerID);
-
-                playerMovement = Player.GetComponent<PlayerMovement>();
-
-                if (UseTarget()) {
-                    target = idManager.GetGameObject(TargetID);
-                    worldPos = target.transform.position;
-                    
-                    Debug.Log($"MoveToAction: {Player.name} moving to {target.name}");
-                }
-                else {
-                    gridManager = GridManager.Instance;
-                    gridPos = new Vector2Int(GridX, GridY);
-                    worldPos = gridManager.GetWorldPosition(gridPos);
-                }
+            if (PlayerID == 0) {
+                Player = PlayersManager.Instance.GetPlayer();
             }
+            else
+                Player = idManager.GetComponentFromID<Player>(PlayerID);
 
+            playerMovement = Player.GetComponent<PlayerMovement>();
+
+            if (UseTarget()) {
+                target = idManager.GetGameObject(TargetID);
+                worldPos = target.transform.position;
+                    
+                Debug.Log($"MoveToAction: {Player.name} moving to {target.name}");
+            }
+            else {
+                gridManager = GridManager.Instance;
+                gridPos = new Vector2Int(GridX, GridY);
+                worldPos = gridManager.GetWorldPosition(gridPos);
+            }
+        }
+
+        public override State Prerequisite() {
             return State.READY;
         }
 

@@ -9,6 +9,14 @@ namespace ThinkEngine.Actions
         protected bool HasInteracted;
         protected bool HasPickedUp;
         
+        private float interactionDelay = 0.2f;
+        private float remainingInteractionDelay;
+
+
+        public override void Init() {
+            base.Init();
+            remainingInteractionDelay = interactionDelay;
+        }
 
         public override State Prerequisite() {
             var state = base.Prerequisite();
@@ -40,30 +48,34 @@ namespace ThinkEngine.Actions
 
         public override State Done() {
             if (AnyError) {
-                OnDone();
                 return State.ABORT;
             }
             
-            if(HasReachedTarget && !IsTargetInRange())
+            if(HasReachedTarget && !IsTargetSelected() && !IsTargetInRange())
                 HasReachedTarget = false;
             
-            if (!HasReachedTarget && !IsMoving) {
-                TryMoveToTarget();
+            if (!IsTargetSelected()) {
+                remainingInteractionDelay = interactionDelay;
+                if (!HasReachedTarget && !IsMoving) {
+                    TryMoveToTarget();
+                }
+            }
+            else {
+                remainingInteractionDelay -= Time.deltaTime;
             }
             
-            if(IsTargetSelected() && Player.TryInteract()) {
+            if (remainingInteractionDelay <= 0f && IsTargetSelected() && Player.TryInteract()) {
                 Debug.Log($"player interacted with the target {Target.name}");
                 if(HasInteracted) {
-                    OnDone();
-                    return State.READY;
+                    return HasPickedUp ? State.READY : State.ABORT;
                 }
             }
 
             return State.WAIT;
         }
 
-        private void OnDone()
-        {
+        public override void Clean() {
+            base.Clean();
             if (HasPickedUp)
                 Debug.Log($"{Player.name} picked up a kitchen object {Target.name}");
             else

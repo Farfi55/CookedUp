@@ -29,8 +29,8 @@ namespace ThinkEngine.Actions {
         public bool IsMoving => PlayerMovement.IsMoving;
 
         protected bool AnyError;
-
-        protected virtual void Setup() {
+        
+        public override void Init() {
             IDManager = IDManager.Instance;
             PlayersManager = PlayersManager.Instance;
 
@@ -68,10 +68,6 @@ namespace ThinkEngine.Actions {
         }
 
         public override State Prerequisite() {
-            if (IDManager == null) {
-                Setup();
-            }
-
             if (AnyError)
                 return State.ABORT;
 
@@ -103,7 +99,7 @@ namespace ThinkEngine.Actions {
         }
 
         protected void OnMoveToTargetComplete(object sender, EventArgs e) {
-            Debug.Log($"{GetType().Name}: player has reached the target {Target.name}");
+                Debug.Log($"{GetType().Name}: player has reached the target {Target.name}");
             HasReachedTarget = true;
             UnsubscribeMoveToEvents();
         }

@@ -14,8 +14,8 @@ namespace ThinkEngine.Actions
         private bool hasCookedSuccessfully;
         private bool isDone;
         
-        protected override void Setup() {
-            base.Setup();
+        public override void Init() {
+            base.Init();
             stoveCounter = Target.GetComponent<StoveCounter>();
             if (stoveCounter == null) {
                 Debug.LogError($"Target {Target.name} does not have a StoveCounter component!", stoveCounter);
@@ -26,6 +26,7 @@ namespace ThinkEngine.Actions
 
             Debug.Log($"WaitToCookAction: {Player.name} waiting to cook {cookingRecipe.name}");
         }
+
 
         public override State Prerequisite() {
             var state = base.Prerequisite();
@@ -60,16 +61,14 @@ namespace ThinkEngine.Actions
             if (AnyError)
                 return State.ABORT;
             
-            if (isDone) {
-                OnDone();
+            if (isDone)
                 return hasCookedSuccessfully ? State.READY : State.ABORT;
-            }
 
             return State.WAIT;
         }
-        
-        
-        private void OnDone() {
+
+        public override void Clean() {
+            base.Clean();
             stoveCounter.OnRecipeChanged -= OnRecipeChanged;
         }
     }

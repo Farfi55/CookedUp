@@ -13,9 +13,9 @@ namespace ThinkEngine.Actions
 
         private bool hasCutSuccessfully;
         private bool isDone;
-        
-        protected override void Setup() {
-            base.Setup();
+
+        public override void Init() {
+            base.Init();
             cuttingCounter = Target.GetComponent<CuttingCounter>();
             if (cuttingCounter == null) {
                 Debug.LogError($"Target {Target.name} does not have a CuttingCounter component!", cuttingCounter);
@@ -55,19 +55,17 @@ namespace ThinkEngine.Actions
             if (AnyError)
                 return State.ABORT;
             
-            if (isDone) {
-                OnDone();
+            if (isDone)
                 return hasCutSuccessfully ? State.READY : State.ABORT;
-            }
 
             return State.WAIT;
         }
-        
-        
-        private void OnDone() {
+
+        public override void Clean() {
             cuttingCounter.OnRecipeChanged -= OnRecipeChanged;
             
             Player.StopAlternateInteract();
         }
+
     }
 }

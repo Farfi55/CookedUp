@@ -4,9 +4,18 @@ using UnityEngine;
 
 namespace ThinkEngine.Actions {
     public class DropAction : InteractAction {
-        private bool hasInteracted;
-        private bool hasDropped;
+        protected bool HasInteracted;
+        protected bool HasDropped;
 
+
+        private float interactionDelay = 0.2f;
+        private float remainingInteractionDelay;
+
+
+        public override void Init() {
+            base.Init();
+            remainingInteractionDelay = interactionDelay;
+        }
 
         public override State Prerequisite() {
             var state = base.Prerequisite();
@@ -31,47 +40,54 @@ namespace ThinkEngine.Actions {
         }
 
         private void OnInteract(object sender, InteractableEvent e) {
-            hasInteracted = true;
-            hasDropped = !Player.HasKitchenObject();
+            HasInteracted = true;
+            HasDropped = !Player.HasKitchenObject();
             PlayerMovement.StopAll();
         }
 
         public override State Done() {
             if (AnyError) {
-                OnDone();
                 return State.ABORT;
             }
 
-            if (hasInteracted) {
-                OnDone();
+            if (HasInteracted) {
                 return State.READY;
             }
             
-            if(HasReachedTarget && !IsTargetInRange())
+            if(HasReachedTarget && !IsTargetSelected() && !IsTargetInRange())
                 HasReachedTarget = false;
-            
-            if (!HasReachedTarget && !IsMoving) {
-                TryMoveToTarget();
+
+            if (!IsTargetSelected()) {
+                remainingInteractionDelay = interactionDelay;
+                
+                if (!HasReachedTarget && !IsMoving) {
+                    TryMoveToTarget();
+                }
+            }
+            else {
+                remainingInteractionDelay -= Time.deltaTime;
             }
             
-            if (IsTargetSelected() && Player.TryInteract()) {
-                if (hasInteracted || (HasTargetContainer && !TargetContainer.HasSpace())) {
-                    OnDone();
-                    return hasDropped ? State.READY : State.ABORT;
+            if (remainingInteractionDelay <= 0f && IsTargetSelected() && Player.TryInteract()) {
+                if (HasInteracted || (HasTargetContainer && !TargetContainer.HasSpace())) {
+                    return HasDropped ? State.READY : State.ABORT;
                 }
             }
 
             return State.WAIT;
         }
 
-        private void OnDone() {
-            if (hasDropped)
+        public override void Clean() {
+            base.Clean();
+            
+            if (HasDropped)
                 Debug.Log($"{Player.name} dropped a kitchen object {Target.name}");
             else
                 Debug.LogError($"{Player.name} did not drop a kitchen object {Target.name}");
 
             Interactable.OnInteract -= OnInteract;
             UnsubscribeMoveToEvents();
+        
         }
         
     }

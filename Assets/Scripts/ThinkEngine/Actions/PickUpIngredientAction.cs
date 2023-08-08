@@ -19,54 +19,55 @@ namespace ThinkEngine.Actions {
         public bool RequiresCooking { get; set; } = false;
         public bool RequiresCutting { get; set; } = false;
         
-        protected PlayerBot playerBot;
-        protected CompleteRecipeSO recipe;
-        protected KitchenObjectSO ingredient;
+        protected PlayerBot PlayerBot;
+        protected CompleteRecipeSO Recipe;
+        protected KitchenObjectSO Ingredient;
 
         protected bool RequiresAnyWork => RequiresCooking || RequiresCutting;
 
-        protected override void Setup() {
-            base.Setup();
+        public override void Init() {
+            base.Init();
             RecipesMapperManager = RecipesMapperManager.Instance;
-            playerBot = Player.GetComponent<PlayerBot>();
-            ingredient = RecipesMapperManager.KitchenObjectNameMap[IngredientName];
+            PlayerBot = Player.GetComponent<PlayerBot>();
+            Ingredient = RecipesMapperManager.KitchenObjectNameMap[IngredientName];
             if (RecipeName == "") {
-                recipe = playerBot.CurrentRecipe;
+                Recipe = PlayerBot.CurrentRecipe;
             }
             else {
-                recipe = RecipesMapperManager.CompleteRecipeNameMap[RecipeName];
+                Recipe = RecipesMapperManager.CompleteRecipeNameMap[RecipeName];
             }
         }
+
 
         public override State Prerequisite() {
             var state = base.Prerequisite();
             if (state != State.READY)
                 return state;
 
-            if (!playerBot.HasPlate) {
+            if (!PlayerBot.HasPlate) {
                 Debug.LogError($"{Player.name} does not have a plate");
                 return State.ABORT;
             }
 
-            if (!playerBot.HasRecipe || recipe == null) {
+            if (!PlayerBot.HasRecipe || Recipe == null) {
                 Debug.LogError($"{Player.name} does not have a recipe");
                 return State.ABORT;
             }
 
-            var ingredients = playerBot.Plate.IngredientsContainer.AsKitchenObjectSOs();
-            var missingIngredients = recipe.GetMissingIngredient(ingredients);
+            var ingredients = PlayerBot.Plate.IngredientsContainer.AsKitchenObjectSOs();
+            var missingIngredients = Recipe.GetMissingIngredient(ingredients);
             
             KitchenObjectSO resultingIngredient;
 
             if (!RequiresAnyWork) {
-                resultingIngredient = ingredient;
+                resultingIngredient = Ingredient;
             }
             else {
                 BaseRecipeSO recipeSO;
                 if (RequiresCooking)
-                    recipeSO = RecipesMapperManager.GetCookingRecipeFromInput(ingredient);
+                    recipeSO = RecipesMapperManager.GetCookingRecipeFromInput(Ingredient);
                 else if (RequiresCutting)
-                    recipeSO = RecipesMapperManager.GetCuttingRecipeFromInput(ingredient);
+                    recipeSO = RecipesMapperManager.GetCuttingRecipeFromInput(Ingredient);
                 else throw new ArgumentException(); // should never happen
 
                 if (recipeSO == null) {

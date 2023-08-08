@@ -21,20 +21,20 @@ namespace ThinkEngine.Actions
         private float timeToWaitFloat;
         private float timeElapsed;
 
-        public override State Prerequisite() {
-            if (idManager == null) {
-                idManager = IDManager.Instance;
+        public override void Init() {
+            idManager = IDManager.Instance;
 
-                if (PlayerID == 0) {
-                    Player = PlayersManager.Instance.GetPlayer();
-                }
-                else
-                    Player = idManager.GetComponentFromID<Player>(PlayerID);
+            if (PlayerID == 0) {
+                Player = PlayersManager.Instance.GetPlayer();
             }
-
+            else
+                Player = idManager.GetComponentFromID<Player>(PlayerID);
+            
             timeToWaitFloat = TimeToWait / 1000f;
             timeElapsed = 0;
+        }
 
+        public override State Prerequisite() {
             return State.READY;
         }
 
