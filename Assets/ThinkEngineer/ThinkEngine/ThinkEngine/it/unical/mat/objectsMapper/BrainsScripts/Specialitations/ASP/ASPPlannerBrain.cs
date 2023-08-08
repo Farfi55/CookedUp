@@ -56,6 +56,7 @@ namespace ThinkEngine.Planning
             {
                 if (literal.StartsWith("applyAction("))
                 {
+                    //Debug.Log("Found action");
                     ParseApplyActionLiteral(literal);
                 }
                 else if (literal.StartsWith("actionArgument("))

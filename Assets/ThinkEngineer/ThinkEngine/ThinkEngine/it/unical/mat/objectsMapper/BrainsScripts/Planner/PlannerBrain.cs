@@ -115,6 +115,7 @@ namespace ThinkEngine.Planning
                 base.Update();
                 if (Planner.IsNewPlanAvailable())
                 {
+                    //Debug.Log("New plan");
                     plan = Planner.GetNewPlan();
                     if (plan != null)
                     {

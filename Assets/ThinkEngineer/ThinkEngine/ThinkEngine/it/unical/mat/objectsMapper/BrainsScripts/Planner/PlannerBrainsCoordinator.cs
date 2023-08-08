@@ -33,6 +33,7 @@ namespace ThinkEngine.Planning
         internal void SchedulerIsIdle()
         {
             priorityExecuting = NumberOfBrains() + 1;
+            //Debug.Log("set priorityExecuting to " + priorityExecuting);
         }
 
         private bool ValidPriority(int priority)
@@ -75,6 +76,7 @@ namespace ThinkEngine.Planning
             {
                 plannersLastPlan[brain.Priority] = brain.GetPlan();
             }*/
+            //Debug.Log("Adding plan");
             plannersLastPlan[brain.Priority] = brain.GetPlan();
         }
 

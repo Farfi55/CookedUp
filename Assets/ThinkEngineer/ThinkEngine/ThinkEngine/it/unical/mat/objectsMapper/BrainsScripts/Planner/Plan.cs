@@ -39,10 +39,6 @@ namespace ThinkEngine.Planning
 
         private Action Next()
         {
-            if (!PlanState().Equals(State.READY))
-            {
-                Debug.LogError("Plan not ready to be executed");
-            }
             if (actions.Count == 0)
             {
                 Debug.LogError("Empty plan");
@@ -51,18 +47,24 @@ namespace ThinkEngine.Planning
             actions.RemoveAt(0);
             return toReturn;
         }
-        private State PlanState()
+        private State PlanState(bool finalize=false)
         {
             List<Action> toRemove = new List<Action>();
             while (actions.Count > 0)
             {
+                actions[0].Init();
                 State state = actions[0].Prerequisite();
                 if (state == State.SKIP)
                 {
+                    actions[0].Clean();
                     actions.RemoveAt(0);
                 }
                 else
                 {
+                    if (finalize)
+                    {
+                        actions[0].Clean();
+                    }
                     return state;
                 }
             }
@@ -71,7 +73,7 @@ namespace ThinkEngine.Planning
 
         internal bool IsExecutable()
         {
-            return !PlanState().Equals(State.ABORT);
+            return !PlanState(true).Equals(State.ABORT);
         }
 
         internal IEnumerator ApplyPlan(Scheduler scheduler)
@@ -91,6 +93,7 @@ namespace ThinkEngine.Planning
             _isExecuting = true;
             while (actions.Count > 0)
             {
+
                 State planState = State.WAIT;
                 while (PlanWaiting(ref planState))
                 {
@@ -100,12 +103,14 @@ namespace ThinkEngine.Planning
                 {
                     Action next = Next();
                     next.Do();
+                    yield return null;
                     State done = next.Done();
                     while (done == State.WAIT)
                     {
                         yield return null;
                         done = next.Done();
                     }
+                    next.Clean();
                     if (done == State.ABORT)
                     {
                         break;
@@ -114,11 +119,16 @@ namespace ThinkEngine.Planning
                 else
                 {
                     //Debug.Log("Breaking for abort");
+                    if (actions.Count > 0) //actions could be empty if State is ABORT due to all actions being skipped
+                    {
+                        actions[0].Clean();
+                    }
                     break;
                 }
             }
             _isExecuting = false;
             scheduler.IsIdle = true;
+            //Debug.Log("Scheduler is idle");
             scheduler.currentPlan = null;
         }
 
