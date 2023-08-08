@@ -8,6 +8,7 @@ using UnityEngine;
 namespace ThinkEngine.Actions {
     class PickUpIngredientAction : PickUpAction {
         protected RecipesMapperManager RecipesMapperManager;
+        protected DeliveryManager DeliveryManager;
 
         /// <summary>
         /// The name of the ingredient to pick up
@@ -15,12 +16,13 @@ namespace ThinkEngine.Actions {
         public string IngredientName { get; set; }
         
         public string RecipeName { get; set; } = "";
+        public int RecipeRequestID { get; set; } = -1;
         
         public bool RequiresCooking { get; set; } = false;
         public bool RequiresCutting { get; set; } = false;
         
         protected PlayerBot PlayerBot;
-        protected CompleteRecipeSO Recipe;
+        protected RecipeRequest RecipeRequest;
         protected KitchenObjectSO Ingredient;
 
         protected bool RequiresAnyWork => RequiresCooking || RequiresCutting;
@@ -28,13 +30,14 @@ namespace ThinkEngine.Actions {
         public override void Init() {
             base.Init();
             RecipesMapperManager = RecipesMapperManager.Instance;
+            DeliveryManager = DeliveryManager.Instance;
             PlayerBot = Player.GetComponent<PlayerBot>();
             Ingredient = RecipesMapperManager.KitchenObjectNameMap[IngredientName];
             if (RecipeName == "") {
-                Recipe = PlayerBot.CurrentRecipe;
+                RecipeRequest = PlayerBot.CurrentRecipeRequest;
             }
             else {
-                Recipe = RecipesMapperManager.CompleteRecipeNameMap[RecipeName];
+                RecipeRequest = DeliveryManager.GetRecipeRequestFromID(RecipeRequestID); 
             }
         }
 
@@ -49,13 +52,13 @@ namespace ThinkEngine.Actions {
                 return State.ABORT;
             }
 
-            if (!PlayerBot.HasRecipe || Recipe == null) {
+            if (!PlayerBot.HasRecipe || RecipeRequest == null) {
                 Debug.LogError($"{Player.name} does not have a recipe");
                 return State.ABORT;
             }
 
             var ingredients = PlayerBot.Plate.IngredientsContainer.AsKitchenObjectSOs();
-            var missingIngredients = Recipe.GetMissingIngredient(ingredients);
+            var missingIngredients = RecipeRequest.Recipe.GetMissingIngredient(ingredients);
             
             KitchenObjectSO resultingIngredient;
 

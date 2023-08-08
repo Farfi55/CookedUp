@@ -12,7 +12,7 @@ namespace UI
         }
 
         private void Start() {
-            DeliveryManager.Instance.WaitingRecipeSOs.CollectionChanged += WaitingRecipesChanged;
+            DeliveryManager.Instance.WaitingRequests.CollectionChanged += WaitingRecipesChanged;
         
             UpdateVisual();
         }
@@ -28,15 +28,15 @@ namespace UI
                 Destroy(child.gameObject);
             }
 
-            foreach (var recipeSO in DeliveryManager.Instance.WaitingRecipeSOs) {
+            foreach (var recipeRequest in DeliveryManager.Instance.WaitingRequests) {
                 var recipeUI = Instantiate(recipeTemplate, container);
                 recipeUI.gameObject.SetActive(true);
-                recipeUI.SetRecipeSO(recipeSO);
+                recipeUI.SetRecipeSO(recipeRequest.Recipe);
             }
         }
     
         private void OnDestroy() {
-            DeliveryManager.Instance.WaitingRecipeSOs.CollectionChanged -= WaitingRecipesChanged;
+            DeliveryManager.Instance.WaitingRequests.CollectionChanged -= WaitingRecipesChanged;
         }
     }
 }

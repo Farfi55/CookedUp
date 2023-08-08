@@ -19,11 +19,11 @@ namespace Players {
         public bool HasPlate => Plate != null;
         public PlateKitchenObject Plate { get; private set; }
 
-        public bool HasRecipe => CurrentRecipe != null;
-        public CompleteRecipeSO CurrentRecipe { get; private set; }
+        public bool HasRecipe => CurrentRecipeRequest != null;
+        public RecipeRequest CurrentRecipeRequest { get; private set; }
 
 
-        public event EventHandler<ValueChangedEvent<CompleteRecipeSO>> OnRecipeChanged;
+        public event EventHandler<ValueChangedEvent<RecipeRequest>> OnRecipeRequestChanged;
         public event EventHandler<ValueChangedEvent<PlateKitchenObject>> OnPlateChanged;
         public event EventHandler<KitchenObjectsChangedEvent> OnPlateIngredientsChanged;
 
@@ -35,7 +35,7 @@ namespace Players {
             // todo: make a HigherLevelAI that handles recipe selection and coordination
             TrySelectRecipe();
 
-            deliveryManager.OnRecipeCreated += OnRecipeCreated;
+            deliveryManager.OnRecipeRequestCreated += RecipeRequestCreated;
             deliveryManager.OnRecipeSuccess += OnRecipeSuccess;
 
             player.Container.OnKitchenObjectAdded += OnPlayerKOAdded;
@@ -114,18 +114,18 @@ namespace Players {
             }
         }
 
-        private void OnRecipeCreated(object sender, CompleteRecipeSO e) {
+        private void RecipeRequestCreated(object sender, RecipeRequest recipeRequest) {
             if (HasRecipe)
                 return;
             TrySelectRecipe();
         }
 
         private void TrySelectRecipe(bool forceEvent = false) {
-            var oldRecipe = CurrentRecipe;
-            CurrentRecipe = deliveryManager.WaitingRecipeSOs.FirstOrDefault();
+            var oldRequest = CurrentRecipeRequest;
+            CurrentRecipeRequest = deliveryManager.WaitingRequests.FirstOrDefault();
 
-            if (forceEvent || oldRecipe != CurrentRecipe)
-                OnRecipeChanged?.Invoke(this, new ValueChangedEvent<CompleteRecipeSO>(oldRecipe, CurrentRecipe));
+            if (forceEvent || oldRequest != CurrentRecipeRequest)
+                OnRecipeRequestChanged?.Invoke(this, new(oldRequest, CurrentRecipeRequest));
         }
 
 

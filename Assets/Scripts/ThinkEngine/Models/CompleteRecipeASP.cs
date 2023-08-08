@@ -4,7 +4,7 @@ using KitchenObjects.ScriptableObjects;
 
 namespace ThinkEngine.Models {
     [Serializable]
-    public class CompleteRecipe {
+    public class CompleteRecipeASP {
 
         public string Name = String.Empty;
 
@@ -12,10 +12,10 @@ namespace ThinkEngine.Models {
 
         public int Value;
 
-        public CompleteRecipe() {
+        public CompleteRecipeASP() {
         }
 
-        public CompleteRecipe(CompleteRecipeSO cuttingRecipeSO) {
+        public CompleteRecipeASP(CompleteRecipeSO cuttingRecipeSO) {
             Name = cuttingRecipeSO.name;
 
             IngredientsNames = cuttingRecipeSO.Ingredients.ConvertAll(ingredient => ingredient.name);

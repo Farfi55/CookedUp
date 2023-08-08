@@ -74,7 +74,7 @@ state_Deliver :-
 
 firstActionIndex(0).
 
-    
+#show curr_Player_ID/1.
 #show state/1.
 #show applyAction/2.
 #show actionArgument/3.

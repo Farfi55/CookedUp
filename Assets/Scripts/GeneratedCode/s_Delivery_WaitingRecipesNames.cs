@@ -42,7 +42,7 @@ namespace ThinkEngine
 			{
 				first = false;
 				DeliverySensorData DeliverySensorData0 = gameObject.GetComponent<DeliverySensorData>();
-				List<string> WaitingRecipesNames1 = DeliverySensorData0.WaitingRecipesNames;
+				List<string> WaitingRecipesNames1 = DeliverySensorData0.WaitingRecipesRequests;
 				if(WaitingRecipesNames1 == null)
 				{
 					values.Clear();

@@ -4,6 +4,7 @@ using KitchenObjects;
 using KitchenObjects.Container;
 using KitchenObjects.ScriptableObjects;
 using Players;
+using ThinkEngine.Models;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,6 +21,9 @@ namespace ThinkEngine.Sensors {
 
         public string RecipeName;
 
+        public RecipeRequestASP CurrentRecipeRequestASP;
+        
+
         [Header("Plate")] public bool HasPlate;
         public int PlateForRecipeID;
 
@@ -31,7 +35,7 @@ namespace ThinkEngine.Sensors {
         private void Start() {
             idManager = IDManager.Instance;
             
-            playerBot.OnRecipeChanged += OnRecipeChanged;
+            playerBot.OnRecipeRequestChanged += RecipeRequestChanged;
             playerBot.OnPlateChanged += OnPlateChanged;
             playerBot.OnPlateIngredientsChanged += OnPlateIngredientsChanged;
             player.Container.OnKitchenObjectsChanged += OnPlateIngredientsChanged;
@@ -44,14 +48,21 @@ namespace ThinkEngine.Sensors {
             UpdateMissingIngredientsData();
 
 
-        private void OnRecipeChanged(object sender, ValueChangedEvent<CompleteRecipeSO> e) {
+        private void RecipeRequestChanged(object sender, ValueChangedEvent<RecipeRequest> valueChangedEvent) {
             UpdateRecipeData();
             UpdateMissingIngredientsData();
         }
 
         private void UpdateRecipeData() {
             HasRecipe = playerBot.HasRecipe;
-            RecipeName = playerBot.HasRecipe ? playerBot.CurrentRecipe.name : "";
+            if (playerBot.HasPlate) {
+                RecipeName = playerBot.CurrentRecipeRequest.Recipe.name;
+                CurrentRecipeRequestASP = new RecipeRequestASP(playerBot.CurrentRecipeRequest);
+            }
+            else {
+                RecipeName = "";
+                CurrentRecipeRequestASP = null;
+            }
         }
 
         private void OnPlateChanged(object sender, ValueChangedEvent<PlateKitchenObject> e) {
@@ -66,17 +77,17 @@ namespace ThinkEngine.Sensors {
             if (!playerBot.HasRecipe)
                 return;
             List<KitchenObjectSO> ingredients;
-            if (!playerBot.HasPlate) {
-                ingredients = player.Container.AsKitchenObjectSOs();
-            }
-            else {
+            if (playerBot.HasPlate) {
                 ingredients = playerBot.Plate.IngredientsContainer.AsKitchenObjectSOs();
             }
+            else {
+                ingredients = new();
+            }
 
-            MissingIngredientsNames = playerBot.CurrentRecipe.GetMissingIngredient(ingredients)
+            MissingIngredientsNames = playerBot.CurrentRecipeRequest.Recipe.GetMissingIngredient(ingredients)
                 .ConvertAll(koso => koso.name);
             HasMissingIngredients = MissingIngredientsNames.Count > 0;
-            HasInvalidIngredients = !playerBot.CurrentRecipe.IsValidFor(ingredients);
+            HasInvalidIngredients = !playerBot.CurrentRecipeRequest.Recipe.IsValidFor(ingredients);
         }
 
         private void UpdatePlateData() {
