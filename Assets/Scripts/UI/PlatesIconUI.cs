@@ -8,7 +8,7 @@ namespace UI
     public class PlatesIconUI : MonoBehaviour
     {
         [SerializeField] private PlateKitchenObject plateKitchenObject;
-        [SerializeField] private PlatesIconSingleUI iconTemplate;
+        [SerializeField] private KitchenObjectIconUI iconTemplate;
 
 
         private void Awake() {

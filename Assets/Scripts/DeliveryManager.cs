@@ -41,8 +41,8 @@ public class DeliveryManager : MonoBehaviour {
 
     public event EventHandler<RecipeRequest> OnRecipeRequestCreated;
     public event EventHandler<RecipeDeliveryEvent> OnRecipeDelivered;
-    public event EventHandler<RecipeDeliveryEvent> OnRecipeSuccess;
-    public event EventHandler<RecipeDeliveryEvent> OnRecipeFailed;
+    public event EventHandler<RecipeDeliveryEvent> OnDeliverySuccess;
+    public event EventHandler<RecipeDeliveryEvent> OnDeliveryFailed;
 
 
     private void Awake() {
@@ -75,7 +75,14 @@ public class DeliveryManager : MonoBehaviour {
 
     private void Update() {
         if (!gameManager.IsGamePlaying) return;
-
+        
+        foreach (var recipeRequest in waitingRequests) {
+            recipeRequest.UpdateTime(Time.deltaTime);
+        }
+        
+        waitingRequests.RemoveAll(request => request.IsExpired);
+        
+        
         if (waitingRequests.Count < maxWaitingRequests)
             progressTracker.AddWorkDone(Time.deltaTime);
     }
@@ -91,7 +98,7 @@ public class DeliveryManager : MonoBehaviour {
     }
 
     private void AddRecipe(CompleteRecipeSO recipeSO) {
-        var recipeRequest = new RecipeRequest(recipeSO, timeForNewRequest, nextRecipeRequestID);
+        var recipeRequest = new RecipeRequest(recipeSO, TimeToDeliverRecipe, nextRecipeRequestID);
         AddRecipeRequest(recipeRequest);
     }
 
@@ -109,16 +116,17 @@ public class DeliveryManager : MonoBehaviour {
 
         var recipeRequest = waitingRequests.FirstOrDefault(request => request.Recipe.MatchesCompletely(kitchenObjectSOs));
         if (recipeRequest == null) {
-            OnRecipeFailed?.Invoke(this, new RecipeDeliveryEvent(null, player, deliveryCounter));
+            OnDeliveryFailed?.Invoke(this, new RecipeDeliveryEvent(null, player, deliveryCounter));
             Debug.Log("No match found in waiting recipes");
         }
-        else {
+        else { 
             waitingRequests.Remove(recipeRequest);
             SuccessfulDeliveriesCount++;
+            recipeRequest.Complete();
             Debug.Log($"Recipe {recipeRequest.Recipe.DisplayName} delivered!");
             plate.DestroySelf();
             OnRecipeDelivered?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
-            OnRecipeSuccess?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
+            OnDeliverySuccess?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
         }
     }
 

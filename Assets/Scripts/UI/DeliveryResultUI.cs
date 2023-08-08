@@ -18,8 +18,8 @@ namespace UI
     
     
         private void Start() {
-            DeliveryManager.Instance.OnRecipeSuccess += OnRecipeSuccess;
-            DeliveryManager.Instance.OnRecipeFailed += OnRecipeFailed;
+            DeliveryManager.Instance.OnDeliverySuccess += DeliverySuccess;
+            DeliveryManager.Instance.OnDeliveryFailed += DeliveryFailed;
 
             canvasGroup.alpha = 0f;
             timeSinceDelivery = hideEndDelay;
@@ -33,7 +33,7 @@ namespace UI
         }
 
 
-        private void OnRecipeSuccess(object sender, RecipeDeliveryEvent e) {
+        private void DeliverySuccess(object sender, RecipeDeliveryEvent e) {
             if(e.DeliveryCounter != deliveryCounter) return;
         
             timeSinceDelivery = 0f;
@@ -42,7 +42,7 @@ namespace UI
             failedPanel.SetActive(false);
         }
     
-        private void OnRecipeFailed(object sender, RecipeDeliveryEvent e) {
+        private void DeliveryFailed(object sender, RecipeDeliveryEvent e) {
             if(e.DeliveryCounter != deliveryCounter) return;
             timeSinceDelivery = 0f;
             canvasGroup.alpha = 1f;

@@ -36,7 +36,7 @@ namespace Players {
             TrySelectRecipe();
 
             deliveryManager.OnRecipeRequestCreated += RecipeRequestCreated;
-            deliveryManager.OnRecipeSuccess += OnRecipeSuccess;
+            deliveryManager.OnDeliverySuccess += DeliverySuccess;
 
             player.Container.OnKitchenObjectAdded += OnPlayerKOAdded;
         }
@@ -108,7 +108,7 @@ namespace Players {
         }
 
 
-        private void OnRecipeSuccess(object sender, RecipeDeliveryEvent e) {
+        private void DeliverySuccess(object sender, RecipeDeliveryEvent e) {
             if (e.Player == player) {
                 TrySelectRecipe(true);
             }

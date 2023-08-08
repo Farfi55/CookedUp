@@ -6,20 +6,28 @@ namespace UI
     public class DeliveryManagerUI : MonoBehaviour {
         [SerializeField] private Transform container;
         [SerializeField] private DeliveryManagerSingleUI recipeTemplate;
+        private DeliveryManager deliveryManager;
 
         private void Awake() {
             recipeTemplate.gameObject.SetActive(false);
         }
 
         private void Start() {
-            DeliveryManager.Instance.WaitingRequests.CollectionChanged += WaitingRecipesChanged;
-        
+            deliveryManager = DeliveryManager.Instance;
+            deliveryManager.OnRecipeRequestCreated += OnRecipeRequestCreated;
             UpdateVisual();
         }
 
-        private void WaitingRecipesChanged(object sender, NotifyCollectionChangedEventArgs e) {
-            UpdateVisual();
+        private void OnRecipeRequestCreated(object sender, RecipeRequest e) {
+            AddRecipeRequest(e);            
         }
+
+        private void AddRecipeRequest(RecipeRequest recipeRequest) {
+            var recipeUI = Instantiate(recipeTemplate, container);
+            recipeUI.gameObject.SetActive(true);
+            recipeUI.SetRecipeRequest(recipeRequest);
+        }
+
 
         private void UpdateVisual() {
             foreach (Transform child in container) {
@@ -28,15 +36,15 @@ namespace UI
                 Destroy(child.gameObject);
             }
 
-            foreach (var recipeRequest in DeliveryManager.Instance.WaitingRequests) {
+            foreach (var recipeRequest in deliveryManager.WaitingRequests) {
                 var recipeUI = Instantiate(recipeTemplate, container);
                 recipeUI.gameObject.SetActive(true);
-                recipeUI.SetRecipeSO(recipeRequest.Recipe);
+                recipeUI.SetRecipeRequest(recipeRequest);
             }
         }
     
         private void OnDestroy() {
-            DeliveryManager.Instance.WaitingRequests.CollectionChanged -= WaitingRecipesChanged;
+            deliveryManager.OnRecipeRequestCreated -= OnRecipeRequestCreated;
         }
     }
 }

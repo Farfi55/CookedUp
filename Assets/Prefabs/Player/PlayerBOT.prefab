@@ -801,6 +801,13 @@ MonoBehaviour:
   playerBot: {fileID: 943945516212414302}
   HasRecipe: 0
   RecipeName: 
+  CurrentRecipeRequestASP:
+    Name: 
+    IngredientsNames: []
+    Value: 0
+    ID: 0
+    TimeToComplete: 0
+    RemainingTimeToComplete: 0
   HasPlate: 0
   PlateForRecipeID: 0
   HasMissingIngredients: 0

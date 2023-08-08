@@ -9,16 +9,16 @@ public class RecipeRequest {
     [SerializeField] private CompleteRecipeSO recipe;
     [SerializeField] private float timeToComplete;
     [SerializeField] private float remainingTimeToComplete;
-    [SerializeField] private bool wasCompleted = false;
+    [SerializeField] private bool isCompleted = false;
     [SerializeField] private int id;
     
     public CompleteRecipeSO Recipe => recipe;
     public float RemainingTimeToComplete => remainingTimeToComplete;
     public float TimeToComplete => timeToComplete;
     public float Value => recipe.Value;
-    public bool WasCompleted => wasCompleted;
+    public bool IsCompleted => isCompleted;
     public int ID => id;
-    public bool HasExpired => !wasCompleted && remainingTimeToComplete <= 0;
+    public bool IsExpired => !isCompleted && remainingTimeToComplete <= 0;
     
     public event EventHandler OnRequestExpired;
     public event EventHandler OnRequestCompleted;
@@ -34,7 +34,7 @@ public class RecipeRequest {
     }
     
     public void UpdateTime(float deltaTime) {
-        if(wasCompleted || HasExpired)
+        if(isCompleted || IsExpired)
             return;
         
         remainingTimeToComplete -= deltaTime;
@@ -47,10 +47,10 @@ public class RecipeRequest {
     
     
     public void Complete() {
-        if(wasCompleted)
+        if(isCompleted)
             throw new Exception("Request already completed");
         
-        wasCompleted = true;
+        isCompleted = true;
         OnRequestCompleted?.Invoke(this, EventArgs.Empty);
         OnAnyRequestCompleted?.Invoke(this, this);
     }
