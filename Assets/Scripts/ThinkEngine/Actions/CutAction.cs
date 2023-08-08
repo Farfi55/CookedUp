@@ -40,6 +40,7 @@ namespace ThinkEngine.Actions
         public override void Do() {
             cuttingCounter.OnRecipeChanged += OnRecipeChanged;
             Player.StartAlternateInteract();
+            HasReachedTarget = IsTargetSelected();
         }
 
         private void OnRecipeChanged(object sender, ValueChangedEvent<BaseRecipeSO> e) {
@@ -57,6 +58,15 @@ namespace ThinkEngine.Actions
             
             if (isDone)
                 return hasCutSuccessfully ? State.READY : State.ABORT;
+            
+            if(HasReachedTarget && !IsTargetSelected() && !IsTargetInRange())
+                HasReachedTarget = false;
+            
+            if (!IsTargetSelected()) {
+                if (!HasReachedTarget && !IsMoving) {
+                    TryMoveToTarget();
+                }
+            }
 
             return State.WAIT;
         }
