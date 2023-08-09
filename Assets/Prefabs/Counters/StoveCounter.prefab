@@ -1120,18 +1120,6 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: 3169eba2f76c23c4daf20582df97d565, type: 3}
     typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_Name, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 2361d68b9c5f0b346850931257c331f4, type: 3}
-    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_InputKOName, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 488029b5014771b45aede37f981f03cf, type: 3}
-    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_OutputKOName, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 5008d300633e6f342aaff190bf5b0275, type: 3}
-    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_TimeToCook, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 76bb38fa09a969a4b9f4ea7e01877035, type: 3}
-    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 543f0efa23be1484d8a5aa3855c13b25, type: 3}
     typeName: ThinkEngine.s_StoveCounter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -1142,10 +1130,6 @@ MonoBehaviour:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_TimeRemainingToCook.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_IsBurning.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_Name.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_InputKOName.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_OutputKOName.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_TimeToCook.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_ID.cs
 --- !u!4 &6034013152658884737 stripped
 Transform:

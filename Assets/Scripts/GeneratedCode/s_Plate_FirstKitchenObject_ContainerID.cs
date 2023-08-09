@@ -44,10 +44,14 @@ namespace ThinkEngine
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
 				KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
+                if (FirstKitchenObject1 == null) {
+                    values.Clear();
+                    return;
+                }
 				int ContainerID2 = FirstKitchenObject1.ContainerID;
 				if (values.Count == 200)
 				{
-						values.RemoveAt(0);
+                    values.RemoveAt(0);
 				}
 				values.Add(ContainerID2);
 			}

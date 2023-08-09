@@ -44,7 +44,7 @@ namespace ThinkEngine
 				first = false;
 				StoveCounterSensorData StoveCounterSensorData0 = gameObject.GetComponent<StoveCounterSensorData>();
 				CookingRecipe CurrentCookingRecipe1 = StoveCounterSensorData0.CurrentCookingRecipe;
-				string Name2 = CurrentCookingRecipe1.Name;
+				string Name2 = CurrentCookingRecipe1?.Name;
 				if(Name2 == null)
 				{
 					values.Clear();

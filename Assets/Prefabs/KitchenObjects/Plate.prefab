@@ -502,9 +502,73 @@ MonoBehaviour:
   _configurationName: s_Plate
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 15a05dfcf87a2404daf45580a49ca720, type: 3}
+    typeName: ThinkEngine.s_Plate_OwnerContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 56608af09d38ea5488702e495c28de31, type: 3}
+    typeName: ThinkEngine.s_Plate_IsInContainer, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2d1799b031aceaf4f92087587450a14e, type: 3}
+    typeName: ThinkEngine.s_Plate_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0eca152975d85964ba5cc8c126a3c4d9, type: 3}
+    typeName: ThinkEngine.s_Plate_Type, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 9b9f1ae147e231b47899a0f26b6660cc, type: 3}
+    typeName: ThinkEngine.s_Plate_Name, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3aff90cff9a26504f9e565d1e392790a, type: 3}
+    typeName: ThinkEngine.s_Plate_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 78723e706ae282943925164c1cf63761, type: 3}
+    typeName: ThinkEngine.s_Plate_SizeLimit, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0ccef21caa533634f8eeb6445a244eff, type: 3}
+    typeName: ThinkEngine.s_Plate_Count, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d91e0f6e83c962949a5aeaebe4fc5e4e, type: 3}
+    typeName: ThinkEngine.s_Plate_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a06130a4238ac6549b6d0e3cc4462920, type: 3}
+    typeName: ThinkEngine.s_Plate_HasAny, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: daec83fefd2330c4898bd4d43bacca83, type: 3}
+    typeName: ThinkEngine.s_Plate_KitchenObjectASP_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b13ed4e4892ef4b4d8315278fd0b0aa9, type: 3}
+    typeName: ThinkEngine.s_Plate_KitchenObjectASP_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d3d74812a44d54a49bda18d3d6cb17b2, type: 3}
+    typeName: ThinkEngine.s_Plate_KitchenObjectASP_ContainerID, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 926f5a5dc5cd9f942ab426776bbdee81, type: 3}
+    typeName: ThinkEngine.s_Plate_FirstKitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7f4193fcd89e2d94e922c8ef6d5c4c57, type: 3}
+    typeName: ThinkEngine.s_Plate_FirstKitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f42bbe135d954c4478cb5e27f9f2deab, type: 3}
+    typeName: ThinkEngine.s_Plate_FirstKitchenObject_ContainerID, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   generatedCode: 0
-  generatedScripts: []
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_OwnerContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_IsInContainer.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Type.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_SizeLimit.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Count.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_HasSpace.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_ContainerID.cs
 --- !u!1 &979769197035255743
 GameObject:
   m_ObjectHideFlags: 0

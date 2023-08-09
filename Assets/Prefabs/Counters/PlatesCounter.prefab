@@ -648,17 +648,24 @@ MonoBehaviour:
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 21aee60171c7b55449a86bb2a8d38351, type: 3}
-    typeName: ThinkEngine.S_PlatesCounter0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: eec4e83fc716c2b48bcb3a61396c4287, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 6925acb0af87ae145acdf4a8aca37fc4, type: 3}
-    typeName: ThinkEngine.S_PlatesCounter1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 38e265a631c5e3740b6c05689f05f425, type: 3}
-    typeName: ThinkEngine.S_PlatesCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 594b68090c76f3346a37db16fbb6a39b, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_PlatesLimit, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 213c4831d8f568344a4fa32472047a46, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_PlatesCount, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8fb9d1a0a8e92324b84b2a96f9e76bdc, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_TimeToNextPlate, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   generatedCode: 0
-  generatedScripts: []
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_PlatesLimit.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_PlatesCount.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_TimeToNextPlate.cs
 --- !u!1 &1763550275166000104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

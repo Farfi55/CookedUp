@@ -584,8 +584,8 @@ MonoBehaviour:
       Count: 4
     windowWidth: 200
     configurationName: s_Counter
-    _propertyAlias: s_Counter_KitchenObjectASP_ContainerID
-    propertyAliasHash: 1423410655
+    _propertyAlias: s_Counter_KitchenObject_ContainerID
+    propertyAliasHash: -1774701467
     operation: 0
     specificValue: 
     counter: 0
@@ -626,6 +626,15 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: 7283534fb126cd94f92d6012bcf77a6c, type: 3}
     typeName: ThinkEngine.s_Counter_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 6d5237e97b58ca24eb94b94f1b453afd, type: 3}
+    typeName: ThinkEngine.s_Counter_KitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0432a61ab5cb58e4db884d3cce002646, type: 3}
+    typeName: ThinkEngine.s_Counter_KitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 867c0e3903a2c584d95880db53966fb6, type: 3}
+    typeName: ThinkEngine.s_Counter_KitchenObject_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   generatedCode: 0
   generatedScripts:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_ID.cs
@@ -639,3 +648,6 @@ MonoBehaviour:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_FirstKitchenObject_ContainerID.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_HasAny.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_HasSpace.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_ContainerID.cs

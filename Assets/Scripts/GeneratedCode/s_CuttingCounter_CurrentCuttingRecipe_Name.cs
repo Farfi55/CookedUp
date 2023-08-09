@@ -44,7 +44,7 @@ namespace ThinkEngine
 				first = false;
 				CuttingCounterSensorData CuttingCounterSensorData0 = gameObject.GetComponent<CuttingCounterSensorData>();
 				CuttingRecipe CurrentCuttingRecipe1 = CuttingCounterSensorData0.CurrentCuttingRecipe;
-				string Name2 = CurrentCuttingRecipe1.Name;
+				string Name2 = CurrentCuttingRecipe1?.Name;
 				if(Name2 == null)
 				{
 					values.Clear();

@@ -34,31 +34,31 @@ namespace ThinkEngine
 		}
 
 		public override void Update()
-        {
-            if(!ready)
-            {
-                return;
-            }
-            if(!invariant || first)
-            {
-                first = false;
-                KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-                KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-                string Name2 = FirstKitchenObject1?.Name;
-                if(Name2 == null)
-                {
-                    values.Clear();
-                    return;
-                }
-                else
-                {
-                    if (values.Count == 200)
-                    {
-                            values.RemoveAt(0);
-                    }
-                    values.Add(Name2);
-                }
-            }
+		{
+			if(!ready)
+			{
+				return;
+			}
+			if(!invariant || first)
+			{
+				first = false;
+				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
+				KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
+				string Name2 = FirstKitchenObject1?.Name;
+				if(Name2 == null)
+				{
+					values.Clear();
+					return;
+				}
+				else
+				{
+					if (values.Count == 200)
+					{
+							values.RemoveAt(0);
+					}
+					values.Add(Name2);
+				}
+			}
 		}
 
 		public override string Map()
