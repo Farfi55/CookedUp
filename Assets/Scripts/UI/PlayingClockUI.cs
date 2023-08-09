@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,7 @@ namespace UI
         private SoundManager soundManager;
         private GameManager gameManager;
 
-        [SerializeField] private Image clockImage;
-
-        [SerializeField] private Gradient clockGradient;
+        [SerializeField] private TextMeshProUGUI clockText;
 
         float lastTickTime = 0f;
 
@@ -39,19 +38,17 @@ namespace UI
 
         private void OnGameProgressChanged(object sender, ValueChangedEvent<double> e) {
             float progress = (float)e.NewValue;
-            UpdateColor(progress);
-
+            float timeLeft = (float)gameManager.GameStateProgressTracker.GetWorkRemaining();
+            var minutes = timeLeft / 60;
+            var seconds = timeLeft % 60;
+            clockText.text = $"{minutes:0}:{seconds:00}";
+            
             if (progress > 0.5f && Time.time - lastTickTime > 1f) {
                 lastTickTime = Time.time;
                 var volumeMultiplier = Mathf.Pow(2*(progress - 0.5f), 3);
                 soundManager.PlayClockTickSound(volumeMultiplier);
             }
         }
-
-        private void UpdateColor(float progress) {
-            clockImage.color = clockGradient.Evaluate(progress);
-        }
-    
     
         private void UpdateVisibility(GamePlayingState currentState) {
             if (currentState == GamePlayingState.Playing)

@@ -8,6 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600657482751717247, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+        type: 3}
+    - target: {fileID: 932209159212642646, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+        type: 3}
+    - target: {fileID: 932209159212642646, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 932209159212642646, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344529423844488125, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_Pivot.x
@@ -16,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
@@ -31,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
@@ -46,12 +73,12 @@ PrefabInstance:
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1598.2784
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 7.6461
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
@@ -91,12 +118,12 @@ PrefabInstance:
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1006.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229178814547818900, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
@@ -113,13 +140,275 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: hideIfFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: warningImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: outputPreviewImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime2
+      value: 36044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime3
+      value: 45875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime4
+      value: 49151
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime5
+      value: 55705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime6
+      value: 58982
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.ctime7
+      value: 64571
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key0.b
+      value: 0.43137258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key0.g
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key0.r
+      value: 0.48373932
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key1.b
+      value: 0.43137258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key1.g
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key1.r
+      value: 0.48373932
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key2.b
+      value: 0.24973297
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key2.g
+      value: 0.8465915
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key2.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key3.b
+      value: 0.22035086
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key3.g
+      value: 0.76175094
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key3.r
+      value: 0.85162795
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key4.b
+      value: 0.11542382
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key4.g
+      value: 0.45877525
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key4.r
+      value: 0.79343086
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key5.b
+      value: 0.09332079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key5.g
+      value: 0.39495298
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key5.r
+      value: 0.78117156
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key6.b
+      value: 0.022106975
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key6.g
+      value: 0.18932387
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key6.r
+      value: 0.7416733
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key7.b
+      value: 0.009830277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key7.g
+      value: 0.15387502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.key7.r
+      value: 0.7348641
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578879412685234935, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: progressColorGradient.m_NumColorKeys
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998509050250704575, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+        type: 3}
+    - target: {fileID: 6773831804251543387, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773831804251543387, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 8021018455803710867, guid: 2afd15e106181144a99b18ad064df518,
         type: 3}
       propertyPath: m_Name
-      value: ProgressBarCanvasUI
+      value: ProgressCircleCanvasUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3100429969802145096, guid: 2afd15e106181144a99b18ad064df518, type: 3}
+    - {fileID: 6299710693869774349, guid: 2afd15e106181144a99b18ad064df518, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2678872522557443609, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4570916660956040519}
+    - targetCorrespondingSourceObject: {fileID: 2014754468888164502, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6826762301651782595}
+    - targetCorrespondingSourceObject: {fileID: 2014754468888164502, guid: 2afd15e106181144a99b18ad064df518,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 365203924788059096}
   m_SourcePrefab: {fileID: 100100000, guid: 2afd15e106181144a99b18ad064df518, type: 3}
+--- !u!1 &2208667880667884333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2014754468888164502, guid: 2afd15e106181144a99b18ad064df518,
+    type: 3}
+  m_PrefabInstance: {fileID: 383680353030869947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6826762301651782595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208667880667884333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &365203924788059096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208667880667884333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1.6, y: -1.6}
+  m_UseGraphicAlpha: 1
+--- !u!1 &2341413731799719330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2678872522557443609, guid: 2afd15e106181144a99b18ad064df518,
+    type: 3}
+  m_PrefabInstance: {fileID: 383680353030869947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4570916660956040519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341413731799719330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1.6, y: -1.6}
+  m_UseGraphicAlpha: 1

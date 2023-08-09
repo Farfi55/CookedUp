@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,9 +7,7 @@ using Extensions;
 using KitchenObjects;
 using KitchenObjects.ScriptableObjects;
 using Players;
-using Unity.VisualScripting;
 using UnityEngine;
-using Random = System.Random;
 
 public class DeliveryManager : MonoBehaviour {
     public static DeliveryManager Instance { get; private set; }
@@ -30,7 +27,7 @@ public class DeliveryManager : MonoBehaviour {
 
     private int nextRecipeRequestID = 0;
     
-    [SerializeField] private float TimeToDeliverRecipe = 20f;
+    [SerializeField] private float timeToDeliverRecipe = 20f;
     [SerializeField] private float timeForNewRequest = 10f;
 
     [SerializeField] private int maxWaitingRequests = 3;
@@ -98,7 +95,7 @@ public class DeliveryManager : MonoBehaviour {
     }
 
     private void AddRecipe(CompleteRecipeSO recipeSO) {
-        var recipeRequest = new RecipeRequest(recipeSO, TimeToDeliverRecipe, nextRecipeRequestID);
+        var recipeRequest = new RecipeRequest(recipeSO, timeToDeliverRecipe, nextRecipeRequestID);
         AddRecipeRequest(recipeRequest);
     }
 

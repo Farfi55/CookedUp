@@ -44,7 +44,7 @@ public override void Update()
         first = false;
         KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
         KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-        int ID2 = FirstKitchenObject1.ID;
+        int ID2 = FirstKitchenObject1?.ID ?? 0;
         if (values.Count == 200)
         {
                 values.RemoveAt(0);
