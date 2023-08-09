@@ -8,7 +8,7 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Counter_FirstKitchenObject_ContainerID : Sensor
+    class s_Player_FirstKitchenObject_ID : Sensor
     {
 		private int counter;
         private object specificValue;
@@ -25,7 +25,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Counter_FirstKitchenObject_ContainerID(counterSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Player_FirstKitchenObject_ID(player,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -49,12 +49,12 @@ namespace ThinkEngine
                     values.Clear();
                     return;
                 }
-				int ContainerID2 = FirstKitchenObject1.ContainerID;
+				int ID2 = FirstKitchenObject1.ID;
 				if (values.Count == 200)
 				{
 						values.RemoveAt(0);
 				}
-				values.Add(ContainerID2);
+				values.Add(ID2);
 			}
 		}
 

@@ -429,6 +429,29 @@ MonoBehaviour:
   - myStrings:
     - PlayerSensorData
     Count: 1
+  - myStrings:
+    - PlayerSensorData
+    - HasSelectedInteractable
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableType
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableID
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    Count: 1
+  - myStrings:
+    - GridPositionSensorData
+    - X
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - Y
+    Count: 2
   _toMapProperties:
   - myStrings:
     - BaseSensorData
@@ -476,6 +499,26 @@ MonoBehaviour:
   - myStrings:
     - KOContainerSensorData
     - HasAny
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - HasSelectedInteractable
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableType
+    Count: 2
+  - myStrings:
+    - PlayerSensorData
+    - SelectedInteractableID
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - X
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - Y
     Count: 2
   _propertyFeatures:
   - property:
@@ -613,60 +656,145 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - HasSelectedInteractable
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_HasSelectedInteractable
+    propertyAliasHash: -531059057
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - SelectedInteractableType
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_SelectedInteractableType
+    propertyAliasHash: 1804031213
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerSensorData
+      - SelectedInteractableID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_SelectedInteractableID
+    propertyAliasHash: -1549504404
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - X
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_X
+    propertyAliasHash: 263106358
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - Y
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Player
+    _propertyAlias: s_Player_Y
+    propertyAliasHash: -1302977583
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_Player
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 7abb614a97f534542b5a39c66929bc63, type: 3}
-    typeName: ThinkEngine.S_Player0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 3af0f757c3307fe498ba6764c5b8a233, type: 3}
+    typeName: ThinkEngine.s_Player_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 8bb5bea316747cc45b2695fe8504872d, type: 3}
-    typeName: ThinkEngine.S_Player1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: cf1218dc2f8714040b1ffe889f5ac3c7, type: 3}
+    typeName: ThinkEngine.s_Player_Type, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 5f40a6e88237f9641805945fc499e48c, type: 3}
-    typeName: ThinkEngine.S_Player2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 6b2a9f7e1d8519747b7d6a7d08e228e9, type: 3}
+    typeName: ThinkEngine.s_Player_Name, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: f82e96d4fb545394abb38699e525b69d, type: 3}
-    typeName: ThinkEngine.S_Player3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 3e076e172fc10a64783c4c29318dc39a, type: 3}
+    typeName: ThinkEngine.s_Player_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f6ba8aa556ae4dd429560069ae6828a2, type: 3}
+    typeName: ThinkEngine.s_Player_SizeLimit, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: d58759ba242f6ca4d9373de73e69e752, type: 3}
-    typeName: ThinkEngine.S_Player4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: d72caa95af3fdc34cb35166a5c89b538, type: 3}
+    typeName: ThinkEngine.s_Player_Count, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 42481609479685e4eb30186a76f8a0bc, type: 3}
-    typeName: ThinkEngine.S_Player5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 706450d65a859ad4b837757ea641beeb, type: 3}
+    typeName: ThinkEngine.s_Player_FirstKitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a21a29057d83e624ea4a76388349e3bc, type: 3}
+    typeName: ThinkEngine.s_Player_FirstKitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 37668ba0868841a459f9885a213a09a4, type: 3}
+    typeName: ThinkEngine.s_Player_FirstKitchenObject_ContainerID, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b1830f7860ac01d47aa766b443c1daa8, type: 3}
+    typeName: ThinkEngine.s_Player_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 1e313261f6ba4144daa5b60069004fed, type: 3}
-    typeName: ThinkEngine.S_Player6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 431c7fdda4e6ae94594c3a6669722bad, type: 3}
+    typeName: ThinkEngine.s_Player_HasAny, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 7b32af8eb889f454da98e29d2d9293c5, type: 3}
-    typeName: ThinkEngine.S_Player7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: facd5eeca5d27ba4cac01de4fede61f2, type: 3}
+    typeName: ThinkEngine.s_Player_HasSelectedInteractable, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 83ba7ccd6d47e3049a41db92ba452c7c, type: 3}
+    typeName: ThinkEngine.s_Player_SelectedInteractableType, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d8aa83e5d4db6904aafe36c0a9531870, type: 3}
+    typeName: ThinkEngine.s_Player_SelectedInteractableID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8bbf16dd7b79e56488bd32d4fd2024eb, type: 3}
+    typeName: ThinkEngine.s_Player_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 9db522a6ad53f4044a9231f329ebc300, type: 3}
-    typeName: ThinkEngine.S_Player8, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 364841d928e1d2746b1f41fbda4e55ae, type: 3}
+    typeName: ThinkEngine.s_Player_Y, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 99d683d3d8fade742b2a77d5586629f2, type: 3}
-    typeName: ThinkEngine.S_Player9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 879407c224738c0469e7c1a149b3b964, type: 3}
-    typeName: ThinkEngine.S_Player10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 635679cd46e471b46943b3dd23e13c9e, type: 3}
-    typeName: ThinkEngine.S_Player11, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 9fb46ced9a372d94bb11cbaedc4e7431, type: 3}
-    typeName: ThinkEngine.S_Player12, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: fd01b98c9062f2a4d8132ae8f8120950, type: 3}
-    typeName: ThinkEngine.S_Player13, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 4579786ec97f2d545bc867a09fc78f0f, type: 3}
-    typeName: ThinkEngine.S_Player14, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 8c08c48fb0e341d45b5f7cce31bb1e2b, type: 3}
-    typeName: ThinkEngine.S_Player15, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 1e90e226c1ad00b48aee4e08d47accab, type: 3}
+    typeName: 
+  - scriptAsset: {fileID: 11500000, guid: b41515def5aa2124ab4c99d1a838991e, type: 3}
+    typeName: 
+  - scriptAsset: {fileID: 11500000, guid: bcd4dcd12f6a1da41b4dffad699393d8, type: 3}
+    typeName: 
   generatedCode: 0
-  generatedScripts: []
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_Type.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_SizeLimit.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_Count.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_FirstKitchenObject_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_FirstKitchenObject_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_FirstKitchenObject_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_HasSpace.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_HasSelectedInteractable.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_SelectedInteractableType.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_SelectedInteractableID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_X.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_Y.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_KitchenObjectASP_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_KitchenObjectASP_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Player_KitchenObjectASP_Name.cs
 --- !u!1 &8650454984087082880
 GameObject:
   m_ObjectHideFlags: 0

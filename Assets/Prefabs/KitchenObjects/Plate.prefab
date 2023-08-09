@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818215925946559789}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.049, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8713059309114348474}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &871127731258097688
 GameObject:
@@ -58,13 +58,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871127731258097688}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2233902047373149443}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8910975632752036621
 MonoBehaviour:
@@ -144,6 +144,85 @@ MonoBehaviour:
   - myStrings:
     - KOSensorData
     Count: 1
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    Count: 1
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
   _toMapProperties:
   - myStrings:
     - KOSensorData
@@ -153,6 +232,71 @@ MonoBehaviour:
     - KOSensorData
     - IsInContainer
     Count: 2
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
   _propertyFeatures:
   - property:
       myStrings:
@@ -178,49 +322,189 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_ID
+    propertyAliasHash: -2107031736
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_Type
+    propertyAliasHash: 316729707
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_Name
+    propertyAliasHash: -590337762
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - ContainerID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_ContainerID
+    propertyAliasHash: 1778647685
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - SizeLimit
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_SizeLimit
+    propertyAliasHash: 1667350355
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - Count
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_Count
+    propertyAliasHash: -1425075060
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasSpace
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_HasSpace
+    propertyAliasHash: -530820575
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_HasAny
+    propertyAliasHash: -586871157
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_KitchenObjectASP_Name
+    propertyAliasHash: 2065294046
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - ID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_KitchenObjectASP_ID
+    propertyAliasHash: -693876964
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - ContainerID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_KitchenObjectASP_ContainerID
+    propertyAliasHash: -1855539793
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - Name
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_FirstKitchenObject_Name
+    propertyAliasHash: -1748771786
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_FirstKitchenObject_ID
+    propertyAliasHash: 2031654884
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ContainerID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_FirstKitchenObject_ContainerID
+    propertyAliasHash: 1064004007
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_Plate
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 5bdfb8bae6352714ab40d8bd4728cc58, type: 3}
-    typeName: ThinkEngine.S_Plate0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 608c6c9fd7cd74b42a503b81c1d28883, type: 3}
-    typeName: ThinkEngine.S_Plate1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 414aed1eb5164754bb768b6c3c1e71a1, type: 3}
-    typeName: ThinkEngine.S_Plate2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 9d95bc9834702bb49b0dcaed91b72d65, type: 3}
-    typeName: ThinkEngine.S_Plate3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: ca89bfdc136f2a14f8f0ec1ade9ed00c, type: 3}
-    typeName: ThinkEngine.S_Plate4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: ea244f94bb3caec4ea08eb76327a0a4d, type: 3}
-    typeName: ThinkEngine.S_Plate5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: c38dcf8625889b048a72102a7103fb76, type: 3}
-    typeName: ThinkEngine.S_Plate6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 2b00dda20db173e4bb66c5a91cf9c1f3, type: 3}
-    typeName: ThinkEngine.S_Plate7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 6e548dfd84a9f164a91c7561866e6212, type: 3}
-    typeName: ThinkEngine.S_Plate8, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: dfd054f23674e0546a4c48618a5f10d5, type: 3}
-    typeName: ThinkEngine.S_Plate9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 39bd34682a7840b4eb545bbe2c0128de, type: 3}
-    typeName: ThinkEngine.S_Plate10, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: dc340dae0bbbe2c4695202e379d9c8ce, type: 3}
-    typeName: ThinkEngine.S_Plate11, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: b7276d0eb034f464abdb781df0b99670, type: 3}
-    typeName: ThinkEngine.S_Plate12, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  _serializableSensorsTypes: []
+  generatedCode: 0
+  generatedScripts: []
 --- !u!1 &979769197035255743
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +541,6 @@ RectTransform:
   m_Children:
   - {fileID: 398045817523233372}
   m_Father: {fileID: 8713059309114348474}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -410,7 +693,6 @@ RectTransform:
   - {fileID: 1065949622527577316}
   - {fileID: 3198206925781147569}
   m_Father: {fileID: 2127195283284093544}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -461,7 +743,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 398045817523233372}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -530,6 +811,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6109869252678632239}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -537,7 +819,6 @@ Transform:
   m_Children:
   - {fileID: 4858584712068101566}
   m_Father: {fileID: 5568705612143692161}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8551291786976951314
 GameObject:
@@ -570,7 +851,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 398045817523233372}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

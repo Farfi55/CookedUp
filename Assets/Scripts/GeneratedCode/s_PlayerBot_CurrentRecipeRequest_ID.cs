@@ -8,7 +8,7 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Counter_FirstKitchenObject_ContainerID : Sensor
+    class s_PlayerBot_CurrentRecipeRequest_ID : Sensor
     {
 		private int counter;
         private object specificValue;
@@ -25,7 +25,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Counter_FirstKitchenObject_ContainerID(counterSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_PlayerBot_CurrentRecipeRequest_ID(player,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -42,19 +42,19 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-                if(FirstKitchenObject1 == null)
+				PlayerBotSensorData PlayerBotSensorData0 = gameObject.GetComponent<PlayerBotSensorData>();
+				RecipeRequestASP CurrentRecipeRequestASP1 = PlayerBotSensorData0.CurrentRecipeRequestASP;
+                if(CurrentRecipeRequestASP1 == null)
                 {
                     values.Clear();
                     return;
                 }
-				int ContainerID2 = FirstKitchenObject1.ContainerID;
+                int ID2 = CurrentRecipeRequestASP1.ID;
 				if (values.Count == 200)
 				{
 						values.RemoveAt(0);
 				}
-				values.Add(ContainerID2);
+				values.Add(ID2);
 			}
 		}
 

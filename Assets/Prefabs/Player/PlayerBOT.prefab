@@ -107,22 +107,27 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _savedProperties.Array.size
-      value: 22
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.size
-      value: 17
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.size
-      value: 17
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _savedProperties.Array.data[8].Count
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.size
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -133,6 +138,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _savedProperties.Array.data[10].Count
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].Count
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -172,17 +187,22 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[10].Count
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].Count
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[12].Count
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[13].Count
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -193,6 +213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _toMapProperties.Array.data[16].Count
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].windowWidth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -212,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[9]._propertyAlias
-      value: s_Player_KitchenObject_Name
+      value: s_Player_KitchenObject_ID
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -222,37 +247,42 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[10]._propertyAlias
-      value: s_Player_KitchenObject_ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].property.Count
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[11]._propertyAlias
       value: s_Player_KitchenObject_ContainerID
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
-      propertyPath: _propertyFeatures.Array.data[12]._propertyAlias
-      value: s_Player_FirstKitchenObject_Name
+      propertyPath: _propertyFeatures.Array.data[10].property.Count
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
-      propertyPath: _propertyFeatures.Array.data[12].property.Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[13]._propertyAlias
+      propertyPath: _propertyFeatures.Array.data[11]._propertyAlias
       value: s_Player_FirstKitchenObject_ID
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
-      propertyPath: _propertyFeatures.Array.data[13].property.Count
+      propertyPath: _propertyFeatures.Array.data[11].property.Count
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12]._propertyAlias
+      value: s_Player_FirstKitchenObject_ContainerID
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13]._propertyAlias
+      value: s_Player_HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].property.Count
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -297,27 +327,32 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[9].propertyAliasHash
-      value: -1628376365
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
-        type: 3}
-      propertyPath: _propertyFeatures.Array.data[10].propertyAliasHash
       value: -1221714555
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
-      propertyPath: _propertyFeatures.Array.data[11].propertyAliasHash
+      propertyPath: _propertyFeatures.Array.data[10].propertyAliasHash
       value: -996404380
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].propertyAliasHash
+      value: -1905527025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _propertyFeatures.Array.data[12].propertyAliasHash
-      value: -1125898535
+      value: 1277166146
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].configurationName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[13].propertyAliasHash
-      value: -1905527025
+      value: 670887916
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -348,6 +383,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _savedProperties.Array.data[10].myStrings.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -387,17 +432,22 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[10].myStrings.Array.size
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[12].myStrings.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[13].myStrings.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -462,7 +512,7 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _toMapProperties.Array.data[9].myStrings.Array.data[3]
-      value: Name
+      value: ID
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -471,8 +521,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[0]
+      value: PlayerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _savedProperties.Array.data[11].myStrings.Array.data[1]
       value: Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[12].myStrings.Array.data[0]
+      value: GridPositionSensorData
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -546,8 +606,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[0]
+      value: PlayerSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _toMapProperties.Array.data[10].myStrings.Array.data[1]
-      value: KitchenObjects
+      value: HasSelectedInteractable
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -561,13 +626,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[2]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _toMapProperties.Array.data[11].myStrings.Array.data[3]
       value: ContainerID
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[0]
+      value: GridPositionSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _toMapProperties.Array.data[12].myStrings.Array.data[1]
-      value: FirstKitchenObject
+      value: X
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -576,8 +656,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _toMapProperties.Array.data[13].myStrings.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _toMapProperties.Array.data[13].myStrings.Array.data[1]
-      value: FirstKitchenObject
+      value: HasAny
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -607,17 +692,22 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.size
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -667,12 +757,17 @@ PrefabInstance:
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[9].property.myStrings.Array.data[3]
-      value: Name
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[0]
+      value: PlayerSensorData
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: _propertyFeatures.Array.data[10].property.myStrings.Array.data[1]
-      value: KitchenObjects
+      value: HasSelectedInteractable
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -686,13 +781,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[1]
+      value: FirstKitchenObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[2]
+      value: ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _propertyFeatures.Array.data[11].property.myStrings.Array.data[3]
       value: ContainerID
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[0]
+      value: GridPositionSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _propertyFeatures.Array.data[12].property.myStrings.Array.data[1]
-      value: FirstKitchenObject
+      value: X
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -701,8 +811,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
+      propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
+        type: 3}
       propertyPath: _propertyFeatures.Array.data[13].property.myStrings.Array.data[1]
-      value: FirstKitchenObject
+      value: HasAny
       objectReference: {fileID: 0}
     - target: {fileID: 6319924191727955422, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
@@ -857,6 +972,22 @@ MonoBehaviour:
     - PlayerBotSensorData
     - HasInvalidIngredients
     Count: 2
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - CurrentRecipeRequestASP
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - CurrentRecipeRequestASP
+    - ID
+    Count: 3
   _toMapProperties:
   - myStrings:
     - PlayerBotSensorData
@@ -886,6 +1017,15 @@ MonoBehaviour:
     - PlayerBotSensorData
     - HasInvalidIngredients
     Count: 2
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - PlayerBotSensorData
+    - CurrentRecipeRequestASP
+    - ID
+    Count: 3
   _propertyFeatures:
   - property:
       myStrings:
@@ -971,36 +1111,73 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_ID
+    propertyAliasHash: 1958065322
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - CurrentRecipeRequestASP
+      - ID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_CurrentRecipeRequestASP_ID
+    propertyAliasHash: 1066524545
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_PlayerBot
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 8092785ebef084140b94b121970dfe89, type: 3}
-    typeName: ThinkEngine.S_PlayerBot0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 2e2a342dc5dbeab44834c76e6ab8d0bb, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_HasRecipe, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a1eebee02aa784e48a4004b218221729, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_RecipeName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 774ebb02528547544a352bb5182ac952, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_HasPlate, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3e83a16e21ad8a94d997445c00a62c4a, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_PlateForRecipeID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: eaef4b93b6ba6a048b24282a7345815e, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_HasMissingIngredients, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e619f7b4a85db3b44a6f7277591e8d19, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_MissingIngredientsNames, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f49768e34b506784d8cc4fa9deb1733c, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_HasInvalidIngredients, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 36bb3da192630fa4f9fc1b5f80247f04, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: de72b966b5449194a8035a1ae35d3dcc, type: 3}
-    typeName: ThinkEngine.S_PlayerBot1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 7d0cda859a3fbf2419597a4827821e62, type: 3}
-    typeName: ThinkEngine.S_PlayerBot2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: e9cf0ab0962021440b89740632d56730, type: 3}
-    typeName: ThinkEngine.S_PlayerBot3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: ae66fee1e3ebbaf4b900ebd3aa772559, type: 3}
-    typeName: ThinkEngine.S_PlayerBot4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: e9a1c2e8a649b3245930bef1812ebd70, type: 3}
-    typeName: ThinkEngine.S_PlayerBot5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: c17fa19f49170f94d947b85ae3b315f0, type: 3}
-    typeName: ThinkEngine.S_PlayerBot6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 4ce36c63a38d6dd46b5870d69f60e2db, type: 3}
-    typeName: ThinkEngine.S_PlayerBot7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a0836408bd4b82b418388fad338bd44d, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_CurrentRecipeRequest_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   generatedCode: 0
-  generatedScripts: []
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasRecipe.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_RecipeName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasPlate.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_PlateForRecipeID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasMissingIngredients.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_MissingIngredientsNames.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasInvalidIngredients.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_CurrentRecipeRequestASP_ID.cs
 --- !u!114 &2997092725135300230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4706379898146698279, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
