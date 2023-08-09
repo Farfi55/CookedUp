@@ -32,7 +32,8 @@ namespace ThinkEngine
                 foreach (SerializableSensorType serializableSensorType in _serializableSensorsTypes)
                 {
  //                   _sensorsInstances.Add((Sensor)serializableSensorType.ScriptType.GetProperty("Instance", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null));
-                    _sensorsInstances.Add((Sensor)Activator.CreateInstance(serializableSensorType.ScriptType));
+                    if(serializableSensorType.ScriptType != null)
+                        _sensorsInstances.Add((Sensor)Activator.CreateInstance(serializableSensorType.ScriptType));
 
                 }
                 foreach (Sensor instance in _sensorsInstances)

@@ -173,6 +173,10 @@ namespace ThinkEngine
         private static void RetrievePropertyByType(string currentProperty, ref Type currentType)
         {
             //Debug.Log("sono dentro RetrievePropertyByType");
+            if(currentType == null)
+            {
+                return;
+            }
             MemberInfo[] members = currentType.GetMember(currentProperty, Utility.BindingAttr);
             if (members.Length > 0)
             {
