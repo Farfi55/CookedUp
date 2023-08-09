@@ -42,7 +42,6 @@ namespace Counters
                 else if (player.CurrentKitchenObject.InteractWith(container.KitchenObject)) {
                     InvokeOnInteract(new InteractableEvent(player));
                 }
-            
             }
             else {
                 container.KitchenObject.SetContainer(player.Container);

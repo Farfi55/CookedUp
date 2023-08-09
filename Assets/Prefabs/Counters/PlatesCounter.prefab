@@ -542,6 +542,7 @@ MonoBehaviour:
   platesCounter: {fileID: 7627238358203562126}
   PlatesLimit: 0
   PlatesCount: 0
+  TimeToNextPlate: 0
 --- !u!114 &4707198003888383650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +557,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
+    - PlatesCounterSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
     - BaseSensorData
     - ID
     Count: 2
@@ -566,6 +573,10 @@ MonoBehaviour:
   - myStrings:
     - PlatesCounterSensorData
     - PlatesCount
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - TimeToNextPlate
     Count: 2
   _toMapProperties:
   - myStrings:
@@ -579,6 +590,10 @@ MonoBehaviour:
   - myStrings:
     - PlatesCounterSensorData
     - PlatesCount
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - TimeToNextPlate
     Count: 2
   _propertyFeatures:
   - property:
@@ -617,6 +632,18 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - PlatesCounterSensorData
+      - TimeToNextPlate
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_TimeToNextPlate
+    propertyAliasHash: -732266659
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_PlatesCounter
   isInvariant: 0
   isFixedSize: 0
@@ -630,6 +657,8 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: 38e265a631c5e3740b6c05689f05f425, type: 3}
     typeName: ThinkEngine.S_PlatesCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts: []
 --- !u!1 &1763550275166000104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

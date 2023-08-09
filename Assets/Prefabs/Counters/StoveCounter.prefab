@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108835366983485283}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6034013152658884737}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6040640988354486237
 AudioSource:
@@ -967,10 +967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
-    - BaseSensorData
-    - ID
-    Count: 2
-  - myStrings:
     - StoveCounterSensorData
     Count: 1
   - myStrings:
@@ -999,30 +995,13 @@ MonoBehaviour:
     - Name
     Count: 3
   - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - InputKOName
-    Count: 3
-  - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - OutputKOName
-    Count: 3
-  - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - TimeToCook
-    Count: 3
-  - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - IsBurningRecipe
-    Count: 3
-  _toMapProperties:
+    - BaseSensorData
+    Count: 1
   - myStrings:
     - BaseSensorData
     - ID
     Count: 2
+  _toMapProperties:
   - myStrings:
     - StoveCounterSensorData
     - HasAny
@@ -1045,38 +1024,10 @@ MonoBehaviour:
     - Name
     Count: 3
   - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - InputKOName
-    Count: 3
-  - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - OutputKOName
-    Count: 3
-  - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - TimeToCook
-    Count: 3
-  - myStrings:
-    - StoveCounterSensorData
-    - CurrentCookingRecipe
-    - IsBurningRecipe
-    Count: 3
+    - BaseSensorData
+    - ID
+    Count: 2
   _propertyFeatures:
-  - property:
-      myStrings:
-      - BaseSensorData
-      - ID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_ID
-    propertyAliasHash: -655425131
-    operation: 0
-    specificValue: 
-    counter: 0
   - property:
       myStrings:
       - StoveCounterSensorData
@@ -1140,53 +1091,13 @@ MonoBehaviour:
     counter: 0
   - property:
       myStrings:
-      - StoveCounterSensorData
-      - CurrentCookingRecipe
-      - InputKOName
-      Count: 3
+      - BaseSensorData
+      - ID
+      Count: 2
     windowWidth: 200
     configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_CurrentCookingRecipe_InputKOName
-    propertyAliasHash: 1819975131
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - StoveCounterSensorData
-      - CurrentCookingRecipe
-      - OutputKOName
-      Count: 3
-    windowWidth: 200
-    configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_CurrentCookingRecipe_OutputKOName
-    propertyAliasHash: -97698290
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - StoveCounterSensorData
-      - CurrentCookingRecipe
-      - TimeToCook
-      Count: 3
-    windowWidth: 200
-    configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_CurrentCookingRecipe_TimeToCook
-    propertyAliasHash: 1107377662
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - StoveCounterSensorData
-      - CurrentCookingRecipe
-      - IsBurningRecipe
-      Count: 3
-    windowWidth: 200
-    configurationName: s_StoveCounter
-    _propertyAlias: s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe
-    propertyAliasHash: -113578897
+    _propertyAlias: s_StoveCounter_ID
+    propertyAliasHash: -655425131
     operation: 0
     specificValue: 
     counter: 0
@@ -1194,36 +1105,48 @@ MonoBehaviour:
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 8721df11783ed624bb1f0cfddff3ff45, type: 3}
-    typeName: ThinkEngine.S_StoveCounter0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - scriptAsset: {fileID: 11500000, guid: 01bba1afd0e8a04498ac8328d4e15306, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_HasAny, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b233c71b9472ec7419d56d086f82d3a2, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CanCook, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 52f7179e1b5de174781f25186f0f6b7c, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_TimeRemainingToCook, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e36bbcf4936088043aa8dc1543c24ff7, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_IsBurning, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3169eba2f76c23c4daf20582df97d565, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_Name, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2361d68b9c5f0b346850931257c331f4, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_InputKOName, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 488029b5014771b45aede37f981f03cf, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_OutputKOName, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 5008d300633e6f342aaff190bf5b0275, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_TimeToCook, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 76bb38fa09a969a4b9f4ea7e01877035, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 543f0efa23be1484d8a5aa3855c13b25, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: d3c3f976c7ad2cf4999ffdf409bd1800, type: 3}
-    typeName: ThinkEngine.S_StoveCounter1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: b3c22b2eaf276b34cb6539fb33b0ff1b, type: 3}
-    typeName: ThinkEngine.S_StoveCounter2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: fa64912f3c747c24c953fc2a147cf603, type: 3}
-    typeName: ThinkEngine.S_StoveCounter3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: bd7400e680bbfe44493161677c8b3f8e, type: 3}
-    typeName: ThinkEngine.S_StoveCounter4, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: ec38ecfeb8c5c984d8124dc6892c4684, type: 3}
-    typeName: ThinkEngine.S_StoveCounter5, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 949d3ace783d7fa44befd01d305eeff8, type: 3}
-    typeName: ThinkEngine.S_StoveCounter6, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: d34c7a13d9abf974a83a7c684302f879, type: 3}
-    typeName: ThinkEngine.S_StoveCounter7, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 23dd3bbcdbde9ea49ab0d5c74bf8e8ff, type: 3}
-    typeName: ThinkEngine.S_StoveCounter8, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 02f493a9a60f3bd4f8310abe05334ceb, type: 3}
-    typeName: ThinkEngine.S_StoveCounter9, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CanCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_TimeRemainingToCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_IsBurning.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_InputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_OutputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_TimeToCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_ID.cs
 --- !u!4 &6034013152658884737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

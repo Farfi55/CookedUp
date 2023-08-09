@@ -1033,8 +1033,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
-    - BaseSensorData
-    - ID
+    - CuttingCounterSensorData
+    Count: 1
+  - myStrings:
+    - CuttingCounterSensorData
+    - CurrentCuttingRecipe
     Count: 2
   - myStrings:
     - CuttingCounterSensorData
@@ -1054,26 +1057,14 @@ MonoBehaviour:
     - Name
     Count: 3
   - myStrings:
-    - CuttingCounterSensorData
-    - CurrentCuttingRecipe
-    - InputKOName
-    Count: 3
+    - BaseSensorData
+    Count: 1
   - myStrings:
-    - CuttingCounterSensorData
-    - CurrentCuttingRecipe
-    - OutputKOName
-    Count: 3
-  - myStrings:
-    - CuttingCounterSensorData
-    - CurrentCuttingRecipe
-    - TimeToCut
-    Count: 3
+    - BaseSensorData
+    - ID
+    Count: 2
   _toMapProperties:
   - myStrings:
-    - BaseSensorData
-    - ID
-    Count: 2
-  - myStrings:
     - CuttingCounterSensorData
     - HasAny
     Count: 2
@@ -1091,33 +1082,10 @@ MonoBehaviour:
     - Name
     Count: 3
   - myStrings:
-    - CuttingCounterSensorData
-    - CurrentCuttingRecipe
-    - InputKOName
-    Count: 3
-  - myStrings:
-    - CuttingCounterSensorData
-    - CurrentCuttingRecipe
-    - OutputKOName
-    Count: 3
-  - myStrings:
-    - CuttingCounterSensorData
-    - CurrentCuttingRecipe
-    - TimeToCut
-    Count: 3
+    - BaseSensorData
+    - ID
+    Count: 2
   _propertyFeatures:
-  - property:
-      myStrings:
-      - BaseSensorData
-      - ID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_CuttingCounter
-    _propertyAlias: s_CuttingCounter_ID
-    propertyAliasHash: -1608470868
-    operation: 0
-    specificValue: 
-    counter: 0
   - property:
       myStrings:
       - CuttingCounterSensorData
@@ -1169,40 +1137,13 @@ MonoBehaviour:
     counter: 0
   - property:
       myStrings:
-      - CuttingCounterSensorData
-      - CurrentCuttingRecipe
-      - InputKOName
-      Count: 3
+      - BaseSensorData
+      - ID
+      Count: 2
     windowWidth: 200
     configurationName: s_CuttingCounter
-    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_InputKOName
-    propertyAliasHash: 81319662
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - CuttingCounterSensorData
-      - CurrentCuttingRecipe
-      - OutputKOName
-      Count: 3
-    windowWidth: 200
-    configurationName: s_CuttingCounter
-    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_OutputKOName
-    propertyAliasHash: -1580491663
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - CuttingCounterSensorData
-      - CurrentCuttingRecipe
-      - TimeToCut
-      Count: 3
-    windowWidth: 200
-    configurationName: s_CuttingCounter
-    _propertyAlias: s_CuttingCounter_CurrentCuttingRecipe_TimeToCut
-    propertyAliasHash: -1052651999
+    _propertyAlias: s_CuttingCounter_ID
+    propertyAliasHash: -1608470868
     operation: 0
     specificValue: 
     counter: 0
@@ -1210,22 +1151,36 @@ MonoBehaviour:
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 7a92172ecab86f34d944f47176e42bd3, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: 5ef70bede7f43ec468184e95d4146da1, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: feeb33a8a4a0c6942843890a2ec65f56, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: 3f5c793c8719cba47ade613a8ded7818, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: 057d8bf7ec6de544c905012df855e9b2, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: bd01912f509614044baa5041a9288e90, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: 4cd7642006c6ccd4fbc984ee206d81c0, type: 3}
-    typeName: 
-  - scriptAsset: {fileID: 11500000, guid: 33a730d4b65d472489249ca3031f5980, type: 3}
-    typeName: 
+  - scriptAsset: {fileID: 11500000, guid: 8b184a1ad4b86a142ab7a38207ea5b66, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_HasAny, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 058d49a89b6150a41a095a1c8bf9ac62, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_CanCut, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 50c44d9afabc02948ab7171e4c3c270a, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_TimeRemainingToCut, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a292adb485684444381434f1da1b0d6f, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_CurrentCuttingRecipe_Name, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: c36305bd867e56e4d8ae2eb2256c56c5, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_CurrentCuttingRecipe_InputKOName, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d1eef2160fa575345a739a97228fc144, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_CurrentCuttingRecipe_OutputKOName, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 5019a06f91a6f234c817b9f92386eb1c, type: 3}
+    typeName: ThinkEngine.s_CuttingCounter_CurrentCuttingRecipe_TimeToCut, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_CanCut.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_TimeRemainingToCut.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_CurrentCuttingRecipe_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_CurrentCuttingRecipe_InputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_CurrentCuttingRecipe_OutputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_CuttingCounter_CurrentCuttingRecipe_TimeToCut.cs
 --- !u!4 &6013770029883936082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

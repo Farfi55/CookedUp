@@ -1954,38 +1954,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savedProperties:
   - myStrings:
-    - BaseSensorData
-    - ID
-    Count: 2
-  - myStrings:
     - ContainerCounterSensorData
     Count: 1
   - myStrings:
     - ContainerCounterSensorData
     - KOType
     Count: 2
-  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    Count: 1
   - myStrings:
     - BaseSensorData
     - ID
     Count: 2
+  _toMapProperties:
   - myStrings:
     - ContainerCounterSensorData
     - KOType
     Count: 2
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
   _propertyFeatures:
-  - property:
-      myStrings:
-      - BaseSensorData
-      - ID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_ContainerCounter
-    _propertyAlias: s_ContainerCounter_ID
-    propertyAliasHash: 1820604669
-    operation: 0
-    specificValue: 
-    counter: 0
   - property:
       myStrings:
       - ContainerCounterSensorData
@@ -1998,16 +1989,32 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_ContainerCounter
+    _propertyAlias: s_ContainerCounter_ID
+    propertyAliasHash: 1820604669
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_ContainerCounter
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 6b927e40ea05f4f42b9896d2c316db27, type: 3}
-    typeName: ThinkEngine.S_ContainerCounter0, Assembly-CSharp, Version=0.0.0.0,
+  - scriptAsset: {fileID: 11500000, guid: 2d36f476ad39eb348a556aeb723e4f1f, type: 3}
+    typeName: ThinkEngine.s_ContainerCounter_KOType, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 421b4058afaabd647b0b406456c3aa3c, type: 3}
-    typeName: ThinkEngine.S_ContainerCounter1, Assembly-CSharp, Version=0.0.0.0,
+  - scriptAsset: {fileID: 11500000, guid: 21f16fa6fdddd86448415de73a87c41e, type: 3}
+    typeName: ThinkEngine.s_ContainerCounter_ID, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_ContainerCounter_KOType.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_ContainerCounter_ID.cs
 --- !u!4 &9134415419468882019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

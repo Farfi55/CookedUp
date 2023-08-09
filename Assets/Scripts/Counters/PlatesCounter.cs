@@ -15,6 +15,7 @@ namespace Counters
         private ProgressTracker progressTracker;
 
         [SerializeField] private float timeToSpawnPlate = 0.5f;
+        public float TimeToNextPlate => (float)progressTracker.GetWorkRemaining();
 
         public int PlatesLimit => Container.SizeLimit;
 

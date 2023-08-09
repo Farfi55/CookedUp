@@ -1,6 +1,7 @@
 ﻿using System;
 using Counters;
 using KitchenObjects.Container;
+using ThinkEngine.Models;
 using UnityEngine;
 
 namespace ThinkEngine.Sensors.Counters {
@@ -10,7 +11,7 @@ namespace ThinkEngine.Sensors.Counters {
         [Header("Sensor Data")]
         public int PlatesLimit;
         public int PlatesCount;
-        
+        public int TimeToNextPlate;
         
 
         private void Start() {
@@ -22,6 +23,12 @@ namespace ThinkEngine.Sensors.Counters {
         private void OnPlatesChanged(object sender, KitchenObjectsChangedEvent e) {
             PlatesCount = platesCounter.PlatesCount;
         }
+        
+        private void Update() {
+            TimeToNextPlate = Converter.FloatToInt(platesCounter.TimeToNextPlate);
+        }
 
+        
+        
     }
 }

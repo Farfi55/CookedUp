@@ -381,21 +381,6 @@ MonoBehaviour:
     - Name
     Count: 2
   - myStrings:
-    - PlayerSensorData
-    Count: 1
-  - myStrings:
-    - PlayerSensorData
-    - HasSelectedInteractable
-    Count: 2
-  - myStrings:
-    - PlayerSensorData
-    - SelectedInteractableType
-    Count: 2
-  - myStrings:
-    - PlayerSensorData
-    - SelectedInteractableID
-    Count: 2
-  - myStrings:
     - KOContainerSensorData
     Count: 1
   - myStrings:
@@ -414,24 +399,6 @@ MonoBehaviour:
     - KOContainerSensorData
     - KitchenObjects
     Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - Name
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ContainerID
-    Count: 4
   - myStrings:
     - KOContainerSensorData
     - FirstKitchenObject
@@ -459,6 +426,9 @@ MonoBehaviour:
     - KOContainerSensorData
     - HasAny
     Count: 2
+  - myStrings:
+    - PlayerSensorData
+    Count: 1
   _toMapProperties:
   - myStrings:
     - BaseSensorData
@@ -473,18 +443,6 @@ MonoBehaviour:
     - Name
     Count: 2
   - myStrings:
-    - PlayerSensorData
-    - HasSelectedInteractable
-    Count: 2
-  - myStrings:
-    - PlayerSensorData
-    - SelectedInteractableType
-    Count: 2
-  - myStrings:
-    - PlayerSensorData
-    - SelectedInteractableID
-    Count: 2
-  - myStrings:
     - KOContainerSensorData
     - ContainerID
     Count: 2
@@ -496,24 +454,6 @@ MonoBehaviour:
     - KOContainerSensorData
     - Count
     Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - Name
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObject
-    - ContainerID
-    Count: 4
   - myStrings:
     - KOContainerSensorData
     - FirstKitchenObject
@@ -576,42 +516,6 @@ MonoBehaviour:
     counter: 0
   - property:
       myStrings:
-      - PlayerSensorData
-      - HasSelectedInteractable
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_HasSelectedInteractable
-    propertyAliasHash: -531059057
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - PlayerSensorData
-      - SelectedInteractableType
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_SelectedInteractableType
-    propertyAliasHash: 1804031213
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - PlayerSensorData
-      - SelectedInteractableID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_SelectedInteractableID
-    propertyAliasHash: -1549504404
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
       - KOContainerSensorData
       - ContainerID
       Count: 2
@@ -643,48 +547,6 @@ MonoBehaviour:
     configurationName: s_Player
     _propertyAlias: s_Player_Count
     propertyAliasHash: 1922717623
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - KitchenObjects
-      - KitchenObject
-      - Name
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_KitchenObject_Name
-    propertyAliasHash: -1628376365
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - KitchenObjects
-      - KitchenObject
-      - ID
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_KitchenObject_ID
-    propertyAliasHash: -1221714555
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - KitchenObjects
-      - KitchenObject
-      - ContainerID
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Player
-    _propertyAlias: s_Player_KitchenObject_ContainerID
-    propertyAliasHash: -996404380
     operation: 0
     specificValue: 
     counter: 0

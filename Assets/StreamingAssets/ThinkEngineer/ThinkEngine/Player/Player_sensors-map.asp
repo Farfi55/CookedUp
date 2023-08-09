@@ -313,9 +313,6 @@ platesCounter_Limit_Count(ID, PlatesLimit, PlatesCount) :-
 %s_CuttingCounter_CanCut(cuttingCounterSensor,objectIndex(Index),Value).
 %s_CuttingCounter_TimeRemainingToCut(cuttingCounterSensor,objectIndex(Index),Value).
 %s_CuttingCounter_CurrentCuttingRecipe_Name(cuttingCounterSensor,objectIndex(Index),Value).
-%s_CuttingCounter_CurrentCuttingRecipe_InputKOName(cuttingCounterSensor,objectIndex(Index),Value).
-%s_CuttingCounter_CurrentCuttingRecipe_OutputKOName(cuttingCounterSensor,objectIndex(Index),Value).
-%s_CuttingCounter_CurrentCuttingRecipe_TimeToCut(cuttingCounterSensor,objectIndex(Index),Value).
 
 cuttingCounter_ID_Index(ID,Index) :- 
     s_CuttingCounter_ID(_,objectIndex(Index),ID).
@@ -349,13 +346,10 @@ cuttingCounter_CurrentCuttingRecipe_Name(ID, RecipeName) :-
     cuttingCounter_CanCut(ID),
     s_CuttingCounter_CurrentCuttingRecipe_Name(_,objectIndex(Index), RecipeName).
 
-cuttingCounter_CurrentCuttingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCut) :-
-    cuttingCounter_ID_Index(ID,Index),
-    cuttingCounter_CanCut(ID),
-    s_CuttingCounter_CurrentCuttingRecipe_Name(_,objectIndex(Index), RecipeName),
-    s_CuttingCounter_CurrentCuttingRecipe_InputKOName(_,objectIndex(Index), RecipeInput),
-    s_CuttingCounter_CurrentCuttingRecipe_OutputKOName(_,objectIndex(Index), RecipeOutput),
-    s_CuttingCounter_CurrentCuttingRecipe_TimeToCut(_,objectIndex(Index), RecipeTimeToCut).
+cuttingCounter_CurrentCuttingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, TimeToCut) :-
+    cuttingCounter_CurrentCuttingRecipe_Name(ID, RecipeName),
+    c_CUTTING_RECIPE(RecipeName, RecipeInput, RecipeOutput, TimeToCut).
+    
 
 
 
@@ -368,10 +362,6 @@ cuttingCounter_CurrentCuttingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, R
 %s_StoveCounter_TimeRemainingToCook(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_IsBurning(counterSensor,objectIndex(Index),Value).
 %s_StoveCounter_CurrentCookingRecipe_Name(counterSensor,objectIndex(Index),Value).
-%s_StoveCounter_CurrentCookingRecipe_InputKOName(counterSensor,objectIndex(Index),Value).
-%s_StoveCounter_CurrentCookingRecipe_OutputKOName(counterSensor,objectIndex(Index),Value).
-%s_StoveCounter_CurrentCookingRecipe_TimeToCook(counterSensor,objectIndex(Index),Value).
-%s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe(counterSensor,objectIndex(Index),Value).
 
 stoveCounter_ID_Index(ID,Index) :- 
     s_StoveCounter_ID(_,objectIndex(Index),ID).
@@ -416,14 +406,10 @@ stoveCounter_CurrentCookingRecipe_Name(ID, RecipeName) :-
     stoveCounter_CanCook(ID),
     s_StoveCounter_CurrentCookingRecipe_Name(_,objectIndex(Index), RecipeName).
 
-stoveCounter_CurrentCookingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, RecipeTimeToCook, RecipeIsBurning) :-
-    stoveCounter_ID_Index(ID,Index),
-    stoveCounter_CanCook(ID),
-    s_StoveCounter_CurrentCookingRecipe_Name(_,objectIndex(Index), RecipeName),
-    s_StoveCounter_CurrentCookingRecipe_InputKOName(_,objectIndex(Index), RecipeInput),
-    s_StoveCounter_CurrentCookingRecipe_OutputKOName(_,objectIndex(Index), RecipeOutput),
-    s_StoveCounter_CurrentCookingRecipe_TimeToCook(_,objectIndex(Index), RecipeTimeToCook),
-    s_StoveCounter_CurrentCookingRecipe_IsBurningRecipe(_,objectIndex(Index), RecipeIsBurning).
+stoveCounter_CurrentCookingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, TimeToCook, IsBurningRecipe) :-
+    stoveCounter_CurrentCookingRecipe_Name(ID, RecipeName),
+    c_COOKING_RECIPE(RecipeName, RecipeInput, RecipeOutput, TimeToCook, IsBurningRecipe).
+
 
 
 % ================================== OTHER COUNTERS ==================================

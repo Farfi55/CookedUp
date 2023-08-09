@@ -5524,11 +5524,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6381981351110831429, guid: da0bbb3226033154daab3e01ea5ee0e5,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381981351110831429, guid: da0bbb3226033154daab3e01ea5ee0e5,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5577,6 +5572,201 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _toMapProperties.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _propertyFeatures.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[0]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_KitchenObjectsNames0.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[1]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_Name.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[2]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_InputKOName.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[3]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_OutputKOName.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[4]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_TimeToCut.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[5]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_IsBurningRecipe.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[6]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_TimeToCook.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[7]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_OutputKOName.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[8]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_InputKOName.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: generatedScripts.Array.data[9]
+      value: C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_Name.cs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[0].typeName
+      value: ThinkEngine.s_Const_KitchenObjectsNames0, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[1].typeName
+      value: ThinkEngine.s_Const_CuttingRecipe_Name, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[2].typeName
+      value: ThinkEngine.s_Const_CuttingRecipe_InputKOName, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[3].typeName
+      value: ThinkEngine.s_Const_CuttingRecipe_OutputKOName, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[4].typeName
+      value: ThinkEngine.s_Const_CuttingRecipe_TimeToCut, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[5].typeName
+      value: ThinkEngine.s_Const_CookingRecipe_IsBurningRecipe, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[6].typeName
+      value: ThinkEngine.s_Const_CookingRecipe_TimeToCook, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[7].typeName
+      value: ThinkEngine.s_Const_CookingRecipe_OutputKOName, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[8].typeName
+      value: ThinkEngine.s_Const_CookingRecipe_InputKOName, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[9].typeName
+      value: ThinkEngine.s_Const_CookingRecipe_Name, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[0].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 4ca800984ea648d468d9c9604f01d31f,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[1].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 4ae258881e77aea4ab318b9f24b1fa91,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[2].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 201d2a4cee0352c408f9052be5dd7e63,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[3].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 141e95f8712264549a5adaf131a32628,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[4].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 25dd275089345d746b1c2d16117da38d,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[5].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 8b3ee4542d423a148ad971c48265f3f5,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[6].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 4cd0baa859c639748a449697014cb593,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[7].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 58bba8f6b30d8c44a96804922b35f169,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[8].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: 7f16d77d5aaeead46b26315515e72dcb,
+        type: 3}
+    - target: {fileID: 8452929670334776411, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: _serializableSensorsTypes.Array.data[9].scriptAsset
+      value: 
+      objectReference: {fileID: 11500000, guid: c9c008d83238ab548924781b405d1edc,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5880,7 +6070,7 @@ PrefabInstance:
     - target: {fileID: 1782850665118102057, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8037,7 +8227,7 @@ PrefabInstance:
     - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1966419705028141060, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
         type: 3}
