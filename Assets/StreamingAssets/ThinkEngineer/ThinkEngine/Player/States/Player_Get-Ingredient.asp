@@ -11,19 +11,19 @@ ingredient_Available_Any(IngredientName) :-
     ingredient_Available(IngredientName, _).
 
 ingredient_NotAvailable(IngredientName) :-
-    c_KO_NAME(IngredientName),
+    c_KO_Name(IngredientName),
     not ingredient_Available_Any(IngredientName).
 
 
 ingredient_NeedsCooking(IngredientName, RecipeName, InputIngredientName) :-
     ingredient_NotAvailable(IngredientName),
     IngredientName = OutputIngredientName,
-    c_COOKING_RECIPE(RecipeName, InputIngredientName, OutputIngredientName, _, _).
+    c_CookingRecipe(RecipeName, InputIngredientName, OutputIngredientName, _, _).
 
 ingredient_NeedsCutting(IngredientName, RecipeName, InputIngredientName) :-
     ingredient_NotAvailable(IngredientName),
     IngredientName = OutputIngredientName,
-    c_CUTTING_RECIPE(RecipeName, InputIngredientName, OutputIngredientName, _).
+    c_CuttingRecipe_Name(RecipeName, InputIngredientName, OutputIngredientName, _).
 
 ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) :- 
     ingredient_NeedsCooking(IngredientName, RecipeName, InputIngredientName).

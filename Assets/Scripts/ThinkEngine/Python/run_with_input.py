@@ -11,6 +11,7 @@ streaming_assets_path = 'C:\Dev\CookedUp\Assets\StreamingAssets\ThinkEngineer\Th
 brain_files_patterns = [
     streaming_assets_path + '**/Player*.asp',
     streaming_assets_path + '**/Common*.asp',
+    streaming_assets_path + '**/Map*.asp',
 ]
 brain_files = []
 

@@ -159,7 +159,7 @@ playerBot_RecipeRequest_Name(PlayerID, RecipeName) :-
 playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID) :-
     playerBot_HasRecipeRequest(PlayerID),
     playerBot_ID_Index(PlayerID,Index),
-    s_PlayerBot_CurrentRecipeRequestASP_ID(_,objectIndex(Index),RecipeRequestID).
+    s_PlayerBot_CurrentRecipeRequest_ID(_,objectIndex(Index),RecipeRequestID).
     
 
 % Player Recipe Ingredients

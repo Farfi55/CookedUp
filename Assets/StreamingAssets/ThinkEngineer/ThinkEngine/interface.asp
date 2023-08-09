@@ -32,17 +32,35 @@ a_Wait(ActionIndex).
 
 % ================================== CONSTANTS ==================================
 
-c_KO_NAME(KitchenObjectName).
+c_KO_Name(KitchenObjectName).
 
-c_COMPLETE_RECIPE(RecipeName, RecipeValue).
-c_COMPLETE_RECIPE_NAME(RecipeName).
-c_COMPLETE_RECIPE_INGREDIENT(RecipeName, IngredientName).
+c_CompleteRecipe(RecipeName, RecipeValue).
+c_CompleteRecipe_Name(RecipeName).
+c_CompleteRecipe_Ingredient(RecipeName, IngredientName).
 
-c_COOKING_RECIPE(RecipeName, InputKOName, OutputKOName, TimeToCook, IsBurningRecipe).
-c_COOKING_RECIPE_NAME(RecipeName).
+c_CookingRecipe(RecipeName, InputKOName, OutputKOName, TimeToCook, IsBurningRecipe).
+c_CookingRecipe_Name(RecipeName).
 
-c_CUTTING_RECIPE(RecipeName, InputKOName, OutputKOName, TimeToCut).
-c_CUTTING_RECIPE_NAME(RecipeName) :-
+c_CuttingRecipe_Name(RecipeName, InputKOName, OutputKOName, TimeToCut).
+c_CuttingRecipe_Name(RecipeName).
+
+
+% ================================== RECIPE REQUESTS ==================================
+
+recipeRequest_ID_Index(ID, Index, Index1).
+
+recipeRequest_ID(ID).
+
+recipeRequest(ID, RecipeName).
+
+recipeRequest_IngredientsName(ID, IngredientName).
+recipeRequest_TimeToComplete(ID, TimeToComplete).
+
+recipeRequest_RemainingTimeToComplete(ID, RemainingTimeToComplete).
+
+recipeRequest_Value(ID, Value).
+
+recipeRequest_Full(ID, RecipeName, TimeToComplete, RemainingTimeToComplete, Value).
 
 
 % ================================== PLAYER ==================================
@@ -79,9 +97,12 @@ playerBot_Plate_ID(PlayerID, PlateID).
 playerBot_IsPlateBeingCarried
 
 % Player Recipe
-playerBot_HasRecipe(ID).
-playerBot_HasNoRecipe(ID).
-playerBot_Recipe(PlayerID, RecipeName).
+playerBot_HasRecipeRequest(ID).
+playerBot_HasNoRecipeRequest(ID).
+playerBot_RecipeRequest_Name(PlayerID, RecipeName).
+playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
+playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
+
 
 % Player Recipe Ingredients
 playerBot_HasMissingIngredients(ID).
@@ -156,8 +177,9 @@ containerCounter_KOType(ID, KitchenObjectType).
 
 platesCounter_ID_Index(ID,Index).
 platesCounter_ID(ID).
-platesCounter_Limit_Count(ID, PlatesLimit, PlatesCount).
-
+platesCounter_Limit(ID, PlatesLimit).
+platesCounter_Count(ID, PlatesCount).
+platesCounter_TimeToNextPlate(ID, TimeToNextPlate).
 
 % ================================== CUTTING COUNTER ==================================
 

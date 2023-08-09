@@ -43,7 +43,7 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUp(ActionIndex, Targe
 a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
     a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName),
     curr_Player_ID(PlayerID),
-    playerBot_Recipe(PlayerID, RecipeName).
+    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
 
 applyAction(ActionIndex, "PickUpIngredientAction") :- 
     a_PickUpIngredient(ActionIndex, _, _, _).
@@ -62,7 +62,7 @@ actionArgument(ActionIndex, "RecipeName", RecipeName) :- a_PickUpIngredient(Acti
 a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
     a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName),
     curr_Player_ID(PlayerID),
-    playerBot_Recipe(PlayerID, RecipeName).
+    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
 
 a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
     a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
@@ -78,7 +78,7 @@ actionArgument(ActionIndex, "RequiresCooking", true) :- a_PickUpIngredient_ToCoo
 a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
     a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName),
     curr_Player_ID(PlayerID),
-    playerBot_Recipe(PlayerID, RecipeName).
+    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
 
 a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
     a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName).

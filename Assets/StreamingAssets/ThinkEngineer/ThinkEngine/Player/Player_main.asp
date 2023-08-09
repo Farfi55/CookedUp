@@ -1,12 +1,12 @@
 state("WaitingForRecipe") :- state_WaitingForRecipe.
 state_WaitingForRecipe :- 
     curr_Player_ID(PlayerID),
-    playerBot_HasNoRecipe(PlayerID).
+    playerBot_HasNoRecipeRequest(PlayerID).
 
 state("PickUp_Plate") :- state_PickUp_Plate.
 state_PickUp_Plate :-
     curr_Player_ID(PlayerID),
-    playerBot_HasRecipe(PlayerID),
+    playerBot_HasRecipeRequest(PlayerID),
     playerBot_HasNoPlate(PlayerID).
 
 state("PlacePlate") :- state_PlacePlate.
