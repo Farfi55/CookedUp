@@ -44,6 +44,14 @@ namespace ThinkEngine.Sensors {
             UpdateMissingIngredientsData();
         }
 
+
+        private void Update() {
+            if (HasRecipe) {
+                var remainingTimeToComplete = playerBot.CurrentRecipeRequest.RemainingTimeToComplete;
+                CurrentRecipeRequestASP.RemainingTimeToComplete = Converter.FloatToInt(remainingTimeToComplete);
+            }
+        }
+
         private void OnPlateIngredientsChanged(object sender, KitchenObjectsChangedEvent e) =>
             UpdateMissingIngredientsData();
 
@@ -55,7 +63,7 @@ namespace ThinkEngine.Sensors {
 
         private void UpdateRecipeData() {
             HasRecipe = playerBot.HasRecipeRequest;
-            if (playerBot.HasPlate) {
+            if (HasRecipe) {
                 RecipeName = playerBot.CurrentRecipeRequest.Recipe.name;
                 CurrentRecipeRequestASP = new RecipeRequestASP(playerBot.CurrentRecipeRequest);
             }
@@ -93,7 +101,7 @@ namespace ThinkEngine.Sensors {
         private void UpdatePlateData() {
             HasPlate = playerBot.HasPlate;
 
-            if (playerBot.HasPlate) {
+            if (HasPlate) {
                 PlateForRecipeID = idManager.GetID(playerBot.Plate.gameObject);
                 playerBot.Plate.OnDestroyed += OnPlateDestroyed;
             }

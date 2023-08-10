@@ -142,4 +142,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-Assets/Scripts/ThinkEngine/Python/out.asp
+Assets/Scripts/ThinkEngine/Python/out*.asp

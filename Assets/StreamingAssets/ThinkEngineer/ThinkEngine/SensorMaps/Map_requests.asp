@@ -8,9 +8,8 @@
 recipeRequest_ID_Index(ID, Index, Index1) :- 
     s_Delivery_RecipeRequest_ID(_,objectIndex(Index),Index1,ID).
 
-
 recipeRequest_ID(ID) :- 
-    recipeRequest_ID_Index(ID, _). 
+    recipeRequest_ID_Index(ID, _, _). 
 
 recipeRequest(ID, RecipeName) :-
     recipeRequest_ID_Index(ID, Index, Index1),

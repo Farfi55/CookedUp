@@ -14,9 +14,7 @@ namespace ThinkEngine.Actions {
         /// The name of the ingredient to pick up
         /// </summary>
         public string IngredientName { get; set; }
-        
-        public string RecipeName { get; set; } = "";
-        public int RecipeRequestID { get; set; } = -1;
+        public int RecipeRequestID { get; set; }
         
         public bool RequiresCooking { get; set; } = false;
         public bool RequiresCutting { get; set; } = false;
@@ -33,7 +31,7 @@ namespace ThinkEngine.Actions {
             DeliveryManager = DeliveryManager.Instance;
             PlayerBot = Player.GetComponent<PlayerBot>();
             Ingredient = RecipesMapperManager.KitchenObjectNameMap[IngredientName];
-            if (RecipeName == "") {
+            if (RecipeRequestID == 0) {
                 RecipeRequest = PlayerBot.CurrentRecipeRequest;
             }
             else {

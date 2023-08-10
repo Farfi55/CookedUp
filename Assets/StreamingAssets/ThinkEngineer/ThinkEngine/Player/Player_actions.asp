@@ -37,13 +37,13 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUp(ActionIndex, Targe
 
 % ================================== Pick Up Ingredient ==================================
 
-% a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+% a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 % a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName).
 
-a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
     a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName),
     curr_Player_ID(PlayerID),
-    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
+    playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 
 applyAction(ActionIndex, "PickUpIngredientAction") :- 
     a_PickUpIngredient(ActionIndex, _, _, _).
@@ -51,37 +51,37 @@ applyAction(ActionIndex, "PickUpIngredientAction") :-
 actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_PickUpIngredient(ActionIndex, _, _, _), curr_Player_ID(PlayerID).
 actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUpIngredient(ActionIndex, TargetID, _, _).
 actionArgument(ActionIndex, "IngredientName", IngredientName) :- a_PickUpIngredient(ActionIndex, _, IngredientName, _).
-actionArgument(ActionIndex, "RecipeName", RecipeName) :- a_PickUpIngredient(ActionIndex, _, _, RecipeName).
+actionArgument(ActionIndex, "RecipeRequestID", RecipeRequestID) :- a_PickUpIngredient(ActionIndex, _, _, RecipeRequestID).
 
 
 % ================================== Pick Up Ingredient To Cook ==================================
 
-% a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+% a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 % a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName).
 
-a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
     a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName),
     curr_Player_ID(PlayerID),
-    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
+    playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 
-a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
-    a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
+    a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 
 actionArgument(ActionIndex, "RequiresCooking", true) :- a_PickUpIngredient_ToCook(ActionIndex, _, _, _).
 
 
 % ================================== Pick Up Ingredient To Cook ==================================
 
-% a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+% a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 % a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName).
 
-a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
+a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
     a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName),
     curr_Player_ID(PlayerID),
-    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
+    playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 
-a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeName) :-
-    a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeName).
+a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
+    a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 
 actionArgument(ActionIndex, "RequiresCutting", true) :- a_PickUpIngredient_ToCut(ActionIndex, _, _, _).
 

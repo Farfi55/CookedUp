@@ -1,9 +1,12 @@
 % ================================== BUILT IN ==================================
 
 currentBrainID(Id).
+applyAction(ActionIndex, ActionType).
+actionArgument(ActionIndex, ArgumentName, ArgumentValue).
 
 
-% ================================== ACTIONS ==================================
+
+% ================================== PLAYER ACTIONS ==================================
 
 a_MoveTo_Target(ActionIndex, TargetID).
 a_MoveTo_Pos(ActionIndex, GridX,GridY).
@@ -28,6 +31,11 @@ a_WaitToCook(ActionIndex, TargetInteractableID).
 
 a_Wait(ActionIndex, MilliSecondsToWait).
 a_Wait(ActionIndex).
+
+
+% ================================== STRATEGIC ACTIONS ==================================
+
+a_SetRecipeRequest(ActionIndex, PlayerID, RecipeID).
 
 
 % ================================== CONSTANTS ==================================
@@ -100,7 +108,6 @@ playerBot_IsPlateBeingCarried
 playerBot_HasRecipeRequest(ID).
 playerBot_HasNoRecipeRequest(ID).
 playerBot_RecipeRequest_Name(PlayerID, RecipeName).
-playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 
 

@@ -5651,6 +5651,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThinkEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6014517166810940842, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: prefabBrain
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014517166810940842, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
+      propertyPath: maintainInputFile
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6381981351110831429, guid: da0bbb3226033154daab3e01ea5ee0e5,
         type: 3}
       propertyPath: m_LocalPosition.x
