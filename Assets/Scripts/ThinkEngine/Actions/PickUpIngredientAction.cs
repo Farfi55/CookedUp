@@ -52,7 +52,7 @@ namespace ThinkEngine.Actions {
                 return State.ABORT;
             }
 
-            if (!PlayerBot.HasRecipe || RecipeRequest == null) {
+            if (!PlayerBot.HasRecipeRequest || RecipeRequest == null) {
                 Debug.LogError($"{Player.name} does not have a recipe");
                 return State.ABORT;
             }

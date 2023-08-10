@@ -13,7 +13,7 @@ namespace ThinkEngine.Actions {
         protected PlayersManager PlayersManager;
         protected IDManager IDManager;
 
-        public Player Player { get; private set; }
+        protected Player Player;
         protected PlayerMovement PlayerMovement;
 
 

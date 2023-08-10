@@ -9,14 +9,14 @@ namespace ThinkEngine.Actions
         private PlayersManager playersManager;
         private IDManager idManager;
 
+        private Player player;
         
         public int PlayerID { get; set; }
         
         /// Time to wait in milliseconds
         public int TimeToWait { get; set; }
 
-        
-        public Player Player { get; private set; }
+
         
         private float timeToWaitFloat;
         private float timeElapsed;
@@ -25,10 +25,10 @@ namespace ThinkEngine.Actions
             idManager = IDManager.Instance;
 
             if (PlayerID == 0) {
-                Player = PlayersManager.Instance.GetPlayer();
+                player = PlayersManager.Instance.GetPlayer();
             }
             else
-                Player = idManager.GetComponentFromID<Player>(PlayerID);
+                player = idManager.GetComponentFromID<Player>(PlayerID);
             
             timeToWaitFloat = TimeToWait / 1000f;
             timeElapsed = 0;

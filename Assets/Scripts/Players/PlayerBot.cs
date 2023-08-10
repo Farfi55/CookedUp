@@ -11,7 +11,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 namespace Players {
     public class PlayerBot : MonoBehaviour {
-        private DeliveryManager deliveryManager;
+        
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private Player player;
@@ -19,7 +19,7 @@ namespace Players {
         public bool HasPlate => Plate != null;
         public PlateKitchenObject Plate { get; private set; }
 
-        public bool HasRecipe => CurrentRecipeRequest != null;
+        public bool HasRecipeRequest => CurrentRecipeRequest != null;
         public RecipeRequest CurrentRecipeRequest { get; private set; }
 
 
@@ -28,15 +28,8 @@ namespace Players {
         public event EventHandler<KitchenObjectsChangedEvent> OnPlateIngredientsChanged;
 
         private void Start() {
-            deliveryManager = DeliveryManager.Instance;
             agent.speed = playerMovement.MovementSpeed;
             agent.angularSpeed = playerMovement.RotationSpeed;
-
-            // todo: make a HigherLevelAI that handles recipe selection and coordination
-            TrySelectRecipe();
-
-            deliveryManager.OnRecipeRequestCreated += RecipeRequestCreated;
-            deliveryManager.OnDeliverySuccess += DeliverySuccess;
 
             player.Container.OnKitchenObjectAdded += OnPlayerKOAdded;
         }
@@ -107,25 +100,34 @@ namespace Players {
             // playerMovement.desiredMoveDirection = agent.desiredVelocity;
         }
 
+        // private void RecipeRequestCreated(object sender, RecipeRequest recipeRequest) {
+        //     if (HasRecipe)
+        //         return;
+        //     TrySelectFirstRecipe();
+        // }
 
-        private void DeliverySuccess(object sender, RecipeDeliveryEvent e) {
-            if (e.Player == player) {
-                TrySelectRecipe(true);
-            }
-        }
-
-        private void RecipeRequestCreated(object sender, RecipeRequest recipeRequest) {
-            if (HasRecipe)
-                return;
-            TrySelectRecipe();
-        }
-
-        private void TrySelectRecipe(bool forceEvent = false) {
+        // private void TrySelectFirstRecipe() {
+        //     var newRecipe = deliveryManager.WaitingRequests.FirstOrDefault();
+        //     SetRecipeRequest(newRecipe);
+        // }
+        
+        public void SetRecipeRequest(RecipeRequest recipeRequest) {
             var oldRequest = CurrentRecipeRequest;
-            CurrentRecipeRequest = deliveryManager.WaitingRequests.FirstOrDefault();
+            if (oldRequest == recipeRequest)
+                return;
+            
+            if(oldRequest != null)
+                oldRequest.OnRequestCompleted -= OnRecipeRequestCompleted;
+            
+            if(recipeRequest != null)
+                recipeRequest.OnRequestCompleted += OnRecipeRequestCompleted;
+            
+            CurrentRecipeRequest = recipeRequest;
+            OnRecipeRequestChanged?.Invoke(this, new ValueChangedEvent<RecipeRequest>(oldRequest, recipeRequest));
+        }
 
-            if (forceEvent || oldRequest != CurrentRecipeRequest)
-                OnRecipeRequestChanged?.Invoke(this, new(oldRequest, CurrentRecipeRequest));
+        private void OnRecipeRequestCompleted(object sender, EventArgs e) {
+            SetRecipeRequest(null);
         }
 
 
@@ -138,5 +140,7 @@ namespace Players {
                 playerMovement.LookAt(hit.collider.transform);
             }
         }
+
+        
     }
 }

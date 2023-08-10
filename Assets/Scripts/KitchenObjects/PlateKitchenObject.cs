@@ -76,6 +76,15 @@ namespace KitchenObjects
             OnValidIngredientsChanged?.Invoke(this, EventArgs.Empty);
         }
 
+        public override void DestroySelf() {
+            var ingredients = new List<KitchenObject>(ingredientsContainer.KitchenObjects);
+            foreach (var ingredient in ingredients) {
+                ingredient.DestroySelf();
+            }
+            
+            base.DestroySelf();
+        }
+
         private void OnDestroy() {
             ingredientsContainer.OnKitchenObjectsChanged -= OnKitchenObjectsChanged;
         }

@@ -59,7 +59,7 @@ namespace KitchenObjects {
         /// <summary>
         /// Removes itself from the current holder and destroys itself.
         /// </summary>
-        public void DestroySelf() {
+        public virtual void DestroySelf() {
             RemoveFromContainer();
             OnDestroyed?.Invoke(this, EventArgs.Empty);
             Destroy(gameObject);

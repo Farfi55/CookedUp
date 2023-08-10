@@ -16,7 +16,7 @@ namespace ThinkEngine.Actions {
         private PlayersManager playersManager;
         private IDManager idManager;
 
-        public Player Player { get; private set; }
+        private Player player;
         private PlayerMovement playerMovement;
         private GameObject target;
         private Vector2Int gridPos;
@@ -32,18 +32,18 @@ namespace ThinkEngine.Actions {
             idManager = IDManager.Instance;
                 
             if (PlayerID == 0) {
-                Player = PlayersManager.Instance.GetPlayer();
+                player = PlayersManager.Instance.GetPlayer();
             }
             else
-                Player = idManager.GetComponentFromID<Player>(PlayerID);
+                player = idManager.GetComponentFromID<Player>(PlayerID);
 
-            playerMovement = Player.GetComponent<PlayerMovement>();
+            playerMovement = player.GetComponent<PlayerMovement>();
 
             if (UseTarget()) {
                 target = idManager.GetGameObject(TargetID);
                 worldPos = target.transform.position;
                     
-                Debug.Log($"MoveToAction: {Player.name} moving to {target.name}");
+                Debug.Log($"MoveToAction: {player.name} moving to {target.name}");
             }
             else {
                 gridManager = GridManager.Instance;
@@ -62,7 +62,7 @@ namespace ThinkEngine.Actions {
             }
 
             if (!playerMovement.TryMoveTo(worldPos)) {
-                Debug.LogError($"player {Player.name} could not move to {worldPos}");
+                Debug.LogError($"player {player.name} could not move to {worldPos}");
                 anyError = true;
             }
         }
@@ -72,7 +72,7 @@ namespace ThinkEngine.Actions {
             if (anyError)
                 return State.ABORT;
 
-            if (UseTarget() && Player.GetSelectedGameObject() != target)
+            if (UseTarget() && player.GetSelectedGameObject() != target)
                 return State.WAIT;
 
             return playerMovement.IsMovingUsingNavigation ? State.WAIT : State.READY;

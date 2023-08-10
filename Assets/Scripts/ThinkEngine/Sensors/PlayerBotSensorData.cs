@@ -54,7 +54,7 @@ namespace ThinkEngine.Sensors {
         }
 
         private void UpdateRecipeData() {
-            HasRecipe = playerBot.HasRecipe;
+            HasRecipe = playerBot.HasRecipeRequest;
             if (playerBot.HasPlate) {
                 RecipeName = playerBot.CurrentRecipeRequest.Recipe.name;
                 CurrentRecipeRequestASP = new RecipeRequestASP(playerBot.CurrentRecipeRequest);
@@ -74,7 +74,7 @@ namespace ThinkEngine.Sensors {
             MissingIngredientsNames.Clear();
             HasMissingIngredients = false;
             HasInvalidIngredients = false;
-            if (!playerBot.HasRecipe)
+            if (!playerBot.HasRecipeRequest)
                 return;
             List<KitchenObjectSO> ingredients;
             if (playerBot.HasPlate) {
