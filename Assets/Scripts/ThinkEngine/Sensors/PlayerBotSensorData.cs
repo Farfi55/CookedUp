@@ -27,8 +27,12 @@ namespace ThinkEngine.Sensors {
         [Header("Plate")] public bool HasPlate;
         public int PlateForRecipeID;
 
-        [Header("Plate Ingredients")] public bool HasMissingIngredients;
+        [Header("Plate Ingredients")] 
+        public List<string> IngredientsNames = new();
+        
+        public bool HasMissingIngredients;
         public List<string> MissingIngredientsNames = new();
+        
         public bool HasInvalidIngredients;
 
 
@@ -41,7 +45,7 @@ namespace ThinkEngine.Sensors {
             player.Container.OnKitchenObjectsChanged += OnPlateIngredientsChanged;
             UpdateRecipeData();
             UpdatePlateData();
-            UpdateMissingIngredientsData();
+            UpdateIngredientsData();
         }
 
 
@@ -53,12 +57,12 @@ namespace ThinkEngine.Sensors {
         }
 
         private void OnPlateIngredientsChanged(object sender, KitchenObjectsChangedEvent e) =>
-            UpdateMissingIngredientsData();
+            UpdateIngredientsData();
 
 
         private void RecipeRequestChanged(object sender, ValueChangedEvent<RecipeRequest> valueChangedEvent) {
             UpdateRecipeData();
-            UpdateMissingIngredientsData();
+            UpdateIngredientsData();
         }
 
         private void UpdateRecipeData() {
@@ -75,15 +79,14 @@ namespace ThinkEngine.Sensors {
 
         private void OnPlateChanged(object sender, ValueChangedEvent<PlateKitchenObject> e) {
             UpdatePlateData();
-            UpdateMissingIngredientsData();
+            UpdateIngredientsData();
         }
 
-        private void UpdateMissingIngredientsData() {
+        private void UpdateIngredientsData() {
             MissingIngredientsNames.Clear();
             HasMissingIngredients = false;
             HasInvalidIngredients = false;
-            if (!playerBot.HasRecipeRequest)
-                return;
+            
             List<KitchenObjectSO> ingredients;
             if (playerBot.HasPlate) {
                 ingredients = playerBot.Plate.IngredientsContainer.AsKitchenObjectSOs();
@@ -91,7 +94,11 @@ namespace ThinkEngine.Sensors {
             else {
                 ingredients = new();
             }
-
+            IngredientsNames = ingredients.ConvertAll(koso => koso.name);
+            
+            if (!playerBot.HasRecipeRequest)
+                return;
+            
             MissingIngredientsNames = playerBot.CurrentRecipeRequest.Recipe.GetMissingIngredient(ingredients)
                 .ConvertAll(koso => koso.name);
             HasMissingIngredients = MissingIngredientsNames.Count > 0;

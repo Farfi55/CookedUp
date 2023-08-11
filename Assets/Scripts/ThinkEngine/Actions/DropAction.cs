@@ -85,7 +85,9 @@ namespace ThinkEngine.Actions {
             else
                 Debug.LogError($"{Player.name} did not drop a kitchen object {Target.name}");
 
-            Interactable.OnInteract -= OnInteract;
+            if (Interactable != null) {
+                Interactable.OnInteract -= OnInteract;
+            }
             UnsubscribeMoveToEvents();
         
         }

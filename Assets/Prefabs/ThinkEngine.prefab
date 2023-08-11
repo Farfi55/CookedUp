@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borning: 0
   enableBrain: 1
-  debug: 1
+  debug: 0
   maintainInputFile: 0
   _chosenSensorConfigurations:
   - s_Player
@@ -85,7 +85,7 @@ MonoBehaviour:
   - Map
   - Strategic
   - Common
-  prefabBrain: 1
+  prefabBrain: 0
   solverEnum: 1
   _executeReasonerOn: When Sensors are ready
   specificAIFile: 0
@@ -284,24 +284,6 @@ MonoBehaviour:
     - CookingRecipe
     - Name
     Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Value
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - IngredientsNames
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Name
-    Count: 4
   _toMapProperties:
   - myStrings:
     - ConstantsSensorData
@@ -359,24 +341,6 @@ MonoBehaviour:
     - ConstantsSensorData
     - CookingRecipes
     - CookingRecipe
-    - Name
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - Value
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
-    - IngredientsNames
-    Count: 4
-  - myStrings:
-    - ConstantsSensorData
-    - CompleteRecipes
-    - CompleteRecipe
     - Name
     Count: 4
   _propertyFeatures:
@@ -518,54 +482,52 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
-  - property:
-      myStrings:
-      - ConstantsSensorData
-      - CompleteRecipes
-      - CompleteRecipe
-      - Value
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Const
-    _propertyAlias: s_Const_CompleteRecipe_Value
-    propertyAliasHash: 289789283
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - ConstantsSensorData
-      - CompleteRecipes
-      - CompleteRecipe
-      - IngredientsNames
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Const
-    _propertyAlias: s_Const_CompleteRecipe_IngredientsNames
-    propertyAliasHash: 453925698
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - ConstantsSensorData
-      - CompleteRecipes
-      - CompleteRecipe
-      - Name
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Const
-    _propertyAlias: s_Const_CompleteRecipe_Name
-    propertyAliasHash: -766420929
-    operation: 0
-    specificValue: 
-    counter: 0
   _configurationName: s_Const
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 4ca800984ea648d468d9c9604f01d31f, type: 3}
+    typeName: ThinkEngine.s_Const_KitchenObjectsNames0, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4ae258881e77aea4ab318b9f24b1fa91, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 201d2a4cee0352c408f9052be5dd7e63, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_InputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 141e95f8712264549a5adaf131a32628, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_OutputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 25dd275089345d746b1c2d16117da38d, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_TimeToCut, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8b3ee4542d423a148ad971c48265f3f5, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_IsBurningRecipe, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4cd0baa859c639748a449697014cb593, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_TimeToCook, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 58bba8f6b30d8c44a96804922b35f169, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_OutputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7f16d77d5aaeead46b26315515e72dcb, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_InputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: c9c008d83238ab548924781b405d1edc, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   generatedCode: 0
-  generatedScripts: []
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_KitchenObjectsNames0.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_InputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_OutputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_TimeToCut.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_IsBurningRecipe.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_TimeToCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_OutputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_InputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_Name.cs
 --- !u!1 &4988682422684167771
 GameObject:
   m_ObjectHideFlags: 0

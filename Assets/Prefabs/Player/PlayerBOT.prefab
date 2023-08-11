@@ -925,6 +925,7 @@ MonoBehaviour:
     RemainingTimeToComplete: 0
   HasPlate: 0
   PlateForRecipeID: 0
+  IngredientsNames: []
   HasMissingIngredients: 0
   MissingIngredientsNames: []
   HasInvalidIngredients: 0
@@ -988,6 +989,10 @@ MonoBehaviour:
     - CurrentRecipeRequestASP
     - ID
     Count: 3
+  - myStrings:
+    - PlayerBotSensorData
+    - IngredientsNames
+    Count: 2
   _toMapProperties:
   - myStrings:
     - PlayerBotSensorData
@@ -1026,6 +1031,10 @@ MonoBehaviour:
     - CurrentRecipeRequestASP
     - ID
     Count: 3
+  - myStrings:
+    - PlayerBotSensorData
+    - IngredientsNames
+    Count: 2
   _propertyFeatures:
   - property:
       myStrings:
@@ -1136,6 +1145,18 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - PlayerBotSensorData
+      - IngredientsNames
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlayerBot
+    _propertyAlias: s_PlayerBot_IngredientsNames
+    propertyAliasHash: -1295922029
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_PlayerBot
   isInvariant: 0
   isFixedSize: 0
@@ -1167,6 +1188,9 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: a0836408bd4b82b418388fad338bd44d, type: 3}
     typeName: ThinkEngine.s_PlayerBot_CurrentRecipeRequest_ID, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 9509d0dcd1f407c45a6b0c6f94ff1fbb, type: 3}
+    typeName: ThinkEngine.s_PlayerBot_IngredientsNames, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   generatedCode: 0
   generatedScripts:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasRecipe.cs
@@ -1178,6 +1202,7 @@ MonoBehaviour:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasInvalidIngredients.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_ID.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_CurrentRecipeRequestASP_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_IngredientsNames.cs
 --- !u!114 &2997092725135300230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4706379898146698279, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,

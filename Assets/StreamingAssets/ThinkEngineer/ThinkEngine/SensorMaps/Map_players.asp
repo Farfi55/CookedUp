@@ -164,6 +164,15 @@ playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID) :-
 
 % Player Recipe Ingredients
 
+playerBot_IngredientsNames_Index(PlayerID, IngredientNames, Index) :-
+    playerBot_ID_Index(PlayerID,Index1),
+    s_PlayerBot_IngredientsNames(_,objectIndex(Index1), Index, IngredientNames).
+
+playerBot_IngredientsNames(PlayerID, IngredientNames) :-
+    playerBot_ID_Index(PlayerID,Index),
+    playerBot_IngredientsNames_Index(PlayerID, IngredientNames, _).
+
+
 playerBot_HasMissingIngredients(ID) :-
     playerBot_ID_Index(ID,Index),
     s_PlayerBot_HasMissingIngredients(_,objectIndex(Index), true).

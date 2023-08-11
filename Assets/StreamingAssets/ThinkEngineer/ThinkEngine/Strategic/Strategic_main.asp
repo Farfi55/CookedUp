@@ -43,41 +43,75 @@ recipeRequestToAssign(RecipeRequestID) | recipeRequestToNotAssign(RecipeRequestI
 recipeRequestToAssign_Count(Count) :-
     Count = #count{RecipeRequestID : recipeRequestToAssign(RecipeRequestID)}.
 
-actionIndex(0) :- 
-    recipeRequestToAssign_Count(Count),
-    Count > 0.
+:- recipeRequestToAssign_Count(R_Count),
+    playerBot_NoRecipeRequestCount(P_Count),
+    R_Count > P_Count.
 
-actionIndex(Index) :- 
-    actionIndex(Index - 1), 
-    recipeRequestToAssign_Count(Count), 
-    Index < Count.
-
-{ a_SetRecipeRequest(ActionIndex, PlayerID, RecipeRequestID) } = Count :-
-    recipeRequestToAssign_Count(Count),
+{ recipeRequestToAssign_Player(RecipeRequestID, PlayerID) } <=1 :-
     recipeRequestToAssign(RecipeRequestID),
-    actionIndex(ActionIndex),
     playerBot_HasNoRecipeRequest(PlayerID).
 
-:- a_SetRecipeRequest(ActionIndex1, PlayerID1, RecipeRequestID1),
-    a_SetRecipeRequest(ActionIndex2, PlayerID2, RecipeRequestID2),
-    ActionIndex1 = ActionIndex2,
-    RecipeRequestID1 != RecipeRequestID2.
 
-:- a_SetRecipeRequest(ActionIndex1, PlayerID1, RecipeRequestID1),
-    a_SetRecipeRequest(ActionIndex2, PlayerID2, RecipeRequestID2),
-    PlayerID1 = PlayerID2,
-    RecipeRequestID1 != RecipeRequestID2.
+:- recipeRequestToAssign_Player(RecipeRequestID, PlayerID), 
+    recipeRequestToAssign_Player(RecipeRequestID, PlayerID2), 
+    PlayerID != PlayerID2.
 
-:- a_SetRecipeRequest(ActionIndex1, PlayerID1, RecipeRequestID1),
-    a_SetRecipeRequest(ActionIndex2, PlayerID2, RecipeRequestID2),
-    PlayerID1 != PlayerID2,
-    RecipeRequestID1 = RecipeRequestID2.
+:- recipeRequestToAssign(RecipeRequestID),
+    #count{PlayerID : recipeRequestToAssign_Player(RecipeRequestID, PlayerID)} != 1.
+
+:- recipeRequestToAssign_Player(_, PlayerID),
+    #count{RecipeRequestID : recipeRequestToAssign_Player(RecipeRequestID, PlayerID)} != 1.
 
 
-:~ playerBot_NoRecipeRequestCount(P_Count),
-    recipeRequestToAssign_Count(R_Count),
-    Cost = P_Count-R_Count. 
-    [Cost@10, 172365172635176235716235]
+recipeRequest_AllPrev(RecipeRequestID, PrevRecipeRequestID) :-
+    recipeRequestToAssign(RecipeRequestID),
+    recipeRequestToAssign(PrevRecipeRequestID),
+    PrevRecipeRequestID < RecipeRequestID.
+
+recipeRequest_Prev(RecipeRequestID, PrevRecipeRequestID) :-
+    recipeRequestToAssign(RecipeRequestID),
+    PrevRecipeRequestID = #max{PrevRecipeRequestID1 : recipeRequest_AllPrev(RecipeRequestID, PrevRecipeRequestID1) }.  
+
+
+
+
+actionIndex_RecipeRequest(0, RecipeRequestID) :-
+    recipeRequestToAssign(_),
+    RecipeRequestID = #min{RecipeRequestID1 : recipeRequestToAssign(RecipeRequestID1)}.
+
+actionIndex_RecipeRequest(ActionIndex, RecipeRequestID) :-
+    ActionIndex = PrevActionIndex + 1,
+    recipeRequest_Prev(RecipeRequestID, PrevRecipeRequestID),
+    actionIndex_RecipeRequest(PrevActionIndex, PrevRecipeRequestID).
+
+
+
+a_SetRecipeRequest(ActionIndex, PlayerID, RecipeRequestID) :-
+    actionIndex_RecipeRequest(ActionIndex, RecipeRequestID),
+    recipeRequestToAssign_Player(RecipeRequestID, PlayerID).
+
+
+:~ recipeRequestToNotAssign(ID). [1@10, ID]
+
+
+playerBot_MissingIngredients_ForRecipe(PlayerID, IngredientName, RecipeName) :-
+    c_CompleteRecipe_Ingredient(RecipeName, IngredientName),
+    playerBot_HasPlate(PlayerID),
+    playerBot_Plate_ID(PlayerID, PlateID),
+    not playerBot_IngredientsNames(PlayerID, IngredientName).
+
+playerBot_HasInvalidIngredients_ForRecipe(PlayerID, RecipeName) :-
+    playerBot_HasPlate(PlayerID),
+    playerBot_Plate_ID(PlayerID, PlateID),
+    playerBot_IngredientsNames(PlayerID, IngredientName),
+    c_CompleteRecipe_Name(RecipeName),
+    not c_CompleteRecipe_Ingredient(RecipeName, IngredientName).
+
+playerBot_HasNoInvalidIngredients_ForRecipe(PlayerID, RecipeName) :-
+    playerBot_HasPlate(PlayerID),
+    playerBot_Plate_ID(PlayerID, PlateID),
+    c_CompleteRecipe_Name(RecipeName),
+    not playerBot_HasInvalidIngredients_ForRecipe(PlayerID, RecipeName).
 
 
 

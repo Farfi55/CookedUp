@@ -20,7 +20,8 @@ namespace ThinkEngine.Actions
 
 
         public override void Init() {
-            
+
+            Debug.Log($"SetRecipeRequestAction: Init, PlayerID: {PlayerID}, RecipeRequestID: {RecipeRequestID}");
             idManager = IDManager.Instance;
             deliveryManager =  DeliveryManager.Instance;
             recipeRequest = deliveryManager.GetRecipeRequestFromID(RecipeRequestID);
@@ -56,6 +57,10 @@ namespace ThinkEngine.Actions
 
         public override State Done() {
             return State.READY;
+        }
+
+        public override void Clean() {
+            Debug.Log($"SetRecipeRequestAction: Clean, PlayerID: {PlayerID}, RecipeRequestID: {RecipeRequestID}");
         }
     }
 }

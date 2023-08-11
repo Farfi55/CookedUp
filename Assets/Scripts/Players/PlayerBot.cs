@@ -24,6 +24,7 @@ namespace Players {
 
 
         public event EventHandler<ValueChangedEvent<RecipeRequest>> OnRecipeRequestChanged;
+        public static event EventHandler<ValueChangedEvent<RecipeRequest>> OnAnyRecipeRequestChanged;
         public event EventHandler<ValueChangedEvent<PlateKitchenObject>> OnPlateChanged;
         public event EventHandler<KitchenObjectsChangedEvent> OnPlateIngredientsChanged;
 
@@ -115,15 +116,24 @@ namespace Players {
             var oldRequest = CurrentRecipeRequest;
             if (oldRequest == recipeRequest)
                 return;
-            
-            if(oldRequest != null)
+
+            if (oldRequest != null) {
                 oldRequest.OnRequestCompleted -= OnRecipeRequestCompleted;
-            
-            if(recipeRequest != null)
+                oldRequest.OnRequestExpired -= OnRecipeRequestExpired;
+            }
+
+            if (recipeRequest != null) {
                 recipeRequest.OnRequestCompleted += OnRecipeRequestCompleted;
+                recipeRequest.OnRequestExpired += OnRecipeRequestExpired;
+            }
             
             CurrentRecipeRequest = recipeRequest;
             OnRecipeRequestChanged?.Invoke(this, new ValueChangedEvent<RecipeRequest>(oldRequest, recipeRequest));
+            OnAnyRecipeRequestChanged?.Invoke(this, new ValueChangedEvent<RecipeRequest>(oldRequest, recipeRequest));
+        }
+
+        private void OnRecipeRequestExpired(object sender, EventArgs e) {
+            SetRecipeRequest(null);
         }
 
         private void OnRecipeRequestCompleted(object sender, EventArgs e) {

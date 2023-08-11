@@ -44,12 +44,11 @@ namespace ThinkEngine
 				first = false;
 				PlayerBotSensorData PlayerBotSensorData0 = gameObject.GetComponent<PlayerBotSensorData>();
 				RecipeRequestASP CurrentRecipeRequestASP1 = PlayerBotSensorData0.CurrentRecipeRequestASP;
-                if(CurrentRecipeRequestASP1 == null)
-                {
+                if (CurrentRecipeRequestASP1 == null) {
                     values.Clear();
                     return;
                 }
-                int ID2 = CurrentRecipeRequestASP1.ID;
+				int ID2 = CurrentRecipeRequestASP1.ID;
 				if (values.Count == 200)
 				{
 						values.RemoveAt(0);

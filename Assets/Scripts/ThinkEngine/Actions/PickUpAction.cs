@@ -81,7 +81,9 @@ namespace ThinkEngine.Actions
             else
                 Debug.LogError($"{Player.name} did not pick up anything {Target.name}");
 
-            Interactable.OnInteract -= OnInteract;
+            if (Interactable != null) {
+                Interactable.OnInteract -= OnInteract;
+            }
             UnsubscribeMoveToEvents();
             PlayerMovement.StopAll();
         }

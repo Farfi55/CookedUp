@@ -112,6 +112,8 @@ playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 
 
 % Player Recipe Ingredients
+playerBot_IngredientsNames_Index(PlayerID, IngredientNames, Index).
+playerBot_IngredientsNames(PlayerID, IngredientNames).
 playerBot_HasMissingIngredients(ID).
 playerBot_HasNoMissingIngredients(ID).
 playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index).
