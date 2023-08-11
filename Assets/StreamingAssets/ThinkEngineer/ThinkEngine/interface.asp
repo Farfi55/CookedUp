@@ -49,7 +49,7 @@ c_CompleteRecipe_Ingredient(RecipeName, IngredientName).
 c_CookingRecipe(RecipeName, InputKOName, OutputKOName, TimeToCook, IsBurningRecipe).
 c_CookingRecipe_Name(RecipeName).
 
-c_CuttingRecipe_Name(RecipeName, InputKOName, OutputKOName, TimeToCut).
+c_CuttingRecipe(RecipeName, InputKOName, OutputKOName, TimeToCut).
 c_CuttingRecipe_Name(RecipeName).
 
 
@@ -69,6 +69,20 @@ recipeRequest_RemainingTimeToComplete(ID, RemainingTimeToComplete).
 recipeRequest_Value(ID, Value).
 
 recipeRequest_Full(ID, RecipeName, TimeToComplete, RemainingTimeToComplete, Value).
+
+
+% ================================== COMMON INGREDIENTS ==================================
+
+
+ingredient_Available(IngredientName, TargetID).
+ingredient_Available_Any(IngredientName).
+ingredient_NotAvailable(IngredientName).
+
+ingredient_NeedsCooking(IngredientName, RecipeName, InputIngredientName).
+ingredient_NeedsCutting(IngredientName, RecipeName, InputIngredientName).
+ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) .
+
+ingredient_ExpectedGetTime(IngredientName, Time).
 
 
 % ================================== PLAYER ==================================

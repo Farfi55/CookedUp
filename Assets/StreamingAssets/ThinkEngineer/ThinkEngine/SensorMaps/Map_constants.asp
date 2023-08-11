@@ -36,7 +36,7 @@ c_CookingRecipe(RecipeName, InputKOName, OutputKOName, TimeToCook, IsBurningReci
 c_CookingRecipe_Name(RecipeName) :-
     c_CookingRecipe(RecipeName, _, _, _, _).
 
-c_CuttingRecipe_Name(RecipeName, InputKOName, OutputKOName, TimeToCut) :-
+c_CuttingRecipe(RecipeName, InputKOName, OutputKOName, TimeToCut) :-
     s_Const_CuttingRecipe_Name(_,_,Index1, RecipeName), 
     s_Const_CuttingRecipe_InputKOName(_,_,Index1, InputKOName), 
     s_Const_CuttingRecipe_OutputKOName(_,_,Index1, OutputKOName), 

@@ -91,9 +91,6 @@ a_SetRecipeRequest(ActionIndex, PlayerID, RecipeRequestID) :-
     recipeRequestToAssign_Player(RecipeRequestID, PlayerID).
 
 
-:~ recipeRequestToNotAssign(ID). [1@10, ID]
-
-
 playerBot_MissingIngredients_ForRecipe(PlayerID, IngredientName, RecipeName) :-
     c_CompleteRecipe_Ingredient(RecipeName, IngredientName),
     playerBot_HasPlate(PlayerID),
@@ -115,6 +112,79 @@ playerBot_HasNoInvalidIngredients_ForRecipe(PlayerID, RecipeName) :-
 
 
 
+% playerBot_Recipe_ExpectedTime is an approximation of the time for a player to complete a
+% recipe if it were assigned to him right now
+% it accounts for time spent cutting or cooking
+% if player already has a plate, the time to get ingredients already in the plate is not added to the time
+
+% case: 1
+% player with plate, with no invalid ingredients
+playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
+    c_CompleteRecipe_Name(RecipeName),
+    playerBot_ID(PlayerID),
+    playerBot_HasPlate(PlayerID),
+    playerBot_HasNoInvalidIngredients_ForRecipe(PlayerID, RecipeName),
+    IngredientsExpectedTime = #sum{ Time, IngredientName : 
+        ingredient_ExpectedGetTime(IngredientName, Time),
+        playerBot_MissingIngredients_ForRecipe(PlayerID, IngredientName, RecipeName)
+    },
+    ExpectedTime = IngredientsExpectedTime.
+
+% case: 2
+% player with plate, with invalid ingredients
+playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
+    c_CompleteRecipe_Name(RecipeName),
+    playerBot_ID(PlayerID),
+    playerBot_HasPlate(PlayerID),
+    playerBot_HasInvalidIngredients_ForRecipe(PlayerID, RecipeName),
+    IngredientsExpectedTime = #sum{ Time, IngredientName : 
+        ingredient_ExpectedGetTime(IngredientName, Time),
+        c_CompleteRecipe_Ingredient(RecipeName, IngredientName)
+    },
+    ExpectedTime = IngredientsExpectedTime + 1000.
+
+% case: 3
+% player without plate
+playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
+    c_CompleteRecipe_Name(RecipeName),
+    playerBot_ID(PlayerID),    
+    playerBot_HasNoPlate(PlayerID),
+    IngredientsExpectedTime = #sum{ Time, IngredientName : 
+        ingredient_ExpectedGetTime(IngredientName, Time),
+        c_CompleteRecipe_Ingredient(RecipeName, IngredientName)
+    },
+    ExpectedTime = IngredientsExpectedTime + 1000.
+
+
+% ================================== WEAK CONSTRAINTS ==================================
+
+% in order of priority, from most important to least important
+
+
+% assign the maximum number of recipe requests to players
+:~ recipeRequestToNotAssign(RecipeRequestID). [1@10, RecipeRequestID]
+
+
+% if there's not enough time to complete a recipe prioritize other recipesRequests
+:~ recipeRequestToAssign(RecipeRequestID),
+    recipeRequest_RemainingTimeToComplete(RecipeRequestID, RemainingTimeToComplete),
+    recipeRequest(RecipeRequestID, RecipeName),
+    playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime),
+    RemainingTimeToComplete < ExpectedTime,
+    Cost = ExpectedTime - RemainingTimeToComplete.
+    [Cost@8, RecipeRequestID, PlayerID] 
+
+
+
+% prioritize recipe request with less remaining time to complete
+% aka the most urgent recipe requests
+:~ recipeRequestToAssign(RecipeRequestID),
+    recipeRequest_RemainingTimeToComplete(RecipeRequestID, RemainingTimeToComplete),
+    Cost = RemainingTimeToComplete.
+    [Cost@7, RecipeRequestID]
+
+
+
 #show applyAction/2.
 #show actionArgument/3.
 #show a_SetRecipeRequest/3.
@@ -130,3 +200,14 @@ playerBot_HasNoInvalidIngredients_ForRecipe(PlayerID, RecipeName) :-
 #show recipeRequest_PlayerCount/2.
 #show recipeRequest/2.
 #show recipeRequest_ID/1.
+
+
+
+
+% % if a player has a plate which contains ingredients that are not required for the recipe,
+% % then try to assign the recipe request to another player 
+% :~ recipeRequestToAssign_Player(RecipeRequestID, PlayerID),
+%     recipeRequest(RecipeRequestID, RecipeName),
+%     playerBot_HasInvalidIngredients_ForRecipe(PlayerID, RecipeName). 
+%     [1@5, RecipeRequestID, PlayerID, RecipeName]
+
