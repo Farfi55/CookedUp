@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -78,12 +78,11 @@ namespace ThinkEngine
 #if UNITY_EDITOR
                     if (!EditorApplication.isCompiling)
                     {
-                        _triggerClass = ScriptableObject.CreateInstance("ThinkEngineTrigger");
-
+                        _triggerClass = ScriptableObject.CreateInstance("ThinkEngine.ThinkEngineTrigger");
                     }
 #endif
 #if !UNITY_EDITOR
-                _triggerClass = ScriptableObject.CreateInstance("Trigger");
+                _triggerClass = ScriptableObject.CreateInstance("ThinkEngine.ThinkEngineTrigger");
 #endif
                 }
 #if UNITY_EDITOR
