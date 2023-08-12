@@ -23,7 +23,7 @@ namespace ThinkEngine.Actions {
                 return state;
 
             if (!Player.HasKitchenObject()) {
-                Debug.LogError($"{Player.name} does not have a kitchen object, to drop on {Target.name}");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} does not have a kitchen object, to drop on {Target.name}");
                 return State.ABORT;
             }
 
@@ -81,9 +81,9 @@ namespace ThinkEngine.Actions {
             base.Clean();
             
             if (HasDropped)
-                Debug.Log($"{Player.name} dropped a kitchen object {Target.name}");
+                Debug.Log($"[{GetType().Name}]: {Player.name} dropped a kitchen object {Target.name}");
             else
-                Debug.LogError($"{Player.name} did not drop a kitchen object {Target.name}");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} did not drop a kitchen object {Target.name}");
 
             if (Interactable != null) {
                 Interactable.OnInteract -= OnInteract;

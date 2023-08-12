@@ -24,7 +24,7 @@ namespace ThinkEngine.Actions
                 return state;
 
             if (Player.HasKitchenObject()) {
-                Debug.LogError($"{Player.name} already has a kitchen object {Target.name}");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} already has a kitchen object {Target.name}");
                 return State.ABORT;
             }
 
@@ -33,7 +33,7 @@ namespace ThinkEngine.Actions
 
         public override void Do() {
             if (!TryMoveToTarget()) {
-                Debug.LogError($"{Player.name} cannot move to {Target.name}");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} cannot move to {Target.name}");
                 AnyError = true;
             }
             
@@ -65,7 +65,7 @@ namespace ThinkEngine.Actions
             }
             
             if (remainingInteractionDelay <= 0f && IsTargetSelected() && Player.TryInteract()) {
-                Debug.Log($"player interacted with the target {Target.name}");
+                Debug.Log($"[{GetType().Name}]: player interacted with the target {Target.name}");
                 if(HasInteracted) {
                     return HasPickedUp ? State.READY : State.ABORT;
                 }
@@ -77,9 +77,9 @@ namespace ThinkEngine.Actions
         public override void Clean() {
             base.Clean();
             if (HasPickedUp)
-                Debug.Log($"{Player.name} picked up a kitchen object {Target.name}");
+                Debug.Log($"[{GetType().Name}]: {Player.name} picked up a kitchen object {Target.name}");
             else
-                Debug.LogError($"{Player.name} did not pick up anything {Target.name}");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} did not pick up anything {Target.name}");
 
             if (Interactable != null) {
                 Interactable.OnInteract -= OnInteract;

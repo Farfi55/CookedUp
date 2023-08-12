@@ -15,6 +15,7 @@ namespace Players {
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private Player player;
+        public Player Player => player;
 
         public bool HasPlate => Plate != null;
         public PlateKitchenObject Plate { get; private set; }

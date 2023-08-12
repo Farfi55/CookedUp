@@ -18,7 +18,7 @@ namespace ThinkEngine.Actions
             base.Init();
             cuttingCounter = Target.GetComponent<CuttingCounter>();
             if (cuttingCounter == null) {
-                Debug.LogError($"Target {Target.name} does not have a CuttingCounter component!", cuttingCounter);
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a CuttingCounter component!", cuttingCounter);
                 AnyError = true;
             }
             
@@ -31,7 +31,7 @@ namespace ThinkEngine.Actions
                 return state;
 
             if (!cuttingCounter.CanCut()) {
-                Debug.LogError($"{Player.name} cannot cut on {Target.name}", cuttingCounter);
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} cannot cut on {Target.name}", cuttingCounter);
                 return State.ABORT;
             }
             return State.READY;

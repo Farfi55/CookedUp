@@ -43,11 +43,11 @@ namespace ThinkEngine.Actions {
                 PlayerMovement = Player.GetComponent<PlayerMovement>();
                 
                 if (PlayerMovement == null) {
-                    Debug.LogError($"Player {Player.name} does not have a PlayerMovement component!");
+                    Debug.LogWarning($"[{GetType().Name}]: Player {Player.name} does not have a PlayerMovement component!");
                     AnyError = true;
                 }
                 else if (!PlayerMovement.HasAgent) {
-                    Debug.LogError($"Player {Player.name} does not have an agent!");
+                    Debug.LogWarning($"[{GetType().Name}]: Player {Player.name} does not have an agent!");
                     AnyError = true;
                 }
             }
@@ -56,7 +56,7 @@ namespace ThinkEngine.Actions {
                 target = IDManager.GetGameObject(TargetID);
 
                 if (!target.TryGetComponent(out interactable)) {
-                    Debug.LogError($"Target {target.name} does not have an IInteractable component!");
+                    Debug.LogWarning($"[{GetType().Name}]: Target {target.name} does not have an IInteractable component!");
                     AnyError = true;
                 }
                 TargetContainer = target.GetComponent<KitchenObjectsContainer>();

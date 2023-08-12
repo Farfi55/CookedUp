@@ -46,12 +46,12 @@ namespace ThinkEngine.Actions {
                 return state;
 
             if (!PlayerBot.HasPlate) {
-                Debug.LogError($"{Player.name} does not have a plate");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} does not have a plate");
                 return State.ABORT;
             }
 
             if (!PlayerBot.HasRecipeRequest || RecipeRequest == null) {
-                Debug.LogError($"{Player.name} does not have a recipe");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} does not have a recipe");
                 return State.ABORT;
             }
 
@@ -72,7 +72,7 @@ namespace ThinkEngine.Actions {
                 else throw new ArgumentException(); // should never happen
 
                 if (recipeSO == null) {
-                    Debug.LogError($"{Player.name} cannot cook or cut {IngredientName}");
+                    Debug.LogWarning($"[{GetType().Name}]: {Player.name} cannot cook or cut {IngredientName}");
                     return State.ABORT;
                 }
 
@@ -80,7 +80,7 @@ namespace ThinkEngine.Actions {
             }
             
             if (!missingIngredients.Contains(resultingIngredient)) {
-                Debug.LogError($"{Player.name} does not need {IngredientName}");
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} does not need {IngredientName}");
                 return State.ABORT;
             }
 

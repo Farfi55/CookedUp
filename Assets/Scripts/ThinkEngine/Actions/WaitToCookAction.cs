@@ -18,13 +18,13 @@ namespace ThinkEngine.Actions
             base.Init();
             stoveCounter = Target.GetComponent<StoveCounter>();
             if (stoveCounter == null) {
-                Debug.LogError($"Target {Target.name} does not have a StoveCounter component!", stoveCounter);
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a StoveCounter component!", stoveCounter);
                 AnyError = true;
             }
             
             cookingRecipe = stoveCounter.CurrentCookingRecipe;
 
-            Debug.Log($"WaitToCookAction: {Player.name} waiting to cook {cookingRecipe.name}");
+            Debug.Log($"[{GetType().Name}]: {Player.name} waiting to cook {cookingRecipe.name}");
         }
 
 
@@ -34,7 +34,7 @@ namespace ThinkEngine.Actions
                 return state;
 
             if (!stoveCounter.CanCook()) {
-                Debug.LogError($"{Player.name} cannot cook on {Target.name}", stoveCounter);
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} cannot cook on {Target.name}", stoveCounter);
                 return State.ABORT;
             }
             return State.READY;
@@ -46,7 +46,7 @@ namespace ThinkEngine.Actions
 
         private void OnRecipeChanged(object sender, ValueChangedEvent<BaseRecipeSO> e) {
             var newKO = stoveCounter.Container.KitchenObject;
-            Debug.Log($"WaitToCookAction: {Player.name} recipe changed to {e.NewValue?.name ?? "null"}");
+            Debug.Log($"[{GetType().Name}]: {Player.name} recipe changed to {e.NewValue?.name ?? "null"}");
             if(newKO != null && newKO.IsSameType(cookingRecipe.Input))
                 return;
             
