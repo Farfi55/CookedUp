@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using KitchenObjects.ScriptableObjects;
 using Players;
 using ThinkEngine.Models;
@@ -15,12 +16,14 @@ namespace ThinkEngine.Actions {
         /// </summary>
         public string IngredientName { get; set; }
         public int RecipeRequestID { get; set; }
+        public string RecipeName { get; set; } = "";
         
         public bool RequiresCooking { get; set; } = false;
         public bool RequiresCutting { get; set; } = false;
         
         protected PlayerBot PlayerBot;
-        protected RecipeRequest RecipeRequest;
+        [CanBeNull] protected RecipeRequest RecipeRequest;
+        protected CompleteRecipeSO Recipe; 
         protected KitchenObjectSO Ingredient;
 
         protected bool RequiresAnyWork => RequiresCooking || RequiresCutting;
@@ -32,10 +35,16 @@ namespace ThinkEngine.Actions {
             PlayerBot = Player.GetComponent<PlayerBot>();
             Ingredient = RecipesMapperManager.KitchenObjectNameMap[IngredientName];
             if (RecipeRequestID == 0) {
-                RecipeRequest = PlayerBot.CurrentRecipeRequest;
+                if(RecipeName != "")
+                    Recipe = RecipesMapperManager.CompleteRecipeNameMap[RecipeName];
+                else {
+                    RecipeRequest = PlayerBot.CurrentRecipeRequest;
+                    Recipe = RecipeRequest.Recipe;
+                }
             }
             else {
-                RecipeRequest = DeliveryManager.GetRecipeRequestFromID(RecipeRequestID); 
+                RecipeRequest = DeliveryManager.GetRecipeRequestFromID(RecipeRequestID);
+                Recipe = RecipeRequest.Recipe;
             }
         }
 
@@ -56,7 +65,7 @@ namespace ThinkEngine.Actions {
             }
 
             var ingredients = PlayerBot.Plate.IngredientsContainer.AsKitchenObjectSOs();
-            var missingIngredients = RecipeRequest.Recipe.GetMissingIngredient(ingredients);
+            var missingIngredients = Recipe.GetMissingIngredient(ingredients);
             
             KitchenObjectSO resultingIngredient;
 

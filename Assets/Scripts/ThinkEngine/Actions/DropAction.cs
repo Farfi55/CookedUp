@@ -11,6 +11,8 @@ namespace ThinkEngine.Actions {
         private float interactionDelay = 0.2f;
         private float remainingInteractionDelay;
 
+        protected bool AbortOnInteractableFull = true;
+
 
         public override void Init() {
             base.Init();
@@ -69,8 +71,11 @@ namespace ThinkEngine.Actions {
             }
             
             if (remainingInteractionDelay <= 0f && IsTargetSelected() && Player.TryInteract()) {
-                if (HasInteracted || (HasTargetContainer && !TargetContainer.HasSpace())) {
+                if (HasInteracted) {
                     return HasDropped ? State.READY : State.ABORT;
+                }
+                else if (AbortOnInteractableFull && HasTargetContainer && !TargetContainer.HasSpace()) {
+                    return State.ABORT;
                 }
             }
 

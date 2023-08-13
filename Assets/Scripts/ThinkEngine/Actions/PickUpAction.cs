@@ -12,7 +12,9 @@ namespace ThinkEngine.Actions
         private float interactionDelay = 0.2f;
         private float remainingInteractionDelay;
 
-
+        protected bool AbortOnInteractableEmpty = true;
+        
+        
         public override void Init() {
             base.Init();
             remainingInteractionDelay = interactionDelay;
@@ -69,6 +71,11 @@ namespace ThinkEngine.Actions
                 if(HasInteracted) {
                     return HasPickedUp ? State.READY : State.ABORT;
                 }
+                else if(AbortOnInteractableEmpty && HasTargetContainer && TargetContainer.IsEmpty()) {
+                    Debug.LogWarning($"[{GetType().Name}]: {Player.name} cannot pick up {Target.name} because it is empty");
+                    return State.ABORT;
+                }
+                
             }
 
             return State.WAIT;

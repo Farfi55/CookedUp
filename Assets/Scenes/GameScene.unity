@@ -180,7 +180,7 @@ MonoBehaviour:
   timeToDeliverRecipe: 40
   timeForNewRequest: 10
   maxWaitingRequests: 3
-  startingWaitingRequests: 3
+  startingWaitingRequests: 1
 --- !u!114 &40727174
 MonoBehaviour:
   m_ObjectHideFlags: 0

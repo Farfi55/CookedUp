@@ -124,6 +124,9 @@ public class DeliveryManager : MonoBehaviour {
             plate.DestroySelf();
             OnRecipeDelivered?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
             OnDeliverySuccess?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
+
+            if (waitingRequests.Count == 0)
+                CreateNewRecipe();
         }
     }
 
