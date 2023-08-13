@@ -1,16 +1,16 @@
-ingredient_Available(IngredientName, TargetID) :-
+ingredient_Available_Target(IngredientName, TargetID) :-
     containerCounter_KOType(TargetID, IngredientName).
 
-ingredient_Available(IngredientName, TargetID) :-
+ingredient_Available_Target(IngredientName, TargetID) :-
     counter_HasAny(TargetID),
     counter_KitchenObjects(TargetID, _, IngredientName).
 
-ingredient_Available_Any(IngredientName) :-
-    ingredient_Available(IngredientName, _).
+ingredient_Available(IngredientName) :-
+    ingredient_Available_Target(IngredientName, _).
 
 ingredient_NotAvailable(IngredientName) :-
     c_KO_Name(IngredientName),
-    not ingredient_Available_Any(IngredientName).
+    not ingredient_Available(IngredientName).
 
 
 ingredient_NeedsCooking(IngredientName, RecipeName, InputIngredientName) :-
@@ -32,7 +32,7 @@ ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) :-
 
 ingredient_ExpectedGetTime(IngredientName, Time) :-
     c_KO_Name(IngredientName),
-    ingredient_Available_Any(IngredientName),
+    ingredient_Available(IngredientName),
     Time = 2000.
 
 ingredient_ExpectedGetTime(IngredientName, Time) :-

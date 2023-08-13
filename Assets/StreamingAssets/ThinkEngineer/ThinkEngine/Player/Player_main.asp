@@ -68,9 +68,9 @@ state_Deliver :-
     playerBot_HasCompletedRecipe(PlayerID).
 
 
-:- #count{X: state(X)} != 1.
+% :- #count{X: state(X)} != 1.
 
-:- #count{ActionName: applyAction(ActionIndex, ActionName)} > 1, applyAction(ActionIndex, _).
+% :- #count{ActionName: applyAction(ActionIndex, ActionName)} > 1, applyAction(ActionIndex, _).
 
 firstActionIndex(0).
 
@@ -78,14 +78,16 @@ firstActionIndex(0).
 #show state/1.
 #show applyAction/2.
 #show actionArgument/3.
-#show subStateGI/1.
-#show stateGI_nextIngredient/1.
-#show stateGI_Target1/1.
-#show stateGI_Target2/1.
-#show stateGI_Target_Final/1.
 #show playerBot_Plate_Container_ID/3.
 #show playerBot_Plate_ID/2.
 #show plate_ID/1.
 #show player_HasAny/1.
 #show player_KitchenObject/3.
+#show playerBot_IngredientsNames/2.
 #show playerBot_MissingIngredients/2.
+#show playerBot_IsPlateBeingCarried/1.
+#show playerBot_HasCompletedRecipe/1.
+#show playerBot_HasPlate/1.
+#show playerBot_HasRecipeRequest/1.
+#show playerBot_RecipeRequest_Name/2.
+

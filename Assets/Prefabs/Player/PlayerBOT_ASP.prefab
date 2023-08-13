@@ -1077,7 +1077,7 @@ MonoBehaviour:
   borning: 0
   enableBrain: 1
   debug: 0
-  maintainInputFile: 0
+  maintainInputFile: 1
   _chosenSensorConfigurations:
   - s_ContainerCounter
   - s_CuttingCounter

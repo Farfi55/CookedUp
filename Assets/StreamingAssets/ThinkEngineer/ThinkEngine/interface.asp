@@ -74,8 +74,8 @@ recipeRequest_Full(ID, RecipeName, TimeToComplete, RemainingTimeToComplete, Valu
 % ================================== COMMON INGREDIENTS ==================================
 
 
-ingredient_Available(IngredientName, TargetID).
-ingredient_Available_Any(IngredientName).
+ingredient_Available_Target(IngredientName, TargetID).
+ingredient_Available(IngredientName).
 ingredient_NotAvailable(IngredientName).
 
 ingredient_NeedsCooking(IngredientName, RecipeName, InputIngredientName).
