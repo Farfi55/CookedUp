@@ -39,12 +39,17 @@ namespace ThinkEngine.Actions {
                     Recipe = RecipesMapperManager.CompleteRecipeNameMap[RecipeName];
                 else {
                     RecipeRequest = PlayerBot.CurrentRecipeRequest;
-                    Recipe = RecipeRequest.Recipe;
+                    Recipe = RecipeRequest?.Recipe;
                 }
             }
             else {
                 RecipeRequest = DeliveryManager.GetRecipeRequestFromID(RecipeRequestID);
-                Recipe = RecipeRequest.Recipe;
+                Recipe = RecipeRequest?.Recipe;
+            }
+            
+            if(Recipe == null) {
+                Debug.LogWarning($"[{GetType().Name}]: {Player.name} does not have a recipe");
+                AnyError = true;
             }
         }
 

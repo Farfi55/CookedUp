@@ -116,7 +116,8 @@ player_KitchenObject(PlayerID, KitchenObjectID, KitchenObjectName).
 playerBot_HasPlate(ID).
 playerBot_HasNoPlate(ID).
 playerBot_Plate_ID(PlayerID, PlateID).
-playerBot_IsPlateBeingCarried
+playerBot_IsPlateBeingCarried(PlayerID).
+playerBot_Plate_Container_ID(PlayerID, PlateID, ContainerID).
 
 % Player Recipe
 playerBot_HasRecipeRequest(ID).

@@ -6,6 +6,7 @@
 
 #show gi_FinalIngredient/1.
 #show gi_BaseIngredient/1.
+#show gi_State/1.
 
 { gi_FinalIngredient(IngredientName) } <= 1 :-
     state_GetIngredient,
@@ -184,37 +185,52 @@ gi_Any_WorkCounter_HasCurrent_FinalIngredient :-
 
 
 % needs cooking or cutting
-gi_BaseIngredient_Target(TargetID) :-
+tmp_gi_BaseIngredient_Target(TargetID) :-
     state_GetIngredient,
     not gi_IngredientAvailability("Available"),
     gi_BaseIngredient(BaseIngredientName),
     ingredient_Available_Target(BaseIngredientName, TargetID).
 
+gi_BaseIngredient_Target(TargetID) :-
+    state_GetIngredient,
+    tmp_gi_BaseIngredient_Target(_),
+    TargetID = #max{TargetID1 : tmp_gi_BaseIngredient_Target(TargetID1)}.
 
-gi_WorkCounter_Target(TargetID) :-
+
+tmp_gi_WorkCounter_Target(TargetID) :-
     state_GetIngredient,
     gi_IngredientAvailability("NeedsCooking"),
     stoveCounter_ID(TargetID),
     counter_HasSpace(TargetID).
 
-gi_WorkCounter_Target(TargetID) :-
+tmp_gi_WorkCounter_Target(TargetID) :-
     state_GetIngredient,
     gi_IngredientAvailability("NeedsCutting"),
     cuttingCounter_ID(TargetID),
     counter_HasSpace(TargetID).
 
+gi_WorkCounter_Target(TargetID) :-
+    state_GetIngredient,
+    tmp_gi_WorkCounter_Target(_),
+    TargetID = #max{TargetID1 : tmp_gi_WorkCounter_Target(TargetID1)}.
 
-gi_FinalIngredient_Target(TargetID) :-
+tmp_gi_FinalIngredient_Target(TargetID) :-
     state_GetIngredient,
     gi_IngredientAvailability("Available"),
     gi_FinalIngredient(IngredientName),
     ingredient_Available_Target(IngredientName, TargetID).
 
 
-gi_FinalIngredient_Target(TargetID) :-
+tmp_gi_FinalIngredient_Target(TargetID) :-
     state_GetIngredient,
     not gi_IngredientAvailability("Available"),
     gi_WorkCounter_Target(TargetID).
+
+gi_FinalIngredient_Target(TargetID) :-
+    state_GetIngredient,
+    tmp_gi_FinalIngredient_Target(_),
+    TargetID = #max{TargetID1 : tmp_gi_FinalIngredient_Target(TargetID1)}.
+
 
 gi_Plate_Target(TargetID) :-
     state_GetIngredient,
@@ -306,4 +322,5 @@ a_Wait(ActionIndex) :-
     state_GetIngredient,
     ActionIndex = FirstActionIndex + 5,
     gi_FirstActionIndex(FirstActionIndex).
+
 

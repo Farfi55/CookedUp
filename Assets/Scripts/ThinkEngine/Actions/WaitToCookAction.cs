@@ -24,6 +24,11 @@ namespace ThinkEngine.Actions
             
             cookingRecipe = stoveCounter.CurrentCookingRecipe;
 
+            if(cookingRecipe == null) {
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a cooking recipe!", stoveCounter);
+                AnyError = true;
+            }
+            
             Debug.Log($"[{GetType().Name}]: {Player.name} waiting to cook {cookingRecipe.name}");
         }
 
