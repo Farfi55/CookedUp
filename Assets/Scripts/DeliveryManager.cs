@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,9 +7,7 @@ using Extensions;
 using KitchenObjects;
 using KitchenObjects.ScriptableObjects;
 using Players;
-using Unity.VisualScripting;
 using UnityEngine;
-using Random = System.Random;
 
 public class DeliveryManager : MonoBehaviour {
     public static DeliveryManager Instance { get; private set; }
@@ -19,12 +16,18 @@ public class DeliveryManager : MonoBehaviour {
 
     [SerializeField] private CompleteRecipeSOList recipes;
 
-    private readonly ObservableCollection<CompleteRecipeSO> waitingRecipeSOs = new();
-    public ObservableCollection<CompleteRecipeSO> WaitingRecipeSOs => waitingRecipeSOs;
+    [SerializeField] private List<CompleteRecipeSO> startingRecipes;
+
+    private readonly ObservableCollection<RecipeRequest> waitingRequests = new();
+    
+    public ObservableCollection<RecipeRequest> WaitingRequests => waitingRequests;
 
 
     private ProgressTracker progressTracker;
 
+    private int nextRecipeRequestID = 0;
+    
+    [SerializeField] private float timeToDeliverRecipe = 20f;
     [SerializeField] private float timeForNewRequest = 10f;
 
     [SerializeField] private int maxWaitingRequests = 3;
@@ -33,10 +36,10 @@ public class DeliveryManager : MonoBehaviour {
     public int SuccessfulDeliveriesCount { get; private set; } = 0;
 
 
-    public event EventHandler<CompleteRecipeSO> OnRecipeCreated;
+    public event EventHandler<RecipeRequest> OnRecipeRequestCreated;
     public event EventHandler<RecipeDeliveryEvent> OnRecipeDelivered;
-    public event EventHandler<RecipeDeliveryEvent> OnRecipeSuccess;
-    public event EventHandler<RecipeDeliveryEvent> OnRecipeFailed;
+    public event EventHandler<RecipeDeliveryEvent> OnDeliverySuccess;
+    public event EventHandler<RecipeDeliveryEvent> OnDeliveryFailed;
 
 
     private void Awake() {
@@ -46,7 +49,7 @@ public class DeliveryManager : MonoBehaviour {
             Debug.LogError("Multiple DeliveryManagers in scene!");
             Destroy(gameObject);
         }
-
+        
         progressTracker = GetComponent<ProgressTracker>();
     }
 
@@ -56,7 +59,12 @@ public class DeliveryManager : MonoBehaviour {
         progressTracker.SetTotalWork(timeForNewRequest);
         progressTracker.OnProgressComplete += ProgressTrackerOnOnProgressComplete;
 
-        for (int i = 0; i < startingWaitingRequests; i++) {
+        foreach (var startingRecipe in startingRecipes) {
+            AddRecipe(startingRecipe);
+        }
+        startingRecipes.Clear();
+        
+        for (int i = waitingRequests.Count; i < startingWaitingRequests; i++) {
             CreateNewRecipe();
         }
     }
@@ -64,8 +72,15 @@ public class DeliveryManager : MonoBehaviour {
 
     private void Update() {
         if (!gameManager.IsGamePlaying) return;
-
-        if (waitingRecipeSOs.Count < maxWaitingRequests)
+        
+        foreach (var recipeRequest in waitingRequests) {
+            recipeRequest.UpdateTime(Time.deltaTime);
+        }
+        
+        waitingRequests.RemoveAll(request => request.IsExpired);
+        
+        
+        if (waitingRequests.Count < maxWaitingRequests)
             progressTracker.AddWorkDone(Time.deltaTime);
     }
 
@@ -73,42 +88,61 @@ public class DeliveryManager : MonoBehaviour {
         CreateNewRecipe();
     }
 
+    
     private void CreateNewRecipe() {
         var completeRecipeSO = recipes.RecipeSOList.GetRandomElement();
-        waitingRecipeSOs.Add(completeRecipeSO);
+        AddRecipe(completeRecipeSO);
+    }
+
+    private void AddRecipe(CompleteRecipeSO recipeSO) {
+        var recipeRequest = new RecipeRequest(recipeSO, timeToDeliverRecipe, nextRecipeRequestID);
+        AddRecipeRequest(recipeRequest);
+    }
+
+    private void AddRecipeRequest(RecipeRequest recipeRequest) {
+        waitingRequests.Add(recipeRequest);
+        nextRecipeRequestID = recipeRequest.ID + 1;
         progressTracker.ResetProgress();
-        OnRecipeCreated?.Invoke(this, completeRecipeSO);
-        Debug.Log($"New recipe request: {completeRecipeSO.DisplayName}");
+        OnRecipeRequestCreated?.Invoke(this, recipeRequest);
+        Debug.Log($"New recipe request: {recipeRequest.Recipe.DisplayName}");
     }
 
 
     public void DeliverRecipe(PlateKitchenObject plate, Player player, DeliveryCounter deliveryCounter) {
         List<KitchenObjectSO> kitchenObjectSOs = plate.IngredientsContainer.AsKitchenObjectSOs();
 
-        var completeRecipeSO =
-            waitingRecipeSOs.FirstOrDefault(completeRecipeSO => completeRecipeSO.MatchesCompletely(kitchenObjectSOs));
-        if (completeRecipeSO == null) {
-            OnRecipeFailed?.Invoke(this, new RecipeDeliveryEvent(null, player, deliveryCounter));
+        var recipeRequest = waitingRequests.FirstOrDefault(request => request.Recipe.MatchesCompletely(kitchenObjectSOs));
+        if (recipeRequest == null) {
+            OnDeliveryFailed?.Invoke(this, new RecipeDeliveryEvent(null, player, deliveryCounter));
             Debug.Log("No match found in waiting recipes");
         }
-        else {
-            waitingRecipeSOs.Remove(completeRecipeSO);
+        else { 
+            waitingRequests.Remove(recipeRequest);
             SuccessfulDeliveriesCount++;
-            Debug.Log($"Recipe {completeRecipeSO.DisplayName} delivered!");
+            recipeRequest.Complete();
+            Debug.Log($"Recipe {recipeRequest.Recipe.DisplayName} delivered!");
             plate.DestroySelf();
-            OnRecipeDelivered?.Invoke(this, new RecipeDeliveryEvent(completeRecipeSO, player, deliveryCounter));
-            OnRecipeSuccess?.Invoke(this, new RecipeDeliveryEvent(completeRecipeSO, player, deliveryCounter));
+            OnRecipeDelivered?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
+            OnDeliverySuccess?.Invoke(this, new RecipeDeliveryEvent(recipeRequest, player, deliveryCounter));
+
+            if (waitingRequests.Count == 0)
+                CreateNewRecipe();
         }
     }
+
+    public RecipeRequest GetRecipeRequestFromID(int recipeRequestID) {
+        return waitingRequests.FirstOrDefault(request => request.ID == recipeRequestID);
+    }
+    
 }
 
 public struct RecipeDeliveryEvent {
-    public CompleteRecipeSO RecipeSO { get; }
+    public RecipeRequest RecipeRequest { get; }
     public Player Player { get; }
     public DeliveryCounter DeliveryCounter { get; }
 
-    public RecipeDeliveryEvent(CompleteRecipeSO recipeSo, Player player, DeliveryCounter deliveryCounter) {
-        RecipeSO = recipeSo;
+    public RecipeDeliveryEvent(RecipeRequest recipeRequest, Player player, DeliveryCounter deliveryCounter) {
+        RecipeRequest = recipeRequest;
         Player = player;
         DeliveryCounter = deliveryCounter;
     }

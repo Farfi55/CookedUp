@@ -5,11 +5,8 @@ using KitchenObjects.Container;
 using UnityEngine;
 
 namespace Players {
-    [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(KitchenObjectsContainer))]
     public class Player : MonoBehaviour {
-        public PlayerInput PlayerInput => playerInput;
-        private PlayerInput playerInput;
         private KitchenObjectsContainer container;
 
         private GameManager gameManager;
@@ -19,24 +16,31 @@ namespace Players {
 
         public bool HasKitchenObject() => CurrentKitchenObject != null;
 
-        [SerializeField, Range(0f, 10f)] float interactionDistance = 1f;
-        [SerializeField, Range(0f, 3f)] float interactionRange = 0.3f;
+        [SerializeField, Range(0f, 10f)] private float interactionDistance = 1f;
+        [SerializeField, Range(0f, 3f)] private float interactionRadius = 0.3f;
+        public float InteractionDistance => interactionDistance;
 
+        
         [SerializeField] private LayerMask interactionLayerMask;
+        
 
-        /// <summary>
-        /// The last movement input that was not zero.
-        /// </summary>
-        private Vector2 lastMovementInput;
-
-        private bool HasSelectedInteractable() => selectedInteractable != null;
+        public bool HasSelectedInteractable() => selectedInteractable != null;
+        
         public IInteractable SelectedInteractable => selectedInteractable;
         private IInteractable selectedInteractable = null;
 
         public bool IsInteractingAlternate { get; private set; } = false;
 
 
-        private RaycastHit[] hitBuffer = new RaycastHit[8];
+        private readonly RaycastHit[] hitBuffer = new RaycastHit[8];
+        
+        /// <summary>
+        /// ignored when equal to Vector2.zero
+        /// <br/>
+        /// Determines the direction of the selection ray 
+        /// </summary>
+        public Vector2 SelectionDirection { get; set; }
+
 
 
         public event EventHandler<ValueChangedEvent<IInteractable>> OnSelectedInteractableChanged;
@@ -47,7 +51,6 @@ namespace Players {
 
 
         private void Awake() {
-            playerInput = GetComponent<PlayerInput>();
             container = GetComponent<KitchenObjectsContainer>();
         }
 
@@ -55,32 +58,12 @@ namespace Players {
             OnAnyPlayerSpawned?.Invoke(this, this);
 
             gameManager = GameManager.Instance;
-
-            playerInput.OnInteract += HandleInteractionInput;
-            
-            playerInput.OnInteractAlternateStarted += HandleAlternateInteractionStartedInput;
-            playerInput.OnInteractAlternate += HandleAlternateInteractionInput;
-            playerInput.OnInteractAlternateCanceled += HandleAlternateInteractionCanceledInput;
-            
-            playerInput.OnReady += HandleReadyInput;
-            playerInput.OnPause += HandlePauseInput;
         }
 
 
         private void OnDestroy() {
             OnAnyPlayerDestroyed?.Invoke(this, this);
-            
-            playerInput.OnInteract -=  HandleInteractionInput;
-            
-            playerInput.OnInteractAlternateStarted -= HandleAlternateInteractionStartedInput;
-            playerInput.OnInteractAlternate -= HandleAlternateInteractionInput;
-            playerInput.OnInteractAlternateCanceled -= HandleAlternateInteractionCanceledInput;
-            
-            playerInput.OnReady -= HandleReadyInput;
-            playerInput.OnPause -= HandlePauseInput;
         }
-
-        private void HandleInteractionInput(object sender, EventArgs e) => TryInteract();
 
         public bool TryInteract() {
             if (!HasSelectedInteractable()
@@ -92,10 +75,6 @@ namespace Players {
             selectedInteractable.Interact(this);
             return true;
         }
-
-        private void HandleAlternateInteractionStartedInput(object sender, EventArgs e) => StartAlternateInteract();
-        private void HandleAlternateInteractionInput(object sender, EventArgs e) => TryAlternateInteract();
-        private void HandleAlternateInteractionCanceledInput(object sender, EventArgs e) => StopAlternateInteract();
 
         public bool TryAlternateInteract() {
             if (!HasSelectedInteractable()
@@ -115,16 +94,14 @@ namespace Players {
             IsInteractingAlternate = false;
         }
 
-        private void HandleReadyInput(object sender, EventArgs e) {
-            if (!gameManager.IsGamePlaying) {
+      
+        public void OnReady()
+        {
+            if (!gameManager.IsGamePlaying)
+            {
                 OnPlayerReady?.Invoke(this, EventArgs.Empty);
             }
         }
-
-        private void HandlePauseInput(object sender, EventArgs e) {
-            gameManager.TogglePause();
-        }
-
 
         private void Update() {
             if (gameManager.IsGamePaused)
@@ -140,25 +117,18 @@ namespace Players {
             }
         }
 
-        private void LateUpdate() {
-            if (playerInput.GetMovementInput() != Vector2.zero) {
-                lastMovementInput = playerInput.GetMovementInput();
-            }
-        }
-
-
         private void UpdateSelectedInteractable() {
             var moveDirection = transform.forward;
-            var movementInput = playerInput.GetMovementInput();
-            if (movementInput != Vector2.zero) {
-                moveDirection = new Vector3(movementInput.x, 0f, movementInput.y);
+            
+            if (SelectionDirection != Vector2.zero) {
+                moveDirection = new Vector3(SelectionDirection.x, 0f, SelectionDirection.y);
             }
 
             var lastSelectedInteractable = selectedInteractable;
 
             Vector3 pos = transform.position + moveDirection * interactionDistance;
 
-            int hitsCount = Physics.SphereCastNonAlloc(pos, interactionRange, moveDirection, hitBuffer, interactionDistance,
+            int hitsCount = Physics.SphereCastNonAlloc(pos, interactionRadius, moveDirection, hitBuffer, interactionDistance,
                 interactionLayerMask);
 
             selectedInteractable = GetBestInteractable(hitsCount);
@@ -193,6 +163,15 @@ namespace Players {
             return bestInteractable;
         }
 
+        
+        public GameObject GetSelectedGameObject() {
+            if (selectedInteractable is MonoBehaviour interactable) {
+                return interactable.gameObject;
+            }
+
+            return null;   
+        }
+        
 
         private float GetInteractableCost(IInteractable interactable, Vector3 interactablePosition) {
             var pos = transform.position;

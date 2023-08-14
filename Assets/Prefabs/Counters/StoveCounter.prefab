@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108835366983485283}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6034013152658884737}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6040640988354486237
 AudioSource:
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoveCounter: {fileID: 7204163521988350823}
   audioSource: {fileID: 6040640988354486237}
+  delayBetweenWarningSounds: 0.25
 --- !u!1001 &822549054421316822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,12 +180,12 @@ PrefabInstance:
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -194,27 +195,27 @@ PrefabInstance:
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071057
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071079
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -224,13 +225,613 @@ PrefabInstance:
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -270
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _configurationName
+      value: stoveCounterSensors
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.size
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[22].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[23].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[24].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[25].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[26].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[27].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[28].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[18].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[19].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[20].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[21].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[22].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[23].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[24].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyOperations.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyValues.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[18]
+      value: 1902674104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[19]
+      value: 1373605129
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[20]
+      value: -1147054624
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[21]
+      value: -1853748516
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[22]
+      value: -1047102748
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[23]
+      value: 523434578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[24]
+      value: -94175112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[25]
+      value: -1490501147
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[26]
+      value: -1881583915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[27]
+      value: 337800332
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[28]
+      value: 337800332
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[18]
+      value: 1902674104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[19]
+      value: 1373605129
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[20]
+      value: -1147054624
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[21]
+      value: -1853748516
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[22]
+      value: -1047102748
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[23]
+      value: 523434578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[24]
+      value: -94175112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[25]
+      value: -1490501147
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[26]
+      value: -1881583915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[27]
+      value: 337800332
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[28]
+      value: 337800332
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].myStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[22].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[23].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[24].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[25].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[26].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[27].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[28].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[18].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[19].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[20].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[21].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[22].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[23].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[24].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.data[1]
+      value: IsBurning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.data[1]
+      value: TimeRemainingToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.data[1]
+      value: CanCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[22].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[22].myStrings.Array.data[1]
+      value: HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[23].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[23].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[23].myStrings.Array.data[2]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[24].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[24].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[24].myStrings.Array.data[2]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[25].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[25].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[25].myStrings.Array.data[2]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[26].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[26].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[26].myStrings.Array.data[2]
+      value: TimeToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[27].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[27].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[27].myStrings.Array.data[2]
+      value: IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[28].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[28].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[28].myStrings.Array.data[2]
+      value: IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.data[1]
+      value: IsBurning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].myStrings.Array.data[1]
+      value: TimeRemainingToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[18].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[18].myStrings.Array.data[1]
+      value: CanCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[19].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[19].myStrings.Array.data[1]
+      value: HasAny
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[20].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[20].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[20].myStrings.Array.data[2]
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[21].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[21].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[21].myStrings.Array.data[2]
+      value: InputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[22].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[22].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[22].myStrings.Array.data[2]
+      value: OutputKOName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[23].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[23].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[23].myStrings.Array.data[2]
+      value: TimeToCook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[24].myStrings.Array.data[0]
+      value: StoveCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[24].myStrings.Array.data[1]
+      value: CurrentCookingRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[24].myStrings.Array.data[2]
+      value: IsBurningRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7204163521988350823}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -253,7 +854,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 7204163521988350823}
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
@@ -263,6 +864,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7541714719234868323}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 5744413677805730935}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014734108348947859}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
 --- !u!1 &3003639339958034148 stripped
 GameObject:
@@ -315,6 +924,213 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SizzlingParticles: {fileID: 5016235920181491386}
   stoveOnVisual: {fileID: 995940218085450037}
+--- !u!1 &3770438151103143507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+    type: 3}
+  m_PrefabInstance: {fileID: 822549054421316822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5744413677805730935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770438151103143507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0103a8465f543ab9d48ca78982df6ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoveCounter: {fileID: 7204163521988350823}
+  HasAny: 0
+  CanCook: 0
+  TimeRemainingToCook: 0
+  IsBurning: 0
+  CurrentCookingRecipe:
+    Name: 
+    InputKOName: 
+    OutputKOName: 
+    TimeToCook: 0
+    IsBurningRecipe: 0
+--- !u!114 &2014734108348947859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770438151103143507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - StoveCounterSensorData
+    Count: 1
+  - myStrings:
+    - StoveCounterSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - CanCook
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - TimeRemainingToCook
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - IsBurning
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - CurrentCookingRecipe
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - CurrentCookingRecipe
+    - Name
+    Count: 3
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - StoveCounterSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - CanCook
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - TimeRemainingToCook
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - IsBurning
+    Count: 2
+  - myStrings:
+    - StoveCounterSensorData
+    - CurrentCookingRecipe
+    - Name
+    Count: 3
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - StoveCounterSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    configurationName: s_StoveCounter
+    _propertyAlias: s_StoveCounter_HasAny
+    propertyAliasHash: -1196384482
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - StoveCounterSensorData
+      - CanCook
+      Count: 2
+    windowWidth: 200
+    configurationName: s_StoveCounter
+    _propertyAlias: s_StoveCounter_CanCook
+    propertyAliasHash: 1434503006
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - StoveCounterSensorData
+      - TimeRemainingToCook
+      Count: 2
+    windowWidth: 200
+    configurationName: s_StoveCounter
+    _propertyAlias: s_StoveCounter_TimeRemainingToCook
+    propertyAliasHash: 1262479118
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - StoveCounterSensorData
+      - IsBurning
+      Count: 2
+    windowWidth: 200
+    configurationName: s_StoveCounter
+    _propertyAlias: s_StoveCounter_IsBurning
+    propertyAliasHash: 639372173
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - StoveCounterSensorData
+      - CurrentCookingRecipe
+      - Name
+      Count: 3
+    windowWidth: 200
+    configurationName: s_StoveCounter
+    _propertyAlias: s_StoveCounter_CurrentCookingRecipe_Name
+    propertyAliasHash: 446846189
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_StoveCounter
+    _propertyAlias: s_StoveCounter_ID
+    propertyAliasHash: -655425131
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_StoveCounter
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 01bba1afd0e8a04498ac8328d4e15306, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_HasAny, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b233c71b9472ec7419d56d086f82d3a2, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CanCook, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 52f7179e1b5de174781f25186f0f6b7c, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_TimeRemainingToCook, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e36bbcf4936088043aa8dc1543c24ff7, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_IsBurning, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3169eba2f76c23c4daf20582df97d565, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_CurrentCookingRecipe_Name, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 543f0efa23be1484d8a5aa3855c13b25, type: 3}
+    typeName: ThinkEngine.s_StoveCounter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CanCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_TimeRemainingToCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_IsBurning.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_CurrentCookingRecipe_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_StoveCounter_ID.cs
 --- !u!4 &6034013152658884737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6401681052327820375, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

@@ -40,7 +40,7 @@ namespace KitchenObjects
         }
 
 
-        public void SetTrasforms(List<KitchenObject> kitchenObjects) {
+        public void SetTransforms(List<KitchenObject> kitchenObjects) {
 
             foreach (var kitchenObject in kitchenObjects) {
                 if (ingredientTransformDict.TryGetValue(kitchenObject.KitchenObjectSO, out var ingredientTransform)) {

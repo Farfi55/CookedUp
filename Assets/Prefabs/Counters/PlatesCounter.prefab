@@ -293,6 +293,201 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _configurationName
+      value: platesCounterSensors
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyOperations.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyValues.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[18]
+      value: -980984756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[19]
+      value: -483595938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[20]
+      value: -362650286
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: operationPerPropertyIndexes.Array.data[21]
+      value: 704397334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[18]
+      value: -980984756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[19]
+      value: -483595938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[20]
+      value: -362650286
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: specificValuePerPropertyIndexes.Array.data[21]
+      value: 704397334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].myStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[18].myStrings.Array.data[0]
+      value: PlatesCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.data[0]
+      value: PlatesCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[19].myStrings.Array.data[1]
+      value: PlatesLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.data[0]
+      value: PlatesCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[20].myStrings.Array.data[1]
+      value: PlatesCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.data[0]
+      value: PlatesCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _savedProperties.Array.data[21].myStrings.Array.data[1]
+      value: transform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.data[0]
+      value: PlatesCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[16].myStrings.Array.data[1]
+      value: PlatesLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].myStrings.Array.data[0]
+      value: PlatesCounterSensorData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753919631337054734, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: _toMapProperties.Array.data[17].myStrings.Array.data[1]
+      value: PlatesCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951942665552708947, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7627238358203562126}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -311,13 +506,166 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
-      insertIndex: 3
+      insertIndex: 2
       addedObject: {fileID: 7627238358203562126}
     - targetCorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2969839424491897689}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 8184252068606889188}
+    - targetCorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4707198003888383650}
   m_SourcePrefab: {fileID: 100100000, guid: c7ea09e5c8d51a54c97c6d11e0b05952, type: 3}
+--- !u!1 &397785941995737951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4555674165902371461, guid: c7ea09e5c8d51a54c97c6d11e0b05952,
+    type: 3}
+  m_PrefabInstance: {fileID: 4232321181023484378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8184252068606889188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397785941995737951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054fa945a78e42e98d04b7b8fd3f9ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platesCounter: {fileID: 7627238358203562126}
+  PlatesLimit: 0
+  PlatesCount: 0
+  TimeToNextPlate: 0
+--- !u!114 &4707198003888383650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397785941995737951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - PlatesCounterSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesLimit
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesCount
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - TimeToNextPlate
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesLimit
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - PlatesCount
+    Count: 2
+  - myStrings:
+    - PlatesCounterSensorData
+    - TimeToNextPlate
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_ID
+    propertyAliasHash: 1731767521
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlatesCounterSensorData
+      - PlatesLimit
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_PlatesLimit
+    propertyAliasHash: -1609723656
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlatesCounterSensorData
+      - PlatesCount
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_PlatesCount
+    propertyAliasHash: -245155836
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - PlatesCounterSensorData
+      - TimeToNextPlate
+      Count: 2
+    windowWidth: 200
+    configurationName: s_PlatesCounter
+    _propertyAlias: s_PlatesCounter_TimeToNextPlate
+    propertyAliasHash: -732266659
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_PlatesCounter
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: eec4e83fc716c2b48bcb3a61396c4287, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 594b68090c76f3346a37db16fbb6a39b, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_PlatesLimit, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 213c4831d8f568344a4fa32472047a46, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_PlatesCount, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8fb9d1a0a8e92324b84b2a96f9e76bdc, type: 3}
+    typeName: ThinkEngine.s_PlatesCounter_TimeToNextPlate, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_PlatesLimit.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_PlatesCount.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_TimeToNextPlate.cs
 --- !u!1 &1763550275166000104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2505507797107206706, guid: c7ea09e5c8d51a54c97c6d11e0b05952,

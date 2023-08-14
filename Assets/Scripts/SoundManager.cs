@@ -41,8 +41,8 @@ public class SoundManager : MonoBehaviour {
 
 
         if (DeliveryManager.Instance != null) {
-            DeliveryManager.Instance.OnRecipeSuccess += OnRecipeSuccess;
-            DeliveryManager.Instance.OnRecipeFailed += OnRecipeFailed;
+            DeliveryManager.Instance.OnDeliverySuccess += DeliverySuccess;
+            DeliveryManager.Instance.OnDeliveryFailed += DeliveryFailed;
         }
 
         CuttingCounter.OnAnyChop += OnAnyChop;
@@ -79,11 +79,11 @@ public class SoundManager : MonoBehaviour {
         PlaySound(audioClipRefsSo.Trash, e.TrashCounter.transform.position);
     }
 
-    private void OnRecipeSuccess(object sender, RecipeDeliveryEvent e) {
+    private void DeliverySuccess(object sender, RecipeDeliveryEvent e) {
         PlaySound(audioClipRefsSo.DeliverySuccess, e.DeliveryCounter.transform.position);
     }
 
-    private void OnRecipeFailed(object sender, RecipeDeliveryEvent e) {
+    private void DeliveryFailed(object sender, RecipeDeliveryEvent e) {
         PlaySound(audioClipRefsSo.DeliveryFail, e.DeliveryCounter.transform.position);
     }
 

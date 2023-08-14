@@ -64,4 +64,15 @@ public class ProgressTracker : MonoBehaviour {
     public void ResetProgress() => SetProgress(0d);
 
     public double GetWorkRemaining() => totalWork - WorkDone;
+
+
+#if UNITY_EDITOR
+    private void OnValidate() {
+        if (Application.isPlaying)
+            return;
+
+        SetProgress(progress);
+    }
+#endif
+    
 }

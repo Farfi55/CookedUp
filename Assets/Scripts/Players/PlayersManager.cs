@@ -43,8 +43,12 @@ namespace Players {
         
         private void OnPlayerDestroyed(object sender, Player player) => RemovePlayer(player);
 
-        public Player GetPlayer(int index) {
+        public Player GetPlayer(int index = 0) {
             return players[index];
+        }
+        
+        public Player GetPlayerByID(int id) {
+            return players.Find(player => player.GetInstanceID() == id);
         }
 
         public Player GetRandomPlayer() {

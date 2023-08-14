@@ -1,0 +1,27 @@
+{
+    "folders": [
+        {
+            "name": "Scripts",
+            "path": "../.."
+        },
+        {
+            "name": "ThinkEngine",
+            "path": "../../../ThinkEngineer/ThinkEngine"
+        },
+        {
+            "name": "StreamingAssets",
+            "path": "../../../StreamingAssets/ThinkEngineer/ThinkEngine"
+        },
+        {
+            "name": "input files",
+            "path": "../../../../../../Users/aless/AppData/Local/Temp/ThinkEngineFacts"
+        }
+    ],
+    "settings": {
+        "explorer.sortOrder": "modified",
+        "files.exclude": {
+            "**/*.meta": true
+        },
+        "diffEditor.codeLens": true
+    }
+}

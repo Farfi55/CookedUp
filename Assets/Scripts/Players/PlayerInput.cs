@@ -6,8 +6,7 @@ namespace Players
 {
     public class PlayerInput : MonoBehaviour {
         private PlayerInputActions inputActions;
-
-
+        
         public event EventHandler OnInteract;
         public event EventHandler OnInteractAlternateStarted;
         public event EventHandler OnInteractAlternate;
@@ -20,7 +19,7 @@ namespace Players
         private void Awake() {
             inputActions = new PlayerInputActions();
             inputActions.Player.Enable();
-
+            
             inputActions.Player.Interact.performed += InteractPerformed;
 
             inputActions.Player.InteractAlternate.started += InteractAlternateStarted;

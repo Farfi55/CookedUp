@@ -1,0 +1,940 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1912258764234451299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2843929392177877442}
+  - component: {fileID: 7609796524186615533}
+  - component: {fileID: 3225911276516584778}
+  - component: {fileID: 6014517166810940842}
+  m_Layer: 0
+  m_Name: StrategicBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2843929392177877442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912258764234451299}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7609796524186615533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912258764234451299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2aa13b928c00d34286809e8edaa818c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3225911276516584778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912258764234451299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19718c9808e14cb4ea9449c0fa49bcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priorityExecuting: 0
+--- !u!114 &6014517166810940842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912258764234451299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43caf37b06ba8954abe67548f09c14fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borning: 0
+  enableBrain: 1
+  debug: 0
+  maintainInputFile: 0
+  _chosenSensorConfigurations:
+  - s_Player
+  - s_Delivery
+  - s_Const
+  - s_PlayerBot
+  AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
+  AIFilesPrefix:
+  - Map
+  - Strategic
+  - Common
+  prefabBrain: 0
+  solverEnum: 1
+  _executeReasonerOn: When Sensors are ready
+  specificAIFile: 0
+  globalAIFile: 0
+  solver_options: []
+  _priority: 0
+--- !u!1 &4413963506334308603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6381981351110831429}
+  m_Layer: 0
+  m_Name: ThinkEngine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6381981351110831429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4413963506334308603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5013276493541865579}
+  - {fileID: 7498775183833463140}
+  - {fileID: 7995285632865977274}
+  - {fileID: 2362953439842287050}
+  - {fileID: 6118038214754642774}
+  - {fileID: 2843929392177877442}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4890247115689387458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7995285632865977274}
+  - component: {fileID: 6509852216361517940}
+  - component: {fileID: 8452929670334776411}
+  m_Layer: 0
+  m_Name: ConstantsSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7995285632865977274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890247115689387458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6509852216361517940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890247115689387458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04ca247202c4a54b23a8da6916f04ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completeRecipesSos: {fileID: 11400000, guid: b37a0c3c2a23e92479960ea3d6e7d302, type: 2}
+  cookingRecipesSos:
+  - {fileID: 11400000, guid: 3d55fe05042f86744963b6a10ba9d7a2, type: 2}
+  - {fileID: 11400000, guid: 3ae6e7324197c574e8868c8cbfb15ce0, type: 2}
+  cuttingRecipesSos:
+  - {fileID: 11400000, guid: 4b6148fab20548c478902b12fa3a3624, type: 2}
+  - {fileID: 11400000, guid: cbcebb6e5eb756a4183ef896c80cc492, type: 2}
+  - {fileID: 11400000, guid: 886215318b61e2943ac088855d3e2477, type: 2}
+  kitchenObjectsSos:
+  - {fileID: 11400000, guid: 14a6e059590484d42b824d37494de891, type: 2}
+  - {fileID: 11400000, guid: f65d8c1220079ef4aaa035d53036b679, type: 2}
+  - {fileID: 11400000, guid: 7ff4b0ab93f12ef4bbe3174efce5948a, type: 2}
+  - {fileID: 11400000, guid: a1176b51910911241a67bb951836e6be, type: 2}
+  - {fileID: 11400000, guid: 1f4bbfb68fe17bf4ea4c25ad20cdd4c4, type: 2}
+  - {fileID: 11400000, guid: d8d3d14853a24ad41ae9d3bd35eb743d, type: 2}
+  - {fileID: 11400000, guid: 3c9cedeeff88c5e48b4a2ffafbe9b1c5, type: 2}
+  - {fileID: 11400000, guid: c00de5fb28d90f844a897b8b660c90d4, type: 2}
+  - {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322, type: 2}
+  - {fileID: 11400000, guid: ab2f58c000258904888bfecc1bc15f81, type: 2}
+  - {fileID: 11400000, guid: 0a961bf7f3529ef4d87c5afb9789c799, type: 2}
+  CompleteRecipes: []
+  CookingRecipes: []
+  CuttingRecipes: []
+  KitchenObjectsNames: []
+--- !u!114 &8452929670334776411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890247115689387458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - ConstantsSensorData
+    Count: 1
+  - myStrings:
+    - ConstantsSensorData
+    - KitchenObjectsNames
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CompleteRecipes
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  _toMapProperties:
+  - myStrings:
+    - ConstantsSensorData
+    - KitchenObjectsNames
+    Count: 2
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - Name
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CuttingRecipes
+    - CuttingRecipe
+    - TimeToCut
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - IsBurningRecipe
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - TimeToCook
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - OutputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - InputKOName
+    Count: 4
+  - myStrings:
+    - ConstantsSensorData
+    - CookingRecipes
+    - CookingRecipe
+    - Name
+    Count: 4
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - KitchenObjectsNames
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_KitchenObjectsNames0
+    propertyAliasHash: 172248648
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_Name
+    propertyAliasHash: -1683308104
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - InputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_InputKOName
+    propertyAliasHash: 699681824
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - OutputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_OutputKOName
+    propertyAliasHash: 383875859
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CuttingRecipes
+      - CuttingRecipe
+      - TimeToCut
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CuttingRecipe_TimeToCut
+    propertyAliasHash: 985920603
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - IsBurningRecipe
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_IsBurningRecipe
+    propertyAliasHash: -850219988
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - TimeToCook
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_TimeToCook
+    propertyAliasHash: -724588329
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - OutputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_OutputKOName
+    propertyAliasHash: -56214667
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - InputKOName
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_InputKOName
+    propertyAliasHash: -1210373480
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - ConstantsSensorData
+      - CookingRecipes
+      - CookingRecipe
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Const
+    _propertyAlias: s_Const_CookingRecipe_Name
+    propertyAliasHash: 1082092852
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_Const
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 4ca800984ea648d468d9c9604f01d31f, type: 3}
+    typeName: ThinkEngine.s_Const_KitchenObjectsNames0, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4ae258881e77aea4ab318b9f24b1fa91, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 201d2a4cee0352c408f9052be5dd7e63, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_InputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 141e95f8712264549a5adaf131a32628, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_OutputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 25dd275089345d746b1c2d16117da38d, type: 3}
+    typeName: ThinkEngine.s_Const_CuttingRecipe_TimeToCut, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8b3ee4542d423a148ad971c48265f3f5, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_IsBurningRecipe, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4cd0baa859c639748a449697014cb593, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_TimeToCook, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 58bba8f6b30d8c44a96804922b35f169, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_OutputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7f16d77d5aaeead46b26315515e72dcb, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_InputKOName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: c9c008d83238ab548924781b405d1edc, type: 3}
+    typeName: ThinkEngine.s_Const_CookingRecipe_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_KitchenObjectsNames0.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_InputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_OutputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CuttingRecipe_TimeToCut.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_IsBurningRecipe.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_TimeToCook.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_OutputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_InputKOName.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Const_CookingRecipe_Name.cs
+--- !u!1 &4988682422684167771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2362953439842287050}
+  - component: {fileID: 8293235815740697044}
+  - component: {fileID: 7853516740463181676}
+  m_Layer: 0
+  m_Name: DeliverySensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2362953439842287050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988682422684167771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8293235815740697044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988682422684167771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5bd74ee06f4812b7ee6d7266899acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitingRecipesRequests: []
+--- !u!114 &7853516740463181676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988682422684167771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - DeliverySensorData
+    Count: 1
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    Count: 2
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - ID
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - TimeToComplete
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - RemainingTimeToComplete
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - Name
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - Value
+    Count: 4
+  _toMapProperties:
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - ID
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - TimeToComplete
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - RemainingTimeToComplete
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - Name
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - IngredientsNames
+    Count: 4
+  - myStrings:
+    - DeliverySensorData
+    - WaitingRecipesRequests
+    - RecipeRequestASP
+    - Value
+    Count: 4
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - WaitingRecipesRequests
+      - RecipeRequestASP
+      - ID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_RecipeRequest_ID
+    propertyAliasHash: 1144466532
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - WaitingRecipesRequests
+      - RecipeRequestASP
+      - TimeToComplete
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_RecipeRequest_TimeToComplete
+    propertyAliasHash: -1830127530
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - WaitingRecipesRequests
+      - RecipeRequestASP
+      - RemainingTimeToComplete
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_RecipeRequest_RemainingTimeToComplete
+    propertyAliasHash: -1543488000
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - WaitingRecipesRequests
+      - RecipeRequestASP
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_RecipeRequest_Name
+    propertyAliasHash: 524313654
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - WaitingRecipesRequests
+      - RecipeRequestASP
+      - IngredientsNames
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_RecipeRequest_IngredientsNames
+    propertyAliasHash: -496705741
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - DeliverySensorData
+      - WaitingRecipesRequests
+      - RecipeRequestASP
+      - Value
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Delivery
+    _propertyAlias: s_Delivery_RecipeRequest_Value
+    propertyAliasHash: -51756926
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_Delivery
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 3b8626986d8bf134bb6dc41746406052, type: 3}
+    typeName: ThinkEngine.s_Delivery_RecipeRequest_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 14a61be8aa33ba9409335c6aba446891, type: 3}
+    typeName: ThinkEngine.s_Delivery_RecipeRequest_TimeToComplete, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a4831d380c26b834ab69cb042e2f2645, type: 3}
+    typeName: ThinkEngine.s_Delivery_RecipeRequest_RemainingTimeToComplete, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2504036a33fdc5643b328bf786842402, type: 3}
+    typeName: ThinkEngine.s_Delivery_RecipeRequest_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 6a43244e1938d834b830d52516c10695, type: 3}
+    typeName: ThinkEngine.s_Delivery_RecipeRequest_IngredientsNames, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2fe45e11e7eb9134dacbeaca05519ff5, type: 3}
+    typeName: ThinkEngine.s_Delivery_RecipeRequest_Value, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Delivery_RecipeRequest_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Delivery_RecipeRequest_TimeToComplete.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Delivery_RecipeRequest_RemainingTimeToComplete.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Delivery_RecipeRequest_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Delivery_RecipeRequest_IngredientsNames.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Delivery_RecipeRequest_Value.cs
+--- !u!1 &5500973982305564121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5013276493541865579}
+  - component: {fileID: 3456160568306954921}
+  m_Layer: 0
+  m_Name: ID Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5013276493541865579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500973982305564121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3456160568306954921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500973982305564121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b00c49e89a444c8ed4e91670ce7363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6658802959931924635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7498775183833463140}
+  - component: {fileID: 2391609902559791541}
+  m_Layer: 0
+  m_Name: Recipe Mapper Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7498775183833463140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658802959931924635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2391609902559791541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658802959931924635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44283f349a0d45538d84b18e077f2d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipesList: {fileID: 11400000, guid: b37a0c3c2a23e92479960ea3d6e7d302, type: 2}
+  kitchenObjectList:
+  - {fileID: 11400000, guid: 14a6e059590484d42b824d37494de891, type: 2}
+  - {fileID: 11400000, guid: f65d8c1220079ef4aaa035d53036b679, type: 2}
+  - {fileID: 11400000, guid: 7ff4b0ab93f12ef4bbe3174efce5948a, type: 2}
+  - {fileID: 11400000, guid: a1176b51910911241a67bb951836e6be, type: 2}
+  - {fileID: 11400000, guid: 1f4bbfb68fe17bf4ea4c25ad20cdd4c4, type: 2}
+  - {fileID: 11400000, guid: d8d3d14853a24ad41ae9d3bd35eb743d, type: 2}
+  - {fileID: 11400000, guid: 3c9cedeeff88c5e48b4a2ffafbe9b1c5, type: 2}
+  - {fileID: 11400000, guid: c00de5fb28d90f844a897b8b660c90d4, type: 2}
+  - {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322, type: 2}
+  - {fileID: 11400000, guid: ab2f58c000258904888bfecc1bc15f81, type: 2}
+  - {fileID: 11400000, guid: 0a961bf7f3529ef4d87c5afb9789c799, type: 2}
+  cookingRecipeList:
+  - {fileID: 11400000, guid: 3d55fe05042f86744963b6a10ba9d7a2, type: 2}
+  - {fileID: 11400000, guid: 3ae6e7324197c574e8868c8cbfb15ce0, type: 2}
+  cuttingRecipeList:
+  - {fileID: 11400000, guid: 4b6148fab20548c478902b12fa3a3624, type: 2}
+  - {fileID: 11400000, guid: cbcebb6e5eb756a4183ef896c80cc492, type: 2}
+  - {fileID: 11400000, guid: 886215318b61e2943ac088855d3e2477, type: 2}
+--- !u!1 &8865262897898266153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6118038214754642774}
+  - component: {fileID: 7148537543713825648}
+  m_Layer: 0
+  m_Name: ThinkEngineUtility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6118038214754642774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865262897898266153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6381981351110831429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7148537543713825648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865262897898266153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65fde9b7dc34e844acc72e272dc8e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MIN_AVG_FPS: 0
+  MIN_CURRENT_FPS: 0
+  MAX_AVG_FPS: 0
+  MAX_CURRENT_FPS: 0

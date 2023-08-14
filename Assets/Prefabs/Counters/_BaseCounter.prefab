@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684579949901552583}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.277, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6401681052327820375}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2505507797107206706
 GameObject:
@@ -58,14 +58,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2505507797107206706}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1219806043548265481}
+  - {fileID: 885468619371382719}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &420303868913999373
 BoxCollider:
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedVisualObjs: []
-  hideDefaulVisual: 0
+  hideDefaultVisual: 0
   defaultVisualObj: {fileID: 0}
 --- !u!114 &6162127805243493022
 MonoBehaviour:
@@ -132,3 +133,521 @@ MonoBehaviour:
   - {fileID: 1219806043548265481}
   type: 0
   offset: {x: 0, y: 0, z: 0}
+--- !u!1 &2617477543594039685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885468619371382719}
+  m_Layer: 6
+  m_Name: ThinkEngine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885468619371382719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2617477543594039685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2072494956643921968}
+  m_Father: {fileID: 6401681052327820375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4555674165902371461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072494956643921968}
+  - component: {fileID: 7951942665552708947}
+  - component: {fileID: 7547468693740168070}
+  - component: {fileID: 2754376379838779097}
+  - component: {fileID: 406383213852124881}
+  m_Layer: 6
+  m_Name: CounterSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072494956643921968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555674165902371461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 885468619371382719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7951942665552708947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555674165902371461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566a8fa7979943d5a357cd35b3f24343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3791372828026636509}
+  ID: 0
+  Type: 
+  Name: 
+--- !u!114 &7547468693740168070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555674165902371461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffec12c8ce4a40df835e0efefc106036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 6401681052327820375}
+  Pos: {x: 0, y: 0}
+--- !u!114 &2754376379838779097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555674165902371461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5df0f2cdc5248a58d0caf8732d2a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 6162127805243493022}
+  ContainerID: 0
+  SizeLimit: 0
+  Count: 0
+  KitchenObjects: []
+  FirstKitchenObject:
+    Name: 
+    ID: 0
+    ContainerID: 0
+  HasSpace: 0
+  HasAny: 0
+--- !u!114 &406383213852124881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555674165902371461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - KOContainerSensorData
+    Count: 1
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ContainerID
+    Count: 4
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ContainerID
+    Count: 4
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_ID
+    propertyAliasHash: 1634240232
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_Type
+    propertyAliasHash: 1220614195
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_Name
+    propertyAliasHash: 2127681278
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - ContainerID
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_ContainerID
+    propertyAliasHash: -1504534515
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - SizeLimit
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_SizeLimit
+    propertyAliasHash: -1169685765
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - Count
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_Count
+    propertyAliasHash: 95033988
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - Name
+      Count: 3
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_FirstKitchenObject_Name
+    propertyAliasHash: 192973646
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ID
+      Count: 3
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_FirstKitchenObject_ID
+    propertyAliasHash: -1055931124
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ContainerID
+      Count: 3
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_FirstKitchenObject_ContainerID
+    propertyAliasHash: 1280707335
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_HasAny
+    propertyAliasHash: 942396395
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasSpace
+      Count: 2
+    windowWidth: 200
+    configurationName: 
+    _propertyAlias: s_Counter_HasSpace
+    propertyAliasHash: -330967711
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Counter
+    _propertyAlias: s_Counter_KitchenObject_Name
+    propertyAliasHash: -853503986
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - ID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Counter
+    _propertyAlias: s_Counter_KitchenObject_ID
+    propertyAliasHash: 1008606116
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - ContainerID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Counter
+    _propertyAlias: s_Counter_KitchenObject_ContainerID
+    propertyAliasHash: -1774701467
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_Counter
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 2881b336eab04664a82ff1cf7a780a83, type: 3}
+    typeName: ThinkEngine.s_Counter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 654a0562a9458a24788d1f2017930266, type: 3}
+    typeName: ThinkEngine.s_Counter_Type, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b6dde3fc789dd904ebe04ab06ed546d3, type: 3}
+    typeName: ThinkEngine.s_Counter_Name, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 1b0ef6cb894908b4ba4b4d76344afac9, type: 3}
+    typeName: ThinkEngine.s_Counter_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 582740e518941804fbff496347623577, type: 3}
+    typeName: ThinkEngine.s_Counter_SizeLimit, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f6c6d83f4bfa1334285f1fcd46810fc0, type: 3}
+    typeName: ThinkEngine.s_Counter_Count, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: de512b0c6e600444aa8a211140307c66, type: 3}
+    typeName: ThinkEngine.s_Counter_FirstKitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3d4b1becfc38f3341afcf572febc76d8, type: 3}
+    typeName: ThinkEngine.s_Counter_FirstKitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: fe81b0e21d63eb646b54a4fb688c5cc0, type: 3}
+    typeName: ThinkEngine.s_Counter_FirstKitchenObject_ContainerID, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 99387eb226310d640b1d9e0209e9cde8, type: 3}
+    typeName: ThinkEngine.s_Counter_HasAny, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7283534fb126cd94f92d6012bcf77a6c, type: 3}
+    typeName: ThinkEngine.s_Counter_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 6d5237e97b58ca24eb94b94f1b453afd, type: 3}
+    typeName: ThinkEngine.s_Counter_KitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0432a61ab5cb58e4db884d3cce002646, type: 3}
+    typeName: ThinkEngine.s_Counter_KitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 867c0e3903a2c584d95880db53966fb6, type: 3}
+    typeName: ThinkEngine.s_Counter_KitchenObject_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_Type.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_SizeLimit.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_Count.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_FirstKitchenObject_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_FirstKitchenObject_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_FirstKitchenObject_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_HasSpace.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_ContainerID.cs

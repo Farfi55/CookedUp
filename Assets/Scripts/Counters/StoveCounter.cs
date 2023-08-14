@@ -92,8 +92,7 @@ namespace Counters
                 return;
 
             var outputKOSO = CurrentCookingRecipe.Output;
-            Container.KitchenObject.DestroySelf();
-            KitchenObject.CreateInstance(outputKOSO, Container);
+            KitchenObject.ConvertKitchenObject(Container.KitchenObject, outputKOSO);
         }
 
 
@@ -114,6 +113,14 @@ namespace Counters
             return CurrentCookingRecipe != null;
         }
         public bool IsCooking() => CanCook();
+        
+        
+        public double GetRemainingTime() {
+            if (!IsCooking())
+                return 0d;
+            
+            return ProgressTracker.GetWorkRemaining() / (IsBurningRecipe ? burningCookingSpeed : cookingSpeed);
+        }
 
     }
 }

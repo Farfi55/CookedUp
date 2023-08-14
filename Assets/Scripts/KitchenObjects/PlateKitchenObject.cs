@@ -13,7 +13,6 @@ namespace KitchenObjects
         [SerializeField] private CompleteRecipeSOList recipes;
         public CompleteRecipeSOList Recipes => recipes;
 
-        public event EventHandler OnValidIngredientsChanged;
 
         private List<CompleteRecipeSO> validCompleteRecipes = new();
         private readonly HashSet<KitchenObjectSO> validIngredients = new();
@@ -24,6 +23,8 @@ namespace KitchenObjects
         private KitchenObjectsContainer ingredientsContainer;
 
         public KitchenObjectsContainer IngredientsContainer => ingredientsContainer;
+
+        public event EventHandler OnValidIngredientsChanged;
 
 
         private void Awake() {
@@ -63,13 +64,9 @@ namespace KitchenObjects
         }
 
         private void UpdateValidIngredients() {
-            List<KitchenObjectSO> ingredientsSO = new();
-            foreach (var ingredient in ingredientsContainer.KitchenObjects) {
-                ingredientsSO.Add(ingredient.KitchenObjectSO);
-            }
-
+            List<KitchenObjectSO> ingredientsSO = ingredientsContainer.AsKitchenObjectSOs();
+            
             validCompleteRecipes = recipes.RecipeSOList.Where(finalPlate => finalPlate.IsValidFor(ingredientsSO)).ToList();
-
 
             validIngredients.Clear();
             foreach (var finalPlate in validCompleteRecipes) {
@@ -77,6 +74,15 @@ namespace KitchenObjects
             }
 
             OnValidIngredientsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public override void DestroySelf() {
+            var ingredients = new List<KitchenObject>(ingredientsContainer.KitchenObjects);
+            foreach (var ingredient in ingredients) {
+                ingredient.DestroySelf();
+            }
+            
+            base.DestroySelf();
         }
 
         private void OnDestroy() {

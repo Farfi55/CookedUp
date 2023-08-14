@@ -21,14 +21,18 @@ namespace UI
         public BaseRecipeSO CurrentRecipe => currentRecipe;
         private BaseRecipeSO currentRecipe;
 
+        [SerializeField] private bool invertProgress = false;
         [SerializeField] private bool hideIfEmpty = true;
         [SerializeField] private bool hideIfFull = true;
 
-
+        [Header("Colors")]
+        [SerializeField] private bool useGradient = false;
+        [SerializeField] private Gradient progressColorGradient;
         private bool isBurningRecipe = false;
 
         [SerializeField] private Color burningRecipeProgressColor = Color.red;
         private Color normalRecipeProgressColor;
+        
 
         private void Start() {
             normalRecipeProgressColor = progressFillBar.color;
@@ -51,7 +55,12 @@ namespace UI
 
 
         public void SetProgress(double progress) {
+            if (invertProgress)
+                progress = 1d - progress;
+            
             progressFillBar.fillAmount = (float)progress;
+            if (useGradient && !isBurningRecipe)
+                progressFillBar.color = progressColorGradient.Evaluate((float)progress);
 
             if ((hideIfEmpty && progress <= 0d) || (hideIfFull && progress >= 1d))
                 Hide();
@@ -71,6 +80,8 @@ namespace UI
 
             if (isBurningRecipe)
                 progressFillBar.color = burningRecipeProgressColor;
+            else if (useGradient)
+                progressFillBar.color = progressColorGradient.Evaluate((float)progressTracker.Progress);
             else
                 progressFillBar.color = normalRecipeProgressColor;
 
