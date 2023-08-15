@@ -35,6 +35,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -44,11 +46,6 @@ namespace ThinkEngine
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
 				KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-                if(FirstKitchenObject1 == null)
-                {
-                    values.Clear();
-                    return;
-                }
 				int ContainerID2 = FirstKitchenObject1.ContainerID;
 				if (values.Count == 200)
 				{
@@ -56,6 +53,17 @@ namespace ThinkEngine
 				}
 				values.Add(ContainerID2);
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()

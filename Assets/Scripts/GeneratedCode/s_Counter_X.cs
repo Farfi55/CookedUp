@@ -7,13 +7,13 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Counter_Name : Sensor
+    class s_Counter_X : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<int> values = new List<int>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Counter_Name(counterSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Counter_X(counterSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -43,21 +43,13 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				string Name1 = BaseSensorData0.Name;
-				if(Name1 == null)
+				GridPositionSensorData GridPositionSensorData0 = gameObject.GetComponent<GridPositionSensorData>();
+				int X1 = GridPositionSensorData0.X;
+				if (values.Count == 200)
 				{
-					values.Clear();
-					return;
+						values.RemoveAt(0);
 				}
-				else
-				{
-					if (values.Count == 200)
-					{
-							values.RemoveAt(0);
-					}
-					values.Add(Name1);
-				}
+				values.Add(X1);
 			}
             }
             catch (NullReferenceException nullEx)

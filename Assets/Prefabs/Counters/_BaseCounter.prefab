@@ -345,6 +345,17 @@ MonoBehaviour:
     - KitchenObjectASP
     - ContainerID
     Count: 4
+  - myStrings:
+    - GridPositionSensorData
+    Count: 1
+  - myStrings:
+    - GridPositionSensorData
+    - X
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - Y
+    Count: 2
   _toMapProperties:
   - myStrings:
     - BaseSensorData
@@ -411,6 +422,14 @@ MonoBehaviour:
     - KitchenObjectASP
     - ContainerID
     Count: 4
+  - myStrings:
+    - GridPositionSensorData
+    - X
+    Count: 2
+  - myStrings:
+    - GridPositionSensorData
+    - Y
+    Count: 2
   _propertyFeatures:
   - property:
       myStrings:
@@ -589,6 +608,30 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - X
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Counter
+    _propertyAlias: s_Counter_X
+    propertyAliasHash: 1221219203
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - GridPositionSensorData
+      - Y
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Counter
+    _propertyAlias: s_Counter_Y
+    propertyAliasHash: 1221219204
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: s_Counter
   isInvariant: 0
   isFixedSize: 0
@@ -635,6 +678,12 @@ MonoBehaviour:
   - scriptAsset: {fileID: 11500000, guid: 867c0e3903a2c584d95880db53966fb6, type: 3}
     typeName: ThinkEngine.s_Counter_KitchenObject_ContainerID, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2a3152490686f1d469f29aee75e7854f, type: 3}
+    typeName: ThinkEngine.s_Counter_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 9506c99e5ca1bc94e94ddd185a72f797, type: 3}
+    typeName: ThinkEngine.s_Counter_Y, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   generatedCode: 0
   generatedScripts:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_ID.cs
@@ -651,3 +700,5 @@ MonoBehaviour:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_Name.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_ID.cs
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_KitchenObject_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_X.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Counter_Y.cs
