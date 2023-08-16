@@ -19,30 +19,30 @@ namespace ThinkEngine
     internal static class SolversChecker
     {
 
-        internal static Handler GetHandler(Brain brain, out string filePath, IList<OptionDescriptor> options)
+        internal static Handler GetHandler(Brain brain, out string handlerPath, IList<OptionDescriptor> options)
         {
-            foreach (string fileName in Directory.GetFiles(Path.Combine(Utility.StreamingAssetsContent, "lib")))
+            foreach (string filePath in Directory.GetFiles(Path.Combine(Utility.StreamingAssetsContent, "lib")))
             {
-                string actualFileName = fileName.Substring(fileName.LastIndexOf(Utility.slash) + 1);
-                if (actualFileName.StartsWith(brain.SolverName)  && actualFileName.EndsWith(Utility.RunnableExtension))
+                string fileName =  Path.GetFileName(filePath).ToLower();
+                if (fileName.StartsWith(brain.SolverName) && fileName.EndsWith(Utility.RunnableExtension))
                 {
                     if (brain.SolverName.Equals("dlv"))
                     {
                         brain.incremental = false;
-                        filePath = fileName;
-                        return new DesktopHandler(new DLV2DesktopService(fileName));
+                        handlerPath = filePath;
+                        return new DesktopHandler(new DLV2DesktopService(filePath));
                     }
                     else if (brain.SolverName.Equals("clingo"))
                     {
                         brain.incremental = false;
-                        filePath = fileName;
-                        return new DesktopHandler(new ClingoDesktopService(fileName));
+                        handlerPath = filePath;
+                        return new DesktopHandler(new ClingoDesktopService(filePath));
                     }
                     else if (brain.SolverName.Equals("incremental_dlv2"))
                     {
-                        filePath = fileName;
+                        handlerPath = filePath;
                         brain.incremental = true;
-                        return new IncrementalDLV2DesktopHandler(new IncrementalDLV2DesktopService(fileName, options));
+                        return new IncrementalDLV2DesktopHandler(new IncrementalDLV2DesktopService(filePath, options));
                     }
                 }
             }
@@ -63,18 +63,21 @@ namespace ThinkEngine
         internal static List<SOLVER> AvailableSolvers()
         {
             List<SOLVER> availableSolvers = new List<SOLVER>();
-            foreach (string fileName in Directory.GetFiles(Path.Combine(Utility.StreamingAssetsContent, "lib")))
+            foreach (string filePath in Directory.GetFiles(Path.Combine(Utility.StreamingAssetsContent, "lib")))
             {
-                string actualFileName = fileName.Substring(fileName.LastIndexOf(Utility.slash) + 1);
-                if (actualFileName.StartsWith("dlv") && actualFileName.EndsWith(Utility.RunnableExtension))
+                string fileName = Path.GetFileName(filePath).ToLower();
+                if(!fileName.EndsWith(Utility.RunnableExtension))
+                    continue;
+                
+                if (fileName.StartsWith("dlv"))
                 {
                     availableSolvers.Add(SOLVER.DLV2);
                 }
-                else if (actualFileName.StartsWith("clingo") && actualFileName.EndsWith(Utility.RunnableExtension))
+                else if (fileName.StartsWith("clingo"))
                 {
                     availableSolvers.Add(SOLVER.Clingo);
                 }
-                else if (actualFileName.StartsWith("incremental_dlv2") && actualFileName.EndsWith(Utility.RunnableExtension))
+                else if (fileName.StartsWith("incremental_dlv2"))
                 {
                     availableSolvers.Add(SOLVER.Incremental_DLV2);
                 }
@@ -89,10 +92,10 @@ namespace ThinkEngine
             {
                 return false;
             }
-            foreach (string filename in libContent)
+            foreach (string filePath in libContent)
             {
-                string actualFileName = filename.Substring(filename.LastIndexOf(Utility.slash) + 1);
-                if (actualFileName.StartsWith(solverName) && actualFileName.EndsWith(Utility.RunnableExtension))
+                string fileName = Path.GetFileName(filePath).ToLower();
+                if (fileName.StartsWith(solverName) && fileName.EndsWith(Utility.RunnableExtension))
                 {
                     return executor.TestSolver();
                 }
