@@ -44,6 +44,10 @@ namespace ThinkEngine
 			{
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
+                if (KOContainerSensorData0 == null) {
+                    values.Clear();
+                    return;
+                }
 				int ContainerID1 = KOContainerSensorData0.ContainerID;
 				if (values.Count == 200)
 				{

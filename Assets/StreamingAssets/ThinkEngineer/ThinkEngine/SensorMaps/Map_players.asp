@@ -30,7 +30,7 @@ curr_Player_ID(ID) :-
 
 
 player(ID, Type, Name) :- 
-    s_Player_ID(_,objectIndex(Index),ID),
+    player_ID_Index(ID,Index),
     s_Player_Type(_,objectIndex(Index),Type),
     s_Player_Name(_,objectIndex(Index),Name).
 

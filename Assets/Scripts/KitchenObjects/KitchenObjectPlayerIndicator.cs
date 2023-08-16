@@ -29,6 +29,11 @@ namespace KitchenObjects {
             UpdateContainer();
         }
 
+        private void OnDestroy() {
+            koPlayer.OnPlayerChanged -= OnPlayerChanged;
+            kitchenObject.OnContainerChanged -= OnContainerChanged;
+        }
+
         private void OnPlayerChanged(object sender, ValueChangedEvent<Player> e) => UpdatePlayer();
 
         private void UpdatePlayer() {

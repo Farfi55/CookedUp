@@ -197,22 +197,51 @@ gi_BaseIngredient_Target(TargetID) :-
     TargetID = #max{TargetID1 : tmp_gi_BaseIngredient_Target(TargetID1)}.
 
 
+% when the ingredient needs to be worked find a free work counter
 tmp_gi_WorkCounter_Target(TargetID) :-
     state_GetIngredient,
+    gi_Must_PlaceBaseIngredient,
     gi_IngredientAvailability("NeedsCooking"),
     stoveCounter_ID(TargetID),
     counter_HasSpace(TargetID).
 
 tmp_gi_WorkCounter_Target(TargetID) :-
     state_GetIngredient,
+    gi_Must_PlaceBaseIngredient,
     gi_IngredientAvailability("NeedsCutting"),
     cuttingCounter_ID(TargetID),
     counter_HasSpace(TargetID).
 
+% if we are in a state where the ingredient is already on the counter, 
+% then we get the counter with that ingredient on it
+
+tmp_gi_WorkCounter_Target(TargetID) :-
+    state_GetIngredient,
+    not gi_Must_PlaceBaseIngredient,
+    gi_IngredientAvailability("NeedsCooking"),
+    stoveCounter_ID(TargetID),
+    counter_HasAny(TargetID),
+    gi_WorkCounter_HasCurrent_BaseIngredient(TargetID).
+
+tmp_gi_WorkCounter_Target(TargetID) :-
+    state_GetIngredient,
+    not gi_Must_PlaceBaseIngredient,
+    gi_IngredientAvailability("NeedsCutting"),
+    cuttingCounter_ID(TargetID),
+    gi_WorkCounter_HasCurrent_BaseIngredient(TargetID).
+
+
 gi_WorkCounter_Target(TargetID) :-
     state_GetIngredient,
     tmp_gi_WorkCounter_Target(_),
-    TargetID = #max{TargetID1 : tmp_gi_WorkCounter_Target(TargetID1)}.
+    Distance = #min{ Distance1 :
+        tmp_gi_WorkCounter_Target(TargetID1),
+        curr_Player_Counter_Distance(TargetID1, Distance1)
+    },
+    TargetID = #max{ TargetID2 : 
+        tmp_gi_WorkCounter_Target(TargetID2),
+        curr_Player_Counter_Distance(TargetID2, Distance)
+    }.
 
 tmp_gi_FinalIngredient_Target(TargetID) :-
     state_GetIngredient,

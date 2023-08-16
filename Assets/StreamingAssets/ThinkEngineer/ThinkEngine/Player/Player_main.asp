@@ -18,6 +18,7 @@ state_GetIngredient :-
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     player_HasNone(PlayerID),
+    not playerBot_HasInvalidIngredients(PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
@@ -94,20 +95,28 @@ state_Recipe_Failed :-
     playerBot_HasInvalidIngredients(PlayerID).
     
 
+conf_Strict_Level(1).
 
-:- #count{X: state(X)} != 1.
+conf_ExtraStrict :- conf_Strict_Level(Level), Level >= 2.
+conf_Strict :- conf_Strict_Level(Level), Level >= 1.
+
+:- conf_Strict, #count{X: state(X)} != 1.
 
 % Can't have multiple actions at the same ActionIndex
-:- #count{ActionName: applyAction(ActionIndex, ActionName)} > 1, applyAction(ActionIndex, _).
+:- conf_Strict, 
+    #count{ ActionName : 
+        applyAction(ActionIndex, ActionName)
+    } > 1, 
+    applyAction(ActionIndex, _).
 
 tmp_AnyAction(ActionIndex) :- applyAction(ActionIndex, _).
 
 % Can't have arguments for an action that doesn't exist.
-:- actionArgument(ActionIndex, _, _), not tmp_AnyAction(ActionIndex).
+:- conf_Strict, actionArgument(ActionIndex, _, _), not tmp_AnyAction(ActionIndex).
 
 % % Can't have the same argument multiple times for a single Action
-% :- #count{ArgumentValue : actionArgument(ActionIndex, ArgumentName, ArgumentValue)} > 1, 
-%     actionArgument(ActionIndex, ArgumentName, _).
+:- conf_ExtraStrict, #count{ArgumentValue : actionArgument(ActionIndex, ArgumentName, ArgumentValue)} > 1, 
+    actionArgument(ActionIndex, ArgumentName, _).
 
 
 
@@ -120,10 +129,11 @@ firstActionIndex(0).
 #show actionArgument/3.
 #show playerBot_Plate_Container_ID/3.
 #show playerBot_Plate_ID/2.
-#show plate_ID/1.
 #show player_HasAny/1.
+#show player/3.
 #show player_KitchenObject/3.
 #show playerBot_IngredientsNames/2.
+#show playerBot_HasInvalidIngredients/1.
 #show playerBot_MissingIngredients/2.
 #show playerBot_IsPlateBeingCarried/1.
 #show playerBot_HasCompletedRecipe/1.

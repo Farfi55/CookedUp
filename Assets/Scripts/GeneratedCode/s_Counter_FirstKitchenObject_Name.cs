@@ -46,7 +46,7 @@ namespace ThinkEngine
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
 				KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-				string Name2 = FirstKitchenObject1.Name;
+				string Name2 = FirstKitchenObject1?.Name;
 				if(Name2 == null)
 				{
 					values.Clear();
