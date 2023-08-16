@@ -113,14 +113,15 @@ player_HasAny(ID).
 player_HasNone(ID).
 
 % Player Kitchen Objects
-player_KitchenObject(PlayerID, KitchenObjectID, KitchenObjectName).
+player_KO(PlayerID, KitchenObjectID, KitchenObjectName).
+player_KO_ID(PlayerID, KitchenObjectID).
+player_KO_Name(PlayerID, KitchenObjectName).
 
 
 % ================================== PLAYER BOT ==================================
 
 % Player Plate
 playerBot_HasPlate(ID).
-playerBot_HasNoPlate(ID).
 playerBot_Plate_ID(PlayerID, PlateID).
 playerBot_IsPlateBeingCarried(PlayerID).
 playerBot_Plate_Container_ID(PlayerID, PlateID, ContainerID).
@@ -146,34 +147,40 @@ playerBot_HasCompletedRecipe(ID).
 
 % ================================== KITCHEN OBJECTS ==================================
 
-any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, 0).
-any_KitchenObject_Index(OwnerID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
-any_KitchenObject(OwnerID, KitchenObjectID, KitchenObjectName).
+ko_ID_Index(KitchenObjectID, Index).
+ko_ID(KitchenObjectID).
+ko_Name(KitchenObjectID, KitchenObjectName).
+ko(KitchenObjectID, KitchenObjectName, OwnerContainerID).
+
+ko_HasOwnerContainer(KitchenObjectID).
+ko_OwnerContainer_ID(KitchenObjectID, OwnerContainerID).
+ko_HasPlayer(KitchenObjectID).
+ko_Player_ID(KitchenObjectID, PlayerID).
 
 
 % ================================== PLATE KITCHEN OBJECT ==================================
 
-any_Plate(OwnerID, KitchenObjectID).
+
 plate_ID_Index(PlateID, Index).
 plate_ID(PlateID).
-plate_IsInContainer(PlateID).
-plate_IsNotInContainer(PlateID).
-
-plate_Container_ID(PlateID, ContainerID). % container which contains the plate
 
 % Plate ingredients
 plate_IngredientsContainer_ID(PlateID, IngredientsContainerID). % plate ingredients's container 
 plate_HasAnyIngredients(PlateID).
 plate_Ingredients_Count(PlateID, IngredientsCount).
+
+plate_Ingredients_Index(PlateID, IngredientID, IngredientName, Index).
+plate_Ingredients(PlateID, IngredientID, IngredientName).
+plate_Ingredients_ID(PlateID, IngredientID).
 plate_Ingredients_Name(PlateID, IngredientName).
 
 % Plate Recipes utilities
 
 plate_MissingIngredients_Name(PlateID, RecipeName, MissingIngredientName).
-plate_AnyMissingIngredients(PlateID, RecipeName).
-plate_InvalidIngredients(PlateID, RecipeName).
+plate_Any_MissingIngredients(PlateID, RecipeName).
+plate_Any_InvalidIngredients(PlateID, RecipeName).
 plate_CompletedRecipe(PlateID, RecipeName).
-
+plate_Any_CompletedRecipe(PlateID).
 
 % ================================== COUNTERS ==================================
 
@@ -185,15 +192,17 @@ counter_Pos(ID, X, Y).
 counter_ContainerID(ID, ContainerID).
 counter_Container_Count(ID, Count).
 counter_HasSpace(ID).
-counter_HasNoSpace(ID).
 counter_HasAny(ID).
-counter_HasNone(ID).
 
 % Counter Kitchen Objects
-counter_KitchenObject(CounterID, KitchenObjectID, KitchenObjectName).
-counter_KitchenObjects_Index(CounterID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
-counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName).
+counter_KO(CounterID, KitchenObjectID, KitchenObjectName).
+counter_KO_ID(CounterID, KitchenObjectID).
+counter_KO_Name(CounterID, KitchenObjectName).
 
+counter_KOs_Index(CounterID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex).
+counter_KOs(CounterID, KitchenObjectID, KitchenObjectName).
+counter_KOs_ID(CounterID, KitchenObjectID).
+counter_KOs_Name(CounterID, KitchenObjectName).
 
 % ================================== CONTAINER COUNTER ==================================
 

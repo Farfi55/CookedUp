@@ -45,37 +45,41 @@ counter_HasSpace(ID) :-
     counter_ID_Index(ID,Index),
     s_Counter_HasSpace(_,objectIndex(Index), true).
 
-counter_HasNoSpace(ID) :-
-    counter_ID_Index(ID,Index),
-    not counter_HasSpace(ID).
-
 counter_HasAny(ID) :-
     counter_ID_Index(ID,Index),
     s_Counter_HasAny(_,objectIndex(Index), true).
 
-counter_HasNone(ID) :-
-    counter_ID_Index(ID,Index),
-    not counter_HasAny(ID).
-
 % Counter Kitchen Objects
 
-counter_KitchenObject(CounterID, KitchenObjectID, KitchenObjectName) :-
+counter_KO(CounterID, KitchenObjectID, KitchenObjectName) :-
     counter_ID_Index(CounterID, Index),
     counter_HasAny(ID),
     s_Counter_FirstKitchenObject_ID(_,objectIndex(Index), KitchenObjectID),
     s_Counter_FirstKitchenObject_Name(_,objectIndex(Index), KitchenObjectName).
     % s_Counter_FirstKitchenObject_ContainerID(_,objectIndex(Index),ContainerID).
 
-counter_KitchenObjects_Index(CounterID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex) :-
+counter_KO_ID(CounterID, KitchenObjectID) :-
+    counter_KO(CounterID, KitchenObjectID, _).
+
+counter_KO_Name(CounterID, KitchenObjectName) :-
+    counter_KO(CounterID, _, KitchenObjectName).
+
+
+counter_KOs_Index(CounterID, KitchenObjectID, KitchenObjectName, KitchenObjectIndex) :-
     counter_ID_Index(CounterID, Index),
     counter_HasAny(ID),
     s_Counter_KitchenObject_ID(_,objectIndex(Index), KitchenObjectIndex, KitchenObjectID),
     s_Counter_KitchenObject_Name(_,objectIndex(Index), KitchenObjectIndex, KitchenObjectName).
     % s_Counter_KitchenObject_ContainerID(_,objectIndex(Index), KitchenObjectIndex,ContainerID).
 
-counter_KitchenObjects(CounterID, KitchenObjectID, KitchenObjectName) :-
-    counter_KitchenObjects_Index(CounterID, KitchenObjectID, KitchenObjectName, _).
+counter_KOs(CounterID, KitchenObjectID, KitchenObjectName) :-
+    counter_KOs_Index(CounterID, KitchenObjectID, KitchenObjectName, _).
 
+counter_KOs_ID(CounterID, KitchenObjectID) :-
+    counter_KOs_Index(CounterID, KitchenObjectID, _, _).
+
+counter_KOs_Name(CounterID, KitchenObjectName) :-
+    counter_KOs_Index(CounterID, _, KitchenObjectName, _).
 
 % ================================== CONTAINER COUNTER ==================================
 

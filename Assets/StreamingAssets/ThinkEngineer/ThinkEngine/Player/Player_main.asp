@@ -2,7 +2,7 @@ state("PickUp_Plate") :- state_PickUp_Plate.
 state_PickUp_Plate :-
     curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
-    playerBot_HasNoPlate(PlayerID).
+    not playerBot_HasPlate(PlayerID).
 
 state("PlacePlate") :- state_PlacePlate.
 state_PlacePlate :-
@@ -22,13 +22,14 @@ state_GetIngredient :-
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
+% TODO: merge with state_GetIngredient
 state("AddIngredient") :- state_AddIngredient.
 state_AddIngredient :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID),
-    player_KitchenObject(PlayerID, _, KitchenObjectName),
+    player_KO_Name(PlayerID, KitchenObjectName),
     playerBot_MissingIngredients(PlayerID, KitchenObjectName),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
@@ -40,7 +41,7 @@ state_DropIngredient :-
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID),
-    player_KitchenObject(PlayerID, _, KitchenObjectName),
+    player_KO_Name(PlayerID, KitchenObjectName),
     not playerBot_MissingIngredients(PlayerID, KitchenObjectName),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
@@ -95,7 +96,7 @@ state_Recipe_Failed :-
     playerBot_HasInvalidIngredients(PlayerID).
     
 
-conf_Strict_Level(1).
+conf_Strict_Level(0).
 
 conf_ExtraStrict :- conf_Strict_Level(Level), Level >= 2.
 conf_Strict :- conf_Strict_Level(Level), Level >= 1.
@@ -131,7 +132,8 @@ firstActionIndex(0).
 #show playerBot_Plate_ID/2.
 #show player_HasAny/1.
 #show player/3.
-#show player_KitchenObject/3.
+#show player_KO_Name/2.
+#show player_KO/3.
 #show playerBot_IngredientsNames/2.
 #show playerBot_HasInvalidIngredients/1.
 #show playerBot_MissingIngredients/2.

@@ -148,7 +148,7 @@ playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
 playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
     c_CompleteRecipe_Name(RecipeName),
     playerBot_ID(PlayerID),    
-    playerBot_HasNoPlate(PlayerID),
+    not playerBot_HasPlate(PlayerID),
     IngredientsExpectedTime = #sum{ Time, IngredientName : 
         ingredient_ExpectedGetTime(IngredientName, Time),
         c_CompleteRecipe_Ingredient(RecipeName, IngredientName)

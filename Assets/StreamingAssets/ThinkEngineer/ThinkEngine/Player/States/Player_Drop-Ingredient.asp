@@ -3,13 +3,13 @@
 stateDI_Target(TargetID) :-
     state_DropIngredient,
     curr_Player_ID(PlayerID),
-    player_KitchenObject(PlayerID, _, KitchenObjectType),
+    player_KO_Name(PlayerID, KitchenObjectType),
     containerCounter_KOType(TargetID, KitchenObjectType).
     
 stateDI_Target(TargetID) :-
     state_DropIngredient,
     curr_Player_ID(PlayerID),
-    player_KitchenObject(PlayerID, _, KitchenObjectType),
+    player_KO_Name(PlayerID, KitchenObjectType),
     not containerCounter_KOType(TargetID, KitchenObjectType),
     trashCounter_ID(TargetID).
     

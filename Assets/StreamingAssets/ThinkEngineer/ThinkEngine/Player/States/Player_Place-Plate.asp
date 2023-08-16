@@ -1,5 +1,8 @@
 % ========================== STATE PLACE PLATE ==========================
 
+% TODO: come up with a better counter target strategy, 
+% maybe using distance between counters that will be used for the recipe 
+
 state_PlacePlate__Target(TargetID) :-
     state_PlacePlate,
     clearCounter_ID(TargetID),

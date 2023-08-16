@@ -21,14 +21,14 @@
 gi_FinalIngredient(IngredientName) :-
     state_GetIngredient,
     curr_Player_ID(PlayerID),
-    player_KitchenObject(PlayerID, _, IngredientName),
+    player_KO_Name(PlayerID, IngredientName),
     ingredient_Available(IngredientName),
     playerBot_MissingIngredients(PlayerID, IngredientName).
 
 gi_FinalIngredient(IngredientName) :-
     state_GetIngredient,
     curr_Player_ID(PlayerID),
-    player_KitchenObject(PlayerID, _, BaseIngredientName),
+    player_KO_Name(PlayerID, BaseIngredientName),
     ingredient_NeedsWork(IngredientName, _, BaseIngredientName),
     playerBot_MissingIngredients(PlayerID, IngredientName).
 
@@ -68,7 +68,7 @@ gi_State("Place BaseIngredient") :-
     gi_BaseIngredient(BaseIngredientName),
     curr_Player_ID(PlayerID),
     player_HasAny(PlayerID),
-    player_KitchenObject(PlayerID, _, BaseIngredientName).
+    player_KO_Name(PlayerID, BaseIngredientName).
 
 
 
@@ -93,7 +93,7 @@ gi_State("Add FinalIngredient To Plate") :-
     gi_FinalIngredient(IngredientName),
     curr_Player_ID(PlayerID),
     player_HasAny(PlayerID),
-    player_KitchenObject(PlayerID, _, IngredientName).
+    player_KO_Name(PlayerID, IngredientName).
 
 
 :-  state_GetIngredient, 
@@ -154,12 +154,12 @@ gi_FirstActionIndex(Index) :-
 gi_StoveCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
     state_GetIngredient,
     stoveCounter_HasAny(CounterID),
-    counter_KitchenObject(CounterID, _, IngredientName).
+    counter_KO_Name(CounterID, IngredientName).
 
 gi_CuttingCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
     state_GetIngredient,
     cuttingCounter_HasAny(CounterID),
-    counter_KitchenObject(CounterID, _, IngredientName).
+    counter_KO_Name(CounterID, IngredientName).
 
 gi_WorkCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
     gi_StoveCounter_HasAny_Ingredient_Name(CounterID, IngredientName).

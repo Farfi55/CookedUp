@@ -80,12 +80,18 @@ player_HasNone(ID) :-
 
 % Player Kitchen Objects
 
-player_KitchenObject(PlayerID, KitchenObjectID, KitchenObjectName) :-
+player_KO(PlayerID, KitchenObjectID, KitchenObjectName) :-
     player_ID_Index(PlayerID, Index),
     player_HasAny(PlayerID),
     s_Player_FirstKitchenObject_ID(_,objectIndex(Index), KitchenObjectID),
     s_Player_FirstKitchenObject_Name(_,objectIndex(Index), KitchenObjectName).
     % s_Player_FirstKitchenObject_ContainerID(_,objectIndex(Index),ContainerID).
+
+player_KO_ID(PlayerID, KitchenObjectID) :-
+    player_KO(PlayerID, KitchenObjectID, _).
+
+player_KO_Name(PlayerID, KitchenObjectName) :-
+    player_KO(PlayerID, _, KitchenObjectName).
 
 
 % ================================== PLAYER BOT ==================================
@@ -120,10 +126,6 @@ playerBot_HasPlate(ID) :-
     playerBot_ID_Index(ID,Index),
     s_PlayerBot_HasPlate(_,objectIndex(Index), true).
 
-playerBot_HasNoPlate(ID) :-
-    playerBot_ID_Index(ID,Index),
-    not playerBot_HasPlate(ID).
-
 playerBot_Plate_ID(PlayerID, PlateID) :-
     playerBot_HasPlate(PlayerID),
     playerBot_ID_Index(PlayerID,Index),
@@ -131,14 +133,14 @@ playerBot_Plate_ID(PlayerID, PlateID) :-
 
 playerBot_IsPlateBeingCarried(PlayerID) :-
     playerBot_HasPlate(PlayerID),
-    player_KitchenObject(PlayerID, PlateID, _),
+    player_KO_ID(PlayerID, PlateID),
     playerBot_Plate_ID(PlayerID, PlateID).
 
 % ID of the container that the plate is in
 playerBot_Plate_Container_ID(PlayerID, PlateID, ContainerID) :-
     playerBot_HasPlate(PlayerID),
     playerBot_Plate_ID(PlayerID, PlateID),
-    plate_Container_ID(PlateID, ContainerID).
+    ko_OwnerContainer_ID(PlateID, ContainerID).
 
 % Player Recipe
 

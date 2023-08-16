@@ -3,7 +3,7 @@ ingredient_Available_Target(IngredientName, TargetID) :-
 
 ingredient_Available_Target(IngredientName, TargetID) :-
     counter_HasAny(TargetID),
-    counter_KitchenObjects(TargetID, _, IngredientName).
+    counter_KOs(TargetID, _, IngredientName).
 
 ingredient_Available(IngredientName) :-
     ingredient_Available_Target(IngredientName, _).
