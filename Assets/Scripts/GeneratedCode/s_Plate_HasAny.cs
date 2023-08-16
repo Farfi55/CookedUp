@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_HasAny(plateSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Plate_HasAny(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -34,6 +34,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -49,6 +51,17 @@ namespace ThinkEngine
 				}
 				values.Add(HasAny1);
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()

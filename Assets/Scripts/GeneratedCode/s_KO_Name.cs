@@ -7,7 +7,7 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Plate_Type : Sensor
+    class s_KO_Name : Sensor
     {
 		private int counter;
         private object specificValue;
@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_Type(plateSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_KO_Name(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -34,6 +34,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -42,8 +44,8 @@ namespace ThinkEngine
 			{
 				first = false;
 				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				string Type1 = BaseSensorData0.Type;
-				if(Type1 == null)
+				string Name1 = BaseSensorData0.Name;
+				if(Name1 == null)
 				{
 					values.Clear();
 					return;
@@ -54,9 +56,20 @@ namespace ThinkEngine
 					{
 							values.RemoveAt(0);
 					}
-					values.Add(Type1);
+					values.Add(Name1);
 				}
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()

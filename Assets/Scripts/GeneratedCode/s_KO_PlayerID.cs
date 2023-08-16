@@ -7,13 +7,13 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Plate_Name : Sensor
+    class s_KO_PlayerID : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<string> values = new List<string>();
+		private List<int> values = new List<int>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_Name(plateSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_KO_PlayerID(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -34,6 +34,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -41,22 +43,25 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
-				string Name1 = BaseSensorData0.Name;
-				if(Name1 == null)
+				KOSensorData KOSensorData0 = gameObject.GetComponent<KOSensorData>();
+				int PlayerID1 = KOSensorData0.PlayerID;
+				if (values.Count == 200)
 				{
-					values.Clear();
-					return;
+						values.RemoveAt(0);
 				}
-				else
-				{
-					if (values.Count == 200)
-					{
-							values.RemoveAt(0);
-					}
-					values.Add(Name1);
-				}
+				values.Add(PlayerID1);
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()

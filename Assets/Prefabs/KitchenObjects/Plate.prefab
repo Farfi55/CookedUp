@@ -31,544 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8713059309114348474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &871127731258097688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4858584712068101566}
-  - component: {fileID: 8910975632752036621}
-  - component: {fileID: 204819546916152363}
-  - component: {fileID: 6509913890283414741}
-  - component: {fileID: 793510884715528069}
-  m_Layer: 0
-  m_Name: PlateSensor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4858584712068101566
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871127731258097688}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2233902047373149443}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8910975632752036621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871127731258097688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566a8fa7979943d5a357cd35b3f24343, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 6989211858520019426}
-  ID: 0
-  Type: 
-  Name: 
---- !u!114 &204819546916152363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871127731258097688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5df0f2cdc5248a58d0caf8732d2a069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  container: {fileID: 3813793118539150612}
-  ContainerID: 0
-  SizeLimit: 0
-  Count: 0
-  KitchenObjects: []
-  FirstKitchenObject:
-    Name: 
-    ID: 0
-    ContainerID: 0
-  HasSpace: 0
-  HasAny: 0
---- !u!114 &6509913890283414741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871127731258097688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd097713eb024d71955191984074c578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kitchenObjectTarget: {fileID: 6989211858520019426}
-  OwnerContainerID: 0
-  IsInContainer: 1
---- !u!114 &793510884715528069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871127731258097688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _savedProperties:
-  - myStrings:
-    - KOSensorData
-    - OwnerContainerID
-    Count: 2
-  - myStrings:
-    - KOSensorData
-    - IsInContainer
-    Count: 2
-  - myStrings:
-    - KOSensorData
-    Count: 1
-  - myStrings:
-    - BaseSensorData
-    Count: 1
-  - myStrings:
-    - BaseSensorData
-    - ID
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    Count: 1
-  - myStrings:
-    - KOContainerSensorData
-    - ContainerID
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - SizeLimit
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - Count
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - HasSpace
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - HasAny
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObjectASP
-    - Name
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObjectASP
-    - ID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObjectASP
-    - ContainerID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - Name
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - ID
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - ContainerID
-    Count: 3
-  _toMapProperties:
-  - myStrings:
-    - KOSensorData
-    - OwnerContainerID
-    Count: 2
-  - myStrings:
-    - KOSensorData
-    - IsInContainer
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - ID
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Type
-    Count: 2
-  - myStrings:
-    - BaseSensorData
-    - Name
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - ContainerID
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - SizeLimit
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - Count
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - HasSpace
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - HasAny
-    Count: 2
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObjectASP
-    - Name
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObjectASP
-    - ID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - KitchenObjects
-    - KitchenObjectASP
-    - ContainerID
-    Count: 4
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - Name
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - ID
-    Count: 3
-  - myStrings:
-    - KOContainerSensorData
-    - FirstKitchenObject
-    - ContainerID
-    Count: 3
-  _propertyFeatures:
-  - property:
-      myStrings:
-      - KOSensorData
-      - OwnerContainerID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_OwnerContainerID
-    propertyAliasHash: 225736022
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOSensorData
-      - IsInContainer
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_IsInContainer
-    propertyAliasHash: 131257317
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - ID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_ID
-    propertyAliasHash: -2107031736
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Type
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_Type
-    propertyAliasHash: 316729707
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - BaseSensorData
-      - Name
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_Name
-    propertyAliasHash: -590337762
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - ContainerID
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_ContainerID
-    propertyAliasHash: 1778647685
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - SizeLimit
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_SizeLimit
-    propertyAliasHash: 1667350355
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - Count
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_Count
-    propertyAliasHash: -1425075060
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - HasSpace
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_HasSpace
-    propertyAliasHash: -530820575
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - HasAny
-      Count: 2
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_HasAny
-    propertyAliasHash: -586871157
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - KitchenObjects
-      - KitchenObjectASP
-      - Name
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_KitchenObjectASP_Name
-    propertyAliasHash: 2065294046
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - KitchenObjects
-      - KitchenObjectASP
-      - ID
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_KitchenObjectASP_ID
-    propertyAliasHash: -693876964
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - KitchenObjects
-      - KitchenObjectASP
-      - ContainerID
-      Count: 4
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_KitchenObjectASP_ContainerID
-    propertyAliasHash: -1855539793
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - FirstKitchenObject
-      - Name
-      Count: 3
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_FirstKitchenObject_Name
-    propertyAliasHash: -1748771786
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - FirstKitchenObject
-      - ID
-      Count: 3
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_FirstKitchenObject_ID
-    propertyAliasHash: 2031654884
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - KOContainerSensorData
-      - FirstKitchenObject
-      - ContainerID
-      Count: 3
-    windowWidth: 200
-    configurationName: s_Plate
-    _propertyAlias: s_Plate_FirstKitchenObject_ContainerID
-    propertyAliasHash: 1064004007
-    operation: 0
-    specificValue: 
-    counter: 0
-  _configurationName: s_Plate
-  isInvariant: 0
-  isFixedSize: 0
-  _serializableSensorsTypes:
-  - scriptAsset: {fileID: 11500000, guid: 15a05dfcf87a2404daf45580a49ca720, type: 3}
-    typeName: ThinkEngine.s_Plate_OwnerContainerID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 56608af09d38ea5488702e495c28de31, type: 3}
-    typeName: ThinkEngine.s_Plate_IsInContainer, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 2d1799b031aceaf4f92087587450a14e, type: 3}
-    typeName: ThinkEngine.s_Plate_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 0eca152975d85964ba5cc8c126a3c4d9, type: 3}
-    typeName: ThinkEngine.s_Plate_Type, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 9b9f1ae147e231b47899a0f26b6660cc, type: 3}
-    typeName: ThinkEngine.s_Plate_Name, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 3aff90cff9a26504f9e565d1e392790a, type: 3}
-    typeName: ThinkEngine.s_Plate_ContainerID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 78723e706ae282943925164c1cf63761, type: 3}
-    typeName: ThinkEngine.s_Plate_SizeLimit, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 0ccef21caa533634f8eeb6445a244eff, type: 3}
-    typeName: ThinkEngine.s_Plate_Count, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: d91e0f6e83c962949a5aeaebe4fc5e4e, type: 3}
-    typeName: ThinkEngine.s_Plate_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: a06130a4238ac6549b6d0e3cc4462920, type: 3}
-    typeName: ThinkEngine.s_Plate_HasAny, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: daec83fefd2330c4898bd4d43bacca83, type: 3}
-    typeName: ThinkEngine.s_Plate_KitchenObjectASP_Name, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: b13ed4e4892ef4b4d8315278fd0b0aa9, type: 3}
-    typeName: ThinkEngine.s_Plate_KitchenObjectASP_ID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: d3d74812a44d54a49bda18d3d6cb17b2, type: 3}
-    typeName: ThinkEngine.s_Plate_KitchenObjectASP_ContainerID, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 926f5a5dc5cd9f942ab426776bbdee81, type: 3}
-    typeName: ThinkEngine.s_Plate_FirstKitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: 7f4193fcd89e2d94e922c8ef6d5c4c57, type: 3}
-    typeName: ThinkEngine.s_Plate_FirstKitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - scriptAsset: {fileID: 11500000, guid: f42bbe135d954c4478cb5e27f9f2deab, type: 3}
-    typeName: ThinkEngine.s_Plate_FirstKitchenObject_ContainerID, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  generatedCode: 0
-  generatedScripts:
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_OwnerContainerID.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_IsInContainer.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_ID.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Type.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Name.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_ContainerID.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_SizeLimit.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Count.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_HasSpace.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_HasAny.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_Name.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_ID.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_ContainerID.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_Name.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_ID.cs
-  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_ContainerID.cs
 --- !u!1 &979769197035255743
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,38 +314,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &6109869252678632239
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2233902047373149443}
-  m_Layer: 0
-  m_Name: ThinkEngine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2233902047373149443
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6109869252678632239}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4858584712068101566}
-  m_Father: {fileID: 5568705612143692161}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8551291786976951314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +531,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2209817146214241509, guid: 39ea6cc5c3d1058468c56db719571eb9,
+        type: 3}
+      propertyPath: ID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209817146214241509, guid: 39ea6cc5c3d1058468c56db719571eb9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6989211858520019426}
     - target: {fileID: 4001730045868640475, guid: 39ea6cc5c3d1058468c56db719571eb9,
         type: 3}
       propertyPath: kitchenObjectSO
@@ -1122,6 +562,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7009924602689334393, guid: 39ea6cc5c3d1058468c56db719571eb9,
+        type: 3}
+      propertyPath: kitchenObjectTarget
+      value: 
+      objectReference: {fileID: 6989211858520019426}
     - target: {fileID: 8295605514524174748, guid: 39ea6cc5c3d1058468c56db719571eb9,
         type: 3}
       propertyPath: m_IsActive
@@ -1131,10 +576,6 @@ PrefabInstance:
     - {fileID: 4001730045868640475, guid: 39ea6cc5c3d1058468c56db719571eb9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 352343739073143513, guid: 39ea6cc5c3d1058468c56db719571eb9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2233902047373149443}
     - targetCorrespondingSourceObject: {fileID: 3549051715677255906, guid: 39ea6cc5c3d1058468c56db719571eb9,
         type: 3}
       insertIndex: -1
@@ -1164,6 +605,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2979365281425250738}
+    - targetCorrespondingSourceObject: {fileID: 3704729186523577295, guid: 39ea6cc5c3d1058468c56db719571eb9,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1217774576908149488}
+    - targetCorrespondingSourceObject: {fileID: 3704729186523577295, guid: 39ea6cc5c3d1058468c56db719571eb9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3962465175670823437}
   m_SourcePrefab: {fileID: 100100000, guid: 39ea6cc5c3d1058468c56db719571eb9, type: 3}
 --- !u!1 &1957999848222007204 stripped
 GameObject:
@@ -1234,15 +683,388 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5308550975265778520}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5568705612143692161 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 352343739073143513, guid: 39ea6cc5c3d1058468c56db719571eb9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5308550975265778520}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8713059309114348474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3549051715677255906, guid: 39ea6cc5c3d1058468c56db719571eb9,
     type: 3}
   m_PrefabInstance: {fileID: 5308550975265778520}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8845656178135879831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3704729186523577295, guid: 39ea6cc5c3d1058468c56db719571eb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5308550975265778520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1217774576908149488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845656178135879831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5df0f2cdc5248a58d0caf8732d2a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 3813793118539150612}
+  ContainerID: 0
+  SizeLimit: 0
+  Count: 0
+  KitchenObjects: []
+  FirstKitchenObject:
+    Name: 
+    ID: 0
+    ContainerID: 0
+  HasSpace: 0
+  HasAny: 0
+--- !u!114 &3962465175670823437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845656178135879831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    Count: 1
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - ContainerID
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - SizeLimit
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - Count
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasSpace
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - HasAny
+    Count: 2
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - Name
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - KitchenObjects
+    - KitchenObjectASP
+    - ContainerID
+    Count: 4
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - Name
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ID
+    Count: 3
+  - myStrings:
+    - KOContainerSensorData
+    - FirstKitchenObject
+    - ContainerID
+    Count: 3
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_ID
+    propertyAliasHash: -2107031736
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - ContainerID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_ContainerID
+    propertyAliasHash: 1778647685
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - SizeLimit
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_SizeLimit
+    propertyAliasHash: 1667350355
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - Count
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_Count
+    propertyAliasHash: -1425075060
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasSpace
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_HasSpace
+    propertyAliasHash: -530820575
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - HasAny
+      Count: 2
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_HasAny
+    propertyAliasHash: -586871157
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - Name
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_KitchenObjectASP_Name
+    propertyAliasHash: 2065294046
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - ID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_KitchenObjectASP_ID
+    propertyAliasHash: -693876964
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - KitchenObjects
+      - KitchenObjectASP
+      - ContainerID
+      Count: 4
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_KitchenObjectASP_ContainerID
+    propertyAliasHash: -1855539793
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - Name
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_FirstKitchenObject_Name
+    propertyAliasHash: -1748771786
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_FirstKitchenObject_ID
+    propertyAliasHash: 2031654884
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOContainerSensorData
+      - FirstKitchenObject
+      - ContainerID
+      Count: 3
+    windowWidth: 200
+    configurationName: s_Plate
+    _propertyAlias: s_Plate_FirstKitchenObject_ContainerID
+    propertyAliasHash: 1064004007
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_Plate
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 2d1799b031aceaf4f92087587450a14e, type: 3}
+    typeName: ThinkEngine.s_Plate_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 3aff90cff9a26504f9e565d1e392790a, type: 3}
+    typeName: ThinkEngine.s_Plate_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 78723e706ae282943925164c1cf63761, type: 3}
+    typeName: ThinkEngine.s_Plate_SizeLimit, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 0ccef21caa533634f8eeb6445a244eff, type: 3}
+    typeName: ThinkEngine.s_Plate_Count, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d91e0f6e83c962949a5aeaebe4fc5e4e, type: 3}
+    typeName: ThinkEngine.s_Plate_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: a06130a4238ac6549b6d0e3cc4462920, type: 3}
+    typeName: ThinkEngine.s_Plate_HasAny, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: daec83fefd2330c4898bd4d43bacca83, type: 3}
+    typeName: ThinkEngine.s_Plate_KitchenObjectASP_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: b13ed4e4892ef4b4d8315278fd0b0aa9, type: 3}
+    typeName: ThinkEngine.s_Plate_KitchenObjectASP_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: d3d74812a44d54a49bda18d3d6cb17b2, type: 3}
+    typeName: ThinkEngine.s_Plate_KitchenObjectASP_ContainerID, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 926f5a5dc5cd9f942ab426776bbdee81, type: 3}
+    typeName: ThinkEngine.s_Plate_FirstKitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7f4193fcd89e2d94e922c8ef6d5c4c57, type: 3}
+    typeName: ThinkEngine.s_Plate_FirstKitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: f42bbe135d954c4478cb5e27f9f2deab, type: 3}
+    typeName: ThinkEngine.s_Plate_FirstKitchenObject_ContainerID, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_SizeLimit.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_Count.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_HasSpace.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_HasAny.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_KitchenObjectASP_ContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_Plate_FirstKitchenObject_ContainerID.cs

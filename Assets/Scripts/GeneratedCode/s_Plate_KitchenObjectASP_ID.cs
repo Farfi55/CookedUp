@@ -25,7 +25,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_KitchenObjectASP_ID(plateSensor,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
+			mappingTemplate = "s_Plate_KitchenObjectASP_ID(kitchenObjectSensor,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
 
 		}
 
@@ -35,6 +35,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -78,6 +80,17 @@ namespace ThinkEngine
 					values[i_1].Add(ID2);
 				}
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()

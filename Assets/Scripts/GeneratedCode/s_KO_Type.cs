@@ -7,13 +7,13 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Plate_HasSpace : Sensor
+    class s_KO_Type : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<bool> values = new List<bool>();
+		private List<string> values = new List<string>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_HasSpace(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_KO_Type(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -43,13 +43,21 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				bool HasSpace1 = KOContainerSensorData0.HasSpace;
-				if (values.Count == 200)
+				BaseSensorData BaseSensorData0 = gameObject.GetComponent<BaseSensorData>();
+				string Type1 = BaseSensorData0.Type;
+				if(Type1 == null)
 				{
-						values.RemoveAt(0);
+					values.Clear();
+					return;
 				}
-				values.Add(HasSpace1);
+				else
+				{
+					if (values.Count == 200)
+					{
+							values.RemoveAt(0);
+					}
+					values.Add(Type1);
+				}
 			}
             }
             catch (NullReferenceException nullEx)

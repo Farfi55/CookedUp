@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1112647454157742783, guid: 64ef46de98a59db49833984ec72c298a,
+        type: 3}
+      propertyPath: Type
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2411611682236806759, guid: 64ef46de98a59db49833984ec72c298a,
         type: 3}
       propertyPath: m_Name
@@ -1079,16 +1084,17 @@ MonoBehaviour:
   debug: 0
   maintainInputFile: 1
   _chosenSensorConfigurations:
-  - s_ContainerCounter
-  - s_CuttingCounter
-  - s_StoveCounter
-  - s_PlatesCounter
-  - s_PlayerBot
-  - s_Delivery
-  - s_Const
   - s_Plate
+  - s_KO
+  - s_CuttingCounter
+  - s_Const
+  - s_Delivery
+  - s_PlatesCounter
+  - s_StoveCounter
+  - s_ContainerCounter
   - s_Counter
   - s_Player
+  - s_PlayerBot
   AIFilesPath: C:/Dev/CookedUp/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix:
   - Map

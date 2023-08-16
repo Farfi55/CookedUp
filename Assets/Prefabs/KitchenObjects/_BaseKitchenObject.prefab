@@ -1,5 +1,268 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3704729186523577295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2467713651734367826}
+  - component: {fileID: 2209817146214241509}
+  - component: {fileID: 7009924602689334393}
+  - component: {fileID: 603987948404222971}
+  m_Layer: 0
+  m_Name: KitchenObjectSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2467713651734367826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704729186523577295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3576876751028937306}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2209817146214241509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704729186523577295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566a8fa7979943d5a357cd35b3f24343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4001730045868640475}
+  ID: 0
+  Type: 
+  Name: 
+--- !u!114 &7009924602689334393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704729186523577295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd097713eb024d71955191984074c578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kitchenObjectTarget: {fileID: 4001730045868640475}
+  kitchenObjectPlayer: {fileID: -6932130693885196704}
+  HasOwnerContainer: 1
+  OwnerContainerID: 0
+  HasPlayer: 0
+  PlayerID: 0
+--- !u!114 &603987948404222971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704729186523577295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2919610164c4e6345b47107fd99f3181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - KOSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    Count: 1
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - OwnerContainerID
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - HasPlayer
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - PlayerID
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - HasOwnerContainer
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - BaseSensorData
+    - ID
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Type
+    Count: 2
+  - myStrings:
+    - BaseSensorData
+    - Name
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - OwnerContainerID
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - HasPlayer
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - PlayerID
+    Count: 2
+  - myStrings:
+    - KOSensorData
+    - HasOwnerContainer
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - BaseSensorData
+      - ID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_ID
+    propertyAliasHash: -527606670
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Type
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_Type
+    propertyAliasHash: -480235309
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - BaseSensorData
+      - Name
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_Name
+    propertyAliasHash: -1037721228
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOSensorData
+      - OwnerContainerID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_OwnerContainerID
+    propertyAliasHash: 1051089756
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOSensorData
+      - HasPlayer
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_HasPlayer
+    propertyAliasHash: -1467423772
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOSensorData
+      - PlayerID
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_PlayerID
+    propertyAliasHash: -383829591
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - KOSensorData
+      - HasOwnerContainer
+      Count: 2
+    windowWidth: 200
+    configurationName: s_KO
+    _propertyAlias: s_KO_HasOwnerContainer
+    propertyAliasHash: 1300829379
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: s_KO
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - scriptAsset: {fileID: 11500000, guid: 3aef84d8c88afc249b0c6c7c4cd79ba9, type: 3}
+    typeName: ThinkEngine.s_KO_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 484847af313172e409a49711c7b8564a, type: 3}
+    typeName: ThinkEngine.s_KO_Type, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e1f3ddb9d9f4ff94ebb177862ee0b3a6, type: 3}
+    typeName: ThinkEngine.s_KO_Name, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 2dde6c2652f763b45ae3ef217c8a41f7, type: 3}
+    typeName: ThinkEngine.s_KO_OwnerContainerID, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 8a927dd0527d162469e5ac77fcd3fef4, type: 3}
+    typeName: ThinkEngine.s_KO_HasPlayer, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4d38a419cb4976b4ab29be7edfdf86f3, type: 3}
+    typeName: ThinkEngine.s_KO_PlayerID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 14857b6fc0ef19c4096d44752af1c404, type: 3}
+    typeName: ThinkEngine.s_KO_HasOwnerContainer, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  generatedCode: 0
+  generatedScripts:
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_ID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_Type.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_Name.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_OwnerContainerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_HasPlayer.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_PlayerID.cs
+  - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_KO_HasOwnerContainer.cs
 --- !u!1 &5946990666231821564
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,14 +288,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5946990666231821564}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3549051715677255906}
+  - {fileID: 3576876751028937306}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4001730045868640475
 MonoBehaviour:
@@ -60,6 +324,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ac38b3f8d4da39b6535e03a72c276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6434387365283712270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3576876751028937306}
+  m_Layer: 0
+  m_Name: ThinkEngine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3576876751028937306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6434387365283712270}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2467713651734367826}
+  m_Father: {fileID: 352343739073143513}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8295605514524174748
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +379,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8295605514524174748}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -90,7 +387,6 @@ Transform:
   m_Children:
   - {fileID: 2667075750215097871}
   m_Father: {fileID: 352343739073143513}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &31570579837345438
 PrefabInstance:

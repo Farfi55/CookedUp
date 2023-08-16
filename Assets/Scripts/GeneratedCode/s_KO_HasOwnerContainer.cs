@@ -7,7 +7,7 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Plate_HasSpace : Sensor
+    class s_KO_HasOwnerContainer : Sensor
     {
 		private int counter;
         private object specificValue;
@@ -24,7 +24,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_HasSpace(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_KO_HasOwnerContainer(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -43,13 +43,13 @@ namespace ThinkEngine
 			if(!invariant || first)
 			{
 				first = false;
-				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
-				bool HasSpace1 = KOContainerSensorData0.HasSpace;
+				KOSensorData KOSensorData0 = gameObject.GetComponent<KOSensorData>();
+				bool HasOwnerContainer1 = KOSensorData0.HasOwnerContainer;
 				if (values.Count == 200)
 				{
 						values.RemoveAt(0);
 				}
-				values.Add(HasSpace1);
+				values.Add(HasOwnerContainer1);
 			}
             }
             catch (NullReferenceException nullEx)

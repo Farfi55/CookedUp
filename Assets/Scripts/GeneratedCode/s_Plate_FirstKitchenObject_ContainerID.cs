@@ -25,7 +25,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_FirstKitchenObject_ContainerID(plateSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_Plate_FirstKitchenObject_ContainerID(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -35,6 +35,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -44,17 +46,24 @@ namespace ThinkEngine
 				first = false;
 				KOContainerSensorData KOContainerSensorData0 = gameObject.GetComponent<KOContainerSensorData>();
 				KitchenObjectASP FirstKitchenObject1 = KOContainerSensorData0.FirstKitchenObject;
-                if (FirstKitchenObject1 == null) {
-                    values.Clear();
-                    return;
-                }
 				int ContainerID2 = FirstKitchenObject1.ContainerID;
 				if (values.Count == 200)
 				{
-                    values.RemoveAt(0);
+						values.RemoveAt(0);
 				}
 				values.Add(ContainerID2);
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()

@@ -7,13 +7,13 @@ using static ThinkEngine.Mappers.OperationContainer;
 
 namespace ThinkEngine
 {
-    class s_Plate_IsInContainer : Sensor
+    class s_KO_OwnerContainerID : Sensor
     {
 		private int counter;
         private object specificValue;
         private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<bool> values = new List<bool>();
+		private List<int> values = new List<int>();
 
 
 		public override void Initialize(SensorConfiguration sensorConfiguration)
@@ -21,10 +21,10 @@ namespace ThinkEngine
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "s_Plate_IsInContainer(plateSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "s_KO_OwnerContainerID(kitchenObjectSensor,objectIndex("+index+"),{0})." + Environment.NewLine;
 
 		}
 
@@ -34,6 +34,8 @@ namespace ThinkEngine
 
 		public override void Update()
 		{
+            try
+            {
 			if(!ready)
 			{
 				return;
@@ -42,13 +44,24 @@ namespace ThinkEngine
 			{
 				first = false;
 				KOSensorData KOSensorData0 = gameObject.GetComponent<KOSensorData>();
-				bool IsInContainer1 = KOSensorData0.IsInContainer;
+				int OwnerContainerID1 = KOSensorData0.OwnerContainerID;
 				if (values.Count == 200)
 				{
 						values.RemoveAt(0);
 				}
-				values.Add(IsInContainer1);
+				values.Add(OwnerContainerID1);
 			}
+            }
+            catch (NullReferenceException nullEx)
+            {
+                UnityEngine.Debug.LogError(nullEx.Message);
+                values.Clear();
+                return;
+            }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.Log(ex.Message);
+            }
 		}
 
 		public override string Map()
