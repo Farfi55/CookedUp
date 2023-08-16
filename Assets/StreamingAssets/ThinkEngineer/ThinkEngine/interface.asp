@@ -85,6 +85,11 @@ ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) .
 ingredient_ExpectedGetTime(IngredientName, Time).
 
 
+% ================================== COMMON DISTANCE ==================================
+
+player_Counter_Distance(PlayerID, CounterID, Distance).
+counter_Distance(CounterID1, CounterID2, Distance).
+
 % ================================== PLAYER ==================================
 
 player_ID_Index(ID,Index).

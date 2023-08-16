@@ -10,6 +10,10 @@ player_Counter_Distance(PlayerID, CounterID, Distance) :-
     &abs(DistanceY; DistanceYAbs), 
     Distance = DistanceXAbs + DistanceYAbs.
 
+curr_Player_Counter_Distance(CounterID, Distance) :-
+    curr_Player_ID(PlayerID),
+    player_Counter_Distance(PlayerID, CounterID, Distance).
+
 counter_Distance(CounterID1, CounterID2, Distance) :-
     counter_Pos(CounterID1, X1, Y1),
     counter_Pos(CounterID2, X2, Y2),
@@ -22,4 +26,5 @@ counter_Distance(CounterID1, CounterID2, Distance) :-
 
 counter_Distance(CounterID1, CounterID2, Distance) :- counter_Distance(CounterID2, CounterID1, Distance).
 
-#show counter_Distance/3.
+% #show player_Counter_Distance/3.
+

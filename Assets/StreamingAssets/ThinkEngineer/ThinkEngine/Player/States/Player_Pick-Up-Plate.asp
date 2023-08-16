@@ -1,38 +1,51 @@
 % ========================== STATE PICKUP PLATE ==========================
 
-statePUP_AnyPlate_ReadyToPickUp :-
+pup_PlatesCounter_HasAny :-
     state_PickUp_Plate,
     platesCounter_ID(PlateCounterID),
     counter_HasAny(PlateCounterID).
 
-
-statePUP_Target(PlateCounterID) :-
+pup_PlatesCounter(PlateCounterID, TimeToNextPlate) :-
     state_PickUp_Plate,
-    statePUP_AnyPlate_ReadyToPickUp,
-    platesCounter_ID(PlateCounterID),
-    counter_HasAny(PlateCounterID).
-
-statePUP_PlatesCounter(PlateCounterID, TimeToNextPlate) :-
-    state_PickUp_Plate,
-    not statePUP_AnyPlate_ReadyToPickUp,
+    not pup_PlatesCounter_HasAny,
     platesCounter_ID(PlateCounterID),
     not counter_HasAny(PlateCounterID),
     platesCounter_TimeToNextPlate(PlateCounterID, TimeToNextPlate).
 
-statePUP_Target(PlateCounterID) :-
+tmp_pup_Target(PlateCounterID) :-
     state_PickUp_Plate,
-    not statePUP_AnyPlate_ReadyToPickUp,
+    pup_PlatesCounter_HasAny,
+    platesCounter_ID(PlateCounterID),
+    counter_HasAny(PlateCounterID).
+
+tmp_pup_Target(PlateCounterID) :-
+    state_PickUp_Plate,
+    not pup_PlatesCounter_HasAny,
     TimeToNextPlate = #min{TimeToNextPlate1 : 
         platesCounter_TimeToNextPlate(PlateCounterID1, TimeToNextPlate1)
     },
-    statePUP_PlatesCounter(PlateCounterID, TimeToNextPlate).
+    pup_PlatesCounter(PlateCounterID, TimeToNextPlate).
+
+pup_Target(TargetID) :-
+    state_PickUp_Plate,
+    tmp_pup_Target(_),
+    % take the closest one
+    TargetDistance = #min{Dist :   
+        curr_Player_Counter_Distance(TargetID1, Dist), 
+        tmp_pup_Target(TargetID1)
+    },
+    % if there are multiple at the same distance, take the one with the highest ID 
+    TargetID = #max{TargetID2 :    
+        curr_Player_Counter_Distance(TargetID2, TargetDistance), 
+        tmp_pup_Target(TargetID2)
+    }.
 
 
-a_PickUp(ActionIndex, PlatesCounterID) :-
+a_PickUp(ActionIndex, TargetID) :-
     state_PickUp_Plate,
     ActionIndex = FirstActionIndex,
     firstActionIndex(FirstActionIndex),
-    statePUP_Target(PlatesCounterID).
+    pup_Target(TargetID).
 
 a_Wait(ActionIndex) :-
     state_PickUp_Plate,
