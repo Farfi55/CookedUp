@@ -49,6 +49,10 @@ ko_Player_ID(KitchenObjectID, PlayerID) :-
     ko_HasPlayer(KitchenObjectID),
     s_KO_PlayerID(_,objectIndex(Index),PlayerID).
 
+ko_Curr_Player(KitchenObjectID) :-
+    curr_Player_ID(PlayerID),
+    ko_HasPlayer(KitchenObjectID),
+    ko_Player_ID(KitchenObjectID, PlayerID).
 
 % ================================== PLATE KITCHEN OBJECT ==================================
 

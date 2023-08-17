@@ -191,6 +191,17 @@ playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index) :-
 playerBot_MissingIngredients(PlayerID, IngredientName) :- 
     playerBot_MissingIngredients_Index(PlayerID, IngredientName, _).
 
+playerBot_MissingBaseIngredients(PlayerID, IngredientName, BaseIngredientName) :- 
+    playerBot_MissingIngredients(PlayerID, IngredientName),
+    ingredient_NeedsWork(IngredientName, _, BaseIngredientName).
+
+playerBot_MissingIngredients_Or_Base(PlayerID, IngredientName) :- 
+    playerBot_MissingIngredients(PlayerID, IngredientName).
+
+playerBot_MissingIngredients_Or_Base(PlayerID, BaseIngredientName) :- 
+    playerBot_MissingBaseIngredients(PlayerID, _, BaseIngredientName).
+
+
 playerBot_HasInvalidIngredients(ID) :-
     playerBot_ID_Index(ID,Index),
     s_PlayerBot_HasInvalidIngredients(_,objectIndex(Index), true).

@@ -78,9 +78,9 @@ ingredient_Available_Target(IngredientName, TargetID).
 ingredient_Available(IngredientName).
 ingredient_NotAvailable(IngredientName).
 
-ingredient_NeedsCooking(IngredientName, RecipeName, InputIngredientName).
-ingredient_NeedsCutting(IngredientName, RecipeName, InputIngredientName).
-ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) .
+ingredient_NeedsCooking(IngredientName, RecipeName, BaseIngredientName).
+ingredient_NeedsCutting(IngredientName, RecipeName, BaseIngredientName).
+ingredient_NeedsWork(IngredientName, RecipeName, BaseIngredientName) .
 
 ingredient_ExpectedGetTime(IngredientName, Time).
 
@@ -140,6 +140,8 @@ playerBot_HasMissingIngredients(ID).
 playerBot_HasNoMissingIngredients(ID).
 playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index).
 playerBot_MissingIngredients(PlayerID, IngredientName).
+playerBot_MissingBaseIngredients(PlayerID, IngredientName, BaseIngredientName).
+playerBot_MissingIngredients_Or_Base(PlayerID, IngredientName).
 playerBot_HasInvalidIngredients(ID).
 playerBot_HasNoInvalidIngredients(ID).
 playerBot_HasCompletedRecipe(ID).
@@ -156,7 +158,7 @@ ko_HasOwnerContainer(KitchenObjectID).
 ko_OwnerContainer_ID(KitchenObjectID, OwnerContainerID).
 ko_HasPlayer(KitchenObjectID).
 ko_Player_ID(KitchenObjectID, PlayerID).
-
+ko_Curr_Player(KitchenObjectID). 
 
 % ================================== PLATE KITCHEN OBJECT ==================================
 

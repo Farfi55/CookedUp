@@ -60,7 +60,7 @@ gi_State("PickUp BaseIngredient") :-
     curr_Player_ID(PlayerID),
     player_HasNone(PlayerID),
     not gi_IngredientAvailability("Available"),
-    not gi_Any_WorkCounter_HasCurrent_BaseIngredient.
+    not gi_Any_WorkCounter_HasBaseIngredient.
 
 
 gi_State("Place BaseIngredient") :-
@@ -79,7 +79,7 @@ gi_State("Work On BaseIngredient") :-
     curr_Player_ID(PlayerID),
     player_HasNone(PlayerID),
     not gi_IngredientAvailability("Available"),
-    gi_Any_WorkCounter_HasCurrent_BaseIngredient.
+    gi_Any_WorkCounter_HasBaseIngredient.
 
 gi_State("PickUp FinalIngredient") :-    
     state_GetIngredient,
@@ -149,39 +149,25 @@ gi_FirstActionIndex(Index) :-
     Index = #min{TmpIndex : tmp_gi_FirstActionIndex(TmpIndex)}.
 
 
-
-
-gi_StoveCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
+gi_WorkCounter(CounterID) :-
     state_GetIngredient,
-    stoveCounter_HasAny(CounterID),
-    counter_KO_Name(CounterID, IngredientName).
+    stoveCounter_ID(CounterID).
 
-gi_CuttingCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
+gi_WorkCounter(CounterID) :-
     state_GetIngredient,
-    cuttingCounter_HasAny(CounterID),
-    counter_KO_Name(CounterID, IngredientName).
+    cuttingCounter_ID(CounterID).
 
-gi_WorkCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
-    gi_StoveCounter_HasAny_Ingredient_Name(CounterID, IngredientName).
-
-gi_WorkCounter_HasAny_Ingredient_Name(CounterID, IngredientName) :-
-    gi_CuttingCounter_HasAny_Ingredient_Name(CounterID, IngredientName).
-
-gi_WorkCounter_HasCurrent_BaseIngredient(CounterID) :-
-    gi_WorkCounter_HasAny_Ingredient_Name(CounterID, BaseIngredientName),
-    gi_BaseIngredient(BaseIngredientName).
-
-gi_WorkCounter_HasCurrent_FinalIngredient(CounterID) :-
-    gi_WorkCounter_HasAny_Ingredient_Name(CounterID, IngredientName),
-    gi_FinalIngredient(IngredientName).
-
-gi_Any_WorkCounter_HasCurrent_BaseIngredient :-
-    gi_WorkCounter_HasCurrent_BaseIngredient(_).
-
-gi_Any_WorkCounter_HasCurrent_FinalIngredient :-
-    gi_WorkCounter_HasCurrent_FinalIngredient(_).
+gi_WorkCounter_HasBaseIngredient(CounterID) :-
+    ko(KOID, BaseIngredientName, CounterID),
+    ko_Curr_Player(KOID),
+    gi_BaseIngredient(BaseIngredientName),
+    counter_HasAny(CounterID),
+    gi_WorkCounter(CounterID).
     
 
+
+gi_Any_WorkCounter_HasBaseIngredient :- gi_WorkCounter_HasBaseIngredient(_).
+    
 
 
 % needs cooking or cutting
@@ -221,14 +207,14 @@ tmp_gi_WorkCounter_Target(TargetID) :-
     gi_IngredientAvailability("NeedsCooking"),
     stoveCounter_ID(TargetID),
     counter_HasAny(TargetID),
-    gi_WorkCounter_HasCurrent_BaseIngredient(TargetID).
+    gi_WorkCounter_HasBaseIngredient(TargetID).
 
 tmp_gi_WorkCounter_Target(TargetID) :-
     state_GetIngredient,
     not gi_Must_PlaceBaseIngredient,
     gi_IngredientAvailability("NeedsCutting"),
     cuttingCounter_ID(TargetID),
-    gi_WorkCounter_HasCurrent_BaseIngredient(TargetID).
+    gi_WorkCounter_HasBaseIngredient(TargetID).
 
 
 gi_WorkCounter_Target(TargetID) :-

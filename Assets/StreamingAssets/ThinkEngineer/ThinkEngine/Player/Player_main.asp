@@ -13,6 +13,9 @@ state_PlacePlate :-
     not playerBot_HasCompletedRecipe(PlayerID).
 
 state("GetIngredients") :- state_GetIngredient.
+
+% CASE 1:
+% Player is not carrying anything, and has a valid recipe request.
 state_GetIngredient :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
@@ -22,15 +25,15 @@ state_GetIngredient :-
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
-% TODO: merge with state_GetIngredient
-state("AddIngredient") :- state_AddIngredient.
-state_AddIngredient :-
+% CASE 2:
+% Player is not carrying an ingredient for his recipe.
+state_GetIngredient :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID),
-    player_KO_Name(PlayerID, KitchenObjectName),
-    playerBot_MissingIngredients(PlayerID, KitchenObjectName),
+    player_KO_Name(PlayerID, KOName),
+    playerBot_MissingIngredients_Or_Base(PlayerID, KOName),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
@@ -41,8 +44,8 @@ state_DropIngredient :-
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID),
-    player_KO_Name(PlayerID, KitchenObjectName),
-    not playerBot_MissingIngredients(PlayerID, KitchenObjectName),
+    player_KO_Name(PlayerID, KOName),
+    not playerBot_MissingIngredients_Or_Base(PlayerID, KOName),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
@@ -95,6 +98,9 @@ state_Recipe_Failed :-
     playerBot_HasRecipeRequest(RecipeRequestID),
     playerBot_HasInvalidIngredients(PlayerID).
     
+
+
+
 
 conf_Strict_Level(0).
 
