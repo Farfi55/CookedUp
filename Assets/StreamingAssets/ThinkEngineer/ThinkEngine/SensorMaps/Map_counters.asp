@@ -21,6 +21,9 @@
 counter_ID_Index(ID,Index) :- 
     s_Counter_ID(_,objectIndex(Index),ID).
 
+counter_ID(ID) :-
+    counter_ID_Index(ID,_).
+
 counter(ID, Type, Name) :- 
     s_Counter_ID(_,objectIndex(Index),ID),
     s_Counter_Type(_,objectIndex(Index),Type),

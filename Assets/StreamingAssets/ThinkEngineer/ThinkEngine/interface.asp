@@ -1,6 +1,6 @@
 % ================================== BUILT IN ==================================
 
-currentBrainID(Id).
+currentBrainID(BrainID).
 applyAction(ActionIndex, ActionType).
 actionArgument(ActionIndex, ArgumentName, ArgumentValue).
 
@@ -55,20 +55,20 @@ c_CuttingRecipe_Name(RecipeName).
 
 % ================================== RECIPE REQUESTS ==================================
 
-recipeRequest_ID_Index(ID, Index, Index1).
+recipeRequest_ID_Index(RecipeRequestID, Index, Index1).
 
-recipeRequest_ID(ID).
+recipeRequest_ID(RecipeRequestID).
 
-recipeRequest(ID, RecipeName).
+recipeRequest(RecipeRequestID, RecipeName).
 
-recipeRequest_IngredientsName(ID, IngredientName).
-recipeRequest_TimeToComplete(ID, TimeToComplete).
+recipeRequest_IngredientsName(RecipeRequestID, IngredientName).
+recipeRequest_TimeToComplete(RecipeRequestID, TimeToComplete).
 
-recipeRequest_RemainingTimeToComplete(ID, RemainingTimeToComplete).
+recipeRequest_RemainingTimeToComplete(RecipeRequestID, RemainingTimeToComplete).
 
-recipeRequest_Value(ID, Value).
+recipeRequest_Value(RecipeRequestID, Value).
 
-recipeRequest_Full(ID, RecipeName, TimeToComplete, RemainingTimeToComplete, Value).
+recipeRequest_Full(RecipeRequestID, RecipeName, TimeToComplete, RemainingTimeToComplete, Value).
 
 
 % ================================== COMMON INGREDIENTS ==================================
@@ -82,7 +82,11 @@ ingredient_NeedsCooking(IngredientName, RecipeName, BaseIngredientName).
 ingredient_NeedsCutting(IngredientName, RecipeName, BaseIngredientName).
 ingredient_NeedsWork(IngredientName, RecipeName, BaseIngredientName) .
 
+
+% ================================== COMMON TIME ==================================
+
 ingredient_ExpectedGetTime(IngredientName, Time).
+plate_Recipe_ExpectedTime(PlateID, RecipeName, ExpectedTime).
 
 
 % ================================== COMMON DISTANCE ==================================
@@ -93,24 +97,24 @@ counter_Distance(CounterID1, CounterID2, Distance).
 
 % ================================== PLAYER ==================================
 
-player_ID_Index(ID,Index).
-player_ID(ID).
-curr_Player_ID(ID).
+player_ID_Index(PlayerID, Index).
+player_ID(PlayerID).
+curr_Player_ID(PlayerID).
 
-player(ID, Type, Name).
-player_Pos(ID, X, Y).
+player(PlayerID, Type, Name).
+player_Pos(PlayerID, X, Y).
 
 % Player Selected Interactable
-player_HasSelectedInteractable(ID).
-player_HasNoSelectedInteractable(ID).
+player_HasSelectedInteractable(PlayerID).
+player_HasNoSelectedInteractable(PlayerID).
 player_SelectedInteractable(PlayerID, InteractableID, InteractableType).
 
 % Player Container
-player_Container_Count(ID, Count).
-player_HasSpace(ID).
-player_HasNoSpace(ID).
-player_HasAny(ID).
-player_HasNone(ID).
+player_Container_Count(PlayerID, Count).
+player_HasSpace(PlayerID).
+player_HasNoSpace(PlayerID).
+player_HasAny(PlayerID).
+player_HasNone(PlayerID).
 
 % Player Kitchen Objects
 player_KO(PlayerID, KitchenObjectID, KitchenObjectName).
@@ -121,14 +125,14 @@ player_KO_Name(PlayerID, KitchenObjectName).
 % ================================== PLAYER BOT ==================================
 
 % Player Plate
-playerBot_HasPlate(ID).
+playerBot_HasPlate(PlayerID).
 playerBot_Plate_ID(PlayerID, PlateID).
 playerBot_IsPlateBeingCarried(PlayerID).
 playerBot_Plate_Container_ID(PlayerID, PlateID, ContainerID).
 
 % Player Recipe
-playerBot_HasRecipeRequest(ID).
-playerBot_HasNoRecipeRequest(ID).
+playerBot_HasRecipeRequest(PlayerID).
+playerBot_HasNoRecipeRequest(PlayerID).
 playerBot_RecipeRequest_Name(PlayerID, RecipeName).
 playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 
@@ -136,15 +140,15 @@ playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID).
 % Player Recipe Ingredients
 playerBot_IngredientsNames_Index(PlayerID, IngredientNames, Index).
 playerBot_IngredientsNames(PlayerID, IngredientNames).
-playerBot_HasMissingIngredients(ID).
-playerBot_HasNoMissingIngredients(ID).
+playerBot_HasMissingIngredients(PlayerID).
+playerBot_HasNoMissingIngredients(PlayerID).
 playerBot_MissingIngredients_Index(PlayerID, IngredientName, Index).
 playerBot_MissingIngredients(PlayerID, IngredientName).
 playerBot_MissingBaseIngredients(PlayerID, IngredientName, BaseIngredientName).
 playerBot_MissingIngredients_Or_Base(PlayerID, IngredientName).
-playerBot_HasInvalidIngredients(ID).
-playerBot_HasNoInvalidIngredients(ID).
-playerBot_HasCompletedRecipe(ID).
+playerBot_HasInvalidIngredients(PlayerID).
+playerBot_HasNoInvalidIngredients(PlayerID).
+playerBot_HasCompletedRecipe(PlayerID).
 
 
 % ================================== KITCHEN OBJECTS ==================================
@@ -186,15 +190,16 @@ plate_Any_CompletedRecipe(PlateID).
 
 % ================================== COUNTERS ==================================
 
-counter_ID_Index(ID,Index).
-counter(ID, Type, Name).
-counter_Pos(ID, X, Y).
+counter_ID_Index(CounterID,Index).
+counter_ID(CounterID).
+counter(CounterID, Type, Name).
+counter_Pos(CounterID, X, Y).
 
 % Counter Container
-counter_ContainerID(ID, ContainerID).
-counter_Container_Count(ID, Count).
-counter_HasSpace(ID).
-counter_HasAny(ID).
+counter_ContainerID(CounterID, ContainerID).
+counter_Container_Count(CounterID, Count).
+counter_HasSpace(CounterID).
+counter_HasAny(CounterID).
 
 % Counter Kitchen Objects
 counter_KO(CounterID, KitchenObjectID, KitchenObjectName).

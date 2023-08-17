@@ -3,11 +3,14 @@ import os
 import sys
 from datetime import datetime
 
+PROJECT_PATH = 'C:/Dev/CookedUp'
+
 base_input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
 input_path = ''
 input_index = -1
+input_file_pattern = ''
 
-streaming_assets_path = 'C:\Dev\CookedUp\Assets\StreamingAssets\ThinkEngineer\ThinkEngine/'
+streaming_assets_path = PROJECT_PATH + '/Assets/StreamingAssets/ThinkEngineer/ThinkEngine/'
 
 player_brain_files_patterns = [
     streaming_assets_path + '**/Player*.asp',
@@ -27,6 +30,9 @@ while i < len(sys.argv):
     if sys.argv[i] in ['-i', '--index']:
         input_index =  int(sys.argv[i + 1])
         i += 1
+    if sys.argv[i] in ['-I', '--input-pattern']:
+        input_file_pattern = sys.argv[i + 1]
+        i += 1
     elif sys.argv[i] in ['-p', '--path']:
         input_path = base_input_path + sys.argv[i + 1]
         i += 1
@@ -44,6 +50,7 @@ while i < len(sys.argv):
         print(f"Options:")
         print(f"  -h, --help: show this help")
         print(f"  -i, --index: input index")
+        print(f"  -I, --input-pattern: input file pattern")
         print(f"  -p, --path: input path")
         print(f"  -b, --brain: brain file")
         print(f"  -B, --brain-pattern: brain file pattern")
@@ -64,6 +71,10 @@ if len(list_of_files) == 0:
     print("No input file found")
     exit(1)
 
+
+if input_file_pattern != '':
+    import fnmatch
+    list_of_files = fnmatch.filter(list_of_files, input_file_pattern)    
 
 input_file = list_of_files[input_index]
 
