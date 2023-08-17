@@ -14,6 +14,7 @@ namespace KitchenObjects {
         public KitchenObjectsContainer Container => container;
 
         public bool IsInContainer => container != null;
+        public bool IsVisible => visuals.activeSelf;
 
 
         public event EventHandler OnDestroyed;

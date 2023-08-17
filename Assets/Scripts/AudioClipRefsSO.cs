@@ -9,6 +9,7 @@ public class AudioClipRefsSO : ScriptableObject {
     [SerializeField] private AudioClip[] footstep;
     [SerializeField] private AudioClip[] objectDrop;
     [SerializeField] private AudioClip[] objectPickup;
+    [SerializeField] private AudioClip[] objectDestroy;
     [SerializeField] private AudioClip[] stoveSizzle;
     [SerializeField] private AudioClip[] trash;
     [SerializeField] private AudioClip[] warning;
@@ -28,5 +29,7 @@ public class AudioClipRefsSO : ScriptableObject {
     public AudioClip[] ClockTick => clockTick;
     public AudioClip[] Countdown => countdown;
     public AudioClip[] CountdownEnd => countdownEnd;
+    
+    public AudioClip[] ObjectDestroy => objectDestroy;
     
 }

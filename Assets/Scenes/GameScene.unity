@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipes: {fileID: 11400000, guid: b37a0c3c2a23e92479960ea3d6e7d302, type: 2}
   startingRecipes: []
-  timeToDeliverRecipe: 45
+  timeToDeliverRecipe: 35
   timeForNewRequest: 10
   maxWaitingRequests: 4
   startingWaitingRequests: 2
@@ -3747,7 +3747,7 @@ PrefabInstance:
     - target: {fileID: 1782850665118102057, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_Name
-      value: PlayerBOT_ASP
+      value: PlayerBOT_ASP_Red
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8506,7 +8506,12 @@ PrefabInstance:
     - target: {fileID: 1782850665118102057, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_Name
-      value: PlayerBOT_ASP_1
+      value: PlayerBOT_ASP_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782850665118102057, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4037379426354196591, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}

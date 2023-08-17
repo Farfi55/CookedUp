@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 352343739073143513}
   - component: {fileID: 4001730045868640475}
   - component: {fileID: -6932130693885196704}
+  - component: {fileID: 1510773579829833875}
   m_Layer: 0
   m_Name: _BaseKitchenObject
   m_TagString: Untagged
@@ -324,6 +325,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ac38b3f8d4da39b6535e03a72c276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1510773579829833875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946990666231821564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a306299c8f01c6c4882c78e7de79f622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesPrefab: {fileID: 2263329022690604536, guid: 6587b982a7ea05b4395c0144fa3d4675,
+    type: 3}
 --- !u!1 &6434387365283712270
 GameObject:
   m_ObjectHideFlags: 0

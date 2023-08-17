@@ -127,5 +127,8 @@ public class SoundManager : MonoBehaviour {
         
         OnSfxVolumeChanged?.Invoke(this, new ValueChangedEvent<float>(oldSfxVolume, SfxVolume));
     }
-    
+
+    public void PlayObjectDestroySound(Vector3 position) {
+        PlaySound(audioClipRefsSo.ObjectDestroy, position);
+    }
 }
