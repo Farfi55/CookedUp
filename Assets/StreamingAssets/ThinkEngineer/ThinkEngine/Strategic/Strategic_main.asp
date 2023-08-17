@@ -77,7 +77,7 @@ recipeRequest_Prev(RecipeRequestID, PrevRecipeRequestID) :-
 
 actionIndex_RecipeRequest(0, RecipeRequestID) :-
     recipeRequestToAssign(_),
-    RecipeRequestID = #min{RecipeRequestID1 : recipeRequestToAssign(RecipeRequestID1)}.
+    RecipeRequestID = #min{ RecipeRequestID1 : recipeRequestToAssign(RecipeRequestID1) }.
 
 actionIndex_RecipeRequest(ActionIndex, RecipeRequestID) :-
     ActionIndex = PrevActionIndex + 1,
@@ -111,44 +111,40 @@ playerBot_HasNoInvalidIngredients_ForRecipe(PlayerID, RecipeName) :-
     not playerBot_HasInvalidIngredients_ForRecipe(PlayerID, RecipeName).
 
 
+plate_ValidForRecipe_OwnedByPlayer(PlateID, RecipeName, PlayerID) :-
+    player_ID(PlayerID),
+    plate_ID(PlateID),
+    ko_HasPlayer(PlateID),
+    ko_Player_ID(PlateID, PlayerID),
+    plate_Any_InvalidIngredients(PlateID, RecipeName).
+
+player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName) :-
+    plate_ValidForRecipe_OwnedByPlayer(_, RecipeName, PlayerID).
+
+
 
 % playerBot_Recipe_ExpectedTime is an approximation of the time for a player to complete a
 % recipe if it were assigned to him right now
 % it accounts for time spent cutting or cooking
 % if player already has a plate, the time to get ingredients already in the plate is not added to the time
 
-% case: 1
-% player with plate, with no invalid ingredients
+% CASE: 1
+% player with a valid plate
+playerBot_Recipe_ExceedsTime(PlayerID, RecipeName, ExpectedTime) :-
+    c_CompleteRecipe_Name(RecipeName),
+    playerBot_ID(PlayerID),
+    player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName),
+    ExpectedTime = #min{ ExpectedTime1 : 
+        plate_Recipe_ExpectedTime(PlateID, RecipeName, ExpectedTime1),
+        plate_ValidForRecipe_OwnedByPlayer(PlateID, RecipeName, PlayerID)
+    }.
+
+% CASE 2:
+% player without valid plates
 playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
     c_CompleteRecipe_Name(RecipeName),
     playerBot_ID(PlayerID),
-    playerBot_HasPlate(PlayerID),
-    playerBot_HasNoInvalidIngredients_ForRecipe(PlayerID, RecipeName),
-    IngredientsExpectedTime = #sum{ Time, IngredientName : 
-        ingredient_ExpectedGetTime(IngredientName, Time),
-        playerBot_MissingIngredients_ForRecipe(PlayerID, IngredientName, RecipeName)
-    },
-    ExpectedTime = IngredientsExpectedTime.
-
-% case: 2
-% player with plate, with invalid ingredients
-playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
-    c_CompleteRecipe_Name(RecipeName),
-    playerBot_ID(PlayerID),
-    playerBot_HasPlate(PlayerID),
-    playerBot_HasInvalidIngredients_ForRecipe(PlayerID, RecipeName),
-    IngredientsExpectedTime = #sum{ Time, IngredientName : 
-        ingredient_ExpectedGetTime(IngredientName, Time),
-        c_CompleteRecipe_Ingredient(RecipeName, IngredientName)
-    },
-    ExpectedTime = IngredientsExpectedTime + 1000.
-
-% case: 3
-% player without plate
-playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
-    c_CompleteRecipe_Name(RecipeName),
-    playerBot_ID(PlayerID),    
-    not playerBot_HasPlate(PlayerID),
+    not player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName),
     IngredientsExpectedTime = #sum{ Time, IngredientName : 
         ingredient_ExpectedGetTime(IngredientName, Time),
         c_CompleteRecipe_Ingredient(RecipeName, IngredientName)
