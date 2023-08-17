@@ -35,6 +35,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 668de61a04ca5914aa745f8712c62720, type: 3}
   - {fileID: 8300000, guid: 6728bf8b07482414e99ba965fdd022d8, type: 3}
   - {fileID: 8300000, guid: 32d29abc86751884081d2005f9ff2676, type: 3}
+  objectDestroy:
+  - {fileID: 8300000, guid: c393452bb4de8704c95c4abc059265c4, type: 3}
   stoveSizzle:
   - {fileID: 8300000, guid: 511c1cbfb8b48b64083aec78fe17115f, type: 3}
   trash:

@@ -2,7 +2,8 @@ state("PickUp_Plate") :- state_PickUp_Plate.
 state_PickUp_Plate :-
     curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
-    not playerBot_HasPlate(PlayerID).
+    not playerBot_HasPlate(PlayerID),
+    not player_HasAny(PlayerID).
 
 state("PlacePlate") :- state_PlacePlate.
 state_PlacePlate :-
@@ -39,6 +40,8 @@ state_GetIngredient :-
 
 
 state("DropIngredient") :- state_DropIngredient.
+% CASE 1:
+% Player is carrying an ingredient which is not useful for his recipe.
 state_DropIngredient :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
@@ -49,6 +52,8 @@ state_DropIngredient :-
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
+% CASE 2:
+% Player is carrying an ingredient even tho the recipe is complete.
 state_DropIngredient :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
@@ -56,6 +61,22 @@ state_DropIngredient :-
     player_HasAny(PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
     playerBot_HasCompletedRecipe(PlayerID).
+
+% CASE 3:
+% Player is carrying an ingredient without having a plate.
+state_DropIngredient :-
+    curr_Player_ID(PlayerID),
+    not playerBot_HasPlate(PlayerID),
+    playerBot_HasRecipeRequest(PlayerID),
+    player_HasAny(PlayerID).
+
+% CASE 4:
+% Player is carrying an ingredient without having a recipe request.
+state_DropIngredient :-
+    curr_Player_ID(PlayerID),
+    not playerBot_HasRecipeRequest(PlayerID),
+    player_HasAny(PlayerID).
+
 
 state("PickUp_CompletedPlate") :- state_PickUp_CompletedPlate.
 state_PickUp_CompletedPlate :-

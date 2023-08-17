@@ -30,3 +30,6 @@ ingredient_NeedsWork(IngredientName, RecipeName, InputIngredientName) :-
     ingredient_NeedsCutting(IngredientName, RecipeName, InputIngredientName).
 
 
+% TODO: create a predicate that checks if an ingredient has a use in a recipe
+% or can be used to make another ingredient
+ingredient_IsTrash("MeatPattyBurned").

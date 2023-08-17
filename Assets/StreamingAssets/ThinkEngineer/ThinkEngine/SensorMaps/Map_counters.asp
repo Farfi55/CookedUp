@@ -248,6 +248,15 @@ clearCounter_ID_Index(ID,Index) :-
 clearCounter_ID(ID) :-
     clearCounter_ID_Index(ID,_).
 
+clearCounter_HasSpace(ID) :-
+    clearCounter_ID(ID),
+    counter_HasSpace(ID).
+
+clearCounter_HasAny(ID) :-
+    clearCounter_ID(ID),
+    counter_HasAny(ID).
+
+
 % TRASH COUNTER 
 
 trashCounter_ID_Index(ID,Index) :- 

@@ -82,6 +82,7 @@ ingredient_NeedsCooking(IngredientName, RecipeName, BaseIngredientName).
 ingredient_NeedsCutting(IngredientName, RecipeName, BaseIngredientName).
 ingredient_NeedsWork(IngredientName, RecipeName, BaseIngredientName) .
 
+ingredient_IsTrash(IngredientName).
 
 % ================================== COMMON TIME ==================================
 
@@ -261,6 +262,8 @@ stoveCounter_CurrentCookingRecipe(ID, RecipeName, RecipeInput, RecipeOutput, Rec
 clearCounter_ID_Index(ID,Index).
 clearCounter_ID(ID).
 
+clearCounter_HasSpace(ID).
+clearCounter_HasAny(ID).
 
 % ================================== TRASH COUNTERS ==================================
 

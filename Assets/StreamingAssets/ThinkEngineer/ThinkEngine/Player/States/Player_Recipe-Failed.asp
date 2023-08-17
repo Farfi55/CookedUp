@@ -57,8 +57,7 @@ rf_FirstActionIndex(Index) :-
 
 
 rf_Any_AvailableCounter :- 
-    clearCounter_ID(TargetID),
-    counter_HasSpace(TargetID).
+    clearCounter_HasSpace(TargetID).
 
 rf_Any_AvailablePlates :- 
     platesCounter_ID(PlatesCounterID),
@@ -73,8 +72,7 @@ tmp_rf_Place_OldPlate_Target(TargetID) :-
     state_Recipe_Failed,
     rf_Must_Place_OldPlate,
     rf_Any_AvailableCounter,
-    clearCounter_ID(TargetID),
-    counter_HasSpace(TargetID).
+    clearCounter_HasSpace(TargetID).
 
 tmp_rf_Place_OldPlate_Target(TargetID) :- 
     state_Recipe_Failed,

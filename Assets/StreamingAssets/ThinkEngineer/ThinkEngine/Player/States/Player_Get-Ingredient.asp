@@ -180,7 +180,14 @@ tmp_gi_BaseIngredient_Target(TargetID) :-
 gi_BaseIngredient_Target(TargetID) :-
     state_GetIngredient,
     tmp_gi_BaseIngredient_Target(_),
-    TargetID = #max{TargetID1 : tmp_gi_BaseIngredient_Target(TargetID1)}.
+    TargetDistance = #min{Distance1 : 
+        tmp_gi_BaseIngredient_Target(TargetID1),
+        curr_Player_Counter_Distance(TargetID1, Distance1)
+    },
+    TargetID = #max{TargetID2 : 
+        tmp_gi_BaseIngredient_Target(TargetID2),
+        curr_Player_Counter_Distance(TargetID2, TargetDistance)
+    }.
 
 
 % when the ingredient needs to be worked find a free work counter
@@ -244,7 +251,14 @@ tmp_gi_FinalIngredient_Target(TargetID) :-
 gi_FinalIngredient_Target(TargetID) :-
     state_GetIngredient,
     tmp_gi_FinalIngredient_Target(_),
-    TargetID = #max{TargetID1 : tmp_gi_FinalIngredient_Target(TargetID1)}.
+    TargetDistance = #min{Distance1 : 
+        tmp_gi_FinalIngredient_Target(TargetID1),
+        curr_Player_Counter_Distance(TargetID1, Distance1)
+    },
+    TargetID = #max{TargetID2 : 
+        tmp_gi_FinalIngredient_Target(TargetID2),
+        curr_Player_Counter_Distance(TargetID2, TargetDistance)
+    }.
 
 
 gi_Plate_Target(TargetID) :-
