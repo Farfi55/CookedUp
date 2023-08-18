@@ -8,8 +8,13 @@ using UnityEngine.UI;
 
 namespace UI {
     public class DeliveryManagerSingleUI : MonoBehaviour {
+        
+        [SerializeField] private Animator animator;
+        [SerializeField] private ParticleSystem completedParticles;
+        
         [SerializeField] private TextMeshProUGUI recipeNameText;
         [SerializeField] private TextMeshProUGUI recipeIDText;
+        [SerializeField] private TextMeshProUGUI recipeValueText;
 
         [Header("Ingredients"), SerializeField]
         private Transform ingredientsContainer;
@@ -26,7 +31,12 @@ namespace UI {
         
         private RecipeRequest recipeRequest;
         public RecipeRequest RecipeRequest => recipeRequest;
-
+        
+        
+        private static readonly int CompletedHash = Animator.StringToHash("Completed");
+        private static readonly int Expired = Animator.StringToHash("Expired");
+        private static readonly int ExpiringSpeedHash = Animator.StringToHash("ExpiringSpeed");
+        
         private void OnEnable() {
             ingredientTemplate.gameObject.SetActive(false);
             if (playerIndicatorTemplate != null) {
@@ -67,6 +77,8 @@ namespace UI {
             recipeRequest = request;
             recipeNameText.text = request.Recipe.DisplayName;
             recipeIDText.text = "#" + request.ID;
+            recipeValueText.text = request.Value.ToString("F0");
+            
             recipeRequest.OnRequestCompleted += OnRequestCompleted;
             recipeRequest.OnRequestExpired += OnRequestExpired;
 
@@ -96,23 +108,43 @@ namespace UI {
 
         private void Update() {
             progressTracker.SetWorkRemaining(recipeRequest.RemainingTimeToComplete);
+
+            if (progressTracker.Progress >= 0.75f) {
+                animator.SetFloat(ExpiringSpeedHash, 1f);
+            }
+            else if (progressTracker.Progress >= 0.5f) {
+                animator.SetFloat(ExpiringSpeedHash, 0.5f);
+            }
         }
 
         private void OnRequestCompleted(object sender, EventArgs e) {
-            DestroySelf();
+            animator.SetTrigger(CompletedHash);
+            UnSubscribe();
         }
 
         private void OnRequestExpired(object sender, EventArgs e) {
-            DestroySelf();
+            animator.SetTrigger(Expired);
+            UnSubscribe();
         }
 
         private void DestroySelf() {
-            if (recipeRequest != null) {
+            Destroy(gameObject);
+        }
+
+        private void UnSubscribe()
+        {
+            if (recipeRequest != null)
+            {
                 recipeRequest.OnRequestCompleted -= OnRequestCompleted;
                 recipeRequest.OnRequestExpired -= OnRequestExpired;
             }
+
             PlayerBot.OnAnyRecipeRequestChanged -= OnAnyRecipeRequestChanged;
-            Destroy(gameObject);
+        }
+
+
+        private void StartCompletedParticles() {
+            completedParticles.Play();
         }
     }
 }

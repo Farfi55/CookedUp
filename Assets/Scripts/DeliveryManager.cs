@@ -33,7 +33,8 @@ public class DeliveryManager : MonoBehaviour {
     [SerializeField] private int maxWaitingRequests = 3;
 
     [SerializeField] private int startingWaitingRequests = 1;
-    public int SuccessfulDeliveriesCount { get; private set; } = 0;
+    public int SuccessfulDeliveriesCount { get; private set; }
+    public float SuccessfulDeliveriesValue { get; private set; }
 
 
     public event EventHandler<RecipeRequest> OnRecipeRequestCreated;
@@ -67,6 +68,9 @@ public class DeliveryManager : MonoBehaviour {
         for (int i = waitingRequests.Count; i < startingWaitingRequests; i++) {
             CreateNewRecipe();
         }
+        
+        SuccessfulDeliveriesCount = 0;
+        SuccessfulDeliveriesValue = 0;
     }
 
 
@@ -119,6 +123,7 @@ public class DeliveryManager : MonoBehaviour {
         else { 
             waitingRequests.Remove(recipeRequest);
             SuccessfulDeliveriesCount++;
+            SuccessfulDeliveriesValue += recipeRequest.Value;
             recipeRequest.Complete();
             Debug.Log($"Recipe {recipeRequest.Recipe.DisplayName} delivered!");
             plate.DestroySelf();

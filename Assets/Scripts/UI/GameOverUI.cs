@@ -1,14 +1,21 @@
+using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI
 {
     public class GameOverUI : MonoBehaviour {
 
-        [SerializeField] private TextMeshProUGUI recipesDeliveredText;
+        private DeliveryManager deliveryManager;
+        private GameManager gameManager;
+        [FormerlySerializedAs("recipesDeliveredText")] [SerializeField] private TextMeshProUGUI recipesDeliveredCountText;
+        [SerializeField] private TextMeshProUGUI recipesDeliveredValueText;
         
         private void Start() {
-            GameManager.Instance.OnGameStateChanged += OnGameStateChanged;
+            deliveryManager = DeliveryManager.Instance;
+            gameManager = GameManager.Instance;
+            gameManager.OnGameStateChanged += OnGameStateChanged;
             Hide();
         }
 
@@ -22,7 +29,10 @@ namespace UI
         }
 
         private void Show() {
-            recipesDeliveredText.text = DeliveryManager.Instance.SuccessfulDeliveriesCount.ToString();
+            
+            deliveryManager = DeliveryManager.Instance;
+            recipesDeliveredCountText.text = deliveryManager.SuccessfulDeliveriesCount.ToString();
+            recipesDeliveredValueText.text = deliveryManager.SuccessfulDeliveriesValue.ToString("F0");
             gameObject.SetActive(true);
         }
     
@@ -31,7 +41,7 @@ namespace UI
         }
     
         private void OnDestroy() {
-            GameManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+            gameManager.OnGameStateChanged -= OnGameStateChanged;
         }
     }
 }

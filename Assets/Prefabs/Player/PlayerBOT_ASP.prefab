@@ -1102,7 +1102,7 @@ MonoBehaviour:
   - Common
   prefabBrain: 1
   solverEnum: 1
-  _executeReasonerOn: When Sensors are ready
+  _executeReasonerOn: OnNewSensorIteration
   specificAIFile: 0
   globalAIFile: 0
   solver_options: []
