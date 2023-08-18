@@ -23,7 +23,7 @@ namespace ThinkEngine.Actions
 
         public override void Init() {
             idManager = IDManager.Instance;
-
+            
             if (PlayerID == 0) {
                 player = PlayersManager.Instance.GetPlayer();
             }

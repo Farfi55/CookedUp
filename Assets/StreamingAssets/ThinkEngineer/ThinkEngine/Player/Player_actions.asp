@@ -130,7 +130,7 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_WaitToCook(ActionIndex, T
 % a_Wait(ActionIndex, MilliSecondsToWait).
 % a_Wait(ActionIndex).
 
-a_Wait_DefaultMilliSecondsToWait(300).
+a_Wait_DefaultMilliSecondsToWait(10).
 
 a_Wait(ActionIndex, MilliSecondsToWait) :- 
     a_Wait_DefaultMilliSecondsToWait(MilliSecondsToWait),

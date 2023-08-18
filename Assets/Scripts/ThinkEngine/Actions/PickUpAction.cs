@@ -66,7 +66,7 @@ namespace ThinkEngine.Actions
                 remainingInteractionDelay -= Time.deltaTime;
             }
             
-            if (remainingInteractionDelay <= 0f && IsTargetSelected() && Player.TryInteract()) {
+            if ((remainingInteractionDelay <= 0f || HasReachedTarget) && IsTargetSelected() && Player.TryInteract()) {
                 Debug.Log($"[{GetType().Name}]: player interacted with the target {Target.name}");
                 if(HasInteracted) {
                     return HasPickedUp ? State.READY : State.ABORT;

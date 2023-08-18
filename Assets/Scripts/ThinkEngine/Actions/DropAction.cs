@@ -70,7 +70,7 @@ namespace ThinkEngine.Actions {
                 remainingInteractionDelay -= Time.deltaTime;
             }
             
-            if (remainingInteractionDelay <= 0f && IsTargetSelected() && Player.TryInteract()) {
+            if ((remainingInteractionDelay <= 0f || HasReachedTarget) && IsTargetSelected() && Player.TryInteract()) {
                 if (HasInteracted) {
                     return HasDropped ? State.READY : State.ABORT;
                 }

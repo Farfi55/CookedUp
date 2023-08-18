@@ -5,6 +5,22 @@ using UnityEngine;
 namespace ThinkEngine {
     
     public class ThinkEngineTrigger : ScriptableObject {
+        private int lastSensorIteration = Int32.MinValue;
+        private const int ITERATIONS_BETWEEN_BRAIN_EXECUTION = 1;
 
+
+        public bool OnNewSensorIteration() {
+            var sensorIteration = SensorsManager.iteration;
+            
+            if(sensorIteration >= lastSensorIteration + ITERATIONS_BETWEEN_BRAIN_EXECUTION) {
+                lastSensorIteration = sensorIteration;
+                return true;
+            }
+            
+            return false;
+        }
+        
+        
+        
     }
 }
