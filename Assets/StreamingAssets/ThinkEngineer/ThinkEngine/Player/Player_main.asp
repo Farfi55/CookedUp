@@ -1,9 +1,23 @@
 state("PickUp_Plate") :- state_PickUp_Plate.
+% CASE 1:
+% Player does not have a plate assigned to him.
 state_PickUp_Plate :-
     curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     not playerBot_HasPlate(PlayerID),
     not player_HasAny(PlayerID).
+
+% CASE 2:
+% Player has a plate assigned to him, but it is not the best one for the current recipe.
+state_PickUp_Plate :-
+    curr_Player_ID(PlayerID),
+    playerBot_HasRecipeRequest(PlayerID),
+    playerBot_RecipeRequest_Name(PlayerID, RecipeName),
+    playerBot_HasPlate(PlayerID),
+    playerBot_Plate_ID(PlayerID, PlateID),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    not player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName),
+    not playerBot_HasInvalidIngredients(PlayerID).
 
 state("PlacePlate") :- state_PlacePlate.
 state_PlacePlate :-
@@ -110,25 +124,26 @@ state_Recipe_Failed :-
 state_Recipe_Failed :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
-    playerBot_HasNoRecipeRequest(RecipeRequestID).
+    playerBot_HasNoRecipeRequest(PlayerID).
 
 % CASE 3: Player's plate contains invalid ingredients.
 state_Recipe_Failed :-
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
-    playerBot_HasRecipeRequest(RecipeRequestID),
+    playerBot_HasRecipeRequest(PlayerID),
     playerBot_HasInvalidIngredients(PlayerID).
     
 
 
 
 
-conf_Strict_Level(1).
+conf_Strict_Level(0).
 
 conf_ExtraStrict :- conf_Strict_Level(Level), Level >= 2.
 conf_Strict :- conf_Strict_Level(Level), Level >= 1.
 
-:- conf_Strict, #count{X: state(X)} != 1.
+
+:- conf_Strict, #count{X: state(X)} > 1.
 
 % Can't have multiple actions at the same ActionIndex
 :- conf_Strict, 
@@ -151,14 +166,18 @@ tmp_AnyAction(ActionIndex) :- applyAction(ActionIndex, _).
 
 firstActionIndex(0).
 
+curr_Player_Name(PlayerID, PlayerName) :- 
+    curr_Player_ID(PlayerID), 
+    player(PlayerID, _, PlayerName).
+
 #show curr_Player_ID/1.
+#show curr_Player_Name/2.
 #show state/1.
 #show applyAction/2.
 #show actionArgument/3.
 #show playerBot_Plate_Container_ID/3.
 #show playerBot_Plate_ID/2.
 #show player_HasAny/1.
-#show player/3.
 #show player_KO_Name/2.
 #show player_KO/3.
 #show playerBot_IngredientsNames/2.

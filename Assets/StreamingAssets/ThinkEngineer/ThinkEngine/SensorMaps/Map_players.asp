@@ -93,6 +93,25 @@ player_KO_ID(PlayerID, KitchenObjectID) :-
 player_KO_Name(PlayerID, KitchenObjectName) :-
     player_KO(PlayerID, _, KitchenObjectName).
 
+% player owned plates
+player_OwnedPlate(PlayerID, PlateID) :-
+    player_ID(PlayerID),
+    plate_ID(PlateID),
+    ko_HasPlayer(PlateID),
+    ko_Player_ID(PlateID, PlayerID).
+ 
+player_OwnedPlate_ValidForRecipe(PlayerID, PlateID, RecipeName) :-
+    player_OwnedPlate(PlayerID, PlateID),
+    c_CompleteRecipe_Name(RecipeName),
+    not plate_Any_InvalidIngredients(PlateID, RecipeName).
+
+player_OwnsAnyPlate(PlayerID) :-
+    player_OwnedPlate(PlayerID, _).
+
+player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName) :-
+    player_OwnedPlate_ValidForRecipe(PlayerID, _, RecipeName).
+
+
 
 % ================================== PLAYER BOT ==================================
 

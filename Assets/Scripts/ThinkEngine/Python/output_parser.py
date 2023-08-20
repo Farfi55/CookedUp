@@ -37,6 +37,7 @@ uses_deny_list = len(deny_list) > 0 or len(deny_list_prefixes) > 0
 if not uses_allow_list and not uses_deny_list:
     deny_list_prefixes.append('s_')
     deny_list_prefixes.append('c_')
+    deny_list_prefixes.append('tmp_')
     uses_deny_list = True
 
 

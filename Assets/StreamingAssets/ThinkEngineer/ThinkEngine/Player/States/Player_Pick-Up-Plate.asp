@@ -56,48 +56,41 @@ pup_Target(TargetID) :-
 
 #show tmp_pup_PlatesCounter_Target/1.
 #show pup_Target/1.
-#show pup_ValidPlate/2.
-#show pup_ValidPlate_Recipe_GetTime/2.
+#show pup_Best_ValidPlate/2.
+#show pup_Any_ValidPlate/0.
+#show player_Best_Plate_ValidForRecipe/3.
+#show player_OwnsAnyPlate_ValidForRecipe/2.
 
-pup_ValidPlate(PlateID, OwnerContainerID) :- 
+
+pup_Best_ValidPlate(PlateID, OwnerContainerID) :- 
     state_PickUp_Plate,
-    plate_ID(PlateID),
-    ko_Curr_Player(PlateID),
-    ko_HasOwnerContainer(PlateID),
-    not plate_Any_InvalidIngredients(PlateID, RecipeName),
+    curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     playerBot_RecipeRequest_Name(PlayerID, RecipeName),
-    ko_OwnerContainer_ID(PlateID, OwnerContainerID),
-    counter_ID(OwnerContainerID),
-    not platesCounter_ID(OwnerContainerID).
+    player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName),
+    ko_HasOwnerContainer(PlateID),
+    ko_OwnerContainer_ID(PlateID, OwnerContainerID).
 
-pup_ValidPlate_Recipe_GetTime(PlateID, Time) :-
+pup_Any_ValidPlate :- 
     state_PickUp_Plate,
-    pup_ValidPlate(PlateID, _),
-    plate_Recipe_ExpectedTime(PlateID, RecipeName, Time),
+    curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
-    playerBot_RecipeRequest_Name(PlayerID, RecipeName).
-    
+    playerBot_RecipeRequest_Name(PlayerID, RecipeName),
+    player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName).
 
-
-pup_Any_ValidPlate :- pup_ValidPlate(_, _).
 
 pup_Target(TargetID) :-
     state_PickUp_Plate,
     pup_Any_ValidPlate,
-    % take the plate with the lowest recipe completion time
-    TargetTime = #min{Time1 : pup_ValidPlate_Recipe_GetTime(PlateID1, Time1)},
-    % if there are multiple with the same time, take the closest one
-    TargetDistance = #min{Distance2 : 
-        curr_Player_Counter_Distance(TargetID2, Distance2),
-        pup_ValidPlate(PlateID2, TargetID2),
-        pup_ValidPlate_Recipe_GetTime(PlateID2, TargetTime)
+    % if there are multiple pup_Best_ValidPlate, take the closest one
+    TargetDistance = #min{Distance1 : 
+        curr_Player_Counter_Distance(TargetID1, Distance1),
+        pup_Best_ValidPlate(PlateID1, TargetID1)
     },
     % if there are multiple at the same distance, take the one with the highest ID
-    TargetID = #max{TargetID3 : 
-        curr_Player_Counter_Distance(TargetID3, TargetDistance),
-        pup_ValidPlate(PlateID3, TargetID3),
-        pup_ValidPlate_Recipe_GetTime(PlateID3, TargetTime)
+    TargetID = #max{TargetID2 : 
+        curr_Player_Counter_Distance(TargetID2, TargetDistance),
+        pup_Best_ValidPlate(PlateID2, TargetID2)
     }.
     
 a_PickUp(ActionIndex, TargetID) :-

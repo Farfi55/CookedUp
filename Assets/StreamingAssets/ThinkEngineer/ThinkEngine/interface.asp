@@ -89,6 +89,9 @@ ingredient_IsTrash(IngredientName).
 ingredient_ExpectedGetTime(IngredientName, Time).
 plate_Recipe_ExpectedTime(PlateID, RecipeName, ExpectedTime).
 
+player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName).
+player_Best_Plate_ValidForRecipe_MaxID(PlayerID, PlateID, RecipeName).
+
 
 % ================================== COMMON DISTANCE ==================================
 
@@ -121,6 +124,12 @@ player_HasNone(PlayerID).
 player_KO(PlayerID, KitchenObjectID, KitchenObjectName).
 player_KO_ID(PlayerID, KitchenObjectID).
 player_KO_Name(PlayerID, KitchenObjectName).
+
+% Player owned plates
+player_OwnedPlate(PlayerID, PlateID).
+player_OwnedPlate_ValidForRecipe(PlayerID, PlateID, RecipeName).
+player_OwnsAnyPlate(PlayerID). 
+player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName).
 
 
 % ================================== PLAYER BOT ==================================

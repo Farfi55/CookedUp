@@ -2,6 +2,9 @@
 
 % a_MoveTo_Target(ActionIndex, TargetID).
 % a_MoveTo_Pos(ActionIndex, GridX,GridY).
+#show a_MoveTo_Target/2.
+#show a_MoveTo_Pos/3.
+
 
 a_MoveTo_Generic(ActionIndex) :- 
     a_MoveTo_Target(ActionIndex, _).
@@ -26,6 +29,7 @@ actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_MoveTo_Generic(ActionInde
 % ================================== Pick Up ==================================
 
 % a_PickUp(ActionIndex, TargetInteractableID).
+#show a_PickUp/2.
 
 applyAction(ActionIndex, "PickUpAction") :- 
     a_PickUp(ActionIndex, _).
@@ -39,6 +43,7 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_PickUp(ActionIndex, Targe
 
 % a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 % a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName).
+#show a_PickUpIngredient/3.
 
 a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
     a_PickUpIngredient(ActionIndex, TargetInteractableID, IngredientName),
@@ -58,6 +63,7 @@ actionArgument(ActionIndex, "RecipeRequestID", RecipeRequestID) :- a_PickUpIngre
 
 % a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 % a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName).
+#show a_PickUpIngredient_ToCook/3.
 
 a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
     a_PickUpIngredient_ToCook(ActionIndex, TargetInteractableID, IngredientName),
@@ -74,6 +80,7 @@ actionArgument(ActionIndex, "RequiresCooking", true) :- a_PickUpIngredient_ToCoo
 
 % a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID).
 % a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName).
+#show a_PickUpIngredient_ToCut/3.
 
 a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName, RecipeRequestID) :-
     a_PickUpIngredient_ToCut(ActionIndex, TargetInteractableID, IngredientName),
@@ -90,6 +97,7 @@ actionArgument(ActionIndex, "RequiresCutting", true) :- a_PickUpIngredient_ToCut
 
 % a_Drop(ActionIndex, TargetInteractableID).
 % a_Place(ActionIndex, TargetInteractableID).
+#show a_Drop/2.
 
 a_Drop(ActionIndex, TargetInteractableID) :- 
     a_Place(ActionIndex, TargetInteractableID).
@@ -108,6 +116,7 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_Drop(ActionIndex, TargetI
 % ================================== Cut ==================================
 
 % a_Cut(ActionIndex, TargetInteractableID).
+#show a_Cut/2.
 
 applyAction(ActionIndex, "CutAction") :-  
     a_Cut(ActionIndex, _).
@@ -118,6 +127,7 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_Cut(ActionIndex, TargetID
 % ================================== Cook ==================================
 
 % a_WaitToCook(ActionIndex, TargetInteractableID).
+#show a_WaitToCook/2.
 
 applyAction(ActionIndex, "WaitToCookAction") :- 
     a_WaitToCook(ActionIndex, _).
@@ -129,6 +139,7 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_WaitToCook(ActionIndex, T
 
 % a_Wait(ActionIndex, MilliSecondsToWait).
 % a_Wait(ActionIndex).
+#show a_Wait/2.
 
 a_Wait_DefaultMilliSecondsToWait(10).
 

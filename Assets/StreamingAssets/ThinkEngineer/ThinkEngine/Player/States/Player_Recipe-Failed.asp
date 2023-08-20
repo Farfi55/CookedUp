@@ -15,13 +15,13 @@ rf_State("Recipe Request Expired") :-
     state_Recipe_Failed,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
-    playerBot_HasNoRecipeRequest(RecipeRequestID).
+    playerBot_HasNoRecipeRequest(PlayerID).
 
 rf_State("Plate Has Invalid Ingredients") :-
     state_Recipe_Failed,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
-    playerBot_HasRecipeRequest(RecipeRequestID),
+    playerBot_HasRecipeRequest(PlayerID),
     playerBot_HasInvalidIngredients(PlayerID).
     
 
