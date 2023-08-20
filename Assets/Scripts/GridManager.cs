@@ -17,8 +17,18 @@ public class GridManager : MonoBehaviour
         }
         
         Grid = GetComponent<Grid>();
-        if (Grid == null) 
+        if (Grid == null) {
             Debug.LogError("GridManager has no Grid component");
+            return;
+        }
+
+
+        if (Grid.cellSwizzle != GridLayout.CellSwizzle.XZY) {
+            Debug.LogError($"GridManager's Grid component has wrong cellSwizzle, should be XZY, is {Grid.cellSwizzle}.\n" +
+                           "automatically setting cellSwizzle to XZY...");
+            Grid.cellSwizzle = GridLayout.CellSwizzle.XZY;
+        }
+            
     }
     
     
