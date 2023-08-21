@@ -1,0 +1,18 @@
+{
+    "name": "CookedUp.ThinkEngine",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d26139dc8bb3f614a9f0ddc00d9638d4",
+        "GUID:936029dba90ec6b44b0889f932a3a79e",
+        "GUID:e3b5706a68e6c28499599e466da25302"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
