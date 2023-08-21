@@ -18,7 +18,6 @@ namespace Players {
             playerInput.OnInteractAlternateCanceled += HandleAlternateInteractionCanceledInput;
             
             playerInput.OnReady += HandleReadyInput;
-            playerInput.OnPause += HandlePauseInput;
         }
 
         private void Update() {
@@ -35,7 +34,6 @@ namespace Players {
             playerInput.OnInteractAlternateCanceled -= HandleAlternateInteractionCanceledInput;
             
             playerInput.OnReady -= HandleReadyInput;
-            playerInput.OnPause -= HandlePauseInput;
         }
         
         private void HandleInteractionInput(object sender, EventArgs e) => player.TryInteract();
@@ -46,6 +44,5 @@ namespace Players {
         
         private void HandleReadyInput(object sender, EventArgs e) => player.OnReady();
         
-        private void HandlePauseInput(object sender, EventArgs e) => gameManager.TogglePause();
     }
 }

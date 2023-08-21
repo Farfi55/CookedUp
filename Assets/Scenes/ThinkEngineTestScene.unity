@@ -2300,6 +2300,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5543880896841615993, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543880896841615993, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543880896841615993, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543880896841615993, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644784456718016576, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644784456718016576, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906157262577722230, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906157262577722230, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906157262577722230, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906157262577722230, guid: 2866683fcf480bf4cba185fce1e594bf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6400867533767010388, guid: 2866683fcf480bf4cba185fce1e594bf,
         type: 3}
       propertyPath: m_Name

@@ -13,8 +13,6 @@ namespace Players
         public event EventHandler OnInteractAlternateCanceled;
         public event EventHandler OnReady;
 
-        public event EventHandler OnPause;
-
 
         private void Awake() {
             inputActions = new PlayerInputActions();
@@ -27,8 +25,6 @@ namespace Players
             inputActions.Player.InteractAlternate.canceled += InteractAlternateCanceled;
             
             inputActions.Player.Ready.performed += ReadyPerformed;
-            
-            inputActions.Player.Pause.performed += PausePerformed;
         }
 
        
@@ -41,8 +37,6 @@ namespace Players
             inputActions.Player.InteractAlternate.canceled -= InteractAlternateCanceled;
             
             inputActions.Player.Ready.performed -= ReadyPerformed;
-            
-            inputActions.Player.Pause.performed -= PausePerformed;
 
             inputActions.Dispose();
         }
@@ -78,11 +72,6 @@ namespace Players
         
         private void ReadyPerformed(InputAction.CallbackContext obj) {
             OnReady?.Invoke(this, EventArgs.Empty);
-        }
-        
-        
-        private void PausePerformed(InputAction.CallbackContext obj) {
-            OnPause?.Invoke(this, EventArgs.Empty);
         }
 
     }
