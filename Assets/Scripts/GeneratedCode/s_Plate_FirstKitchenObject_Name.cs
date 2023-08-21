@@ -64,7 +64,7 @@ namespace ThinkEngine
             }
             catch (NullReferenceException nullEx)
             {
-                UnityEngine.Debug.LogError(nullEx.Message);
+                // UnityEngine.Debug.LogError(nullEx.Message);
                 values.Clear();
                 return;
             }
