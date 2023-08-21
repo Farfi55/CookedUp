@@ -1,7 +1,8 @@
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
+using Shared;
 using UnityEngine;
 
-namespace Counters.Visual
+namespace CookedUp.Core.Counters.Visual
 {
     public class StoveCounterVisual : MonoBehaviour {
 

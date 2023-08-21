@@ -1,10 +1,10 @@
-﻿using System;
-using KitchenObjects;
-using KitchenObjects.Container;
-using Players;
+﻿using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
+using Shared;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class KOSensorData : MonoBehaviour {
         
         private IDManager idManager;

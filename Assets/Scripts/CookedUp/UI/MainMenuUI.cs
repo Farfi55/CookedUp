@@ -1,8 +1,8 @@
-using System;
+using Shared;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class MainMenuUI : MonoBehaviour {
         [SerializeField] private Button playButton;

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using KitchenObjects.ScriptableObjects;
-using Players;
+using CookedUp.Core;
+using CookedUp.Core.Players;
+using Shared;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI {
+namespace CookedUp.UI {
     public class DeliveryManagerSingleUI : MonoBehaviour {
         
         [SerializeField] private Animator animator;

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using KitchenObjects.ScriptableObjects;
-using ThinkEngine.Models;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.ThinkEngine.Models;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class ConstantsSensorData : MonoBehaviour {
         [SerializeField] private CompleteRecipeSOList completeRecipesSos;
         [SerializeField] private List<CookingRecipeSO> cookingRecipesSos;

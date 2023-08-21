@@ -1,6 +1,7 @@
+using Shared;
 using UnityEngine;
 
-namespace KitchenObjects
+namespace CookedUp.Core.KitchenObjects
 {
     public class KODestroy : MonoBehaviour {
     

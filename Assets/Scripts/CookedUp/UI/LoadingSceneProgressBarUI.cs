@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Shared;
+using UnityEngine;
 
-namespace UI {
+namespace CookedUp.UI {
     
     public class LoadingSceneProgressBarUI : MonoBehaviour {
         [SerializeField] private ProgressTracker progressTracker;

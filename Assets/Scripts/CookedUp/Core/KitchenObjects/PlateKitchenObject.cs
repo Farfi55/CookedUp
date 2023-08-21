@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects.Container;
 using UnityEngine;
 
-namespace KitchenObjects
+namespace CookedUp.Core.KitchenObjects
 {
     public class PlateKitchenObject : KitchenObject {
 

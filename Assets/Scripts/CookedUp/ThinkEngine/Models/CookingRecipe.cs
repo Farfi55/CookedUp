@@ -1,7 +1,7 @@
 ﻿using System;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
 
-namespace ThinkEngine.Models {
+namespace CookedUp.ThinkEngine.Models {
     
     [Serializable]
     public class CookingRecipe {

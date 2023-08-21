@@ -1,6 +1,7 @@
 using System;
+using CookedUp.Core.KitchenObjects;
 
-namespace ThinkEngine.Models
+namespace CookedUp.ThinkEngine.Models
 {
     [Serializable]
     public class KitchenObjectASP
@@ -15,7 +16,7 @@ namespace ThinkEngine.Models
             ContainerID = containerID;
         }
         
-        public KitchenObjectASP(KitchenObjects.KitchenObject ko) {
+        public KitchenObjectASP(KitchenObject ko) {
             var idManager = IDManager.Instance;
             Name = ko.KitchenObjectSO.name;
             ID = idManager.GetID(ko.gameObject);

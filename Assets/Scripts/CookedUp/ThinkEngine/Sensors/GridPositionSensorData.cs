@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using CookedUp.Core;
+using UnityEngine;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class GridPositionSensorData : MonoBehaviour {
         
         [SerializeField] private Transform target;

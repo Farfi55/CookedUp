@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Players
+namespace CookedUp.Core.Players
 {
     [CreateAssetMenu(menuName = "CookedUp/PlayerColorSO", fileName = "PlayerColor", order = 10)]
     public class PlayerColorSO : ScriptableObject {

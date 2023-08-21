@@ -1,10 +1,10 @@
 using System;
-using Counters;
-using KitchenObjects;
-using KitchenObjects.Container;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using Shared;
 using UnityEngine;
 
-namespace Players {
+namespace CookedUp.Core.Players {
     [RequireComponent(typeof(KitchenObjectsContainer))]
     public class Player : MonoBehaviour {
         private KitchenObjectsContainer container;

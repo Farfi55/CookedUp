@@ -1,8 +1,8 @@
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class KitchenObjectIconUI : MonoBehaviour {
     

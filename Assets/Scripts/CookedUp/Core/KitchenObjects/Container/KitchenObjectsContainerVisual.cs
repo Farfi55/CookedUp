@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KitchenObjects.Container
+namespace CookedUp.Core.KitchenObjects.Container
 {
     public class KitchenObjectsContainerVisual : MonoBehaviour {
         private KitchenObjectsContainer container;

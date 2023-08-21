@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using KitchenObjects;
-using KitchenObjects.Container;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
 using UnityEngine;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class PlatesIconUI : MonoBehaviour
     {

@@ -1,9 +1,8 @@
 using System;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects.Container;
 using UnityEngine;
 
-namespace KitchenObjects
+namespace CookedUp.Core.KitchenObjects
 {
     [RequireComponent(typeof(PlateKitchenObject))]
     public class PlateVisuals : MonoBehaviour {

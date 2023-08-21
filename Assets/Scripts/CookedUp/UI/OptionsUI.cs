@@ -1,9 +1,11 @@
 using System;
+using CookedUp.Core;
+using Shared;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class OptionsUI : MonoBehaviour {
         private SoundManager soundManager;

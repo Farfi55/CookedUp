@@ -1,8 +1,8 @@
 using System;
-using KitchenObjects;
-using Players;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.Players;
 
-namespace Counters {
+namespace CookedUp.Core.Counters {
     public class TrashCounter : BaseCounter {
         public static event EventHandler<TrashedEvent> OnAnyTrashed;
 

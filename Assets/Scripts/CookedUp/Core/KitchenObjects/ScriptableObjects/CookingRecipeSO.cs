@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KitchenObjects.ScriptableObjects
+namespace CookedUp.Core.KitchenObjects
 {
     [CreateAssetMenu(fileName = "new CookingRecipeSO", menuName = "CookedUp/Cooking Recipe", order = 2)]
     public class CookingRecipeSO : BaseRecipeSO {

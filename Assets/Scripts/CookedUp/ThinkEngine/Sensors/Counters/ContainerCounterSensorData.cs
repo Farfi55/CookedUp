@@ -1,8 +1,7 @@
-﻿using System;
-using Counters;
+﻿using CookedUp.Core.Counters;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors.Counters {
+namespace CookedUp.ThinkEngine.Sensors.Counters {
     public class ContainerCounterSensorData : MonoBehaviour {
         [SerializeField] private ContainerCounter containerCounter;
         

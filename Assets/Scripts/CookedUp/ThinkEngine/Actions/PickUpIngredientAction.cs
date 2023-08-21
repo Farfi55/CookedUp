@@ -1,12 +1,12 @@
 ﻿using System;
+using CookedUp.Core;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.Players;
 using JetBrains.Annotations;
-using KitchenObjects.ScriptableObjects;
-using Players;
-using ThinkEngine.Models;
 using ThinkEngine.Planning;
 using UnityEngine;
 
-namespace ThinkEngine.Actions {
+namespace CookedUp.ThinkEngine.Actions {
     class PickUpIngredientAction : PickUpAction {
         protected RecipesMapperManager RecipesMapperManager;
         protected DeliveryManager DeliveryManager;

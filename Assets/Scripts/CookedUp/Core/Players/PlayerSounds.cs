@@ -1,9 +1,7 @@
-﻿using System;
-using KitchenObjects;
-using Unity.VisualScripting;
+﻿using CookedUp.Core.KitchenObjects;
 using UnityEngine;
 
-namespace Players {
+namespace CookedUp.Core.Players {
     [RequireComponent(typeof(Player))]
     public class PlayerSounds : MonoBehaviour {
 

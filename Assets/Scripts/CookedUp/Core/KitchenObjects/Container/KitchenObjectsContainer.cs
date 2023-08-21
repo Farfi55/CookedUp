@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using KitchenObjects.ScriptableObjects;
 using UnityEngine;
 
-namespace KitchenObjects.Container
+namespace CookedUp.Core.KitchenObjects.Container
 {
     public class KitchenObjectsContainer : MonoBehaviour {
         private List<KitchenObject> kitchenObjects = new();

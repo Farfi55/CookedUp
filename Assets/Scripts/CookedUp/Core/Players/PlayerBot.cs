@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using KitchenObjects;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using Shared;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.LowLevel;
 
-namespace Players {
+namespace CookedUp.Core.Players {
     public class PlayerBot : MonoBehaviour {
         
         [SerializeField] private NavMeshAgent agent;

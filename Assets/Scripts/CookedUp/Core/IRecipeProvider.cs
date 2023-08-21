@@ -1,7 +1,11 @@
 using System;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
+using Shared;
 
-public interface IRecipeProvider {
-    BaseRecipeSO CurrentRecipe { get; }
-    event EventHandler<ValueChangedEvent<BaseRecipeSO>> OnRecipeChanged;
+namespace CookedUp.Core
+{
+    public interface IRecipeProvider {
+        BaseRecipeSO CurrentRecipe { get; }
+        event EventHandler<ValueChangedEvent<BaseRecipeSO>> OnRecipeChanged;
+    }
 }

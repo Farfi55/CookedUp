@@ -1,6 +1,7 @@
 ﻿using System;
+using CookedUp.Core;
 
-namespace ThinkEngine.Models
+namespace CookedUp.ThinkEngine.Models
 {
     [Serializable]
     public class RecipeRequestASP : CompleteRecipeASP {

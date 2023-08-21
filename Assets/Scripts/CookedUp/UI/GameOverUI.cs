@@ -1,9 +1,10 @@
-using System.Globalization;
+using CookedUp.Core;
+using Shared;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class GameOverUI : MonoBehaviour {
 

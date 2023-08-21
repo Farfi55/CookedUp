@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Counters.Visual
+namespace CookedUp.Core.Counters.Visual
 {
     [RequireComponent(typeof(CuttingCounter))]
     public class CuttingCounterVisual : MonoBehaviour {

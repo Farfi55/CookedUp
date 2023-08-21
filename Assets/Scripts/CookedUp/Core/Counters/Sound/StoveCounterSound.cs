@@ -1,8 +1,8 @@
-using System;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
+using Shared;
 using UnityEngine;
 
-namespace Counters.Sound
+namespace CookedUp.Core.Counters.Sound
 {
     public class StoveCounterSound : MonoBehaviour {
         private SoundManager soundManager;

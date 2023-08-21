@@ -1,8 +1,9 @@
-using System;
+using CookedUp.Core;
+using Shared;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class GamePausedUI : MonoBehaviour
     {

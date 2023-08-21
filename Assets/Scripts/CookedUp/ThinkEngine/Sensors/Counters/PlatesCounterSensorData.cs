@@ -1,10 +1,9 @@
-﻿using System;
-using Counters;
-using KitchenObjects.Container;
-using ThinkEngine.Models;
+﻿using CookedUp.Core.Counters;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.ThinkEngine.Models;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors.Counters {
+namespace CookedUp.ThinkEngine.Sensors.Counters {
     public class PlatesCounterSensorData : MonoBehaviour {
         [SerializeField] private PlatesCounter platesCounter;
 

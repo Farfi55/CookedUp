@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using KitchenObjects.Container;
-using ThinkEngine.Models;
+﻿using System.Collections.Generic;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.ThinkEngine.Models;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class KOContainerSensorData : MonoBehaviour {
         
         private IDManager idManager;

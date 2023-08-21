@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Players
+namespace CookedUp.Core.Players
 {
     [RequireComponent(typeof(Animator))]
     public class PlayerAnimator : MonoBehaviour {

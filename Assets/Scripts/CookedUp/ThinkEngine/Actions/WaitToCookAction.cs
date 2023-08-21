@@ -1,9 +1,10 @@
-﻿using Counters;
-using KitchenObjects.ScriptableObjects;
+﻿using CookedUp.Core.Counters;
+using CookedUp.Core.KitchenObjects;
+using Shared;
 using ThinkEngine.Planning;
 using UnityEngine;
 
-namespace ThinkEngine.Actions
+namespace CookedUp.ThinkEngine.Actions
 {
     public class WaitToCookAction : InteractAction
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Players {
+namespace CookedUp.Core.Players {
     public class PlayerInputHandler : MonoBehaviour {
         private GameManager gameManager;
         

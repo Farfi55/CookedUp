@@ -1,11 +1,12 @@
 ﻿using System;
-using KitchenObjects.Container;
-using Players;
+using CookedUp.Core;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
 using ThinkEngine.Planning;
 using UnityEngine;
 using Action = ThinkEngine.Planning.Action;
 
-namespace ThinkEngine.Actions {
+namespace CookedUp.ThinkEngine.Actions {
     public abstract class InteractAction : Action, IPlayerAction {
         public int PlayerID { get; set; }
         public int TargetID { get; set; }

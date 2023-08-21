@@ -1,7 +1,8 @@
-using Counters;
+using CookedUp.Core;
+using CookedUp.Core.Counters;
 using UnityEngine;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class DeliveryResultUI : MonoBehaviour
     {

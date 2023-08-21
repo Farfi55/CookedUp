@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects;
 using UnityEngine;
 
-namespace ThinkEngine {
+namespace CookedUp.ThinkEngine {
     public class RecipesMapperManager : MonoBehaviour {
         public static RecipesMapperManager Instance { get; private set; }
         

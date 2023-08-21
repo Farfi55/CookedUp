@@ -1,8 +1,10 @@
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core;
+using CookedUp.Core.KitchenObjects;
+using Shared;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class ProgressBarUI : MonoBehaviour {
 

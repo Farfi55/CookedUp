@@ -1,8 +1,8 @@
-using Extensions;
+using Shared.Extensions;
 using UnityEditor;
 using UnityEngine;
 
-namespace KitchenObjects.ScriptableObjects
+namespace CookedUp.Core.KitchenObjects
 {
     [CreateAssetMenu(fileName = "new KitchenObject", menuName = "CookedUp/KitchenObject", order = 0)]
     public class KitchenObjectSO : ScriptableObject {

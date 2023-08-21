@@ -1,10 +1,10 @@
-﻿using System;
-using Counters;
-using KitchenObjects.ScriptableObjects;
-using ThinkEngine.Models;
+﻿using CookedUp.Core.Counters;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.ThinkEngine.Models;
+using Shared;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors.Counters {
+namespace CookedUp.ThinkEngine.Sensors.Counters {
     public class CuttingCounterSensorData : MonoBehaviour {
         [SerializeField] private CuttingCounter cuttingCounter;
 

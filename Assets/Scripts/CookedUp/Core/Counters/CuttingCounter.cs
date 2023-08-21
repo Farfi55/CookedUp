@@ -1,13 +1,12 @@
 using System;
 using System.Linq;
-using KitchenObjects;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
-using Players;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
+using Shared;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Counters
+namespace CookedUp.Core.Counters
 {
     [RequireComponent(typeof(KitchenObjectsContainer))]
     [RequireComponent(typeof(ProgressTracker))]

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using KitchenObjects.ScriptableObjects;
 using UnityEngine;
 
-namespace ThinkEngine {
+namespace CookedUp.ThinkEngine {
     public class IDManager : MonoBehaviour {
         public static IDManager Instance { get; private set; }
 

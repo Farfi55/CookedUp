@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using KitchenObjects;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
-using Players;
-using ThinkEngine.Models;
+using CookedUp.Core;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
+using CookedUp.ThinkEngine.Models;
+using Shared;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class PlayerBotSensorData : MonoBehaviour {
         private IDManager idManager;
 

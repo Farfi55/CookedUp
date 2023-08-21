@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects.Container;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace KitchenObjects
+namespace CookedUp.Core.KitchenObjects
 {
     public class RecipeArrangement : MonoBehaviour, ICustomArrangementProvider {
         [SerializeField] private CompleteRecipeSO completeRecipeSO;

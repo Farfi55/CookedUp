@@ -1,8 +1,10 @@
 using System;
+using CookedUp.Core;
+using Shared;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class GameStartCountDownUI : MonoBehaviour
     {

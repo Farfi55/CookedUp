@@ -1,10 +1,10 @@
-using KitchenObjects;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
-using Players;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
+using Shared;
 using UnityEngine;
 
-namespace Counters
+namespace CookedUp.Core.Counters
 {
     public class PlatesCounter : BaseCounter {
 

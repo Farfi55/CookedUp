@@ -1,8 +1,8 @@
-﻿using System;
+﻿using CookedUp.Core;
 using ThinkEngine.Planning;
 using UnityEngine;
 
-namespace ThinkEngine.Actions
+namespace CookedUp.ThinkEngine.Actions
 {
     public class PickUpAction : InteractAction
     {

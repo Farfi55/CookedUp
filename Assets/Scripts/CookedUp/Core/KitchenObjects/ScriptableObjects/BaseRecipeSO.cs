@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KitchenObjects.ScriptableObjects
+namespace CookedUp.Core.KitchenObjects
 {
     public abstract class BaseRecipeSO : ScriptableObject {
 

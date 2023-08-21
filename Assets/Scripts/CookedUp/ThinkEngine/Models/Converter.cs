@@ -1,4 +1,4 @@
-﻿namespace ThinkEngine.Models {
+﻿namespace CookedUp.ThinkEngine.Models {
     public static class Converter {
         
         public const int FLOAT_TO_INT_MULTIPLIER = 1000;

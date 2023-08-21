@@ -1,7 +1,7 @@
-using KitchenObjects.Container;
-using Players;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
 
-namespace Counters
+namespace CookedUp.Core.Counters
 {
     public class DeliveryCounter : BaseCounter
     {

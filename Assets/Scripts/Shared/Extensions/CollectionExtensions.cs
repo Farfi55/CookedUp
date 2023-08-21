@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using Random = UnityEngine.Random;
 
-namespace Extensions {
+namespace Shared.Extensions {
     public static class CollectionExtensions {
         public static T GetRandomElement<T>(this List<T> list) {
             return list[Random.Range(0, list.Count)];

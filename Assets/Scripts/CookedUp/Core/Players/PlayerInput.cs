@@ -1,8 +1,9 @@
 using System;
+using Players;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Players
+namespace CookedUp.Core.Players
 {
     public class PlayerInput : MonoBehaviour {
         private PlayerInputActions inputActions;

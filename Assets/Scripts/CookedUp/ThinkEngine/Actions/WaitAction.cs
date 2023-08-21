@@ -1,8 +1,8 @@
-﻿using Players;
+﻿using CookedUp.Core.Players;
 using ThinkEngine.Planning;
 using UnityEngine;
 
-namespace ThinkEngine.Actions
+namespace CookedUp.ThinkEngine.Actions
 {
     class WaitAction : Action, IPlayerAction
     {

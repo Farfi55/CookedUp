@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using System.Collections.Specialized;
+using CookedUp.Core;
 using UnityEngine;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class DeliveryManagerUI : MonoBehaviour {
         [SerializeField] private Transform container;

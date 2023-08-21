@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Players
+namespace CookedUp.Core.Players
 {
     public class PlayerVisual : MonoBehaviour
     {

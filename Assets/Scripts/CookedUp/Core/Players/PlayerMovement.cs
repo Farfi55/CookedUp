@@ -1,8 +1,9 @@
 ﻿using System;
+using Shared;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Players {
+namespace CookedUp.Core.Players {
     public class PlayerMovement : MonoBehaviour {
         [SerializeField] private Player player;
         [SerializeField] private Rigidbody rb;

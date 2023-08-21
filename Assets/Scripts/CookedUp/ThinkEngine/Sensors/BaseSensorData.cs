@@ -1,7 +1,6 @@
-﻿using Unity.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class BaseSensorData : MonoBehaviour {
         
         private IDManager idManager;

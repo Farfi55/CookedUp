@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Extensions;
+using Shared.Extensions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace KitchenObjects.ScriptableObjects
+namespace CookedUp.Core.KitchenObjects
 {
     [CreateAssetMenu(fileName = "new CompleteRecipeSO", menuName = "CookedUp/Complete Recipe", order = 3)]
     public class CompleteRecipeSO : ScriptableObject {

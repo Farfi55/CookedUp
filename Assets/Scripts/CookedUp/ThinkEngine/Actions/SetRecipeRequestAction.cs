@@ -1,8 +1,9 @@
-﻿using Players;
+﻿using CookedUp.Core;
+using CookedUp.Core.Players;
 using ThinkEngine.Planning;
 using UnityEngine;
 
-namespace ThinkEngine.Actions
+namespace CookedUp.ThinkEngine.Actions
 {
     class SetRecipeRequestAction : Action, IPlayerAction
     {

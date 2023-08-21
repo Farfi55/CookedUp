@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Extensions;
-using Unity.VisualScripting.Dependencies.NCalc;
+using Shared.Extensions;
 using UnityEngine;
 
-namespace Players {
+namespace CookedUp.Core.Players {
     public class PlayersManager : MonoBehaviour {
         public static PlayersManager Instance { get; private set; }
 

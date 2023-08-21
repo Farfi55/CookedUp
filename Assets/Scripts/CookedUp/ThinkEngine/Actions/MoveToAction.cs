@@ -1,10 +1,10 @@
-﻿using System;
-using Players;
+﻿using CookedUp.Core;
+using CookedUp.Core.Players;
 using ThinkEngine.Planning;
 using UnityEngine;
 using Action = ThinkEngine.Planning.Action;
 
-namespace ThinkEngine.Actions {
+namespace CookedUp.ThinkEngine.Actions {
     public class MoveToAction : Action, IPlayerAction {
         public int PlayerID { get; set; }
         public int TargetID { get; set; }

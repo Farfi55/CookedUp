@@ -1,9 +1,9 @@
 using System;
-using KitchenObjects.Container;
-using KitchenObjects.ScriptableObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using Shared;
 using UnityEngine;
 
-namespace KitchenObjects {
+namespace CookedUp.Core.KitchenObjects {
     public class KitchenObject : MonoBehaviour {
         [SerializeField] private KitchenObjectSO kitchenObjectSO;
         [SerializeField] private GameObject visuals;

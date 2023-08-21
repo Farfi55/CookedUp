@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using KitchenObjects.ScriptableObjects;
-using ThinkEngine.Models;
+using CookedUp.Core;
+using CookedUp.ThinkEngine.Models;
 using UnityEngine;
 
-namespace ThinkEngine.Sensors {
+namespace CookedUp.ThinkEngine.Sensors {
     public class DeliverySensorData : MonoBehaviour {
         private DeliveryManager deliveryManager;
         

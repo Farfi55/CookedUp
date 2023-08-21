@@ -1,8 +1,9 @@
+using CookedUp.Core;
+using Shared;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace UI
+namespace CookedUp.UI
 {
     public class PlayingClockUI : MonoBehaviour {
         private SoundManager soundManager;

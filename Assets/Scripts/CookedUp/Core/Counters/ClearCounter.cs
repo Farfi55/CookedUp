@@ -1,9 +1,9 @@
-using KitchenObjects;
-using KitchenObjects.Container;
-using Players;
+using CookedUp.Core.KitchenObjects;
+using CookedUp.Core.KitchenObjects.Container;
+using CookedUp.Core.Players;
 using UnityEngine;
 
-namespace Counters
+namespace CookedUp.Core.Counters
 {
     [RequireComponent(typeof(KitchenObjectsContainer))]
     public class ClearCounter : BaseCounter {

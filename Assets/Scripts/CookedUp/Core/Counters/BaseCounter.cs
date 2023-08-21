@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Players;
+using CookedUp.Core.Players;
 using UnityEngine;
 
-namespace Counters
+namespace CookedUp.Core.Counters
 {
     public abstract class BaseCounter : MonoBehaviour, IInteractable {
         public event EventHandler<InteractableEvent> OnInteract;
