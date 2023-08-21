@@ -7957,6 +7957,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2122583609496107947, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: prefabBrain
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122583609496107947, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: AIFilesPrefix.Array.data[0]
+      value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122583609496107947, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: AIFilesPrefix.Array.data[1]
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122583609496107947, guid: 22a2e9892c8bdd442ba40cc42b264650,
+        type: 3}
+      propertyPath: AIFilesPrefix.Array.data[2]
+      value: Common
+      objectReference: {fileID: 0}
     - target: {fileID: 4037379426354196591, guid: 22a2e9892c8bdd442ba40cc42b264650,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
