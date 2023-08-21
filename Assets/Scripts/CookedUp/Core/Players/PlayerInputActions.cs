@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Players
+namespace CookedUp.Core.Players
 {
     public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {

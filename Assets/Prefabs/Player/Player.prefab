@@ -721,53 +721,53 @@ MonoBehaviour:
   isFixedSize: 0
   _serializableSensorsTypes:
   - scriptAsset: {fileID: 11500000, guid: 3af0f757c3307fe498ba6764c5b8a233, type: 3}
-    typeName: ThinkEngine.s_Player_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_ID, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: cf1218dc2f8714040b1ffe889f5ac3c7, type: 3}
-    typeName: ThinkEngine.s_Player_Type, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_Type, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 6b2a9f7e1d8519747b7d6a7d08e228e9, type: 3}
-    typeName: ThinkEngine.s_Player_Name, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_Name, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 3e076e172fc10a64783c4c29318dc39a, type: 3}
-    typeName: ThinkEngine.s_Player_ContainerID, Assembly-CSharp, Version=0.0.0.0,
+    typeName: ThinkEngine.s_Player_ContainerID, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: f6ba8aa556ae4dd429560069ae6828a2, type: 3}
-    typeName: ThinkEngine.s_Player_SizeLimit, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_SizeLimit, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: d72caa95af3fdc34cb35166a5c89b538, type: 3}
-    typeName: ThinkEngine.s_Player_Count, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_Count, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 706450d65a859ad4b837757ea641beeb, type: 3}
-    typeName: ThinkEngine.s_Player_FirstKitchenObject_Name, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_FirstKitchenObject_Name, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: a21a29057d83e624ea4a76388349e3bc, type: 3}
-    typeName: ThinkEngine.s_Player_FirstKitchenObject_ID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_FirstKitchenObject_ID, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 37668ba0868841a459f9885a213a09a4, type: 3}
-    typeName: ThinkEngine.s_Player_FirstKitchenObject_ContainerID, Assembly-CSharp,
+    typeName: ThinkEngine.s_Player_FirstKitchenObject_ContainerID, CookedUp.ThinkEngine.Generated,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: b1830f7860ac01d47aa766b443c1daa8, type: 3}
-    typeName: ThinkEngine.s_Player_HasSpace, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_HasSpace, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 431c7fdda4e6ae94594c3a6669722bad, type: 3}
-    typeName: ThinkEngine.s_Player_HasAny, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_HasAny, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: facd5eeca5d27ba4cac01de4fede61f2, type: 3}
-    typeName: ThinkEngine.s_Player_HasSelectedInteractable, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_HasSelectedInteractable, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 83ba7ccd6d47e3049a41db92ba452c7c, type: 3}
-    typeName: ThinkEngine.s_Player_SelectedInteractableType, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_SelectedInteractableType, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: d8aa83e5d4db6904aafe36c0a9531870, type: 3}
-    typeName: ThinkEngine.s_Player_SelectedInteractableID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_SelectedInteractableID, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 8bbf16dd7b79e56488bd32d4fd2024eb, type: 3}
-    typeName: ThinkEngine.s_Player_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_X, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 364841d928e1d2746b1f41fbda4e55ae, type: 3}
-    typeName: ThinkEngine.s_Player_Y, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_Player_Y, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 1e90e226c1ad00b48aee4e08d47accab, type: 3}
     typeName: 
   - scriptAsset: {fileID: 11500000, guid: b41515def5aa2124ab4c99d1a838991e, type: 3}

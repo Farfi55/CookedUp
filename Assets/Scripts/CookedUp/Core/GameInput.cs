@@ -1,4 +1,4 @@
-using Players;
+using CookedUp.Core.Players;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

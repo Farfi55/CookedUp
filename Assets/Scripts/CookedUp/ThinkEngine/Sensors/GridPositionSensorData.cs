@@ -15,6 +15,13 @@ namespace CookedUp.ThinkEngine.Sensors {
         
         private void Start() {
             gridManager = GridManager.Instance;
+
+            if (gridManager == null) {
+                Debug.LogError("GridManager is null");
+                enabled = false;   
+                return;
+            }
+            
             Pos = gridManager.GetGridPosition(target.position);
         }
         

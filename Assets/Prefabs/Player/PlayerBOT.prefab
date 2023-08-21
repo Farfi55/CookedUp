@@ -1162,35 +1162,35 @@ MonoBehaviour:
   isFixedSize: 0
   _serializableSensorsTypes:
   - scriptAsset: {fileID: 11500000, guid: 2e2a342dc5dbeab44834c76e6ab8d0bb, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_HasRecipe, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_HasRecipe, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: a1eebee02aa784e48a4004b218221729, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_RecipeName, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_RecipeName, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 774ebb02528547544a352bb5182ac952, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_HasPlate, Assembly-CSharp, Version=0.0.0.0,
+    typeName: ThinkEngine.s_PlayerBot_HasPlate, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 3e83a16e21ad8a94d997445c00a62c4a, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_PlateForRecipeID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_PlateForRecipeID, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: eaef4b93b6ba6a048b24282a7345815e, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_HasMissingIngredients, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_HasMissingIngredients, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: e619f7b4a85db3b44a6f7277591e8d19, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_MissingIngredientsNames, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_MissingIngredientsNames, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: f49768e34b506784d8cc4fa9deb1733c, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_HasInvalidIngredients, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_HasInvalidIngredients, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 36bb3da192630fa4f9fc1b5f80247f04, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_ID, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: a0836408bd4b82b418388fad338bd44d, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_CurrentRecipeRequest_ID, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_CurrentRecipeRequest_ID, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 9509d0dcd1f407c45a6b0c6f94ff1fbb, type: 3}
-    typeName: ThinkEngine.s_PlayerBot_IngredientsNames, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlayerBot_IngredientsNames, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   generatedCode: 0
   generatedScripts:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlayerBot_HasRecipe.cs
