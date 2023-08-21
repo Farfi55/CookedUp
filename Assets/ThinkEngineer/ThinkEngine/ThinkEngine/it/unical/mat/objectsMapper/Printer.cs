@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ using UnityEngine;
 
 namespace ThinkEngine.it.unical.mat.objectsMapper
 {
+    
     [InitializeOnLoad]
     public  class Printer : MonoBehaviour
     {
@@ -61,4 +63,6 @@ namespace ThinkEngine.it.unical.mat.objectsMapper
             }
         }
     }
+
 }
+#endif

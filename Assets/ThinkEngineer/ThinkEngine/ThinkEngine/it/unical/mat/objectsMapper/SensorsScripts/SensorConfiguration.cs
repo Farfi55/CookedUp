@@ -42,12 +42,14 @@ namespace ThinkEngine
                 }
             }
         }
+#if UNITY_EDITOR
         [UnityEditor.Callbacks.DidReloadScripts]
         static void Reload()
         {
             Utility.LoadPrefabs();
-
         }
+#endif
+        
         void Start()
         {
             Utility.LoadPrefabs();
