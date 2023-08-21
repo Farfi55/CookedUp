@@ -142,21 +142,25 @@ namespace ThinkEngine
                 return;
             }
             _fileExtension = "";
-            foreach (string fileName in Directory.GetFiles(Utility.StreamingAssetsContent))
+            // Iterate over all the files in the StreamingAssetsContent folder (and subfolders)
+            foreach (string filePath in Directory.GetFiles(Utility.StreamingAssetsContent, "*.*", SearchOption.AllDirectories))
             {
-                string actualFileName = fileName.Substring(fileName.LastIndexOf(Utility.slash) + 1);
+                string fileName = Path.GetFileName(filePath);
                 foreach (string prefix in AIFilesPrefix)
                 {
-                    if (actualFileName.StartsWith(prefix))
+                    if (fileName.StartsWith(prefix))
                     {
-                        string extension = actualFileName.Substring(actualFileName.LastIndexOf(".") + 1);
-                        if (FileExtension.Equals("") && SupportedFileExtensions.Contains(extension))
-                        {
-                            _fileExtension = extension;
-                        }
-                        else if (!extension.Equals(FileExtension) && SupportedFileExtensions.Contains(extension))
-                        {
-                            Debug.LogError("Multiple paradigms encoding found. You should either use " + FileExtension + " or " + extension + " for " + AIFilesPrefix);
+                        // get the extension withoud the '.'
+                        string extension = fileName.Substring(fileName.LastIndexOf(".") + 1);
+                        if (SupportedFileExtensions.Contains(extension)) {
+                            if (FileExtension.Equals(""))
+                            {
+                                _fileExtension = extension;
+                            }
+                            else if (!extension.Equals(FileExtension))
+                            {
+                                Debug.LogError("Multiple paradigms encoding found. You should either use " + FileExtension + " or " + extension + " for " + AIFilesPrefix);
+                            }
                         }
                     }
                 }
