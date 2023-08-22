@@ -3,8 +3,9 @@ import os
 import sys
 import subprocess
 from datetime import datetime
+import path_helper
 
-input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/Player/'
+input_path = path_helper.input_path
 index_file_A = -1
 index_file_B = 0
 

@@ -2,8 +2,9 @@ import glob
 import os
 import sys
 from tqdm import tqdm
+import path_helper
 
-path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
+path = path_helper.input_path
 
 files = []
 

@@ -2,15 +2,21 @@ import glob
 import os
 import sys
 from datetime import datetime
+import path_helper
+import platform
 
-PROJECT_PATH = 'C:/Dev/CookedUp'
+PROJECT_PATH = path_helper.project_path
+base_input_path = path_helper.input_path 
 
-base_input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
 input_path = ''
 input_index = -1
 input_file_pattern = ''
 
-streaming_assets_path = PROJECT_PATH + '/Assets/StreamingAssets/ThinkEngineer/ThinkEngine/'
+solver_pattern = ''
+solver_path = ''
+solver_options = ''
+
+streaming_assets_path = path_helper.think_engine_streaming_assets_path + path_helper.sep
 
 player_brain_files_patterns = [
     streaming_assets_path + '**/Player*.asp',
@@ -23,7 +29,8 @@ brain_files_patterns = []
 
 brain_files = []
 
-solver = streaming_assets_path + 'lib/dlv2.exe --no-facts --t -n 10'
+solvers_path = path_helper.solvers_path
+
 
 i = 1
 while i < len(sys.argv):
@@ -36,14 +43,20 @@ while i < len(sys.argv):
     elif sys.argv[i] in ['-p', '--path']:
         input_path = base_input_path + sys.argv[i + 1]
         i += 1
-    elif sys.argv[i] in ['-b', '--brain']:
+    elif sys.argv[i] in ['-solver_optionsb', '--brain']:
         brain_files.append(streaming_assets_path + sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-B', '--brain-pattern']:
         brain_files_patterns.append(streaming_assets_path + sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-s', '--solver']:
-        solver = streaming_assets_path + 'lib/' + sys.argv[i + 1]
+        solver_path = os.path.join(solvers_path, sys.argv[i + 1])
+        i += 1
+    elif sys.argv[i] in ['-S', '--solver-pattern']:
+        solver_pattern = sys.argv[i + 1]
+        i += 1    
+    elif sys.argv[i] in ['-o', '--solver-options']:
+        solver_options = sys.argv[i + 1]
         i += 1
     elif sys.argv[i] in ['-h', '--help']:
         print(f"Usage: python run_with_input.py")
@@ -54,13 +67,45 @@ while i < len(sys.argv):
         print(f"  -p, --path: input path")
         print(f"  -b, --brain: brain file")
         print(f"  -B, --brain-pattern: brain file pattern")
-        print(f"  -s, --solver: solver path and options")
+        print(f"  -s, --solver: solver path")
+        print(f"  -S, --solver-pattern: solver path pattern, e.g. 'dlv2' or 'clingo'")
+        print(f"  -o, --solver-options: solver options")
         exit(0)
     i += 1
 
 
 if(input_path == ''):
     input_path = base_input_path + 'Player/'
+
+if(solver_path == ''):
+    solver_name = ''
+    #iterate over all files in solvers_path
+    solver_files_paths = glob.glob(os.path.join(solvers_path, '*'))
+    os_name = platform.system()
+    
+    #find solver
+    for solver_file_path in solver_files_paths:
+        solver_file_name = os.path.basename(solver_file_path)
+        if solver_file_name.endswith('.meta'):
+            continue
+
+        if solver_pattern != '' and solver_pattern.lower() not in solver_file_name.lower():
+            continue
+
+        if os_name == 'Windows' and ('win' in solver_file_name.lower() or solver_file_name.endswith('.exe')):
+            solver_name = solver_file_name
+            break
+        if os_name == 'Linux' and 'linux' in solver_file_name.lower():
+            solver_name = solver_file_name
+            break
+        if os_name == 'Darwin' and 'mac' in solver_file_name.lower():
+            solver_name = solver_file_name
+            break
+
+    if solver_name == '':
+        print("No solver found")
+        exit(1)
+    solver_path = os.path.join(solvers_path, solver_name)
 
 
 
@@ -92,7 +137,7 @@ print("using brain files:")
 print("\n".join(brain_files))
 print()
 
-run_command = ' '.join([solver, *brain_files, input_file])
+run_command = ' '.join([solver_path, solver_options, *brain_files, input_file])
 print(run_command)
 print()
 

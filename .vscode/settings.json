@@ -55,5 +55,6 @@
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
+    "diffEditor.codeLens": true,
     
 }

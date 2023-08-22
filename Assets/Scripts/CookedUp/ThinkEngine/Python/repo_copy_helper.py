@@ -3,9 +3,10 @@ import os
 import sys
 from tqdm import tqdm
 import shutil
+import path_helper
 
-repo_path = "C:/Dev/ThinkEngine/it"
-repo_in_project_path = "C:/Dev/CookedUp/Assets/ThinkEngineer/ThinkEngine/ThinkEngine/it"
+repo_path = path_helper.project_path
+repo_in_project_path = path_helper.think_engine_src
 
 pull = False
 push = False

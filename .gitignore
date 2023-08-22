@@ -142,4 +142,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-Assets/Scripts/ThinkEngine/Python/out*.asp
+
+Assets/Scripts/CookedUp/ThinkEngine/Python/out_player.asp
+Assets/Scripts/CookedUp/ThinkEngine/Python/out*.asp
+Assets/Scripts/CookedUp/ThinkEngine/Python/out*.asp.meta
+Assets/Scripts/CookedUp/ThinkEngine/Python/__pycache__/
+Assets/Scripts/CookedUp/ThinkEngine/Python/__pycache__.meta

@@ -1,15 +1,15 @@
 import glob
 import os
 import sys
+import path_helper  
 from tqdm import tqdm
 
-input_path = os.environ['USERPROFILE'] + '/AppData/Local/Temp/ThinkEngineFacts/'
-
+input_path = path_helper.input_path
 
 i = 1
 while i < len(sys.argv):
     if sys.argv[i] in ['-p', '-path']:
-        input_path = sys.argv[i + 1]
+        input_path = path_helper.input_path + sys.argv[i + 1]
         i += 1
     if sys.argv[i] in ['-h', '-help']:
         print(f"Usage: python clear_inputs.py [-p path]")
