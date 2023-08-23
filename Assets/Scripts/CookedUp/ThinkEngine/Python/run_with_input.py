@@ -16,7 +16,9 @@ solver_pattern = ''
 solver_path = ''
 solver_options = ''
 
-streaming_assets_path = path_helper.think_engine_streaming_assets_path + path_helper.sep
+verbose_level = 1
+
+streaming_assets_path = path_helper.think_engine_streaming_assets_path
 
 player_brain_files_patterns = [
     streaming_assets_path + '**/Player*.asp',
@@ -58,6 +60,9 @@ while i < len(sys.argv):
     elif sys.argv[i] in ['-o', '--solver-options']:
         solver_options = sys.argv[i + 1]
         i += 1
+    elif sys.argv[i] in ['-v', '--verbose']:
+        verbose_level = int(sys.argv[i + 1])
+        i += 1
     elif sys.argv[i] in ['-h', '--help']:
         print(f"Usage: python run_with_input.py")
         print(f"Options:")
@@ -70,6 +75,7 @@ while i < len(sys.argv):
         print(f"  -s, --solver: solver path")
         print(f"  -S, --solver-pattern: solver path pattern, e.g. 'dlv2' or 'clingo'")
         print(f"  -o, --solver-options: solver options")
+        print(f"  -v, --verbose: verbose level")
         exit(0)
     i += 1
 
@@ -123,8 +129,11 @@ if input_file_pattern != '':
 
 input_file = list_of_files[input_index]
 
-print("executing with input file:", input_file)
-print("created at:", datetime.fromtimestamp(os.path.getctime(input_file)).strftime('%Y-%m-%d %H:%M:%S'))
+if(verbose_level > 0):
+    print("\nexecuting with input file:")
+    print("\t" + input_file.removeprefix(input_path))
+    if(verbose_level > 1):
+        print("\tcreated at:", datetime.fromtimestamp(os.path.getctime(input_file)).strftime('%Y-%m-%d %H:%M:%S'))
 
 if(brain_files == []):
     if(brain_files_patterns == []):
@@ -133,19 +142,25 @@ if(brain_files == []):
     for brain_files_pattern in brain_files_patterns:
         brain_files += glob.glob(brain_files_pattern, recursive=True)
 
-print("using brain files:")
-print("\n".join(brain_files))
-print()
+if(verbose_level > 1):    
+    print("\nusing brain files:")
+    for brain_file in brain_files:
+        print("\t" + brain_file.removeprefix(streaming_assets_path))
+    print()
 
-run_command = ' '.join([solver_path, solver_options, *brain_files, input_file])
-print(run_command)
-print()
+run_command = ' \\\n\t'.join([solver_path, solver_options, *brain_files, input_file])
+if(verbose_level > 2):
+    print("command:")
+    print(run_command)
+    print()
 
 import subprocess
 
 proc = subprocess.Popen(run_command, stdout=subprocess.PIPE, shell=True)
 (out, err) = proc.communicate()
-print("program output:")
+
+if(verbose_level > 0):
+    print("program output:")
 print(out.decode('utf-8'))
 print("END")
 
