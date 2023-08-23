@@ -129,6 +129,7 @@ if input_file_pattern != '':
 
 input_file = list_of_files[input_index]
 
+print("START")
 if(verbose_level > 0):
     print("\nexecuting with input file:")
     print("\t" + input_file.removeprefix(input_path))
