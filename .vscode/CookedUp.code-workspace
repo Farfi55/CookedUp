@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "name": "CookedUp",
+            "path": "../"
+        },
+        {
+            "name": "input files windows",            
+            "path": "/Users/aless/AppData/Local/Temp/ThinkEngineFacts",
+        },
+        {
+            "name": "input files unix",            
+            "path": "/tmp/ThinkEngineFacts"
+        }
+    ],
+    "settings": {
+        "diffEditor.codeLens": true
+    },
+}

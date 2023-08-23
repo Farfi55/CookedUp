@@ -5377,6 +5377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6014517166810940842, guid: da0bbb3226033154daab3e01ea5ee0e5,
         type: 3}
+      propertyPath: solverEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014517166810940842, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
       propertyPath: AIFilesPath
       value: /home/farfi/Dev/unity/CookedUp/Assets/StreamingAssets/ThinkEngineer/ThinkEngine
       objectReference: {fileID: 0}

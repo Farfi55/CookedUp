@@ -75,19 +75,26 @@ recipeRequest_Full(RecipeRequestID, RecipeName, TimeToComplete, RemainingTimeToC
 
 
 ingredient_Available_Target(IngredientName, TargetID).
+ingredient_Available_ForPlayer_Target(IngredientName, PlayerID, TargetID).
 ingredient_Available(IngredientName).
+ingredient_Available_ForPlayer(IngredientName, PlayerID).
 ingredient_NotAvailable(IngredientName).
+ingredient_NotAvailable_ForPlayer(IngredientName, PlayerID).
 
 ingredient_NeedsCooking(IngredientName, RecipeName, BaseIngredientName).
+ingredient_NeedsCooking_ForPlayer(IngredientName, PlayerID, RecipeName, InputIngredientName).
 ingredient_NeedsCutting(IngredientName, RecipeName, BaseIngredientName).
+ingredient_NeedsCutting_ForPlayer(IngredientName, PlayerID, RecipeName, InputIngredientName).
 ingredient_NeedsWork(IngredientName, RecipeName, BaseIngredientName) .
+ingredient_NeedsWork_ForPlayer(IngredientName, PlayerID, RecipeName, InputIngredientName).
+
 
 ingredient_IsTrash(IngredientName).
 
 % ================================== COMMON TIME ==================================
 
-ingredient_ExpectedGetTime(IngredientName, Time).
-plate_Recipe_ExpectedTime(PlateID, RecipeName, ExpectedTime).
+ingredient_ExpectedGetTime(IngredientName, PlayerID, Time).
+plate_Recipe_ExpectedTime(PlateID, PlayerID, RecipeName, ExpectedTime).
 
 player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName).
 player_Best_Plate_ValidForRecipe_MaxID(PlayerID, PlateID, RecipeName).
@@ -103,6 +110,7 @@ counter_Distance(CounterID1, CounterID2, Distance).
 
 player_ID_Index(PlayerID, Index).
 player_ID(PlayerID).
+player_ID_And_0(PlayerID).
 curr_Player_ID(PlayerID).
 
 player(PlayerID, Type, Name).

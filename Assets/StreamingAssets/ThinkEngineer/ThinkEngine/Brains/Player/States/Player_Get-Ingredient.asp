@@ -22,7 +22,7 @@ gi_FinalIngredient(IngredientName) :-
     state_GetIngredient,
     curr_Player_ID(PlayerID),
     player_KO_Name(PlayerID, IngredientName),
-    ingredient_Available(IngredientName),
+    ingredient_Available_ForPlayer(IngredientName, PlayerID),
     playerBot_MissingIngredients(PlayerID, IngredientName).
 
 gi_FinalIngredient(IngredientName) :-
@@ -42,17 +42,20 @@ gi_BaseIngredient(BaseIngredientName) :-
 gi_IngredientAvailability("Available") :- 
     state_GetIngredient,
     gi_FinalIngredient(IngredientName),
-    ingredient_Available(IngredientName).
+    curr_Player_ID(PlayerID),
+    ingredient_Available_ForPlayer(IngredientName, PlayerID).
 
 gi_IngredientAvailability("NeedsCooking") :-
     state_GetIngredient,
     gi_FinalIngredient(IngredientName),
-    ingredient_NeedsCooking(IngredientName, _, _).
+    curr_Player_ID(PlayerID),
+    ingredient_NeedsCooking_ForPlayer(IngredientName, PlayerID, _, _).
 
 gi_IngredientAvailability("NeedsCutting") :-
     state_GetIngredient,
     gi_FinalIngredient(IngredientName),
-    ingredient_NeedsCutting(IngredientName, _, _).
+    curr_Player_ID(PlayerID),
+    ingredient_NeedsCutting_ForPlayer(IngredientName, PlayerID, _, _).
 
 
 gi_State("PickUp BaseIngredient") :- 
@@ -71,9 +74,6 @@ gi_State("Place BaseIngredient") :-
     player_KO_Name(PlayerID, BaseIngredientName).
 
 
-
-% TODO: 
-% this should be done only if the curr_Player was the one who placed the ingredient on the counter
 gi_State("Work On BaseIngredient") :-
     state_GetIngredient,
     curr_Player_ID(PlayerID),
@@ -175,7 +175,8 @@ tmp_gi_BaseIngredient_Target(TargetID) :-
     state_GetIngredient,
     not gi_IngredientAvailability("Available"),
     gi_BaseIngredient(BaseIngredientName),
-    ingredient_Available_Target(BaseIngredientName, TargetID).
+    curr_Player_ID(PlayerID),
+    ingredient_Available_ForPlayer_Target(BaseIngredientName, PlayerID, TargetID).
 
 gi_BaseIngredient_Target(TargetID) :-
     state_GetIngredient,
@@ -188,6 +189,7 @@ gi_BaseIngredient_Target(TargetID) :-
         tmp_gi_BaseIngredient_Target(TargetID2),
         curr_Player_Counter_Distance(TargetID2, TargetDistance)
     }.
+
 
 
 % when the ingredient needs to be worked find a free work counter
@@ -240,7 +242,8 @@ tmp_gi_FinalIngredient_Target(TargetID) :-
     state_GetIngredient,
     gi_IngredientAvailability("Available"),
     gi_FinalIngredient(IngredientName),
-    ingredient_Available_Target(IngredientName, TargetID).
+    curr_Player_ID(PlayerID),
+    ingredient_Available_ForPlayer_Target(IngredientName, PlayerID, TargetID).
 
 
 tmp_gi_FinalIngredient_Target(TargetID) :-

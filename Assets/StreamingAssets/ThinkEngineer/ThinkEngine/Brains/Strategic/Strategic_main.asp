@@ -135,7 +135,7 @@ playerBot_Recipe_ExceedsTime(PlayerID, RecipeName, ExpectedTime) :-
     playerBot_ID(PlayerID),
     player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName),
     ExpectedTime = #min{ ExpectedTime1 : 
-        plate_Recipe_ExpectedTime(PlateID, RecipeName, ExpectedTime1),
+        plate_Recipe_ExpectedTime(PlateID, PlayerID, RecipeName, ExpectedTime1),
         plate_ValidForRecipe_OwnedByPlayer(PlateID, RecipeName, PlayerID)
     }.
 
@@ -146,7 +146,7 @@ playerBot_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
     playerBot_ID(PlayerID),
     not player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName),
     IngredientsExpectedTime = #sum{ Time, IngredientName : 
-        ingredient_ExpectedGetTime(IngredientName, Time),
+        ingredient_ExpectedGetTime(IngredientName, PlayerID, Time),
         c_CompleteRecipe_Ingredient(RecipeName, IngredientName)
     },
     ExpectedTime = IngredientsExpectedTime + 1000.

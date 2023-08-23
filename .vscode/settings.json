@@ -41,20 +41,25 @@
         "**/*.meta": true,
         "**/*.prefab": true,
         "**/*.unity": true,
-        "build/": true,
-        "Build/": true,
-        "Library/": true,
-        "library/": true,
-        "obj/": true,
-        "Obj/": true,
-        "ProjectSettings/": true,
+        "[Bb]uild/": true,
+        "[Bb]uilds/": true,
+        "[Ll]ibrary/": true,
+        "[Oo]bj/": true,
+        "[Pp]rojectSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        "*.csproj": true,
+        "UserSettings/": true,  
+        "Assembly-CSharp.csproj.DotSettings": true,
+        "CookedUp.sln": true,
+        "CookedUp.sln.DotSettings": true,
+        ".idea/": true,
     },
-    "dotnet.defaultSolution": "CookedUp!.sln",
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
     "diffEditor.codeLens": true,
+    "editor.minimap.autohide": true,
+
     
 }
