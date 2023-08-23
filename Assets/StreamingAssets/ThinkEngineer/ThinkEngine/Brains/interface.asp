@@ -70,6 +70,13 @@ recipeRequest_Value(RecipeRequestID, Value).
 
 recipeRequest_Full(RecipeRequestID, RecipeName, TimeToComplete, RemainingTimeToComplete, Value).
 
+% ================================== COMMON RECIPE REQUESTS ==================================
+
+recipeRequest_HasPlayer(RecipeRequestID).
+recipeRequest_HasNoPlayer(RecipeRequestID).
+recipeRequest_Player(RecipeRequestID, PlayerID).
+
+recipeRequest_Player_Count(RecipeRequestID, Count).
 
 % ================================== COMMON INGREDIENTS ==================================
 
@@ -93,12 +100,13 @@ ingredient_IsTrash(IngredientName).
 
 % ================================== COMMON TIME ==================================
 
-ingredient_ExpectedGetTime(IngredientName, PlayerID, Time).
+ingredient_ExpectedGetTime(IngredientName, PlayerID, ExpectedTime).
 plate_Recipe_ExpectedTime(PlateID, PlayerID, RecipeName, ExpectedTime).
 
 player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName).
 player_Best_Plate_ValidForRecipe_MaxID(PlayerID, PlateID, RecipeName).
 
+player_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime).
 
 % ================================== COMMON DISTANCE ==================================
 

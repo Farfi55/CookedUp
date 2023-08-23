@@ -164,10 +164,7 @@ while(True):
     predicates.sort()
     output += '{\n' + '\n'.join(predicates) + '\n}\n'
 
-
-print(output)
-
-USE_COLORS = True
+USE_COLORS = False
 PRINT_LOGS_TO_STDERR = True
 if len(formatted_clingo_log_messages) > 0:
 
@@ -205,4 +202,4 @@ if len(formatted_clingo_log_messages) > 0:
             print(file=sys.stderr)
 
     
-    
+print(output)

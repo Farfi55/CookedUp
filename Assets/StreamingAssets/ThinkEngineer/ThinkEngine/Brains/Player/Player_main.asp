@@ -197,7 +197,7 @@ tmp_AnyAction(ActionIndex) :- applyAction(ActionIndex, _).
 
 
 
-firstActionIndex(2).
+firstActionIndex(0).
 
 curr_Player_Name(PlayerID, PlayerName) :- 
     curr_Player_ID(PlayerID), 

@@ -65,6 +65,36 @@ player_Best_Plate_ValidForRecipe_MaxID(PlayerID, PlateID, RecipeName) :-
     }.
 
 
+% player_Recipe_ExpectedTime is an approximation of the time for a player to complete a
+% recipe if it were assigned to him right now
+% it accounts for time spent cutting or cooking
+% if player already has a plate, the time to get ingredients already in the plate is not added to the time
+
+% CASE: 1
+% player with a valid plate
+player_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
+    c_CompleteRecipe_Name(RecipeName),
+    playerBot_ID(PlayerID),
+    player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName),
+    ExpectedTime = #min{ ExpectedTime1 : 
+        plate_Recipe_ExpectedTime(PlateID, PlayerID, RecipeName, ExpectedTime1),
+        player_OwnedPlate_ValidForRecipe(PlayerID, PlateID, RecipeName)
+    }.
+
+% CASE 2:
+% player without valid plates
+player_Recipe_ExpectedTime(PlayerID, RecipeName, ExpectedTime) :-
+    c_CompleteRecipe_Name(RecipeName),
+    playerBot_ID(PlayerID),
+    not player_OwnsAnyPlate_ValidForRecipe(PlayerID, RecipeName),
+    IngredientsExpectedTime = #sum{ Time, IngredientName : 
+        ingredient_ExpectedGetTime(IngredientName, PlayerID, Time),
+        c_CompleteRecipe_Ingredient(RecipeName, IngredientName)
+    },
+    ExpectedTime = IngredientsExpectedTime + 1000.
+
+
+
 
 
     
