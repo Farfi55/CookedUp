@@ -133,7 +133,7 @@ tmp_gi_FirstActionIndex(Index) :-
     Index = BaseFirstActionIndex - 2,
     firstActionIndex(BaseFirstActionIndex),
     gi_State("Work On BaseIngredient").
-
+    
 tmp_gi_FirstActionIndex(Index) :-
     Index = BaseFirstActionIndex - 3,
     firstActionIndex(BaseFirstActionIndex),

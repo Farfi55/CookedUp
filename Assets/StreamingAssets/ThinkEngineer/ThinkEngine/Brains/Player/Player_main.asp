@@ -1,7 +1,10 @@
-state("PickUp_Plate") :- state_PickUp_Plate.
+any_Urgent_State :- state_Ingredient_Burning.
+
+state("Pick Up Plate") :- state_PickUp_Plate.
 % CASE 1:
 % Player does not have a plate assigned to him.
 state_PickUp_Plate :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     not playerBot_HasPlate(PlayerID),
@@ -10,6 +13,7 @@ state_PickUp_Plate :-
 % CASE 2:
 % Player has a plate assigned to him, but it is not the best one for the current recipe.
 state_PickUp_Plate :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     playerBot_RecipeRequest_Name(PlayerID, RecipeName),
@@ -19,19 +23,22 @@ state_PickUp_Plate :-
     not player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName),
     not playerBot_HasInvalidIngredients(PlayerID).
 
-state("PlacePlate") :- state_PlacePlate.
+state("Place Plate") :- state_PlacePlate.
 state_PlacePlate :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
-state("GetIngredients") :- state_GetIngredient.
+state("Get Ingredients") :- state_GetIngredient.
 
 % CASE 1:
 % Player is not carrying anything, and has a valid recipe request.
 state_GetIngredient :-
+    not any_Urgent_State,
+    not state_PickUp_Plate,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -43,6 +50,8 @@ state_GetIngredient :-
 % CASE 2:
 % Player is not carrying an ingredient for his recipe.
 state_GetIngredient :-
+    not any_Urgent_State,
+    not state_PickUp_Plate,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -52,11 +61,28 @@ state_GetIngredient :-
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
+state("Ingredient Burning") :- state_Ingredient_Burning.
+% CASE 1:
+% a player's ingredient is burning.
+state_Ingredient_Burning :-
+    stoveCounter_ID(StoveCounterID),
+    stoveCounter_IsBurning(StoveCounterID),
+    counter_KO_ID(StoveCounterID, KitchenObjectID),
+    ko_Curr_Player(KitchenObjectID).
 
-state("DropIngredient") :- state_DropIngredient.
+% CASE 2:
+% a player's ingredient has burned. (it is now trash)
+state_Ingredient_Burning :-
+    counter_KO(CounterID, KitchenObjectID, KitchenObjectName),
+    ko_Curr_Player(KitchenObjectID),
+    ingredient_IsTrash(KitchenObjectName).
+
+
+state("Drop Ingredient") :- state_DropIngredient.
 % CASE 1:
 % Player is carrying an ingredient which is not useful for his recipe.
 state_DropIngredient :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -69,6 +95,7 @@ state_DropIngredient :-
 % CASE 2:
 % Player is carrying an ingredient even tho the recipe is complete.
 state_DropIngredient :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -79,6 +106,7 @@ state_DropIngredient :-
 % CASE 3:
 % Player is carrying an ingredient without having a plate.
 state_DropIngredient :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     not playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -87,13 +115,15 @@ state_DropIngredient :-
 % CASE 4:
 % Player is carrying an ingredient without having a recipe request.
 state_DropIngredient :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     not playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID).
 
 
-state("PickUp_CompletedPlate") :- state_PickUp_CompletedPlate.
+state("Pick Up Completed Plate") :- state_PickUp_CompletedPlate.
 state_PickUp_CompletedPlate :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -103,6 +133,7 @@ state_PickUp_CompletedPlate :-
 
 state("Deliver") :- state_Deliver.
 state_Deliver :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -114,6 +145,7 @@ state("Recipe Failed") :- state_Recipe_Failed.
 % CASE 1: Player has placed a plate on the delivery counter, 
 %         but the delivery was not successful.
 state_Recipe_Failed :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
@@ -122,18 +154,19 @@ state_Recipe_Failed :-
 
 % CASE 2: Player's recipe request expired.
 state_Recipe_Failed :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasNoRecipeRequest(PlayerID).
 
 % CASE 3: Player's plate contains invalid ingredients.
 state_Recipe_Failed :-
+    not any_Urgent_State,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     playerBot_HasInvalidIngredients(PlayerID).
     
-
 
 
 
@@ -164,7 +197,7 @@ tmp_AnyAction(ActionIndex) :- applyAction(ActionIndex, _).
 
 
 
-firstActionIndex(0).
+firstActionIndex(2).
 
 curr_Player_Name(PlayerID, PlayerName) :- 
     curr_Player_ID(PlayerID), 

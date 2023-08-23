@@ -130,6 +130,8 @@ namespace CookedUp.Core.KitchenObjects.Container
             return kitchenObjects.ConvertAll(input => input.KitchenObjectSO);
         }
 
+        
+
         private void InvokeOnChange() {
             var args = new KitchenObjectsChangedEvent(this, KitchenObjects, GetNext());
             OnKitchenObjectsChanged?.Invoke(this, args);

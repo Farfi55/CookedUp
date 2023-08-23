@@ -142,10 +142,5 @@ namespace CookedUp.UI {
 
             PlayerBot.OnAnyRecipeRequestChanged -= OnAnyRecipeRequestChanged;
         }
-
-
-        private void StartCompletedParticles() {
-            completedParticles.Play();
-        }
     }
 }
