@@ -127,14 +127,16 @@ actionArgument(ActionIndex, "TargetID", TargetID) :- a_Cut(ActionIndex, TargetID
 
 % ================================== Cook ==================================
 
-% a_WaitToCook(ActionIndex, TargetInteractableID).
-#show a_WaitToCook/2.
+% a_WaitToCook(ActionIndex, TargetInteractableID, FinalIngredient).
+#show a_WaitToCook/3.
 
 applyAction(ActionIndex, "WaitToCookAction") :- 
-    a_WaitToCook(ActionIndex, _).
+    a_WaitToCook(ActionIndex, _, _).
 
-actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_WaitToCook(ActionIndex, _), curr_Player_ID(PlayerID).
-actionArgument(ActionIndex, "TargetID", TargetID) :- a_WaitToCook(ActionIndex, TargetID).
+
+actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_WaitToCook(ActionIndex, _, _), curr_Player_ID(PlayerID).
+actionArgument(ActionIndex, "TargetID", TargetID) :- a_WaitToCook(ActionIndex, TargetID, _).
+actionArgument(ActionIndex, "FinalIngredient", FinalIngredient) :- a_WaitToCook(ActionIndex, _, FinalIngredient).
 
 
 % ================================== Set Plate ==================================

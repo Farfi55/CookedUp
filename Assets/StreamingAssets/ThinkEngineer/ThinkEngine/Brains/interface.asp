@@ -27,7 +27,7 @@ a_Place(ActionIndex, TargetInteractableID).
 
 a_Cut(ActionIndex, TargetInteractableID).
 
-a_WaitToCook(ActionIndex, TargetInteractableID).
+a_WaitToCook(ActionIndex, TargetInteractableID, FinalIngredient).
 
 a_Wait(ActionIndex, MilliSecondsToWait).
 a_Wait(ActionIndex).

@@ -217,7 +217,6 @@ tmp_gi_WorkCounter_Target(TargetID) :-
     not gi_Must_PlaceBaseIngredient,
     gi_IngredientAvailability("NeedsCooking"),
     stoveCounter_ID(TargetID),
-    counter_HasAny(TargetID),
     gi_WorkCounter_HasBaseIngredient(TargetID).
 
 tmp_gi_WorkCounter_Target(TargetID) :-
@@ -240,12 +239,26 @@ gi_WorkCounter_Target(TargetID) :-
         curr_Player_Counter_Distance(TargetID2, Distance)
     }.
 
+gi_Any_WorkCounter :- gi_WorkCounter_Target(_).
+
+% if there are no available work counter
+% then try to work on another ingredient
+:~ state_GetIngredient, 
+    conf_gi_MustHave_WorkCounter,
+    gi_Must_WorkOnBaseIngredient, 
+    not gi_Any_WorkCounter.
+    [1@10]
+
+gi_Any_WorkCounter_IfNeeded :- gi_Any_WorkCounter.
+gi_Any_WorkCounter_IfNeeded :- not gi_Must_WorkOnBaseIngredient.
+
 tmp_gi_FinalIngredient_Target(TargetID) :-
     state_GetIngredient,
     gi_IngredientAvailability("Available"),
     gi_FinalIngredient(IngredientName),
     curr_Player_ID(PlayerID),
     ingredient_Available_ForPlayer_Target(IngredientName, PlayerID, TargetID).
+
 
 
 tmp_gi_FinalIngredient_Target(TargetID) :-
@@ -307,12 +320,13 @@ a_Place(ActionIndex, TargetID) :-
 % work on base ingredient
 
 % needs cooking
-a_WaitToCook(ActionIndex, TargetID) :-
+a_WaitToCook(ActionIndex, TargetID, FinalIngredient) :-
     state_GetIngredient,
     gi_Must_WorkOnBaseIngredient,
     gi_IngredientAvailability("NeedsCooking"),
     ActionIndex = FirstActionIndex + 2,
     gi_FirstActionIndex(FirstActionIndex),
+    gi_FinalIngredient(FinalIngredient),
     gi_WorkCounter_Target(TargetID).
 
 
@@ -332,6 +346,7 @@ a_Cut(ActionIndex, TargetID) :-
 a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
     state_GetIngredient,
     gi_Must_PickUpFinalIngredient,
+    gi_Any_WorkCounter_IfNeeded,
     ActionIndex = FirstActionIndex + 3,
     gi_FirstActionIndex(FirstActionIndex),
     gi_FinalIngredient(IngredientName),
@@ -344,6 +359,7 @@ a_PickUpIngredient(ActionIndex, TargetID, IngredientName) :-
 a_Place(ActionIndex, TargetID) :- 
     state_GetIngredient,
     gi_Must_AddFinalIngredientToPlate,
+    gi_Any_WorkCounter_IfNeeded,
     ActionIndex = FirstActionIndex + 4,
     gi_FirstActionIndex(FirstActionIndex),
     gi_Plate_Target(TargetID).

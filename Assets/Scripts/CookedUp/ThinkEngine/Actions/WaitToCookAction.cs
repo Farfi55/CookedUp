@@ -8,19 +8,25 @@ namespace CookedUp.ThinkEngine.Actions
 {
     public class WaitToCookAction : InteractAction
     {
+        private RecipesMapperManager recipesMapperManager;
         
         private StoveCounter stoveCounter;
         private CookingRecipeSO cookingRecipe;
 
+        public string FinalIngredient { get; set; }
+        
         private bool hasCookedSuccessfully;
         private bool isDone;
         
         public override void Init() {
             base.Init();
+            recipesMapperManager = RecipesMapperManager.Instance;
+            
             stoveCounter = Target.GetComponent<StoveCounter>();
             if (stoveCounter == null) {
                 Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a StoveCounter component!", stoveCounter);
                 AnyError = true;
+                return;
             }
             
             cookingRecipe = stoveCounter.CurrentCookingRecipe;
@@ -28,8 +34,14 @@ namespace CookedUp.ThinkEngine.Actions
             if(cookingRecipe == null) {
                 Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a cooking recipe!", stoveCounter);
                 AnyError = true;
+                return;
             }
-            
+
+            if (cookingRecipe.Output.name != FinalIngredient) {
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have the expected output {FinalIngredient}!", stoveCounter);
+                AnyError = true;
+                return;
+            }
             Debug.Log($"[{GetType().Name}]: {Player.name} waiting to cook {cookingRecipe.name}");
         }
 
