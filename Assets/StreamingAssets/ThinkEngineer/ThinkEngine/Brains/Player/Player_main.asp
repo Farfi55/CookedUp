@@ -49,7 +49,7 @@ state_GetIngredient :-
     not playerBot_HasCompletedRecipe(PlayerID).
 
 % CASE 2:
-% Player is not carrying an ingredient for his recipe.
+% Player is carrying a final ingredient for his recipe.
 state_GetIngredient :-
     not any_Urgent_State,
     not state_PickUp_Plate,
@@ -57,10 +57,27 @@ state_GetIngredient :-
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID),
-    player_KO_Name(PlayerID, KOName),
-    playerBot_MissingIngredients_Or_Base(PlayerID, KOName),
+    player_KO_Name(PlayerID, FinalIngredient),
+    playerBot_MissingIngredients(PlayerID, FinalIngredient),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
+
+% CASE 3:
+% Player is carrying a base ingredient for his recipe.
+% and he can work to get the final ingredient.
+state_GetIngredient :-
+    not any_Urgent_State,
+    not state_PickUp_Plate,
+    curr_Player_ID(PlayerID),
+    playerBot_HasPlate(PlayerID),
+    playerBot_HasRecipeRequest(PlayerID),
+    player_HasAny(PlayerID),
+    player_KO_Name(PlayerID, BaseIngredient),
+    playerBot_MissingBaseIngredients(PlayerID, FinalIngredient, BaseIngredient),
+    player_CanWork_ToGet_Ingredient(PlayerID, FinalIngredient),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    not playerBot_HasCompletedRecipe(PlayerID).
+
 
 state("Ingredient Burning") :- state_Ingredient_Burning.
 % CASE 1:
@@ -109,6 +126,21 @@ state_DropIngredient :-
     not playerBot_HasCompletedRecipe(PlayerID).
 
 % CASE 2:
+% Player is carrying a baseIngredient but 
+% he can't work to get the final ingredient.
+state_DropIngredient :-
+    not any_Urgent_State,
+    curr_Player_ID(PlayerID),
+    playerBot_HasPlate(PlayerID),
+    playerBot_HasRecipeRequest(PlayerID),
+    player_HasAny(PlayerID),
+    player_KO_Name(PlayerID, KOName),
+    playerBot_MissingBaseIngredients(PlayerID, FinalIngredient, BaseIngredient),
+    not player_CanWork_ToGet_Ingredient(PlayerID, FinalIngredient),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    not playerBot_HasCompletedRecipe(PlayerID).
+
+% CASE 3:
 % Player is carrying an ingredient even tho the recipe is complete.
 state_DropIngredient :-
     not any_Urgent_State,
@@ -119,7 +151,7 @@ state_DropIngredient :-
     not playerBot_IsPlateBeingCarried(PlayerID),
     playerBot_HasCompletedRecipe(PlayerID).
 
-% CASE 3:
+% CASE 4:
 % Player is carrying an ingredient without having a plate.
 state_DropIngredient :-
     not any_Urgent_State,
@@ -128,7 +160,7 @@ state_DropIngredient :-
     playerBot_HasRecipeRequest(PlayerID),
     player_HasAny(PlayerID).
 
-% CASE 4:
+% CASE 5:
 % Player is carrying an ingredient without having a recipe request.
 state_DropIngredient :-
     not any_Urgent_State,

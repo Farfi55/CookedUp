@@ -120,6 +120,19 @@ gi_Must_PickUpFinalIngredient :- gi_State("PickUp FinalIngredient").
 gi_Must_AddFinalIngredientToPlate :- state_GetIngredient.
 
 
+gi_Any_WorkCounter :- gi_WorkCounter_Target(_).
+
+% if the player has no way to get the ingredient, 
+% then try to work on another ingredient
+:~ state_GetIngredient,
+    gi_Must_WorkOnBaseIngredient, 
+    curr_Player_ID(PlayerID),
+    gi_FinalIngredient(IngredientName),
+    not player_CanWork_ToGet_Ingredient(PlayerID, IngredientName).
+    [1@10]
+
+
+
 tmp_gi_FirstActionIndex(Index) :- 
     Index = BaseFirstActionIndex - 0,
     firstActionIndex(BaseFirstActionIndex),
@@ -238,16 +251,6 @@ gi_WorkCounter_Target(TargetID) :-
         tmp_gi_WorkCounter_Target(TargetID2),
         curr_Player_Counter_Distance(TargetID2, Distance)
     }.
-
-gi_Any_WorkCounter :- gi_WorkCounter_Target(_).
-
-% if there are no available work counter
-% then try to work on another ingredient
-:~ state_GetIngredient, 
-    conf_gi_MustHave_WorkCounter,
-    gi_Must_WorkOnBaseIngredient, 
-    not gi_Any_WorkCounter.
-    [1@10]
 
 gi_Any_WorkCounter_IfNeeded :- gi_Any_WorkCounter.
 gi_Any_WorkCounter_IfNeeded :- not gi_Must_WorkOnBaseIngredient.

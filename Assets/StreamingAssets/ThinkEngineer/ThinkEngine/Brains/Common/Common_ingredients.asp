@@ -76,3 +76,35 @@ ingredient_NeedsWork_ForPlayer(IngredientName, PlayerID, RecipeName, InputIngred
 % TODO: create a predicate that checks if an ingredient has a use in a recipe
 % or can be used to make another ingredient
 ingredient_IsTrash("MeatPattyBurned").
+
+
+any_Ingredient_WorkCounter_ID(WorkCounterID) :-
+    stoveCounter_ID(WorkCounterID).
+
+any_Ingredient_WorkCounter_ID(WorkCounterID) :-
+    cuttingCounter_ID(WorkCounterID).
+
+ingredient_Available_WorkCounter(IngredientName, WorkCounterID) :-
+    ingredient_NeedsCooking(IngredientName, _, _),
+    stoveCounter_ID(WorkCounterID),
+    counter_HasSpace(WorkCounterID).
+
+ingredient_Available_WorkCounter(IngredientName, WorkCounterID) :-
+    ingredient_NeedsCutting(IngredientName, _, _),
+    cuttingCounter_ID(WorkCounterID),
+    counter_HasSpace(WorkCounterID).
+
+ingredient_Any_Available_WorkCounter(IngredientName) :-
+    ingredient_Available_WorkCounter(IngredientName, _).
+
+
+player_Ingredient_On_WorkCounter(PlayerID, IngredientName, WorkCounterID) :-
+    player_ID(PlayerID),
+    ko_HasPlayer(IngredientID),
+    ko_Player_ID(IngredientID, PlayerID),
+    ko(IngredientID, IngredientName, WorkCounterID),
+    any_Ingredient_WorkCounter_ID(WorkCounterID).
+
+player_Ingredient_On_Any_WorkCounter(PlayerID, IngredientName) :-
+    player_Ingredient_On_WorkCounter(PlayerID, IngredientName, _).
+

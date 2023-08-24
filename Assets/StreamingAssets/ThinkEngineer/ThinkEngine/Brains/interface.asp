@@ -95,8 +95,20 @@ ingredient_NeedsCutting_ForPlayer(IngredientName, PlayerID, RecipeName, InputIng
 ingredient_NeedsWork(IngredientName, RecipeName, BaseIngredientName) .
 ingredient_NeedsWork_ForPlayer(IngredientName, PlayerID, RecipeName, InputIngredientName).
 
-
 ingredient_IsTrash(IngredientName).
+
+any_Ingredient_WorkCounter_ID(WorkCounterID).
+ingredient_Available_WorkCounter(IngredientName, WorkCounterID).
+ingredient_Any_Available_WorkCounter(IngredientName).
+
+player_Ingredient_On_WorkCounter(PlayerID, IngredientName, WorkCounterID).
+player_Ingredient_On_Any_WorkCounter(Player, IngredientName).
+
+
+% ================================== PLAYER INGREDIENTS ==================================
+
+player_CanWork_ToGet_Ingredient(PlayerID, IngredientName).
+ 
 
 % ================================== COMMON TIME ==================================
 
