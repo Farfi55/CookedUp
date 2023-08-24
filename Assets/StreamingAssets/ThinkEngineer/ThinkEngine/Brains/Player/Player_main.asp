@@ -1,4 +1,5 @@
 any_Urgent_State :- state_Ingredient_Burning.
+any_Urgent_State :- state_Ingredient_Left_On_CuttingCounter.
 
 state("Pick Up Plate") :- state_PickUp_Plate.
 % CASE 1:
@@ -76,6 +77,21 @@ state_Ingredient_Burning :-
     counter_KO(CounterID, KitchenObjectID, KitchenObjectName),
     ko_Curr_Player(KitchenObjectID),
     ingredient_IsTrash(KitchenObjectName).
+
+
+state("Ingredient Left On CuttingCounter") :-
+    state_Ingredient_Left_On_CuttingCounter.
+
+% CASE 1:
+% a player's ingredient is left on a cutting counter.
+state_Ingredient_Left_On_CuttingCounter :-
+    not state_Ingredient_Burning,
+    curr_Player_ID(PlayerID),
+    player_HasSpace(PlayerID),
+    cuttingCounter_ID(CuttingCounterID),
+    ko_Curr_Player(KitchenObjectID),
+    ko(KitchenObjectID, KitchenObjectName, CuttingCounterID),
+    not playerBot_MissingIngredients_Or_Base(PlayerID, KitchenObjectName).
 
 
 state("Drop Ingredient") :- state_DropIngredient.

@@ -6,6 +6,7 @@
 
 #show gi_FinalIngredient/1.
 #show gi_BaseIngredient/1.
+#show gi_IngredientAvailability/1.
 #show gi_State/1.
 
 { gi_FinalIngredient(IngredientName) } <= 1 :-
@@ -14,15 +15,15 @@
     player_HasNone(PlayerID),
     playerBot_MissingIngredients(PlayerID, IngredientName).
 
-:-  state_GetIngredient,
+:- state_GetIngredient,
     #count{IngredientName : gi_FinalIngredient(IngredientName)} != 1.
+
 
 % if player is holding an ingredient, then that determines the final ingredient
 gi_FinalIngredient(IngredientName) :-
     state_GetIngredient,
     curr_Player_ID(PlayerID),
     player_KO_Name(PlayerID, IngredientName),
-    ingredient_Available_ForPlayer(IngredientName, PlayerID),
     playerBot_MissingIngredients(PlayerID, IngredientName).
 
 gi_FinalIngredient(IngredientName) :-
