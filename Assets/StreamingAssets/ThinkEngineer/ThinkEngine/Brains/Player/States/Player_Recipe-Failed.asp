@@ -7,8 +7,10 @@
 rf_State("Plate On Delivery Counter") :-
     state_Recipe_Failed,
     curr_Player_ID(PlayerID),
-    playerBot_HasPlate(PlayerID),
-    playerBot_Plate_Container_ID(PlayerID, _, DeliveryCounterID),
+    ko_Player_ID(KitchenObjectID, PlayerID),
+    not playerBot_IsPlateBeingCarried(PlayerID),
+    ko_HasOwnerContainer(KitchenObjectID),
+    ko_OwnerContainer_ID(KitchenObjectID, DeliveryCounterID),
     deliveryCounter_ID(DeliveryCounterID).
 
 rf_State("Recipe Request Expired") :-
@@ -66,7 +68,13 @@ rf_Any_AvailablePlates :-
 rf_PickUp_OldPlate_Target(TargetID) :- 
     state_Recipe_Failed,
     rf_Must_PickUp_OldPlate,
-    playerBot_Plate_Container_ID(PlayerID, _, TargetID).
+    rf_State("Plate On Delivery Counter"),
+    ko_Curr_Player(KitchenObjectID),
+    ko_HasOwnerContainer(KitchenObjectID),
+    ko_OwnerContainer_ID(KitchenObjectID, DeliveryCounterID),
+    deliveryCounter_ID(DeliveryCounterID),
+    TargetID = DeliveryCounterID.
+
 
 tmp_rf_Place_OldPlate_Target(TargetID) :- 
     state_Recipe_Failed,
@@ -128,6 +136,10 @@ a_Place(ActionIndex, TargetID) :-
     rf_FirstActionIndex(FirstActionIndex),
     rf_Place_OldPlate_Target(TargetID).
 
+%TODO: 
+% change this with a a_SetPlate(ActionIndex, 0).
+% 0 meaning no plate
+% so that this will reutilize the pick up plate state insted
 
 % Action 3:
 % PickUp new plate

@@ -3,7 +3,7 @@
 di_KeepIngredient :- 
     state_DropIngredient,
     clearCounter_HasSpace(CounterID),
-    ingredient_IsTrash(KOName),
+    not ingredient_IsTrash(KOName),
     player_KO_Name(PlayerID, KOName).
 
 
@@ -52,3 +52,4 @@ a_Wait(ActionIndex) :-
     firstActionIndex(FirstActionIndex).
 
 
+#show di_KeepIngredient/0.

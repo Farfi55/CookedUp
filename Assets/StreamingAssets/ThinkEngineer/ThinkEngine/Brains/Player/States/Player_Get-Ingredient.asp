@@ -149,6 +149,7 @@ gi_FirstActionIndex(Index) :-
     Index = #min{TmpIndex : tmp_gi_FirstActionIndex(TmpIndex)}.
 
 
+
 gi_WorkCounter(CounterID) :-
     state_GetIngredient,
     stoveCounter_ID(CounterID).

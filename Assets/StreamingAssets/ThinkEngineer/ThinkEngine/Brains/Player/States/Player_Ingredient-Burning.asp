@@ -77,6 +77,7 @@ ib_Ingredient_HasBurned :-
     state_Ingredient_Burning,
     not ib_Ingredient_IsBurning.
     
+
 tmp_ib_Ingredient_PickUp_Target(TargetID) :-
     state_Ingredient_Burning,
     ib_Ingredient_IsBurning,
@@ -124,3 +125,8 @@ a_Wait(ActionIndex) :-
     ActionIndex = FirstActionIndex + 2,
     ib_FirstActionIndex(FirstActionIndex).
 
+#show ib_Ingredient_IsBurning/0.
+#show ib_Ingredient_HasBurned/0.
+#show ib_KeepIngredient/0.
+#show ib_MustDrop_HeldObject/0.
+#show state_Ingredient_Burning/0.

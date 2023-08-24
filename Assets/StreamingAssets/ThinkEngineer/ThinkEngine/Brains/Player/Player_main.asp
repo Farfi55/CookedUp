@@ -147,9 +147,10 @@ state("Recipe Failed") :- state_Recipe_Failed.
 state_Recipe_Failed :-
     not any_Urgent_State,
     curr_Player_ID(PlayerID),
-    playerBot_HasPlate(PlayerID),
+    ko_Player_ID(KitchenObjectID, PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
-    playerBot_Plate_Container_ID(PlayerID, _, DeliveryCounterID),
+    ko_HasOwnerContainer(KitchenObjectID),
+    ko_OwnerContainer_ID(KitchenObjectID, DeliveryCounterID),
     deliveryCounter_ID(DeliveryCounterID).
 
 % CASE 2: Player's recipe request expired.
