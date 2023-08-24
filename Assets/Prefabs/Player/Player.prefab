@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeLimit: 1
+  debugKitchenObjects: []
 --- !u!114 &2305633455088201913
 MonoBehaviour:
   m_ObjectHideFlags: 0

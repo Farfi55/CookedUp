@@ -124,6 +124,7 @@ applyAction(ActionIndex, "CutAction") :-
 actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_Cut(ActionIndex, _), curr_Player_ID(PlayerID).
 actionArgument(ActionIndex, "TargetID", TargetID) :- a_Cut(ActionIndex, TargetID).
 
+
 % ================================== Cook ==================================
 
 % a_WaitToCook(ActionIndex, TargetInteractableID).
@@ -134,6 +135,19 @@ applyAction(ActionIndex, "WaitToCookAction") :-
 
 actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_WaitToCook(ActionIndex, _), curr_Player_ID(PlayerID).
 actionArgument(ActionIndex, "TargetID", TargetID) :- a_WaitToCook(ActionIndex, TargetID).
+
+
+% ================================== Set Plate ==================================
+
+% a_SetPlate(ActionIndex, PlateID).
+#show a_SetPlate/2.
+
+applyAction(ActionIndex, "SetPlateAction") :- 
+    a_SetPlate(ActionIndex, _).
+
+actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_SetPlate(ActionIndex, _), curr_Player_ID(PlayerID).
+actionArgument(ActionIndex, "PlateID", PlateID) :- a_SetPlate(ActionIndex, PlateID).
+
 
 % ================================== Wait ==================================
 

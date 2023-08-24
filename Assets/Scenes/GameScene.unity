@@ -178,9 +178,9 @@ MonoBehaviour:
   recipes: {fileID: 11400000, guid: b37a0c3c2a23e92479960ea3d6e7d302, type: 2}
   startingRecipes: []
   timeToDeliverRecipe: 35
-  timeForNewRequest: 10
+  timeForNewRequest: 8
   maxWaitingRequests: 4
-  startingWaitingRequests: 2
+  startingWaitingRequests: 1
 --- !u!114 &40727174
 MonoBehaviour:
   m_ObjectHideFlags: 0

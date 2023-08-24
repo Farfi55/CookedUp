@@ -43,7 +43,7 @@ namespace CookedUp.ThinkEngine.Actions {
                 target = idManager.GetGameObject(TargetID);
                 worldPos = target.transform.position;
                     
-                Debug.Log($"MoveToAction: {player.name} moving to {target.name}");
+                Debug.Log($"[{GetType().Name}]: {player.name} moving to {target.name}");
             }
             else {
                 gridManager = GridManager.Instance;
@@ -62,7 +62,7 @@ namespace CookedUp.ThinkEngine.Actions {
             }
 
             if (!playerMovement.TryMoveTo(worldPos)) {
-                Debug.LogError($"player {player.name} could not move to {worldPos}");
+                Debug.LogError($"[{GetType().Name}]: {player.name} could not move to {worldPos}");
                 anyError = true;
             }
         }

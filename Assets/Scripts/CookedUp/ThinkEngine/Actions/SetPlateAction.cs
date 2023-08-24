@@ -1,34 +1,34 @@
 ﻿using CookedUp.Core;
+using CookedUp.Core.KitchenObjects;
 using CookedUp.Core.Players;
 using ThinkEngine.Planning;
 using UnityEngine;
 
 namespace CookedUp.ThinkEngine.Actions
 {
-    class SetRecipeRequestAction : Action, IPlayerAction
+    class SetPlateAction : Action, IPlayerAction
     {
         private IDManager idManager;
-        private DeliveryManager deliveryManager;
         
         public int PlayerID { get; set; }
         
-        public int RecipeRequestID { get; set; }
+        public int PlateID { get; set; }
 
         private Player player;
         private PlayerBot playerBot;
         
-        private RecipeRequest recipeRequest;
-
+        public PlateKitchenObject plate;
 
         public override void Init() {
 
-            Debug.Log($"[{GetType().Name}]: Init, PlayerID: {PlayerID}, RecipeRequestID: {RecipeRequestID}");
+            
             idManager = IDManager.Instance;
-            deliveryManager =  DeliveryManager.Instance;
-            recipeRequest = deliveryManager.GetRecipeRequestFromID(RecipeRequestID);
+            
             
             player = idManager.GetComponentFromID<Player>(PlayerID);
             playerBot = player.GetComponent<PlayerBot>();
+
+            plate = PlateID == 0 ? null : idManager.GetComponentFromID<PlateKitchenObject>(PlateID);
         }
 
         public override State Prerequisite() {
@@ -37,10 +37,10 @@ namespace CookedUp.ThinkEngine.Actions
 
         public override void Do() {
             
-            playerBot.SetRecipeRequest(recipeRequest);
+            playerBot.SetPlate(plate);
             
-            if(playerBot.CurrentRecipeRequest != recipeRequest)
-                Debug.Log($"[{GetType().Name}]: {player.name} failed to set recipe request to {recipeRequest.Recipe.name}");
+            if(playerBot.Plate != plate)
+                Debug.Log($"[{GetType().Name}]: {player.name} failed to set plate to {PlateID}");
         }
 
         public override State Done() {
@@ -48,7 +48,7 @@ namespace CookedUp.ThinkEngine.Actions
         }
 
         public override void Clean() {
-            Debug.Log($"[{GetType().Name}]: Clean, PlayerID: {PlayerID}, RecipeRequestID: {RecipeRequestID}");
+            Debug.Log($"[{GetType().Name}]: Clean, PlayerID: {PlayerID}, PlateID: {PlateID}");
         }
     }
 }

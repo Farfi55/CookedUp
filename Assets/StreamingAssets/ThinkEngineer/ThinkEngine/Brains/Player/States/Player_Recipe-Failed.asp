@@ -35,8 +35,7 @@ rf_Must_Place_OldPlate :- rf_Must_PickUp_OldPlate.
 rf_Must_Place_OldPlate :- rf_State("Recipe Request Expired"), playerBot_IsPlateBeingCarried(PlayerID), curr_Player_ID(PlayerID).
 rf_Must_Place_OldPlate :- rf_State("Plate Has Invalid Ingredients"), playerBot_IsPlateBeingCarried(PlayerID), curr_Player_ID(PlayerID).
 
-% rf_Must_PickUp_NewPlate :- rf_Must_Place_OldPlate.
-rf_Must_PickUp_NewPlate :- state_Recipe_Failed.
+rf_Must_Reset_Plate :- state_Recipe_Failed.
 
 
 tmp_rf_FirstActionIndex(Index) :-
@@ -93,31 +92,6 @@ rf_Place_OldPlate_Target(TargetID) :-
     tmp_rf_Place_OldPlate_Target(_),
     TargetID = #max{TargetID1 : tmp_rf_Place_OldPlate_Target(TargetID1)}.
 
-
-tmp_rf_PickUp_NewPlate_Target(TargetID) :- 
-    state_Recipe_Failed,
-    rf_Must_PickUp_NewPlate,
-    rf_Any_AvailablePlates,
-    platesCounter_ID(TargetID),
-    counter_HasAny(TargetID),
-    PlatesCount = #max{PlatesCount1 : platesCounter_Count(_, PlatesCount1)},
-    platesCounter_Count(TargetID, PlatesCount).
-
-
-tmp_rf_PickUp_NewPlate_Target(TargetID) :- 
-    state_Recipe_Failed,
-    rf_Must_PickUp_NewPlate,
-    not rf_Any_AvailablePlates,
-    platesCounter_ID(TargetID),
-    TimeToNextPlate = #max{TimeToNextPlate1 : platesCounter_TimeToNextPlate(_, TimeToNextPlate1)},
-    platesCounter_TimeToNextPlate(TargetID, TimeToNextPlate).
-    
-rf_PickUp_NewPlate_Target(TargetID) :- 
-    state_Recipe_Failed,
-    tmp_rf_PickUp_NewPlate_Target(_),
-    TargetID = #max{TargetID1 : tmp_rf_PickUp_NewPlate_Target(TargetID1)}.
-
-
 % Action 1: 
 % PickUp old plate
 a_PickUp(ActionIndex, TargetID) :-
@@ -136,19 +110,13 @@ a_Place(ActionIndex, TargetID) :-
     rf_FirstActionIndex(FirstActionIndex),
     rf_Place_OldPlate_Target(TargetID).
 
-%TODO: 
-% change this with a a_SetPlate(ActionIndex, 0).
-% 0 meaning no plate
-% so that this will reutilize the pick up plate state insted
-
 % Action 3:
-% PickUp new plate
-a_PickUp(ActionIndex, TargetID) :-
+% Set plate to null
+a_SetPlate(ActionIndex, 0) :-
     state_Recipe_Failed,
-    rf_Must_PickUp_NewPlate,
+    rf_Must_Reset_Plate,
     ActionIndex = FirstActionIndex + 2,
-    rf_FirstActionIndex(FirstActionIndex),
-    rf_PickUp_NewPlate_Target(TargetID).
+    rf_FirstActionIndex(FirstActionIndex).
 
 
 a_Wait(ActionIndex) :-

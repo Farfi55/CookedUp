@@ -4,6 +4,7 @@ using CookedUp.Core.KitchenObjects.Container;
 using Shared;
 using UnityEngine;
 using UnityEngine.AI;
+using Object = UnityEngine.Object;
 
 namespace CookedUp.Core.Players {
     public class PlayerBot : MonoBehaviour {
@@ -39,7 +40,7 @@ namespace CookedUp.Core.Players {
             }
         }
 
-        private void SetPlate(PlateKitchenObject plate) {
+        public void SetPlate(PlateKitchenObject plate) {
             var oldPlate = Plate;
             if (oldPlate == plate)
                 return;
