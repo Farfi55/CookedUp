@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.22745098, g: 1, b: 0, a: 1}
   material: {fileID: 2100000, guid: 353eec077b4390b43aab98adeac15a1e, type: 2}
+  displayName: Green

@@ -8,8 +8,12 @@ namespace CookedUp.Core.Players {
         public static PlayersManager Instance { get; private set; }
 
         public List<Player> Players => players;
-        [SerializeField] private List<Player> players;
+        [SerializeField] private List<Player> players = new();
 
+        [SerializeField] private PlayersConfiguration playersConfiguration;
+        
+        [SerializeField] private Transform playersSpawnPoint;
+        
         public int PlayerCount => players.Count;
 
         private readonly HashSet<Player> playersReady = new();
@@ -31,13 +35,20 @@ namespace CookedUp.Core.Players {
             Player.OnAnyPlayerDestroyed += OnPlayerDestroyed;
         }
 
-
-
         private void OnDisable() {
             Player.OnAnyPlayerSpawned -= OnPlayerSpawned;
             Player.OnAnyPlayerDestroyed -= OnPlayerDestroyed;
         }
-        
+
+
+        private void Start() {
+            foreach (var playerConfiguration in playersConfiguration.Players) {
+                var player = playersConfiguration.CreatePlayer(playerConfiguration);
+                AddPlayer(player);
+                player.transform.position = playersSpawnPoint.position + Vector3.right * (players.Count * 2f);
+            }
+        }
+
         private void OnPlayerSpawned(object sender, Player player) => AddPlayer(player);
         
         private void OnPlayerDestroyed(object sender, Player player) => RemovePlayer(player);

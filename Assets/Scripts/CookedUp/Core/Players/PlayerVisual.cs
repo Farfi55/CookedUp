@@ -14,7 +14,7 @@ namespace CookedUp.Core.Players
             SetColor(playerColorSO);
         }
 
-        private void SetColor(PlayerColorSO playerColor) {
+        public void SetColor(PlayerColorSO playerColor) {
             playerColorSO = playerColor;
             foreach (var meshRenderer in playerMeshRenderers) {
                 meshRenderer.material = playerColor.Material;
