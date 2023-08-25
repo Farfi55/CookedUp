@@ -54,7 +54,7 @@ namespace ThinkEngine
 				values.Add(ContainerID2);
 			}
             }
-            catch (NullReferenceException nullEx)
+            catch (NullReferenceException)
             {
                 // UnityEngine.Debug.LogError(nullEx.Message);
                 values.Clear();

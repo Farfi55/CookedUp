@@ -15,7 +15,6 @@ namespace CookedUp.Core.Players
 
 
         private void Awake() {
-            inputActions = new PlayerInputActions();
             inputActions.Player.Enable();
             
             inputActions.Player.Interact.performed += InteractPerformed;

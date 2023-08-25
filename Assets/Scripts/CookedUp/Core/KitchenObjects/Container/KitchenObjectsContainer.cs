@@ -5,6 +5,7 @@ using UnityEngine;
 namespace CookedUp.Core.KitchenObjects.Container
 {
     public class KitchenObjectsContainer : MonoBehaviour {
+        
         private List<KitchenObject> kitchenObjects = new();
 
         public KitchenObject KitchenObject => GetNext();
@@ -63,8 +64,6 @@ namespace CookedUp.Core.KitchenObjects.Container
             }
             return kitchenObjectsInOrder;
         }
-
-
 
         /// <summary>
         /// Removes the next KitchenObject from the container and returns it.
@@ -129,6 +128,32 @@ namespace CookedUp.Core.KitchenObjects.Container
         public List<KitchenObjectSO> AsKitchenObjectSOs() {
             return kitchenObjects.ConvertAll(input => input.KitchenObjectSO);
         }
+
+
+#if UNITY_EDITOR
+        // UNITY EDITOR DEBUGGING
+        
+        [Header("Debug only"), SerializeField]
+        private List<KitchenObject> debugKitchenObjects = new();
+
+        private void Start() {
+            OnKitchenObjectsChanged += (sender, args) => {
+                debugKitchenObjects = new List<KitchenObject>(args.KitchenObjects);
+            };
+        }
+
+        private void Update() {
+            if (debugKitchenObjects.Count == kitchenObjects.Count) 
+                return;
+            
+            var tmp = new List<KitchenObject>(debugKitchenObjects);
+            foreach (var kitchenObject in tmp) {
+                if (!kitchenObjects.Contains(kitchenObject)) {
+                    kitchenObject.SetContainer(this);
+                }
+            }
+        }
+#endif
 
         
 
