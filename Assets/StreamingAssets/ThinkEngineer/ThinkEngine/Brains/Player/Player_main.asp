@@ -214,6 +214,7 @@ state_Recipe_Failed :-
 state_Recipe_Failed :-
     not any_Urgent_State,
     not state_PlacePlate,
+    not state_DropIngredient,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),
@@ -241,13 +242,17 @@ tmp_AnyAction(ActionIndex) :- applyAction(ActionIndex, _).
     actionArgument(ActionIndex, ArgumentName, _).
 
 
-
-
-firstActionIndex(0).
-
 curr_Player_Name(PlayerID, PlayerName) :- 
     curr_Player_ID(PlayerID), 
     player(PlayerID, _, PlayerName).
+
+
+
+a_SetStateName(0, StateName) :- state(StateName).
+
+firstActionIndex(1).
+
+
 
 #show curr_Player_ID/1.
 #show curr_Player_Name/2.

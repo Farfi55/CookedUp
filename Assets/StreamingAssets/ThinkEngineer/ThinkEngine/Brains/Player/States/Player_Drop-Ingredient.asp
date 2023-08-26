@@ -4,6 +4,7 @@ di_KeepIngredient :-
     state_DropIngredient,
     clearCounter_HasSpace(CounterID),
     not ingredient_IsTrash(KOName),
+    curr_Player_ID(PlayerID),
     player_KO_Name(PlayerID, KOName).
 
 

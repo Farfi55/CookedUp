@@ -143,6 +143,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+mono_crash*.blob
+
 Assets/Scripts/CookedUp/ThinkEngine/Python/out_player.asp
 Assets/Scripts/CookedUp/ThinkEngine/Python/out*.asp
 Assets/Scripts/CookedUp/ThinkEngine/Python/out*.asp.meta

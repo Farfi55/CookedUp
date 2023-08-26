@@ -11,7 +11,6 @@ namespace CookedUp.UI
         [SerializeField] private PlayersConfiguration playersConfiguration;
 
     
-        [SerializeField] private Transform playerConfigurationUIsParent;
         [SerializeField] private PlayerConfigurationUI[] playerConfigurationUIs;
 
         [SerializeField] private Button startGameButton;
@@ -21,6 +20,7 @@ namespace CookedUp.UI
     
         private void Start() {
             playersConfiguration.Players = new List<PlayerConfiguration>();
+            
             foreach (var playerConfigurationUI in playerConfigurationUIs) {
                 playerConfigurationUI.Init(playersConfiguration.PlayerColors);
                 playerConfigurationUI.OnPlayerConfigurationCreated += OnPlayerConfigurationCreated;

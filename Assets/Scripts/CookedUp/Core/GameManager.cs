@@ -44,7 +44,7 @@ namespace CookedUp.Core
         public event EventHandler<ValueChangedEvent<GamePauseState>> OnGamePauseStateChanged;
 
 
-
+        
 
         private void Awake() {
             if (Instance == null) {

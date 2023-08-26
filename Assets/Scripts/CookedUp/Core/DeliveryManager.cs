@@ -35,6 +35,7 @@ namespace CookedUp.Core
         [SerializeField] private int maxWaitingRequests = 3;
 
         [SerializeField] private int startingWaitingRequests = 1;
+        [SerializeField] private bool oneStartingRecipePerPlayer = true;
         public int SuccessfulDeliveriesCount { get; private set; }
         public float SuccessfulDeliveriesValue { get; private set; }
 
@@ -77,7 +78,11 @@ namespace CookedUp.Core
 
 
         private void Update() {
-            if (!gameManager.IsGamePlaying) return;
+            if (!gameManager.IsGamePlaying) {
+                while (oneStartingRecipePerPlayer && waitingRequests.Count < PlayersManager.Instance.PlayerCount) {
+                    CreateNewRecipe();
+                }
+            }
         
             foreach (var recipeRequest in waitingRequests) {
                 recipeRequest.UpdateTime(Time.deltaTime);

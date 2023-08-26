@@ -18,6 +18,8 @@ namespace CookedUp.Core.Players {
 
         private readonly HashSet<Player> playersReady = new();
 
+        public event EventHandler OnPlayersChanged; 
+        
         public event EventHandler OnPlayersReadyChanged;
 
         private void Awake() {
@@ -44,8 +46,8 @@ namespace CookedUp.Core.Players {
         private void Start() {
             foreach (var playerConfiguration in playersConfiguration.Players) {
                 var player = playersConfiguration.CreatePlayer(playerConfiguration);
-                AddPlayer(player);
                 player.transform.position = playersSpawnPoint.position + Vector3.right * (players.Count * 2f);
+                AddPlayer(player);
             }
         }
 
@@ -70,6 +72,7 @@ namespace CookedUp.Core.Players {
             
             players.Add(player);
             player.OnPlayerReady += PlayersReady;
+            OnPlayersChanged?.Invoke(this, EventArgs.Empty);
         }
 
 
@@ -77,6 +80,7 @@ namespace CookedUp.Core.Players {
             players.Remove(player);
             playersReady.Remove(player);
             player.OnPlayerReady -= PlayersReady;
+            OnPlayersChanged?.Invoke(this, EventArgs.Empty);
         }
 
 

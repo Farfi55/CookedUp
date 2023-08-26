@@ -168,3 +168,17 @@ applyAction(ActionIndex, "WaitAction") :-
 
 actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_Wait(ActionIndex, _), curr_Player_ID(PlayerID).
 actionArgument(ActionIndex, "TimeToWait", MilliSecondsToWait) :- a_Wait(ActionIndex, MilliSecondsToWait).
+
+
+% ================================== Set State Name ==================================
+
+% a_SetStateName(ActionIndex, StateName).
+#show a_SetStateName/2.
+
+applyAction(ActionIndex, "SetStateNameAction") :- 
+    a_SetStateName(ActionIndex, _).
+
+actionArgument(ActionIndex, "PlayerID", PlayerID) :- a_SetStateName(ActionIndex, _), curr_Player_ID(PlayerID).
+actionArgument(ActionIndex, "StateName", StateName) :- a_SetStateName(ActionIndex, StateName).
+
+

@@ -20,11 +20,14 @@ namespace CookedUp.Core.Players {
         public bool HasRecipeRequest => CurrentRecipeRequest != null;
         public RecipeRequest CurrentRecipeRequest { get; private set; }
 
+        public string StateName { get; private set; }
 
         public event EventHandler<ValueChangedEvent<RecipeRequest>> OnRecipeRequestChanged;
         public static event EventHandler<ValueChangedEvent<RecipeRequest>> OnAnyRecipeRequestChanged;
         public event EventHandler<ValueChangedEvent<PlateKitchenObject>> OnPlateChanged;
         public event EventHandler<KitchenObjectsChangedEvent> OnPlateIngredientsChanged;
+        
+        public event EventHandler OnStateNameChanged;
 
         private void Start() {
             agent.speed = playerMovement.MovementSpeed;
@@ -106,6 +109,11 @@ namespace CookedUp.Core.Players {
             SetRecipeRequest(null);
         }
 
+        
+        public void SetStateName(string stateName) {
+            StateName = stateName;
+            OnStateNameChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         void SetDestinationToMousePosition() {
             RaycastHit hit;
@@ -116,7 +124,5 @@ namespace CookedUp.Core.Players {
                 playerMovement.LookAt(hit.collider.transform);
             }
         }
-
-        
     }
 }
