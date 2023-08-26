@@ -2,7 +2,9 @@ using CookedUp.Core;
 using Shared;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace CookedUp.UI
 {
@@ -12,14 +14,17 @@ namespace CookedUp.UI
         private GameManager gameManager;
         [FormerlySerializedAs("recipesDeliveredText")] [SerializeField] private TextMeshProUGUI recipesDeliveredCountText;
         [SerializeField] private TextMeshProUGUI recipesDeliveredValueText;
+        [SerializeField] private Button MainMenuButton;
         
         private void Start() {
             deliveryManager = DeliveryManager.Instance;
             gameManager = GameManager.Instance;
             gameManager.OnGameStateChanged += OnGameStateChanged;
+            MainMenuButton.onClick.AddListener(() => LoadMainMenu());
+            MainMenuButton.Select();
             Hide();
         }
-
+        
         private void OnGameStateChanged(object sender, ValueChangedEvent<GamePlayingState> e) {
             if (e.NewValue == GamePlayingState.GameOver) {
                 Show();
@@ -41,6 +46,11 @@ namespace CookedUp.UI
             gameObject.SetActive(false);
         }
     
+        private void LoadMainMenu() {
+            SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
+        }
+        
+        
         private void OnDestroy() {
             gameManager.OnGameStateChanged -= OnGameStateChanged;
         }

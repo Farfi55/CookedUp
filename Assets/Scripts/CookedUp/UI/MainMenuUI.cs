@@ -17,12 +17,15 @@ namespace CookedUp.UI
         }
 
         private void Start() {
-            playButton.Select();
-            
             lobbyUI.OnHide += (_, _) => Show();
+            Show();
         }
 
-        private void Show() => gameObject.SetActive(true);
+        private void Show() {
+            gameObject.SetActive(true);
+            playButton.Select();
+        }
+
         private void Hide() => gameObject.SetActive(false);
         
         private void OnPlayButtonClicked() {

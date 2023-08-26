@@ -77,38 +77,6 @@ namespace CookedUp.Core.Players {
             Debug.Log("Plate destroyed");
             SetPlate(null);
         }
-
-
-        void Update() {
-            if (Input.GetMouseButtonDown(1)) {
-                SetDestinationToMousePosition();
-            }
-
-            if (Input.GetMouseButtonDown(2)) {
-                player.TryAlternateInteract();
-                player.StartAlternateInteract();
-            } else if (Input.GetMouseButtonUp(2)) {
-                player.StopAlternateInteract();
-            }
-
-            if (Input.GetMouseButtonDown(0)) {
-                player.TryInteract();
-            }
-
-
-            // playerMovement.desiredMoveDirection = agent.desiredVelocity;
-        }
-
-        // private void RecipeRequestCreated(object sender, RecipeRequest recipeRequest) {
-        //     if (HasRecipe)
-        //         return;
-        //     TrySelectFirstRecipe();
-        // }
-
-        // private void TrySelectFirstRecipe() {
-        //     var newRecipe = deliveryManager.WaitingRequests.FirstOrDefault();
-        //     SetRecipeRequest(newRecipe);
-        // }
         
         public void SetRecipeRequest(RecipeRequest recipeRequest) {
             var oldRequest = CurrentRecipeRequest;

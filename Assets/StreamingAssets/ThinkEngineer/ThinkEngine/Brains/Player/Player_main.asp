@@ -194,6 +194,7 @@ state("Recipe Failed") :- state_Recipe_Failed.
 %         but the delivery was not successful.
 state_Recipe_Failed :-
     not any_Urgent_State,
+    not state_PlacePlate,
     curr_Player_ID(PlayerID),
     ko_Player_ID(KitchenObjectID, PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
@@ -204,6 +205,7 @@ state_Recipe_Failed :-
 % CASE 2: Player's recipe request expired.
 state_Recipe_Failed :-
     not any_Urgent_State,
+    not state_PlacePlate,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasNoRecipeRequest(PlayerID).
@@ -211,6 +213,7 @@ state_Recipe_Failed :-
 % CASE 3: Player's plate contains invalid ingredients.
 state_Recipe_Failed :-
     not any_Urgent_State,
+    not state_PlacePlate,
     curr_Player_ID(PlayerID),
     playerBot_HasPlate(PlayerID),
     playerBot_HasRecipeRequest(PlayerID),

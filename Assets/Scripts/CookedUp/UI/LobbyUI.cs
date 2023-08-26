@@ -70,8 +70,8 @@ public class LobbyUI : MonoBehaviour {
     }
     
     public void Show() {
-        startGameButton.Select();
         gameObject.SetActive(true);
+        startGameButton.Select();
     }
     
     public void Hide() {
