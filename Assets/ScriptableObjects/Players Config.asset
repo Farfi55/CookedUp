@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: Players Config
   m_EditorClassIdentifier: 
   Players:
-  - Color: {fileID: 11400000, guid: 884347ea9ff1c3e42801be9923bb0128, type: 2}
-    IsBot: 0
   - Color: {fileID: 11400000, guid: 49dc5b046c8cc414088b9809ab348bdf, type: 2}
     IsBot: 1
   - Color: {fileID: 11400000, guid: 84dab6cb03376644da42075cd5244425, type: 2}
     IsBot: 1
+  - Color: {fileID: 11400000, guid: 884347ea9ff1c3e42801be9923bb0128, type: 2}
+    IsBot: 1
+  - Color: {fileID: 11400000, guid: 00b2524ccc87a1d4ba7cc5def8cc2243, type: 2}
+    IsBot: 0
   playerColors:
-  - {fileID: 11400000, guid: 884347ea9ff1c3e42801be9923bb0128, type: 2}
-  - {fileID: 11400000, guid: 00b2524ccc87a1d4ba7cc5def8cc2243, type: 2}
   - {fileID: 11400000, guid: 84dab6cb03376644da42075cd5244425, type: 2}
   - {fileID: 11400000, guid: 49dc5b046c8cc414088b9809ab348bdf, type: 2}
+  - {fileID: 11400000, guid: 00b2524ccc87a1d4ba7cc5def8cc2243, type: 2}
+  - {fileID: 11400000, guid: 884347ea9ff1c3e42801be9923bb0128, type: 2}
   humanPlayerPrefab: {fileID: 4706379898146698279, guid: 6ce8b785e5b102e4697dca18dbf2b0f7,
     type: 3}
   botPlayerPrefab: {fileID: 5708879081929429265, guid: 22a2e9892c8bdd442ba40cc42b264650,

@@ -7,6 +7,7 @@ namespace CookedUp.Core.Players {
     public class PlayersConfiguration : ScriptableObject {
         public List<PlayerConfiguration> Players;
         
+        public PlayerColorSO[] PlayerColors => playerColors;
         [SerializeField] private PlayerColorSO[] playerColors;
         [SerializeField] private Player humanPlayerPrefab;
         [SerializeField] private Player botPlayerPrefab;
@@ -29,7 +30,7 @@ namespace CookedUp.Core.Players {
     
     
     [Serializable]
-    public struct PlayerConfiguration {
+    public class PlayerConfiguration {
         public PlayerColorSO Color;
         public bool IsBot;
         public bool IsHuman => !IsBot;

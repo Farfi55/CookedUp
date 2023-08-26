@@ -215,6 +215,7 @@ MonoBehaviour:
   playerMeshRenderers:
   - {fileID: 3922019416580132864}
   - {fileID: 3922019416930424153}
+  playerEyes: []
   playerColorSO: {fileID: 11400000, guid: 49dc5b046c8cc414088b9809ab348bdf, type: 2}
 --- !u!1 &4766982840128355688
 GameObject:
