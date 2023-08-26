@@ -26,6 +26,12 @@ namespace CookedUp.ThinkEngine.Sensors {
 
         private void Start() {
             idManager = IDManager.Instance;
+            if (idManager == null) {
+                Debug.LogError("IDManager not found in scene, disabling gameObject");
+                gameObject.SetActive(false);
+                return;
+            }
+            
             container.OnKitchenObjectsChanged += OnKitchenObjectsChanged;
             SizeLimit = container.SizeLimit;
             ContainerID = idManager.GetID(container.gameObject);
@@ -37,9 +43,6 @@ namespace CookedUp.ThinkEngine.Sensors {
         private void UpdateContainerData()
         {
             Count = container.Count;
-            
-            foreach (var oldKitchenObject in KitchenObjects)
-                idManager.RemoveID(oldKitchenObject.ID);
             
             KitchenObjects.Clear();
 
@@ -53,7 +56,8 @@ namespace CookedUp.ThinkEngine.Sensors {
         }
 
         private void OnDestroy() {
-            idManager.RemoveID(ContainerID);
+            if (idManager != null)
+                idManager.RemoveID(ContainerID);
         }
     }
 }

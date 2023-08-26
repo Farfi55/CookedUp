@@ -13,13 +13,20 @@ namespace CookedUp.ThinkEngine.Sensors {
 
         private void Start() {
             idManager = IDManager.Instance;
+            if (idManager == null) {
+                Debug.LogError("IDManager not found in scene, disabling gameObject");
+                gameObject.SetActive(false);
+                return;
+            }
+            
             ID = idManager.GetID(target.gameObject);
             Type = target.GetType().Name;
             Name = target.name;
         }
         
         private void OnDestroy() {
-            idManager.RemoveID(ID);
+            if (idManager != null)
+                idManager.RemoveID(ID);
         }
     }
 }

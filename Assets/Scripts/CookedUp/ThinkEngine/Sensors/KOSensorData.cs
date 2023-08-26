@@ -20,6 +20,12 @@ namespace CookedUp.ThinkEngine.Sensors {
         
         private void Start() {
             idManager = IDManager.Instance;
+            if (idManager == null) {
+                Debug.LogError("IDManager not found in scene, disabling gameObject");
+                gameObject.SetActive(false);
+                return;
+            }
+            
             kitchenObjectTarget.OnContainerChanged += OnContainerChanged;
             kitchenObjectPlayer.OnPlayerChanged += OnPlayerChanged;
             

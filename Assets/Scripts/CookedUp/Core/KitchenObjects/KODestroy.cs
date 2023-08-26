@@ -12,11 +12,13 @@ namespace CookedUp.Core.KitchenObjects
         private void Start() {
             soundManager = SoundManager.Instance;
             gameManager = GameManager.Instance;
-            gameManager.OnGameStateChanged += OnGameStateChanged;
+            if(gameManager)
+                gameManager.OnGameStateChanged += OnGameStateChanged;
         }
 
         private void OnDestroy() {
-            gameManager.OnGameStateChanged -= OnGameStateChanged;
+            if(gameManager)
+                gameManager.OnGameStateChanged -= OnGameStateChanged;
         }
 
         private void OnGameStateChanged(object sender, ValueChangedEvent<GamePlayingState> e) {
