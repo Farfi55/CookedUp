@@ -18,8 +18,11 @@ namespace CookedUp.Core.Players {
 
         private readonly HashSet<Player> playersReady = new();
 
-        public event EventHandler OnPlayersChanged; 
+        [Header("Debug")]
+        [SerializeField] private bool SpawnHumanPlayer = true;
+        [SerializeField] private int BotsToSpawn = 1;
         
+        public event EventHandler OnPlayersChanged; 
         public event EventHandler OnPlayersReadyChanged;
 
         private void Awake() {
@@ -44,6 +47,17 @@ namespace CookedUp.Core.Players {
 
 
         private void Start() {
+            if (playersConfiguration.Players.Count == 0) {
+                if (SpawnHumanPlayer) {
+                    var conf = new PlayerConfiguration(playersConfiguration.GetRandomUnusedColor(), false);
+                    playersConfiguration.Players.Add(conf);
+                }
+                for (var i = 0; i < BotsToSpawn; i++) {
+                    var conf = new PlayerConfiguration(playersConfiguration.GetRandomUnusedColor(), true);
+                    playersConfiguration.Players.Add(conf);
+                }
+            }
+            
             foreach (var playerConfiguration in playersConfiguration.Players) {
                 var player = playersConfiguration.CreatePlayer(playerConfiguration);
                 player.transform.position = playersSpawnPoint.position + Vector3.right * (players.Count * 2f);

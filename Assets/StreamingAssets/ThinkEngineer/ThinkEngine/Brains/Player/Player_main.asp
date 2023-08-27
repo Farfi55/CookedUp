@@ -22,7 +22,8 @@ state_PickUp_Plate :-
     playerBot_Plate_ID(PlayerID, PlateID),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not player_Best_Plate_ValidForRecipe(PlayerID, PlateID, RecipeName),
-    not playerBot_HasInvalidIngredients(PlayerID).
+    not playerBot_HasInvalidIngredients(PlayerID),
+    not player_HasAny(PlayerID).
 
 state("Place Plate") :- state_PlacePlate.
 state_PlacePlate :-

@@ -5,7 +5,9 @@ using UnityEngine;
 namespace CookedUp.Core.Players {
     [CreateAssetMenu(fileName = "Players Config", menuName = "CookedUp/PLayers Config", order = 30)]
     public class PlayersConfiguration : ScriptableObject {
-        public List<PlayerConfiguration> Players;
+        
+        [NonSerialized]
+        public List<PlayerConfiguration> Players = new();
         
         public PlayerColorSO[] PlayerColors => playerColors;
         [SerializeField] private PlayerColorSO[] playerColors;
@@ -24,6 +26,19 @@ namespace CookedUp.Core.Players {
             player.GetComponent<PlayerVisual>().SetColor(playerConfiguration.Color);
             
             return player;
+        }
+        
+        
+        public PlayerColorSO GetRandomColor() {
+            return playerColors[UnityEngine.Random.Range(0, playerColors.Length)];
+        }
+        
+        public PlayerColorSO GetRandomUnusedColor() {
+            var unusedColors = new List<PlayerColorSO>(playerColors);
+            foreach (var playerConfiguration in Players) {
+                unusedColors.Remove(playerConfiguration.Color);
+            }
+            return unusedColors[UnityEngine.Random.Range(0, unusedColors.Count)];
         }
         
     }

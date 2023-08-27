@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6cccfc2f6047fa81bdb0ed66afbb76, type: 3}
-  m_Name: BluePlayerColor
+  m_Name: PlayerColorLime
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.71931314, b: 1, a: 1}
-  material: {fileID: 2100000, guid: ead4e305e7c244b418af43ccfd3c5aac, type: 2}
-  displayName: Blue
+  color: {r: 0.76946163, g: 1, b: 0, a: 1}
+  material: {fileID: 2100000, guid: f38c4d9da841270f9a42bdc6192fbf88, type: 2}
+  displayName: Lime

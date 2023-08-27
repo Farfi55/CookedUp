@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace CookedUp.Core.Players
 {
@@ -18,8 +19,20 @@ namespace CookedUp.Core.Players
         private void OnValidate() {
             if (material != null && color.Equals(new Color(0,0,0,0)))
                 color = material.color;
-            if (DisplayName == "Not Set")
+            if (DisplayName == "Not Set" || DisplayName == "")
                 displayName = name.Replace("PlayerColor", "");
+        }
+
+
+        [ContextMenu("Load From Material")]
+        private void LoadFromMaterial() {
+            if (material == null) return;
+            color = material.color;
+            displayName = material.name.Replace("PlayerBody_", "");
+            var newName = "PlayerColor" + displayName;
+            string assetPath = AssetDatabase.GetAssetPath(GetInstanceID());
+            AssetDatabase.RenameAsset(assetPath, newName);
+            AssetDatabase.SaveAssets();
         }
 #endif
     }

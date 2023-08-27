@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6cccfc2f6047fa81bdb0ed66afbb76, type: 3}
-  m_Name: RedPlayerColor
+  m_Name: PlayerColorGreen
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.2916425, b: 0, a: 1}
-  material: {fileID: 2100000, guid: 5ab04d90f9e9cd646a3bd2193331a761, type: 2}
-  displayName: Red
+  color: {r: 0.17086872, g: 0.8207547, b: 0.034843344, a: 1}
+  material: {fileID: 2100000, guid: 353eec077b4390b43aab98adeac15a1e, type: 2}
+  displayName: Green

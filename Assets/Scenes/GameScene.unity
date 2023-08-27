@@ -181,6 +181,7 @@ MonoBehaviour:
   timeForNewRequest: 8
   maxWaitingRequests: 4
   startingWaitingRequests: 1
+  oneStartingRecipePerPlayer: 1
 --- !u!114 &40727174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +210,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1880027671}
     m_Modifications:
+    - target: {fileID: 4240255250914636108, guid: 2b0ae4f2da8a8b945ab69230311de9a1,
+        type: 3}
+      propertyPath: useGradient
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4240255250914636108, guid: 2b0ae4f2da8a8b945ab69230311de9a1,
         type: 3}
       propertyPath: progressTracker
@@ -8447,11 +8453,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeliveryCounter
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051089079443342965, guid: 7562ffbbb6512214196428eb4ae1dc11,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5051089079443342965, guid: 7562ffbbb6512214196428eb4ae1dc11,
         type: 3}
