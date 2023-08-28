@@ -649,17 +649,17 @@ MonoBehaviour:
   isFixedSize: 0
   _serializableSensorsTypes:
   - scriptAsset: {fileID: 11500000, guid: eec4e83fc716c2b48bcb3a61396c4287, type: 3}
-    typeName: ThinkEngine.s_PlatesCounter_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: ThinkEngine.s_PlatesCounter_ID, CookedUp.ThinkEngine.Generated, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 594b68090c76f3346a37db16fbb6a39b, type: 3}
-    typeName: ThinkEngine.s_PlatesCounter_PlatesLimit, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlatesCounter_PlatesLimit, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 213c4831d8f568344a4fa32472047a46, type: 3}
-    typeName: ThinkEngine.s_PlatesCounter_PlatesCount, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlatesCounter_PlatesCount, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - scriptAsset: {fileID: 11500000, guid: 8fb9d1a0a8e92324b84b2a96f9e76bdc, type: 3}
-    typeName: ThinkEngine.s_PlatesCounter_TimeToNextPlate, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    typeName: ThinkEngine.s_PlatesCounter_TimeToNextPlate, CookedUp.ThinkEngine.Generated,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   generatedCode: 0
   generatedScripts:
   - C:/Dev/CookedUp/Assets\Scripts\GeneratedCode\s_PlatesCounter_ID.cs
@@ -684,8 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3b9e35e6a68dd46b2544c0a6e0a0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawnPlate: 6
-  startingPlatesCount: 1
+  timeToSpawnPlate: 8
+  startingPlatesCount: 2
   plateKitchenObjectSO: {fileID: 11400000, guid: 4c70511725a6d614796229cdf0473322,
     type: 2}
 --- !u!114 &2969839424491897689

@@ -5601,6 +5601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6014517166810940842, guid: da0bbb3226033154daab3e01ea5ee0e5,
         type: 3}
+      propertyPath: _executeReasonerOn
+      value: OnNewSensorIteration
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014517166810940842, guid: da0bbb3226033154daab3e01ea5ee0e5,
+        type: 3}
       propertyPath: _chosenSensorConfigurations.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -7119,6 +7124,8 @@ MonoBehaviour:
   playersConfiguration: {fileID: 11400000, guid: 558fafd4da77a668993e49cbbfd7b01c,
     type: 2}
   playersSpawnPoint: {fileID: 878102121}
+  SpawnHumanPlayer: 0
+  BotsToSpawn: 3
 --- !u!1001 &1764799802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8449,6 +8456,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 882354336}
     m_Modifications:
+    - target: {fileID: 1165398395811378442, guid: 7562ffbbb6512214196428eb4ae1dc11,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165398395811378442, guid: 7562ffbbb6512214196428eb4ae1dc11,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4326585056123523088, guid: 7562ffbbb6512214196428eb4ae1dc11,
         type: 3}
       propertyPath: m_Name

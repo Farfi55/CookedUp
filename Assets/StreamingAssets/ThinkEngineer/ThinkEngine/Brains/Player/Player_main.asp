@@ -60,6 +60,7 @@ state_GetIngredient :-
     player_HasAny(PlayerID),
     player_KO_Name(PlayerID, FinalIngredient),
     playerBot_MissingIngredients(PlayerID, FinalIngredient),
+    not playerBot_HasInvalidIngredients(PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 
@@ -76,6 +77,7 @@ state_GetIngredient :-
     player_KO_Name(PlayerID, BaseIngredient),
     playerBot_MissingBaseIngredients(PlayerID, FinalIngredient, BaseIngredient),
     player_CanWork_ToGet_Ingredient(PlayerID, FinalIngredient),
+    not playerBot_HasInvalidIngredients(PlayerID),
     not playerBot_IsPlateBeingCarried(PlayerID),
     not playerBot_HasCompletedRecipe(PlayerID).
 

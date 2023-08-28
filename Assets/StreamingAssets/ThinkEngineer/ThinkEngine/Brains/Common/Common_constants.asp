@@ -36,7 +36,7 @@ c_CompleteRecipe_Ingredient("Salad", "CabbageSlices").
 c_CookingRecipe(
     "MeatPattyUncooked-MeatPattyCooked", 
     "MeatPattyUncooked", "MeatPattyCooked", 
-    5000, false).
+    3000, false).
 
 c_CookingRecipe(
     "MeatPattyCooked-MeatPattyBurned", 

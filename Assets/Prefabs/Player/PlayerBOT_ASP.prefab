@@ -173,7 +173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 3.25}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &564401523499421801
@@ -1636,7 +1636,7 @@ MonoBehaviour:
   - Common
   prefabBrain: 1
   solverEnum: 1
-  _executeReasonerOn: OnNewSensorIteration
+  _executeReasonerOn: When Sensors are ready
   specificAIFile: 0
   globalAIFile: 0
   solver_options: []
