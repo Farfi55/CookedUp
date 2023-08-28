@@ -98,8 +98,10 @@ strat_RecipeRequest_Player_Final_Diff(Diff) :-
     strat_Min_RecipeRequest_Player_Final_Count(MinCount),
     Diff = MaxCount - MinCount.
 
-#show strat_RecipeRequest_Player_Final_Diff/1.
-#show recipeRequest_Player_Count/2.
+#show strat_recipeRequest_Player_Diff/1.
+#show strat_Max_recipeRequest_Player_Count/1.
+#show strat_Min_recipeRequest_Player_Count/1.
 #show strat_RecipeRequest_Player_Final_Count/2.
-
-
+#show strat_RecipeRequest_Player_Final_Diff/1.
+#show strat_Max_RecipeRequest_Player_Final_Count/1.
+#show strat_Min_RecipeRequest_Player_Final_Count/1.

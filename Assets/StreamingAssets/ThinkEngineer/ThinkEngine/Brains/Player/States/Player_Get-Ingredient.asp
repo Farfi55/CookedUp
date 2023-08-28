@@ -8,6 +8,8 @@
 #show gi_BaseIngredient/1.
 #show gi_IngredientAvailability/1.
 #show gi_State/1.
+#show gi_FirstActionIndex/1.
+
 
 { gi_FinalIngredient(IngredientName) } <= 1 :-
     state_GetIngredient,

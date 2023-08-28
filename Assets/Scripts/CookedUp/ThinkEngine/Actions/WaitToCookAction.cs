@@ -42,6 +42,14 @@ namespace CookedUp.ThinkEngine.Actions
                 AnyError = true;
                 return;
             }
+
+            var koPlayer = stoveCounter.Container.KitchenObject.GetComponent<KitchenObjectPlayer>();
+            if(koPlayer.Player != Player) {
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} is not being used by {Player.name}!", stoveCounter);
+                AnyError = true;
+                return;
+            }
+            
             Debug.Log($"[{GetType().Name}]: {Player.name} waiting to cook {cookingRecipe.name}");
         }
 

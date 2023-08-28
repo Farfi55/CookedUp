@@ -50,6 +50,7 @@ namespace CookedUp.ThinkEngine.Actions {
             if(Recipe == null) {
                 Debug.LogWarning($"[{GetType().Name}]: {Player.name} does not have a recipe");
                 AnyError = true;
+                return;
             }
         }
 

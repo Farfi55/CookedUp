@@ -21,6 +21,14 @@ namespace CookedUp.ThinkEngine.Actions
             if (cuttingCounter == null) {
                 Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a CuttingCounter component!", cuttingCounter);
                 AnyError = true;
+                return;
+            }
+            
+            var koPlayer = cuttingCounter.Container.KitchenObject.GetComponent<KitchenObjectPlayer>();
+            if(koPlayer.Player != Player) {
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} is not being used by {Player.name}!", cuttingCounter);
+                AnyError = true;
+                return;
             }
             
             cuttingRecipe = cuttingCounter.CurrentCuttingRecipe;
