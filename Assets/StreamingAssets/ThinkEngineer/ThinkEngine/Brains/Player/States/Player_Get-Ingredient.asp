@@ -99,7 +99,8 @@ gi_State("Add FinalIngredient To Plate") :-
     player_KO_Name(PlayerID, IngredientName).
 
 
-:-  state_GetIngredient, 
+:- state_GetIngredient,
+    conf_Strict,
     gi_State(State1), 
     gi_State(State2), 
     State1 != State2.
@@ -162,6 +163,7 @@ tmp_gi_FirstActionIndex(Index) :-
 
 gi_FirstActionIndex(Index) :-
     state_GetIngredient,
+    tmp_gi_FirstActionIndex(Index),
     Index = #min{TmpIndex : tmp_gi_FirstActionIndex(TmpIndex)}.
 
 

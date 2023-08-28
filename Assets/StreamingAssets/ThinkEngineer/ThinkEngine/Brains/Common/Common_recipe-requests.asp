@@ -13,10 +13,6 @@ recipeRequest_Player_Count(RecipeRequestID, Count) :-
         playerBot_RecipeRequest_ID(PlayerID, RecipeRequestID) 
     }.
 
-recipeRequest_Player_Count(RecipeRequestID, 0) :-
-    recipeRequest_ID(RecipeRequestID),
-    recipeRequest_HasNoPlayer(RecipeRequestID).
-
 
 recipeRequest_Player(RecipeRequestID, PlayerID) :-
     recipeRequest_ID(RecipeRequestID),

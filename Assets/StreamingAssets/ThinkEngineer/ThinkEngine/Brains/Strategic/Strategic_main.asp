@@ -7,6 +7,9 @@ strat_Must_Assign_Player(PlayerID) :-
     playerBot_HasNoRecipeRequest(PlayerID).
 
 strat_Eligible_Player(PlayerID) :-
+    playerBot_ID(PlayerID).
+
+strat_Eligible_Player(PlayerID) :-
     strat_Must_Assign_Player(PlayerID).
 
 strat_Eligible_Player(PlayerID) :-
@@ -20,10 +23,12 @@ strat_RecipeRequest_BestPlayer(RecipeRequestID, PlayerID) :-
     recipeRequest(RecipeRequestID, RecipeName),
     recipeRequest_HasPlayer(RecipeRequestID),
     BestExpectedTime = #min{ ExpectedTime1 :  
-        player_Recipe_ExpectedTime(PlayerID1, RecipeName, ExpectedTime1)
+        player_Recipe_ExpectedTime(PlayerID1, RecipeName, ExpectedTime1), 
+        playerBot_ID(PlayerID1)
     },
     PlayerID = #min{ PlayerID2 :  
-        player_Recipe_ExpectedTime(PlayerID2, RecipeName, BestExpectedTime)
+        player_Recipe_ExpectedTime(PlayerID2, RecipeName, BestExpectedTime),
+        playerBot_ID(PlayerID1)
     }.
 
 strat_Eligible_Player_Count(Count) :-
@@ -79,6 +84,7 @@ tmp_strat_Player_AllPrev(PlayerID, PrevPlayerID) :-
 
 strat_PlayerID_Prev(PlayerID, PrevPlayerID) :-
     strat_Assigned_Player(PlayerID),
+    tmp_strat_Player_AllPrev(PlayerID, _),
     PrevPlayerID = #max{ PrevPlayerID1 : 
         tmp_strat_Player_AllPrev(PlayerID, PrevPlayerID1) 
     }.  

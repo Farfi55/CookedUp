@@ -4,19 +4,21 @@ strat_RecipeRequest_Count(Count) :-
     Count = #count{ID : recipeRequest_ID(ID)}.
     
 strat_RecipeRequest_Count(0) :-
-    not strat_Any_RecipeRequest().
+    not strat_Any_RecipeRequest.
 
 
 % the number of players currently assigned to the recipe request with the most players
 strat_Max_recipeRequest_Player_Count(Count) :-
-    Count = #max{Count1 : recipeRequest_Player_Count(RecipeRequestID1, Count1)}. 
+    recipeRequest_Player_Count(_,_),
+    Count = #max{Count1 : recipeRequest_Player_Count(RecipeRequestID1, Count1) }. 
 
 strat_Max_recipeRequest_Player_Count(0) :-
     strat_RecipeRequest_Count(0).
 
 % the number of players currently assigned to the recipe request with the least players
 strat_Min_recipeRequest_Player_Count(Count) :-
-    Count = #min{Count1 : recipeRequest_Player_Count(RecipeRequestID1, Count1)}. 
+    recipeRequest_Player_Count(_,_),
+    Count = #min{Count1 : recipeRequest_Player_Count(RecipeRequestID1, Count1) }. 
 
 strat_Min_recipeRequest_Player_Count(0) :-
     strat_RecipeRequest_Count(0).
@@ -47,25 +49,15 @@ strat_RecipeRequest_Player_Removed(RecipeRequestID, PlayerID) :-
 
 strat_recipeRequest_Player_Added_Count(RecipeRequestID, Count) :-
     recipeRequest_ID(RecipeRequestID),
-    strat_RecipeRequest_AnyPlayer_Added(RecipeRequestID),
     Count = #count{ PlayerID1 : 
         strat_RecipeRequest_Player_Added(RecipeRequestID, PlayerID1)
     }.
     
-strat_recipeRequest_Player_Added_Count(RecipeRequestID, 0) :-
-    recipeRequest_ID(RecipeRequestID),
-    not strat_RecipeRequest_AnyPlayer_Added(RecipeRequestID).
-
 strat_recipeRequest_Player_Removed_Count(RecipeRequestID, Count) :-
     recipeRequest_ID(RecipeRequestID),
-    strat_RecipeRequest_AnyPlayer_Removed(RecipeRequestID),
     Count = #count{ PlayerID1 : 
         strat_RecipeRequest_Player_Removed(RecipeRequestID, PlayerID1)
     }.
-
-strat_recipeRequest_Player_Removed_Count(RecipeRequestID, 0) :-
-    recipeRequest_ID(RecipeRequestID),
-    not strat_RecipeRequest_AnyPlayer_Removed(RecipeRequestID).
 
 
 % ============================ FINAL PLAYER COUNT ============================
@@ -80,6 +72,7 @@ strat_RecipeRequest_Player_Final_Count(RecipeRequestID, Count) :-
 % the number of players on the recipe request with 
 % the most players after all changes have been made    
 strat_Max_RecipeRequest_Player_Final_Count(Count) :-
+    strat_RecipeRequest_Player_Final_Count(_,_),
     Count = #max{ Count1 : 
         strat_RecipeRequest_Player_Final_Count(RecipeRequestID, Count1)
     }.
@@ -87,6 +80,7 @@ strat_Max_RecipeRequest_Player_Final_Count(Count) :-
 % the number of players on the recipe request with
 % the least players after all changes have been made
 strat_Min_RecipeRequest_Player_Final_Count(Count) :-
+    strat_RecipeRequest_Player_Final_Count(_,_),
     Count = #min{ Count1 : 
         strat_RecipeRequest_Player_Final_Count(RecipeRequestID, Count1)
     }.
@@ -94,9 +88,19 @@ strat_Min_RecipeRequest_Player_Final_Count(Count) :-
 % the difference between the number of players on the recipe request with
 % the most players and the recipe request with the least players
 strat_RecipeRequest_Player_Final_Diff(Diff) :-
-    strat_Max_RecipeRequest_Player_Final_Count(MaxCount),
-    strat_Min_RecipeRequest_Player_Final_Count(MinCount),
-    Diff = MaxCount - MinCount.
+    strat_Max_RecipeRequest_Player_Final_Count(MaxCountFinal),
+    strat_Min_RecipeRequest_Player_Final_Count(MinCountFinal),
+    MaxCountFinal >= 0,
+    MinCountFinal >= 0,
+    MaxCountFinal > MinCountFinal,
+    MinCountFinal < MaxCountFinal,
+    Diff = MaxCountFinal - MinCountFinal.
+
+strat_RecipeRequest_Player_Final_Diff(Diff) :-
+    strat_Max_RecipeRequest_Player_Final_Count(MaxCountFinal),
+    strat_Min_RecipeRequest_Player_Final_Count(MinCountFinal),
+    MaxCountFinal = MinCountFinal,
+    Diff = 0.
 
 #show strat_recipeRequest_Player_Diff/1.
 #show strat_Max_recipeRequest_Player_Count/1.
