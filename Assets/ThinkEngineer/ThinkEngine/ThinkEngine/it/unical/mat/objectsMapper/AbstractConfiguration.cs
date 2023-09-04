@@ -55,18 +55,6 @@ namespace ThinkEngine
                 _propertyFeatures = value;
             }
         }
-        internal List<bool> _foundProperties;
-        internal List<bool> FoundProperties
-        {
-            get
-            {
-                if(_foundProperties == null)
-                {
-                    _foundProperties = new List<bool>(new bool[SavedProperties.Count]);
-                }
-                return _foundProperties;
-            }
-        }
         internal List<MyListString> ToMapProperties
         {
             get
@@ -126,38 +114,25 @@ namespace ThinkEngine
         {
             if(SavedProperties.Contains(property))
             {
-                FoundProperties[SavedProperties.IndexOf(property)] = true;
                 return true;
             }
             return false;
-        }
-        internal void RemovedNonExistingProperties()
-        {
-
-            List<MyListString> toRemove = SavedProperties.FindAll(x => !FoundProperties[SavedProperties.IndexOf(x)]);
-            foreach (MyListString property in toRemove)
-            {
-                ToggleProperty(property, false);
-            }
-            _foundProperties = new List<bool>(new bool[SavedProperties.Count]);
         }
         internal void ToggleProperty(MyListString property, bool isActive)
         {
             if (isActive)
             {
                 SavedProperties.Add(property);
-                FoundProperties.Add(true);
-                PropertySelected(property);
                 if (ObjectTracker.IsFinal(property))
                 {
                     ToMapProperties.Add(property);
                     PropertyFeaturesList.Add(new PropertyFeatures(ConfigurationName, property));
+                    PropertySelected(property);
                 }
             }
             else
             {
                 PropertyDeleted(property);
-                FoundProperties.RemoveAt(SavedProperties.IndexOf(property));
                 SavedProperties.Remove(property);
                 if (ToMapProperties.Contains(property))
                 {
@@ -182,7 +157,10 @@ namespace ThinkEngine
                     Debug.Log("changed " + p.PropertyAlias);
                 }
             }
+            PropertiesAliasChanged();
         }
+
+        protected virtual void PropertiesAliasChanged() { }
 
         protected virtual void PropertyDeleted(MyListString property) { }
         protected virtual void PropertySelected(MyListString property) { }

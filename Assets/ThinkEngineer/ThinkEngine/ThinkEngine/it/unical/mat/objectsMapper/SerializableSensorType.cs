@@ -7,7 +7,7 @@ using UnityEditor;
 namespace ThinkEngine
 {
     [Serializable]
-    public class SerializableSensorType : ISerializationCallbackReceiver
+    public class SerializableSensorType 
     {
 #if UNITY_EDITOR
         [SerializeField]
@@ -21,10 +21,23 @@ namespace ThinkEngine
         public SerializableSensorType(MonoScript retrieved)
         {
             this.scriptAsset = retrieved;
+            string type = scriptAsset.GetClass()?.AssemblyQualifiedName;
+            if (TypeIsValid(type))
+            {
+                ScriptType = Type.GetType(type);
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 #endif
+        private bool TypeIsValid(string assemblyQualifiedName)
+        {
+            return Type.GetType(assemblyQualifiedName).IsSubclassOf(typeof(Sensor));
+        }
         public Type ScriptType { get; private set; }
-
+        /*
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
 #if UNITY_EDITOR
@@ -47,7 +60,7 @@ namespace ThinkEngine
             }
 #endif
         }
-
+        
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
             if (string.IsNullOrEmpty(typeName))
@@ -56,18 +69,15 @@ namespace ThinkEngine
                 ScriptType = Type.GetType(typeName);
         }
 
-        private bool TypeIsValid(string assemblyQualifiedName)
-        {
-            return Type.GetType(assemblyQualifiedName).IsSubclassOf(typeof(Sensor));
-        }
+        
         
         private bool TypeIsValid(Type type)
         {
             return type.IsSubclassOf(typeof(Sensor));
-        }
+        }*/
     }
 }
-
+        
 
 /*
 using System;

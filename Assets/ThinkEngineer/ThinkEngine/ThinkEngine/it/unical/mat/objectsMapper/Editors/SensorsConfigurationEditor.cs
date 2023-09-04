@@ -17,29 +17,26 @@ namespace ThinkEngine.Editors
         }
         override public void OnInspectorGUI()
         {
-            if (!EditorApplication.isCompiling && sensorConfiguration.generatedCode)
+            if (Application.isPlaying)
             {
-                sensorConfiguration.generatedCode = false;
-                CodeGenerator.AttachSensorsScripts(sensorConfiguration);
+                DrawDefaultInspector();
+                return;
             }
             if (!configurePropertyMode)
             {
                 DrawPropertiesExcluding(serializedObject, new string[] { });
                 serializedObject.ApplyModifiedProperties();
                 base.OnInspectorGUI();
-                 bool generate = GUILayout.Button("Generate Sensors Code");
-                if (generate && configuration.ToMapProperties.Count > 0)
-                {
-                    CodeGenerator.GenerateCode(configuration.ToMapProperties, configuration.gameObject, sensorConfiguration);
-                    sensorConfiguration.generatedCode = true;
-                }
             }
             else
             {
                 ConfigureProperty();
             }
         }
-
+        protected override void PropertyAliasChanged(string oldAlias, string newAlias)
+        {
+            sensorConfiguration.PropertyAliasChanged(oldAlias,newAlias);
+        }
         protected override void VirtualFields(PropertyFeatures features)
         {
             

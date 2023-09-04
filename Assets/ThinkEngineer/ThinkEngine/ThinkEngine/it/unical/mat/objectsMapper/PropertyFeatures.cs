@@ -12,7 +12,7 @@ namespace ThinkEngine
         [SerializeField,HideInInspector]
         internal MyListString property;
         [SerializeField,HideInInspector]
-        internal int windowWidth = 200;
+        internal int windowWidth = 1;
         [SerializeField,HideInInspector]
         internal string configurationName;
         [SerializeField,HideInInspector]

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -76,9 +76,10 @@ namespace ThinkEngine
                 if (_triggerClass == null)
                 {
 #if UNITY_EDITOR
-                    if (!EditorApplication.isCompiling)
+                    if (!EditorApplication.isCompiling && !EditorApplication.isUpdating)
                     {
                         _triggerClass = ScriptableObject.CreateInstance("ThinkEngine.ThinkEngineTrigger");
+
                     }
 #endif
 #if !UNITY_EDITOR
@@ -163,8 +164,14 @@ namespace ThinkEngine
             List<string> toReturn = new List<string>();
             foreach (MethodInfo mI in TriggerMethods)
             {
-                if (mI.ReturnType == typeof(bool) && mI.GetParameters().Length == 0)
+                ParameterInfo[] parameterInfos = mI.GetParameters();
+                if (mI.ReturnType == typeof(bool) && parameterInfos.Length <2)
                 {
+                    
+                    if (parameterInfos.Length==1 && !typeof(Brain).IsAssignableFrom(parameterInfos[0].ParameterType))
+                    {
+                        continue;
+                    }
                     toReturn.Add(mI.Name);
                 }
             }
@@ -226,9 +233,9 @@ namespace ThinkEngine
                 string triggerClassContent = "using System;"+Environment.NewLine;
                 triggerClassContent += "using UnityEngine;" + Environment.NewLine;
                 triggerClassContent += @"// every method of this class without parameters and that returns a bool value can be used to trigger the reasoner." + Environment.NewLine;
-                triggerClassContent += "namespace ThinkEngine \n{\n";
-                triggerClassContent += "\t public class ThinkEngineTrigger:ScriptableObject\n{\n\n";
-                triggerClassContent += "\t}\n}";
+                triggerClassContent += "namespace ThinkEngine"+ Environment.NewLine+"{"+ Environment.NewLine; 
+                triggerClassContent += "\t public class ThinkEngineTrigger:ScriptableObject" + Environment.NewLine + "\t{" + Environment.NewLine;
+                triggerClassContent += "\t}" + Environment.NewLine + "}";
                 byte[] info = new UTF8Encoding(true).GetBytes(triggerClassContent);
                 fs.Write(info, 0, info.Length);
                 fs.Close();

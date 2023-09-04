@@ -201,10 +201,12 @@ namespace ThinkEngine
         }
         protected IEnumerator PulseOn()
         {
+            ParameterInfo[] parameterInfos = reasonerMethod.GetParameters();
+            object[] param = parameterInfos.Length == 1 && typeof(Brain).IsAssignableFrom(parameterInfos[0].ParameterType) ? new object[] {this}:null;
             while (true)
             {
-
-                yield return new WaitUntil(() => solverWaiting && SomeConfigurationAvailable() && (bool)reasonerMethod.Invoke(triggerClass, null));
+                
+                yield return new WaitUntil(() => solverWaiting && SomeConfigurationAvailable() && (bool)reasonerMethod.Invoke(triggerClass, param));
                 lock (toLock)
                 {
                     solverWaiting = false;

@@ -37,7 +37,7 @@ namespace ThinkEngine
         internal static float bestAvgFps = 0;
         internal static int frameCount = 0;
         internal static bool destroyed;
-        public static int iteration=0;
+        internal static int iteration=0;
         private static Dictionary<Brain, List<string>> InstantiatedSensors
         {
             get

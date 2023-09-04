@@ -125,10 +125,6 @@ namespace ThinkEngine.Planning
             {
                 partial = partial.Remove(0, partial.IndexOf(",") + 1);
                 string actionClass = partial.Substring(0, partial.IndexOf(")")).Trim('\"');
-                if (Actions.ContainsKey(order)) {
-                    var action = Actions[order];   
-                    Debug.LogError($"Action with order {order} already exists: {action}, new action: {actionClass}");
-                }
                 Actions[order] = ScriptableObject.CreateInstance(actionClass) as Action;
                 if (!ActionParameters.ContainsKey(order))
                 {

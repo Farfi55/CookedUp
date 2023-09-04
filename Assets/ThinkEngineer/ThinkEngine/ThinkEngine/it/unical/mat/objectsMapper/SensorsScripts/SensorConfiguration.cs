@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using ThinkEngine.Mappers;
 using UnityEditor;
+using UnityEditor.Compilation;
+using ThinkEngine.ScriptGeneration;
 using UnityEngine;
 
 namespace ThinkEngine
@@ -21,7 +23,7 @@ namespace ThinkEngine
         internal List<SerializableSensorType> _serializableSensorsTypes = new List<SerializableSensorType>();
         [SerializeField,HideInInspector]
         internal bool generatedCode;
-        [SerializeField, HideInInspector]
+        [SerializeField]
         internal List<string> generatedScripts= new List<string>();
         private List<Sensor> _sensorsInstances = new List<Sensor>();
 
@@ -29,11 +31,13 @@ namespace ThinkEngine
         {
             if(Application.isPlaying)
             {
+#if UNITY_EDITOR
+                CodeGenerator.AttachSensorsScripts(this);
+#endif
                 foreach (SerializableSensorType serializableSensorType in _serializableSensorsTypes)
                 {
  //                   _sensorsInstances.Add((Sensor)serializableSensorType.ScriptType.GetProperty("Instance", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null));
-                    if(serializableSensorType.ScriptType != null)
-                        _sensorsInstances.Add((Sensor)Activator.CreateInstance(serializableSensorType.ScriptType));
+                    _sensorsInstances.Add((Sensor)Activator.CreateInstance(serializableSensorType.ScriptType));
 
                 }
                 foreach (Sensor instance in _sensorsInstances)
@@ -42,14 +46,41 @@ namespace ThinkEngine
                 }
             }
         }
+
+        internal void PropertyAliasChanged(string oldAlias, string newAlias)
+        {
 #if UNITY_EDITOR
+            CodeGenerator.Rename(oldAlias,newAlias,this);
+            generatedCode = true;
+#endif
+        }
+
         [UnityEditor.Callbacks.DidReloadScripts]
         static void Reload()
         {
             Utility.LoadPrefabs();
+            foreach(SensorConfiguration sensorConfiguration in FindObjectsOfType<SensorConfiguration>())
+            {
+                if (!sensorConfiguration.generatedCode)
+                {
+                    sensorConfiguration.GenerateScripts();
+                }
+                else
+                {
+                    sensorConfiguration.generatedCode = false;
+                }
+            }
         }
+
+        void GenerateScripts()
+        {
+#if UNITY_EDITOR
+            CodeGenerator.GenerateCode(this);
+            generatedCode = true;
+            //CompilationPipeline.RequestScriptCompilation();
+            AssetDatabase.Refresh();
 #endif
-        
+        }
         void Start()
         {
             Utility.LoadPrefabs();
@@ -150,12 +181,49 @@ namespace ThinkEngine
         {
             return true;
         }
+        
+        protected override void PropertySelected(MyListString property)
+        {
+#if UNITY_EDITOR
+            CodeGenerator.GenerateCode(this);
+#endif
+            generatedCode = true;
+        }
+        protected override void PropertyDeleted(MyListString property) 
+        {
+#if UNITY_EDITOR
+            CodeGenerator.RemoveUseless(property, this);
+#endif
+        }
+
+        protected override void PropertiesAliasChanged()
+        {
+            GenerateScripts();
+        }
+        void Update()
+        {
+#if UNITY_EDITOR
+            if (InEditMode()) 
+            {
+                if (EditorWindow.focusedWindow != null && EditorWindow.focusedWindow.titleContent.text != "Inspector" && generatedCode)
+                {
+                    Debug.LogWarning("Compiling " + ConfigurationName + " generated scripts.");
+                    generatedCode = true;
+                    //CompilationPipeline.RequestScriptCompilation();
+                    AssetDatabase.Refresh();
+                }
+            }
+#endif
+        }
+
+        private bool InEditMode()
+        {
+            return !(EditorApplication.isPlaying || EditorApplication.isCompiling
+                || EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling
+                || EditorApplication.isUpdating);
+        }
+
         /*
-protected override void PropertySelected(MyListString property)
-{
-   propertyFeatures.Find(x => x.property.Equals(property)).operation = 0;
-   propertyFeatures.Find(x => x.property.Equals(property)).specifValue = "";
-}
 protected override void PropertyDeleted(MyListString property)
 {
 
@@ -163,34 +231,34 @@ protected override void PropertyDeleted(MyListString property)
 
 public void OnBeforeSerialize()
 {
-   operationPerPropertyIndexes = new List<int>();
-   operationPerPropertyOperations = new List<int>();
-   specificValuePerPropertyIndexes = new List<int>();
-   specificValuePerPropertyValues = new List<string>();
-   foreach (int key in OperationPerProperty.Keys)
-   {
-       operationPerPropertyIndexes.Add(key);
-       operationPerPropertyOperations.Add(OperationPerProperty[key]);
-   }
-   foreach (int key in SpecificValuePerProperty.Keys)
-   {
-       specificValuePerPropertyIndexes.Add(key);
-       specificValuePerPropertyValues.Add(SpecificValuePerProperty[key]);
-   }
+operationPerPropertyIndexes = new List<int>();
+operationPerPropertyOperations = new List<int>();
+specificValuePerPropertyIndexes = new List<int>();
+specificValuePerPropertyValues = new List<string>();
+foreach (int key in OperationPerProperty.Keys)
+{
+operationPerPropertyIndexes.Add(key);
+operationPerPropertyOperations.Add(OperationPerProperty[key]);
+}
+foreach (int key in SpecificValuePerProperty.Keys)
+{
+specificValuePerPropertyIndexes.Add(key);
+specificValuePerPropertyValues.Add(SpecificValuePerProperty[key]);
+}
 }
 
 public void OnAfterDeserialize()
 {
-   OperationPerProperty = new Dictionary<int, int>();
-   SpecificValuePerProperty = new Dictionary<int, string>();
-   for (int i = 0; i < operationPerPropertyIndexes.Count; i++)
-   {
-       OperationPerProperty.Add(operationPerPropertyIndexes[i], operationPerPropertyOperations[i]);
-   }
-   for (int i = 0; i < specificValuePerPropertyIndexes.Count; i++)
-   {
-       SpecificValuePerProperty.Add(specificValuePerPropertyIndexes[i], specificValuePerPropertyValues[i]);
-   }
+OperationPerProperty = new Dictionary<int, int>();
+SpecificValuePerProperty = new Dictionary<int, string>();
+for (int i = 0; i < operationPerPropertyIndexes.Count; i++)
+{
+OperationPerProperty.Add(operationPerPropertyIndexes[i], operationPerPropertyOperations[i]);
+}
+for (int i = 0; i < specificValuePerPropertyIndexes.Count; i++)
+{
+SpecificValuePerProperty.Add(specificValuePerPropertyIndexes[i], specificValuePerPropertyValues[i]);
+}
 }
 */
         internal override bool IsAValidName(string temporaryName)
