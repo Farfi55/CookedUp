@@ -5,8 +5,11 @@ from tqdm import tqdm
 import shutil
 import path_helper
 
-repo_path = path_helper.project_path
-repo_in_project_path = path_helper.think_engine_src
+upstream_path = path_helper.think_engine_src_upstream
+origin_path = path_helper.think_engine_src
+
+print(f"repo_path: {upstream_path}")
+print(f"repo_in_project_path: {origin_path}")
 
 pull = False
 push = False
@@ -65,15 +68,15 @@ def clear_meta_folder (path):
 
 
 def pull_from_repo():
-    clear_folder(repo_in_project_path)
-    print(f"folder {repo_in_project_path} cleared")
-    shutil.copytree(repo_path, repo_in_project_path, dirs_exist_ok=True)
+    clear_folder(origin_path)
+    print(f"folder {origin_path} cleared")
+    shutil.copytree(upstream_path, origin_path, dirs_exist_ok=True)
 
 
 def push_to_repo():
-    clear_folder(repo_path, preserve_meta_files=False)
-    print(f"folder {repo_path} cleared")
-    shutil.copytree(repo_in_project_path, repo_path)
+    clear_folder(upstream_path, preserve_meta_files=False)
+    print(f"folder {upstream_path} cleared")
+    shutil.copytree(origin_path, upstream_path)
 
 
 def main():

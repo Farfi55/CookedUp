@@ -24,7 +24,7 @@ solvers_path = join_path(think_engine_streaming_assets_path,'lib', '')
 
 think_engine_project_path = os.path.normpath(join_path(project_path, '..', 'ThinkEngine', ''))
 think_engine_src_upstream = join_path(think_engine_project_path, 'it', '')
-think_engine_src = join_path(project_path, 'ThinkEngineer', 'ThinkEngine', 'ThinkEngine', 'it', '')
+think_engine_src = join_path(project_path, 'Assets', 'ThinkEngineer', 'ThinkEngine', 'ThinkEngine', 'it', '')
 
 os_name = platform.system()
 if os_name == 'Windows':
