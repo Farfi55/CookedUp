@@ -152,15 +152,17 @@ namespace ThinkEngine
                 if(p.configurationName != "")
                 {
                     Debug.Log("changing " + p.PropertyAlias);
+                    string old = p.PropertyAlias;
                     p.PropertyAlias = ConfigurationName+ p.PropertyAlias.Substring(p.configurationName.Length);
                     p.configurationName = ConfigurationName;
+                    PropertyAliasChanged(old, p.PropertyAlias);
                     Debug.Log("changed " + p.PropertyAlias);
                 }
             }
-            PropertiesAliasChanged();
         }
 
-        protected virtual void PropertiesAliasChanged() { }
+        internal virtual void PropertyAliasChanged(string old, string propertyAlias) { }
+
 
         protected virtual void PropertyDeleted(MyListString property) { }
         protected virtual void PropertySelected(MyListString property) { }

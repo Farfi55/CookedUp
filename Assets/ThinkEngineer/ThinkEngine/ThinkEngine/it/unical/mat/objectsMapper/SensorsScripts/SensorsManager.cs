@@ -37,7 +37,8 @@ namespace ThinkEngine
         internal static float bestAvgFps = 0;
         internal static int frameCount = 0;
         internal static bool destroyed;
-        public static int iteration=0;
+        internal static int _iteration=0;
+        public static int iteration { get { return _iteration; } }
         private static Dictionary<Brain, List<string>> InstantiatedSensors
         {
             get
@@ -120,7 +121,7 @@ namespace ThinkEngine
                             sensors[i].Update();
                         }
                     }
-                    iteration++;
+                    _iteration++;
                 }
                 Executor.CanRead(true);
             }

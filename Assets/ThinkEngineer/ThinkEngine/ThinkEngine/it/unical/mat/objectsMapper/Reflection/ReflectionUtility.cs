@@ -5,6 +5,7 @@ using System;
 using System.Reflection;
 using ThinkEngine.Mappers.BaseMappers;
 using it.unical.mat.embasp.languages;
+using ThinkEngine.Mappers;
 
 namespace ThinkEngine.ScriptGeneration
 {
@@ -14,6 +15,7 @@ namespace ThinkEngine.ScriptGeneration
         {
             reflectionData.Names.Add("gameObject");
             reflectionData.VariableNames.Add("gameObject");
+            reflectionData.Types.Add(reflectionData.ObjectValue.GetType());
             reflectionData.TypeNames.Add(TypeNameOrAlias(reflectionData.ObjectValue.GetType(), reflectionData));
             reflectionData.AreComponent.Add(reflectionData.ObjectValue.GetType().IsSubclassOf(typeof(Component)));
             reflectionData.AreValueType.Add(reflectionData.ObjectValue.GetType().IsValueType);
@@ -38,9 +40,19 @@ namespace ThinkEngine.ScriptGeneration
                 return false;
             }
 
-            reflectionData.FinalTypeName = TypeNameOrAlias(reflectionData.FinalType, reflectionData);
+
             reflectionData.PropertyFeatures = reflectionData.SensorConfiguration.PropertyFeaturesList.Find(x => x.property.Equals(reflectionData.PropertyHierarchy));
             reflectionData.FinalMapperType = reflectionData.FinalMapper.GetType();
+
+            // Last property can be a recursive collection
+            if (reflectionData.FinalMapperType.IsSubclassOf(typeof(CollectionMapper)))
+            {
+                GetResidualData(((CollectionMapper)reflectionData.FinalMapper).ElementType(reflectionData.Types[reflectionData.Types.Count - 1]), reflectionData);
+                reflectionData.FinalType = reflectionData.Types[reflectionData.Types.Count - 1];
+            }
+
+            reflectionData.FinalTypeName = TypeNameOrAlias(reflectionData.FinalType, reflectionData);
+
 
             return true;
         }
@@ -86,7 +98,6 @@ namespace ThinkEngine.ScriptGeneration
                     {
                         data.IDataMapperTypes.Add(mapper.GetType());
                         data.NumberOfCollectionMappers++;
-
                         currentType = collectionMapper.ElementType(currentType);
                         data.Namespaces.Add(currentType.Namespace);
                     }
@@ -97,6 +108,7 @@ namespace ThinkEngine.ScriptGeneration
 
                     data.Names.Add(currentProperty);
                     data.VariableNames.Add(currentProperty + "_" + data.VariableNames.Count);
+                    data.Types.Add(tempType);
                     data.TypeNames.Add(TypeNameOrAlias(tempType, data));
                     data.Namespaces.Add(tempType.Namespace);
                     data.AreComponent.Add(tempType.IsSubclassOf(typeof(Component)));
@@ -189,10 +201,8 @@ namespace ThinkEngine.ScriptGeneration
                     {
                         data.IDataMapperTypes.Add(mapper.GetType());
                         data.NumberOfCollectionMappers++;
-
                         currentType = collectionMapper.ElementType(currentType);
                         data.Namespaces.Add(currentType.Namespace);
-
                     }
                     else
                     {
@@ -200,6 +210,7 @@ namespace ThinkEngine.ScriptGeneration
                     }
                     data.Names.Add(currentProperty);
                     data.VariableNames.Add(currentProperty + "_" + data.VariableNames.Count);
+                    data.Types.Add(tempType);
                     data.TypeNames.Add(TypeNameOrAlias(tempType, data));
                     data.Namespaces.Add(tempType.Namespace);
                     data.AreComponent.Add(tempType.IsSubclassOf(typeof(Component)));
@@ -328,6 +339,36 @@ namespace ThinkEngine.ScriptGeneration
             aliasName = string.Concat(aliasName, ">");
             return aliasName;
         }
+
+        // Get Residual Data if last property is a collection
+        private static void GetResidualData(Type type, PropertyReflectionData data) 
+        {
+            IDataMapper mapper = MapperManager.GetMapper(type);
+
+            if (mapper == null) return;
+
+            data.Names.Add(null);
+            data.VariableNames.Add("v_" + data.VariableNames.Count);
+            data.Types.Add(type);
+            data.TypeNames.Add(TypeNameOrAlias(type, data));
+            data.Namespaces.Add(type.Namespace);
+            data.AreComponent.Add(type.IsSubclassOf(typeof(Component)));
+            data.AreValueType.Add(type.IsValueType);
+
+            if (mapper is BasicTypeMapper basicTypeMapper) 
+            {
+                data.IDataMapperTypes.Add(null);
+            }
+            else if (mapper is CollectionMapper collectionMapper)
+            {
+                type = collectionMapper.ElementType(type);
+
+                data.IDataMapperTypes.Add(mapper.GetType());
+                data.NumberOfCollectionMappers++;
+
+                GetResidualData(type, data);
+            }
+        }
     }
 
     internal class PropertyReflectionData
@@ -339,6 +380,7 @@ namespace ThinkEngine.ScriptGeneration
 
         internal List<string> Names = new List<string>();
         internal List<string> VariableNames = new List<string>();
+        internal List<Type> Types = new List<Type>();
         internal List<string> TypeNames = new List<string>();
         internal HashSet<string> Namespaces = new HashSet<string>();
         internal List<bool> AreComponent = new List<bool>();
@@ -369,6 +411,7 @@ namespace ThinkEngine.ScriptGeneration
 
             text = string.Format("{0}{1}{2}", text, "Names: \t\t\t\t" + string.Join(", ", Names), Environment.NewLine);
             text = string.Format("{0}{1}{2}", text, "VariablesNames: \t\t" + string.Join(", ", VariableNames), Environment.NewLine);
+            text = string.Format("{0}{1}{2}", text, "Types: \t\t\t\t" + string.Join(", ", Types), Environment.NewLine);
             text = string.Format("{0}{1}{2}", text, "TypeNames: \t\t\t" + string.Join(", ", TypeNames), Environment.NewLine);
             text = string.Format("{0}{1}{2}", text, "Namespaces: \t\t\t" + string.Join(", ", Namespaces), Environment.NewLine);
             text = string.Format("{0}{1}{2}", text, "AreComponents: \t\t" + string.Join(", ", AreComponent), Environment.NewLine);

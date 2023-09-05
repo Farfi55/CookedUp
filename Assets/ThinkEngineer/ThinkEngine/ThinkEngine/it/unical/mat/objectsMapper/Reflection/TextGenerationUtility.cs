@@ -128,16 +128,17 @@ namespace ThinkEngine.ScriptGeneration
                 }
             }
             mapping += "{0}).";
-            if (reflectionData.FinalMapperType.IsSubclassOf(typeof(BasicTypeMapper)))
-            {
-                leafType = reflectionData.FinalType;
+            leafType = reflectionData.FinalType;
+            //if (reflectionData.FinalMapperType.IsSubclassOf(typeof(BasicTypeMapper)))
+            //{
+            //    leafType = reflectionData.FinalType;
 
-            }
-            else if (reflectionData.FinalMapperType.IsSubclassOf(typeof(CollectionMapper)))
-            {
-                leafType = ((CollectionMapper)reflectionData.FinalMapper).ElementType(reflectionData.FinalType);
+            //}
+            //else if (reflectionData.FinalMapperType.IsSubclassOf(typeof(CollectionMapper)))
+            //{
+            //    leafType = ((CollectionMapper)reflectionData.FinalMapper).ElementType(reflectionData.FinalMapperType);
 
-            }
+            //}
 
             replace = string.Concat(replace, string.Format("" +
                 "int index = gameObject.GetInstanceID();" +
@@ -187,7 +188,7 @@ namespace ThinkEngine.ScriptGeneration
             // Take next property
 
             string takeProperty = data.IDataMapperTypes[pos - 1] == null ? data.VariableNames[pos - 1] : data.VariableNames[pos - 1] + string.Format("[i_{0}]", pos - 1);
-            takeProperty += (data.TypeNames[pos - 1].Equals("GameObject")) && data.AreComponent[pos] ? string.Format(".GetComponent<{0}>()", data.TypeNames[pos]) : string.Format(".{0}", data.Names[pos]);
+            takeProperty += (data.TypeNames[pos - 1].Equals("GameObject")) && data.AreComponent[pos] ? string.Format(".GetComponent<{0}>()", data.TypeNames[pos]) : data.Names[pos] != null ? string.Format(".{0}", data.Names[pos]) : "";
 
             text = string.Concat(text, string.Format("" +
                 "{0} {1} = {2};" +

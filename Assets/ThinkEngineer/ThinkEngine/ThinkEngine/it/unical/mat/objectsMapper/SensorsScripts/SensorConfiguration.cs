@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.Compilation;
 using ThinkEngine.ScriptGeneration;
 using UnityEngine;
+using System.IO;
 
 namespace ThinkEngine
 {
@@ -15,14 +16,13 @@ namespace ThinkEngine
         public bool isInvariant;
         public bool isFixedSize;
 
-       
         //GMDG
         //This array contains the types of the sensor assiated with "this" SensorConfiguration
 
         [SerializeField]
         internal List<SerializableSensorType> _serializableSensorsTypes = new List<SerializableSensorType>();
         [SerializeField,HideInInspector]
-        internal bool generatedCode;
+        internal bool recompile;
         [SerializeField]
         internal List<string> generatedScripts= new List<string>();
         private List<Sensor> _sensorsInstances = new List<Sensor>();
@@ -47,38 +47,37 @@ namespace ThinkEngine
             }
         }
 
-        internal void PropertyAliasChanged(string oldAlias, string newAlias)
+        internal override void PropertyAliasChanged(string oldAlias, string newAlias)
         {
 #if UNITY_EDITOR
             CodeGenerator.Rename(oldAlias,newAlias,this);
-            generatedCode = true;
+            recompile = true;
 #endif
         }
 
         [UnityEditor.Callbacks.DidReloadScripts]
         static void Reload()
         {
-            Utility.LoadPrefabs();
-            foreach(SensorConfiguration sensorConfiguration in FindObjectsOfType<SensorConfiguration>())
+            Debug.Log("Did Reload");
+            if (File.Exists(Application.dataPath + "SensorConfigurationReload"))
             {
-                if (!sensorConfiguration.generatedCode)
-                {
-                    sensorConfiguration.GenerateScripts();
-                }
-                else
-                {
-                    sensorConfiguration.generatedCode = false;
-                }
+                File.Delete(Application.dataPath + "SensorConfigurationReload");
+                return;
             }
+            Utility.LoadPrefabs();
+            foreach (SensorConfiguration sensorConfiguration in FindObjectsOfType<SensorConfiguration>())
+            {
+                sensorConfiguration.GenerateScripts(false);
+            }
+            File.Create(Application.dataPath + "SensorConfigurationReload").Close();
+            AssetDatabase.Refresh();
         }
-
-        void GenerateScripts()
+        void GenerateScripts(bool _recompile=true)
         {
 #if UNITY_EDITOR
             CodeGenerator.GenerateCode(this);
-            generatedCode = true;
+            recompile = _recompile;
             //CompilationPipeline.RequestScriptCompilation();
-            AssetDatabase.Refresh();
 #endif
         }
         void Start()
@@ -185,9 +184,8 @@ namespace ThinkEngine
         protected override void PropertySelected(MyListString property)
         {
 #if UNITY_EDITOR
-            CodeGenerator.GenerateCode(this);
+            GenerateScripts();
 #endif
-            generatedCode = true;
         }
         protected override void PropertyDeleted(MyListString property) 
         {
@@ -196,20 +194,17 @@ namespace ThinkEngine
 #endif
         }
 
-        protected override void PropertiesAliasChanged()
-        {
-            GenerateScripts();
-        }
         void Update()
         {
 #if UNITY_EDITOR
             if (InEditMode()) 
             {
-                if (EditorWindow.focusedWindow != null && EditorWindow.focusedWindow.titleContent.text != "Inspector" && generatedCode)
+                if (EditorWindow.focusedWindow != null && EditorWindow.focusedWindow.titleContent.text != "Inspector" && recompile)
                 {
                     Debug.LogWarning("Compiling " + ConfigurationName + " generated scripts.");
-                    generatedCode = true;
+                    recompile = false;
                     //CompilationPipeline.RequestScriptCompilation();
+                    File.Create(Application.dataPath + "SensorConfigurationReload").Close();
                     AssetDatabase.Refresh();
                 }
             }
@@ -219,7 +214,7 @@ namespace ThinkEngine
         private bool InEditMode()
         {
             return !(EditorApplication.isPlaying || EditorApplication.isCompiling
-                || EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling
+                || EditorApplication.isPlayingOrWillChangePlaymode
                 || EditorApplication.isUpdating);
         }
 
