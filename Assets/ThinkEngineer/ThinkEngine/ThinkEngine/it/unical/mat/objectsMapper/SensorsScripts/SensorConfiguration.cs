@@ -23,9 +23,31 @@ namespace ThinkEngine
         internal List<SerializableSensorType> _serializableSensorsTypes = new List<SerializableSensorType>();
         [SerializeField,HideInInspector]
         internal bool recompile;
+        [SerializeField, HideInInspector]
+        internal bool teRecompile;
+        private bool forceRecompile;
         [SerializeField]
         internal List<string> generatedScripts= new List<string>();
         private List<Sensor> _sensorsInstances = new List<Sensor>();
+
+        internal static SensorConfiguration _instance;
+        internal static SensorConfiguration Instance
+        {
+            get
+            {
+                if (_instance == null || !_instance.enabled)
+                {
+                    foreach(SensorConfiguration s in FindObjectsOfType<SensorConfiguration>())
+                    {
+                        if(s != null && s.enabled)
+                        {
+                            _instance = s;
+                        }
+                    }
+                }
+                return _instance;
+            }
+        }
 
         void Awake()
         {
@@ -59,20 +81,36 @@ namespace ThinkEngine
         static void Reload()
         {
             Debug.Log("Did Reload");
-            if (File.Exists(Application.dataPath + "SensorConfigurationReload"))
+            if (Instance == null)
             {
-                File.Delete(Application.dataPath + "SensorConfigurationReload");
+                Debug.Log("Instance is null.");
                 return;
             }
+            if (Instance.teRecompile)
+            {
+                Debug.Log("TE recompiled.");
+                Instance.teRecompile = false;
+                return;
+            }
+            else
+            {
+                Debug.Log("Forcing TE recompile.");
+                Instance.teRecompile=true;
+                Instance.forceRecompile=true;
+            }
+        }
+        static void Recompile()
+        {
+            Instance.teRecompile = true;
             Utility.LoadPrefabs();
-            foreach (SensorConfiguration sensorConfiguration in FindObjectsOfType<SensorConfiguration>())
+            foreach (SensorConfiguration sensorConfiguration in Resources.FindObjectsOfTypeAll<SensorConfiguration>())
             {
                 sensorConfiguration.GenerateScripts(false);
             }
-            File.Create(Application.dataPath + "SensorConfigurationReload").Close();
             AssetDatabase.Refresh();
         }
-        void GenerateScripts(bool _recompile=true)
+
+        internal void GenerateScripts(bool _recompile=true)
         {
 #if UNITY_EDITOR
             CodeGenerator.GenerateCode(this);
@@ -190,13 +228,16 @@ namespace ThinkEngine
         protected override void PropertyDeleted(MyListString property) 
         {
 #if UNITY_EDITOR
-            CodeGenerator.RemoveUseless(property, this);
+            if (ToMapProperties.Contains(property))
+            {
+                CodeGenerator.RemoveUseless(property, this);
+            }
 #endif
         }
-
+#if UNITY_EDITOR
         void Update()
         {
-#if UNITY_EDITOR
+
             if (InEditMode()) 
             {
                 if (EditorWindow.focusedWindow != null && EditorWindow.focusedWindow.titleContent.text != "Inspector" && recompile)
@@ -204,11 +245,19 @@ namespace ThinkEngine
                     Debug.LogWarning("Compiling " + ConfigurationName + " generated scripts.");
                     recompile = false;
                     //CompilationPipeline.RequestScriptCompilation();
-                    File.Create(Application.dataPath + "SensorConfigurationReload").Close();
+                    Instance.teRecompile = true;
                     AssetDatabase.Refresh();
                 }
+                else
+                {
+                    if (forceRecompile)
+                    {
+                        forceRecompile = false;
+                        Recompile();
+                    }
+                }
             }
-#endif
+
         }
 
         private bool InEditMode()
@@ -216,8 +265,9 @@ namespace ThinkEngine
             return !(EditorApplication.isPlaying || EditorApplication.isCompiling
                 || EditorApplication.isPlayingOrWillChangePlaymode
                 || EditorApplication.isUpdating);
-        }
 
+        }
+#endif
         /*
 protected override void PropertyDeleted(MyListString property)
 {

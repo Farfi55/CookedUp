@@ -36,7 +36,14 @@ namespace ThinkEngine.ScriptGeneration
             if (reflectionData.FinalMapper == null)
             {
                 //Object 's value is null. Is this a problem?
-                Debug.LogError(string.Format("Couldn't find a proper mapper for the target property of type {0}", reflectionData.FinalType.Name));
+                string toPrint = "";
+                if (reflectionData.FinalType != null) {
+                    toPrint = reflectionData.FinalType.Name;
+                }
+                else {
+                    toPrint = "Null";
+                }
+                Debug.LogError(string.Format("Couldn't find a proper mapper for the target property of type {0}", toPrint));
                 return false;
             }
 

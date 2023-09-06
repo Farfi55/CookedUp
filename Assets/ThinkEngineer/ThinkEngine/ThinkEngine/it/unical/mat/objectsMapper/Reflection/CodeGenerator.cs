@@ -25,9 +25,9 @@ namespace ThinkEngine.ScriptGeneration
                 Debug.LogError("SensorConfiguration name can't be empty!");
                 return;
             }
-            foreach (string path in sensorConfiguration.generatedScripts)
+            foreach (string fileName in sensorConfiguration.generatedScripts)
             {
-                DeleteGeneratedScript(path);
+                DeleteGeneratedScript(fileName);
             }
             sensorConfiguration.generatedScripts.Clear();
 
@@ -46,19 +46,30 @@ namespace ThinkEngine.ScriptGeneration
                 //Debug.Log(reflectionData);
 
                 string content = TextGenerationUtility.GenerateSensorScript(reflectionData);
-                string path = Path.Combine(generatedCodePath, reflectionData.PropertyFeatures.PropertyAlias + ".cs");
+                string fileName = reflectionData.PropertyFeatures.PropertyAlias + ".cs";
+                string path = Path.Combine(generatedCodePath, fileName);
 
                 if (!Directory.Exists(generatedCodePath)) Directory.CreateDirectory(generatedCodePath);
 
                 //Debug.Log(content);
                 File.WriteAllText(path, content);
-                sensorConfiguration.generatedScripts.Add(path);
+                sensorConfiguration.generatedScripts.Add(fileName);
             }
 
             // Refresh the unity asset database
+            bool changed = false;
             foreach (MyListString p in toRemove)
             {
+
+                Debug.Log("TE: removing " + p + "from "+sensorConfiguration.ConfigurationName+" in "+sensorConfiguration.gameObject.name);
                 sensorConfiguration.ToggleProperty(p, false);
+                changed = true;
+            }
+            if (changed)
+            {
+#if UNITY_EDITOR
+                EditorUtility.SetDirty(sensorConfiguration);
+#endif
             }
         }
 
@@ -86,14 +97,22 @@ namespace ThinkEngine.ScriptGeneration
         {
             foreach (string path in sensorConfiguration.generatedScripts)
             {
-                if (path.EndsWith(oldAlias + ".cs"))
+                string oldPath = Path.Combine(generatedCodePath, path);
+                if (File.Exists(oldPath))
                 {
-                    string newPath = path.Replace(oldAlias, newAlias);
-                    File.Move(path, newPath);
-                    if (File.Exists(path + ".meta"))
+                    if (path.EndsWith(oldAlias + ".cs"))
                     {
-                        File.Delete(path + ".meta");
+                        string newPath = oldPath.Replace(oldAlias, newAlias);
+                        File.Move(path, newPath);
+                        if (File.Exists(path + ".meta"))
+                        {
+                            File.Delete(path + ".meta");
+                        }
                     }
+                }
+                else
+                {
+                    sensorConfiguration.GenerateScripts();
                 }
             }
         }
@@ -111,13 +130,18 @@ namespace ThinkEngine.ScriptGeneration
 
         private static void DeleteGeneratedScript(string toDelete)
         {
-            if (File.Exists(toDelete))
-            {
-                File.Delete(toDelete);
+            if (toDelete == null) {
+                return;
+
             }
-            if (File.Exists(toDelete + ".meta"))
+            string path = Path.Combine(generatedCodePath, toDelete);
+            if (File.Exists(path))
             {
-                File.Delete(toDelete + ".meta");
+                File.Delete(path);
+            }
+            if (File.Exists(path + ".meta"))
+            {
+                File.Delete(path + ".meta");
 
             }
         }
