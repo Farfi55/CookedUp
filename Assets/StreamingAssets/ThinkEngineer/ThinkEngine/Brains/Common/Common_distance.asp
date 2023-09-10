@@ -6,7 +6,7 @@ tmp_Player_Counter_Distance(PlayerID, CounterID, DistanceX, DistanceY) :-
 
 player_Counter_Distance(PlayerID, CounterID, Distance) :-
     tmp_Player_Counter_Distance(PlayerID, CounterID, DistanceX, DistanceY),
-    c_abs(DistanceX, DistanceXAbs), % maybe this is DLV specific, not sure
+    c_abs(DistanceX, DistanceXAbs),
     c_abs(DistanceY, DistanceYAbs), 
     c_Distance(DistanceXAbs, DistanceYAbs, Distance).
 

@@ -1,9 +1,7 @@
 from math import sqrt, ceil
-
-MAX_X = 20
-MAX_Y = 20
-
-for x in range(MAX_X + 1):
-    for y in range(MAX_Y + 1):
-        dist = ceil(sqrt(x**2 + y**2) * 1000)
-        print(f'c_Distance({x},{y},{dist}).')
+MAX_X_DIFF = 20
+MAX_Y_DIFF = 20
+for x_diff in range(MAX_X_DIFF + 1):
+    for y_diff in range(MAX_Y_DIFF + 1):
+        dist = ceil(sqrt(x_diff**2 + y_diff**2) * 1000)
+        print(f'c_Distance({x_diff},{y_diff},{dist}).')

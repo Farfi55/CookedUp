@@ -45,7 +45,7 @@ while i < len(sys.argv):
     elif sys.argv[i] in ['-p', '--path']:
         input_path = base_input_path + sys.argv[i + 1]
         i += 1
-    elif sys.argv[i] in ['-solver_optionsb', '--brain']:
+    elif sys.argv[i] in ['-b', '--brain']:
         brain_files.append(streaming_assets_path + sys.argv[i + 1])
         i += 1
     elif sys.argv[i] in ['-B', '--brain-pattern']:
