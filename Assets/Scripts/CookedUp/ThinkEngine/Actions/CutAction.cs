@@ -23,14 +23,19 @@ namespace CookedUp.ThinkEngine.Actions
                 AnyError = true;
                 return;
             }
-            
-            var koPlayer = cuttingCounter.Container.KitchenObject.GetComponent<KitchenObjectPlayer>();
-            if (koPlayer == null) {
-                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a KitchenObjectPlayer component!", cuttingCounter);
+
+            var containerKitchenObject = cuttingCounter.Container.KitchenObject;
+            if (containerKitchenObject == null) {
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a KitchenObject!", cuttingCounter);
                 AnyError = true;
                 return;
             }
-            if(koPlayer.Player != Player) {
+            
+            var koPlayer = containerKitchenObject.GetComponent<KitchenObjectPlayer>();
+            if (koPlayer == null) {
+                Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} does not have a KitchenObjectPlayer component!", cuttingCounter);
+            }
+            else if(koPlayer.Player != Player) {
                 Debug.LogWarning($"[{GetType().Name}]: Target {Target.name} is not being used by {Player.name}!", cuttingCounter);
                 AnyError = true;
                 return;
