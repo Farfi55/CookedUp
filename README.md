@@ -10,7 +10,7 @@ It is my **thesis project** for my bachelor's degree, which focuses on creating 
 
 More specifically, I'm using the [ThinkEngine](https://github.com/DeMaCS-UNICAL/ThinkEngine) Framework to facilitate the communication between Unity and the ASP solvers it supports ([DLV](https://dlv.demacs.unical.it/home) and [clingo](https://github.com/potassco/clingo))
 
-## Gameplay Preview
+## Gameplay video
 
 [![CookedUp Gameplay with 2 Bots](https://img.youtube.com/vi/D0zVua0PdVo/0.jpg)](https://www.youtube.com/watch?v=D0zVua0PdVo)
 
@@ -87,10 +87,11 @@ The Bot AI is implemented as a finite state machine, with the following states:
 - Recipe failed
 
 ![Bot AI logic](.github/img/CookedUp_Bot_Logic-combined.drawio.png)
+simplified version of the Bot AI logic
 
 ## Screenshots
 
-| ![screenshot lobby](.github/img/Screenshot_lobby.png) | ![screenshot gameplay 1](.github/img/Screenshot_gameplay_1.png) |
-| ------------------------------------------------------ | ---------------------------------------------------------------- |
-| ![screenshot gameplay 2](.github/img/Screenshot_gameplay_2.png) | ![screenshot gameplay 3](.github/img/Screenshot_gameplay_3.png) |
-| ![screenshot game over](.github/img/Screenshot_gameplay_end.png) |
+| ![screenshot lobby](.github/img/Screenshot_lobby.png)            | ![screenshot gameplay 1](.github/img/Screenshot_gameplay_1.png) |
+|------------------------------------------------------------------|-----------------------------------------------------------------|
+| ![screenshot gameplay 2](.github/img/Screenshot_gameplay_2.png)  | ![screenshot gameplay 3](.github/img/Screenshot_gameplay_3.png) |
+| ![screenshot game over](.github/img/Screenshot_gameplay_end.png) |                                                                 |
