@@ -6,7 +6,7 @@ namespace CookedUp.Core.Players {
     [CreateAssetMenu(fileName = "Players Config", menuName = "CookedUp/PLayers Config", order = 30)]
     public class PlayersConfiguration : ScriptableObject {
         
-        [NonSerialized]
+        
         public List<PlayerConfiguration> Players = new();
         
         public PlayerColorSO[] PlayerColors => playerColors;
@@ -14,6 +14,7 @@ namespace CookedUp.Core.Players {
         [SerializeField] private Player humanPlayerPrefab;
         [SerializeField] private Player botPlayerPrefab;
         
+        private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
         
         public Player CreatePlayer(PlayerConfiguration playerConfiguration) {
             var prefab = playerConfiguration.IsHuman ? humanPlayerPrefab : botPlayerPrefab;
@@ -40,7 +41,17 @@ namespace CookedUp.Core.Players {
             }
             return unusedColors[UnityEngine.Random.Range(0, unusedColors.Count)];
         }
-        
+
+        public override string ToString() {
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine($"{Players.Count} Players:");
+            for (var index = 0; index < Players.Count; index++) {
+                var playerConfiguration = Players[index];
+                sb.AppendLine($"[{index}] {playerConfiguration}");
+            }
+
+            return sb.ToString();
+        }
     }
     
     
@@ -53,6 +64,10 @@ namespace CookedUp.Core.Players {
         public PlayerConfiguration(PlayerColorSO color, bool isBot) {
             Color = color;
             IsBot = isBot;
+        }
+        
+        public override string ToString() {
+            return $"{nameof(Color)}: {Color.DisplayName}, {nameof(IsBot)}: {IsBot}";
         }
         
     }

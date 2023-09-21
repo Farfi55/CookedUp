@@ -47,6 +47,14 @@ namespace CookedUp.Core.Players {
 
 
         private void Start() {
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+            if (playersConfiguration == null) {
+                Debug.LogError("PlayersConfiguration is null");
+                return;
+            }
+            Debug.Log($"PlayersConfiguration:\n{playersConfiguration}"); 
+#endif
+            
             if (playersConfiguration.Players.Count == 0) {
                 if (SpawnHumanPlayer) {
                     var conf = new PlayerConfiguration(playersConfiguration.GetRandomUnusedColor(), false);
