@@ -1,3 +1,4 @@
+using System;
 using CookedUp.Core;
 using Shared;
 using TMPro;
@@ -40,9 +41,8 @@ namespace CookedUp.UI
         private void OnGameProgressChanged(object sender, ValueChangedEvent<double> e) {
             float progress = (float)e.NewValue;
             float timeLeft = (float)gameManager.GameStateProgressTracker.GetWorkRemaining();
-            var minutes = timeLeft / 60;
-            var seconds = timeLeft % 60;
-            clockText.text = $"{minutes:0}:{seconds:00}";
+            var time = TimeSpan.FromSeconds(timeLeft);
+            clockText.text = time.ToString(@"m\:ss");
             
             if (progress > 0.5f && Time.time - lastTickTime > 1f) {
                 lastTickTime = Time.time;
